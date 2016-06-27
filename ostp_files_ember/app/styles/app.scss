@@ -27,35 +27,16 @@ margin:0;
   top: 0;
   left:0;
   padding:40px 20px 0 20px;
-
 }
 
 .btn{
 width:260px;
 height:50px;
-margin-left:45px
+margin:auto;
 }
 
-.button1{
-width:250px;
-height:45px;
-border:none;
-outline:none;
-box-shadow:0 3px 2px 0 #2c80a2;
-color:#fff;
-font-size:14px;
-text-shadow:0 1px rgba(0,0,0,0.4);
-background-color:#3fb8e8;
-font-weight:700;
-background-image:url(../images/1.png);
-background-repeat:no-repeat;
-background-position:200px
-}
-.button1:hover{
-background-color:#1baae3;
-cursor:pointer
-}
-.button1:active{
-padding-top:2px;
-box-shadow:none
+.status{
+    position: absolute;
+    top: 78px;
+    left: 350px;
 }

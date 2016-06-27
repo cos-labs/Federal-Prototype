@@ -1,5 +1,9 @@
-<div class="container">
-  {{partial 'navbar'}}
-  {{partial 'main'}}
-  {{outlet}}
+<div class="main-content-background">
+  <div class="container">
+    {{partial 'navbar'}}
+
+    {{partial page}}
+
+    {{outlet}}
+  </div>
 </div>

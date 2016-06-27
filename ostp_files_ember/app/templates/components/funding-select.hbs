@@ -1,0 +1,16 @@
+<h1>Researchers</h1><span class="status"> 1 / 4 </span>
+<div class="row">
+    <div class="text-center">
+
+
+      <select onchange={{action "selectDepartment" value="target.value"}}>
+        {{#each departments as |departmentChoice|}}
+          <option value={{departmentChoice}} selected={{eq department departmentChoice}}>{{departmentChoice}}</option>
+        {{/each}}
+      </select>
+
+
+      <button class="btn btn-primary btn-lg btn-block"  {{action "nextPage" "funding-select"}} > Next </button>
+    </div>
+</div>
+
