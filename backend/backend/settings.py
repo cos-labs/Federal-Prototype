@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
-        "NAME": "fed",  # database name
+        "NAME": "fed_db",  # database name
         "USER": "admin",  # user name
         "PASSWORD": "password",  # user password
         "HOST": "localhost",
