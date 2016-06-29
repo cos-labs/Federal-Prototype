@@ -18,6 +18,11 @@ class Document(models.Model):
 	primary_investigator = models.ForeignKey('Author')
 	#authors = models.ManyToManyField(Author),
 
+	class Meta:
+		permissions = (
+			('view_document', 'View document'),
+        )
+
 
 class Author(models.Model):
 	name_first = models.CharField(max_length=50)
