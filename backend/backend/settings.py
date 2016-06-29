@@ -84,6 +84,7 @@ DATABASES = {
         "PASSWORD": "password",  # user password
         "HOST": "localhost",
         "PORT": "5432",
+    }
 }
 
 
