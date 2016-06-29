@@ -36,7 +36,57 @@ margin:auto;
 }
 
 .status{
-    position: absolute;
-    top: 78px;
-    left: 350px;
+  margin-top:27px;
+}
+
+.vertical-horizontal-center-row{
+  position: absolute;
+  top: 40%;
+  right:0;
+  left: 0;
+}
+
+.vertical-horizontal-center-row h2{
+  text-align:center;
+}
+
+.m-t-20{
+  margin-top:25px;
+}
+
+.inline-block{
+  display:inline;
+}
+
+.select{
+    display: block;
+    margin: auto;
+    font-size: 35px;
+    width: 250px;
+        }
+.addSelectBtn{
+    width:35px;
+    height:35px;
+
+}
+
+.app-selectbox.full-width {
+  display: block;
+  width: 100%;
+}
+.app-selectbox span.caret {
+  float: right;
+  margin-top: 8px;
+  margin-left: 12px;
+}
+.app-selectbox button {
+  display: block;
+  width: 100%;
+  text-align: left
+}
+.app-selectbox ul {
+  top: 30px;
+}
+.app-selectbox.full-width ul {
+  width: 100%;
 }

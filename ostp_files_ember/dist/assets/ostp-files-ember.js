@@ -44,6 +44,9 @@ define('ostp-files-ember/components/grant-select', ['exports', 'ember'], functio
 define('ostp-files-ember/components/meta-data', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({});
 });
+define('ostp-files-ember/components/select-box', ['exports', 'ember'], function (exports, _ember) {
+  exports['default'] = _ember['default'].Component.extend({});
+});
 define('ostp-files-ember/components/upload-file', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({});
 });
@@ -72,7 +75,12 @@ define('ostp-files-ember/controllers/home', ['exports', 'ember'], function (expo
       },
       selectDepartment: function selectDepartment(department) {
         this.set('department', department);
+        console.log(this.set('department', department));
+      },
+      addDepartmentSelect: function addDepartmentSelect() {
+        $(".select").last().clone().appendTo(".selectlist");
       }
+
     }
   });
 });
@@ -445,7 +453,7 @@ define("ostp-files-ember/templates/components/file-success", ["exports"], functi
           },
           "end": {
             "line": 11,
-            "column": 0
+            "column": 6
           }
         },
         "moduleName": "ostp-files-ember/templates/components/file-success.hbs"
@@ -456,47 +464,60 @@ define("ostp-files-ember/templates/components/file-success", ["exports"], functi
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Researchers");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("span");
-        dom.setAttribute(el1, "class", "status");
-        var el2 = dom.createTextNode(" Done! ");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode(" Upload Another Document ");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("Researchers");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2 status");
+        var el3 = dom.createElement("h4");
+        var el4 = dom.createTextNode(" Done! ");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("File Successfully uploaded!");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block");
+        var el3 = dom.createTextNode(" Upload Another Document ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [3, 1, 1]);
+        var element0 = dom.childAt(fragment, [2, 3]);
         var morphs = new Array(1);
         morphs[0] = dom.createElementMorph(element0);
         return morphs;
       },
-      statements: [["element", "action", ["nextPage", "file-success"], [], ["loc", [null, [7, 56], [7, 92]]]]],
+      statements: [["element", "action", ["nextPage", "file-success"], [], ["loc", [null, [9, 52], [9, 88]]]]],
       locals: [],
       templates: []
     };
@@ -504,53 +525,6 @@ define("ostp-files-ember/templates/components/file-success", ["exports"], functi
 });
 define("ostp-files-ember/templates/components/funding-select", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template((function () {
-    var child0 = (function () {
-      return {
-        meta: {
-          "fragmentReason": false,
-          "revision": "Ember@2.6.0",
-          "loc": {
-            "source": null,
-            "start": {
-              "line": 7,
-              "column": 8
-            },
-            "end": {
-              "line": 9,
-              "column": 8
-            }
-          },
-          "moduleName": "ostp-files-ember/templates/components/funding-select.hbs"
-        },
-        isEmpty: false,
-        arity: 1,
-        cachedFragment: null,
-        hasRendered: false,
-        buildFragment: function buildFragment(dom) {
-          var el0 = dom.createDocumentFragment();
-          var el1 = dom.createTextNode("          ");
-          dom.appendChild(el0, el1);
-          var el1 = dom.createElement("option");
-          var el2 = dom.createComment("");
-          dom.appendChild(el1, el2);
-          dom.appendChild(el0, el1);
-          var el1 = dom.createTextNode("\n");
-          dom.appendChild(el0, el1);
-          return el0;
-        },
-        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-          var element0 = dom.childAt(fragment, [1]);
-          var morphs = new Array(3);
-          morphs[0] = dom.createAttrMorph(element0, 'value');
-          morphs[1] = dom.createAttrMorph(element0, 'selected');
-          morphs[2] = dom.createMorphAt(element0, 0, 0);
-          return morphs;
-        },
-        statements: [["attribute", "value", ["get", "departmentChoice", ["loc", [null, [8, 26], [8, 42]]]]], ["attribute", "selected", ["subexpr", "eq", [["get", "department", ["loc", [null, [8, 59], [8, 69]]]], ["get", "departmentChoice", ["loc", [null, [8, 70], [8, 86]]]]], [], ["loc", [null, [8, 54], [8, 88]]]]], ["content", "departmentChoice", ["loc", [null, [8, 89], [8, 109]]]]],
-        locals: ["departmentChoice"],
-        templates: []
-      };
-    })();
     return {
       meta: {
         "fragmentReason": {
@@ -565,7 +539,7 @@ define("ostp-files-ember/templates/components/funding-select", ["exports"], func
             "column": 0
           },
           "end": {
-            "line": 17,
+            "line": 24,
             "column": 0
           }
         },
@@ -577,41 +551,26 @@ define("ostp-files-ember/templates/components/funding-select", ["exports"], func
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Researchers");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("span");
-        dom.setAttribute(el1, "class", "status");
-        var el2 = dom.createTextNode(" 1 / 4 ");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("select");
-        var el4 = dom.createTextNode("\n");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createComment("");
-        dom.appendChild(el3, el4);
-        var el4 = dom.createTextNode("      ");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("Researchers");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode(" Next ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2 status");
+        var el3 = dom.createElement("h4");
+        var el4 = dom.createTextNode(" 1 / 4");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        var el3 = dom.createTextNode(" ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -619,21 +578,58 @@ define("ostp-files-ember/templates/components/funding-select", ["exports"], func
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("Select your funding department(s).");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n\n\n      ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "selectlist");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn addSelectBtn btn-success btn-sm btn-block");
+        var el3 = dom.createElement("span");
+        dom.setAttribute(el3, "class", "glyphicon glyphicon-plus");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n\n\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block m-t-20");
+        var el3 = dom.createTextNode(" Next ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element1 = dom.childAt(fragment, [3, 1]);
-        var element2 = dom.childAt(element1, [1]);
-        var element3 = dom.childAt(element1, [3]);
+        var element0 = dom.childAt(fragment, [2]);
+        var element1 = dom.childAt(element0, [7]);
+        var element2 = dom.childAt(element0, [9]);
         var morphs = new Array(3);
-        morphs[0] = dom.createAttrMorph(element2, 'onchange');
-        morphs[1] = dom.createMorphAt(element2, 1, 1);
-        morphs[2] = dom.createElementMorph(element3);
+        morphs[0] = dom.createMorphAt(element0, 3, 3);
+        morphs[1] = dom.createElementMorph(element1);
+        morphs[2] = dom.createElementMorph(element2);
         return morphs;
       },
-      statements: [["attribute", "onchange", ["subexpr", "action", ["selectDepartment"], ["value", "target.value"], ["loc", [null, [6, 23], [6, 73]]]]], ["block", "each", [["get", "departments", ["loc", [null, [7, 16], [7, 27]]]]], [], 0, null, ["loc", [null, [7, 8], [9, 17]]]], ["element", "action", ["nextPage", "funding-select"], [], ["loc", [null, [13, 56], [13, 94]]]]],
+      statements: [["content", "components/select-box", ["loc", [null, [9, 4], [9, 29]]]], ["element", "action", ["addDepartmentSelect"], [], ["loc", [null, [15, 66], [15, 98]]]], ["element", "action", ["nextPage", "funding-select"], [], ["loc", [null, [19, 59], [19, 97]]]]],
       locals: [],
-      templates: [child0]
+      templates: []
     };
   })());
 });
@@ -653,7 +649,7 @@ define("ostp-files-ember/templates/components/grant-select", ["exports"], functi
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 14,
             "column": 0
           }
         },
@@ -665,47 +661,86 @@ define("ostp-files-ember/templates/components/grant-select", ["exports"], functi
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Researchers");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("span");
-        dom.setAttribute(el1, "class", "status");
-        var el2 = dom.createTextNode(" 2 / 4 ");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode(" Next ");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("Researchers");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2 status");
+        var el3 = dom.createElement("h4");
+        var el4 = dom.createTextNode(" 2 / 4");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n   ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("Enter your grant number(s).");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "text-center");
+        var el3 = dom.createTextNode("\n      ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("h4");
+        dom.setAttribute(el3, "class", "inline-block");
+        var el4 = dom.createComment("");
+        dom.appendChild(el3, el4);
+        var el4 = dom.createTextNode(" :");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createElement("input");
+        dom.setAttribute(el3, "type", "text");
+        dom.setAttribute(el3, "name", "department");
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block");
+        var el3 = dom.createTextNode(" Next ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [3, 1, 1]);
-        var morphs = new Array(1);
-        morphs[0] = dom.createElementMorph(element0);
+        var element0 = dom.childAt(fragment, [2]);
+        var element1 = dom.childAt(element0, [5]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createMorphAt(dom.childAt(element0, [3, 1]), 0, 0);
+        morphs[1] = dom.createElementMorph(element1);
         return morphs;
       },
-      statements: [["element", "action", ["nextPage", "grant-select"], [], ["loc", [null, [7, 56], [7, 92]]]]],
+      statements: [["content", "this.department", ["loc", [null, [10, 31], [10, 50]]]], ["element", "action", ["nextPage", "grant-select"], [], ["loc", [null, [12, 54], [12, 90]]]]],
       locals: [],
       templates: []
     };
@@ -739,49 +774,162 @@ define("ostp-files-ember/templates/components/meta-data", ["exports"], function 
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Researchers");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("span");
-        dom.setAttribute(el1, "class", "status");
-        var el2 = dom.createTextNode(" 4 / 4 ");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode(" Upload ");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("Researchers");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2 status");
+        var el3 = dom.createElement("h4");
+        var el4 = dom.createTextNode(" 4 / 4");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n\n");
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("Review / Enter Meta data");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block");
+        var el3 = dom.createTextNode(" Finish ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n");
         dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [3, 1, 1]);
+        var element0 = dom.childAt(fragment, [2, 3]);
         var morphs = new Array(1);
         morphs[0] = dom.createElementMorph(element0);
         return morphs;
       },
-      statements: [["element", "action", ["nextPage", "meta-data"], [], ["loc", [null, [7, 56], [7, 89]]]]],
+      statements: [["element", "action", ["nextPage", "meta-data"], [], ["loc", [null, [9, 52], [9, 85]]]]],
       locals: [],
       templates: []
+    };
+  })());
+});
+define("ostp-files-ember/templates/components/select-box", ["exports"], function (exports) {
+  exports["default"] = Ember.HTMLBars.template((function () {
+    var child0 = (function () {
+      return {
+        meta: {
+          "fragmentReason": false,
+          "revision": "Ember@2.6.0",
+          "loc": {
+            "source": null,
+            "start": {
+              "line": 2,
+              "column": 2
+            },
+            "end": {
+              "line": 4,
+              "column": 3
+            }
+          },
+          "moduleName": "ostp-files-ember/templates/components/select-box.hbs"
+        },
+        isEmpty: false,
+        arity: 1,
+        cachedFragment: null,
+        hasRendered: false,
+        buildFragment: function buildFragment(dom) {
+          var el0 = dom.createDocumentFragment();
+          var el1 = dom.createTextNode("    ");
+          dom.appendChild(el0, el1);
+          var el1 = dom.createElement("option");
+          var el2 = dom.createComment("");
+          dom.appendChild(el1, el2);
+          dom.appendChild(el0, el1);
+          var el1 = dom.createTextNode("\n");
+          dom.appendChild(el0, el1);
+          return el0;
+        },
+        buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+          var element0 = dom.childAt(fragment, [1]);
+          var morphs = new Array(3);
+          morphs[0] = dom.createAttrMorph(element0, 'value');
+          morphs[1] = dom.createAttrMorph(element0, 'selected');
+          morphs[2] = dom.createMorphAt(element0, 0, 0);
+          return morphs;
+        },
+        statements: [["attribute", "value", ["get", "departmentChoice", ["loc", [null, [3, 20], [3, 36]]]]], ["attribute", "selected", ["subexpr", "eq", [["get", "department", ["loc", [null, [3, 53], [3, 63]]]], ["get", "departmentChoice", ["loc", [null, [3, 64], [3, 80]]]]], [], ["loc", [null, [3, 48], [3, 82]]]]], ["content", "departmentChoice", ["loc", [null, [3, 83], [3, 103]]]]],
+        locals: ["departmentChoice"],
+        templates: []
+      };
+    })();
+    return {
+      meta: {
+        "fragmentReason": {
+          "name": "triple-curlies"
+        },
+        "revision": "Ember@2.6.0",
+        "loc": {
+          "source": null,
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 5,
+            "column": 10
+          }
+        },
+        "moduleName": "ostp-files-ember/templates/components/select-box.hbs"
+      },
+      isEmpty: false,
+      arity: 0,
+      cachedFragment: null,
+      hasRendered: false,
+      buildFragment: function buildFragment(dom) {
+        var el0 = dom.createDocumentFragment();
+        var el1 = dom.createElement("select");
+        dom.setAttribute(el1, "class", "select");
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createComment("");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode(" ");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        return el0;
+      },
+      buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
+        var element1 = dom.childAt(fragment, [0]);
+        var morphs = new Array(2);
+        morphs[0] = dom.createAttrMorph(element1, 'onchange');
+        morphs[1] = dom.createMorphAt(element1, 1, 1);
+        return morphs;
+      },
+      statements: [["attribute", "onchange", ["subexpr", "action", ["selectDepartment"], ["value", "target.value"], ["loc", [null, [1, 32], [1, 82]]]]], ["block", "each", [["get", "departments", ["loc", [null, [2, 10], [2, 21]]]]], [], 0, null, ["loc", [null, [2, 2], [4, 12]]]]],
+      locals: [],
+      templates: [child0]
     };
   })());
 });
@@ -801,7 +949,7 @@ define("ostp-files-ember/templates/components/upload-file", ["exports"], functio
             "column": 0
           },
           "end": {
-            "line": 11,
+            "line": 12,
             "column": 0
           }
         },
@@ -813,31 +961,26 @@ define("ostp-files-ember/templates/components/upload-file", ["exports"], functio
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
-        var el1 = dom.createElement("h1");
-        var el2 = dom.createTextNode("Researchers");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createElement("span");
-        dom.setAttribute(el1, "class", "status");
-        var el2 = dom.createTextNode(" 3 / 4 ");
-        dom.appendChild(el1, el2);
-        dom.appendChild(el0, el1);
-        var el1 = dom.createTextNode("\n");
-        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
         dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n  ");
         dom.appendChild(el1, el2);
         var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode(" Upload ");
+        dom.setAttribute(el2, "class", "col-xs-2");
+        var el3 = dom.createElement("h1");
+        var el4 = dom.createTextNode("Researchers");
         dom.appendChild(el3, el4);
         dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("div");
+        dom.setAttribute(el2, "class", "col-xs-2 status");
+        var el3 = dom.createElement("h4");
+        var el4 = dom.createTextNode("3 / 4");
+        dom.appendChild(el3, el4);
+        dom.appendChild(el2, el3);
+        var el3 = dom.createTextNode(" ");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
         var el2 = dom.createTextNode("\n");
@@ -845,15 +988,35 @@ define("ostp-files-ember/templates/components/upload-file", ["exports"], functio
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
         dom.appendChild(el0, el1);
+        var el1 = dom.createElement("div");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n   ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("Upload your document.");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n  ");
+        dom.appendChild(el1, el2);
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block");
+        var el3 = dom.createTextNode(" Upload ");
+        dom.appendChild(el2, el3);
+        dom.appendChild(el1, el2);
+        var el2 = dom.createTextNode("\n");
+        dom.appendChild(el1, el2);
+        dom.appendChild(el0, el1);
+        var el1 = dom.createTextNode("\n\n\n");
+        dom.appendChild(el0, el1);
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [3, 1, 1]);
+        var element0 = dom.childAt(fragment, [2, 3]);
         var morphs = new Array(1);
         morphs[0] = dom.createElementMorph(element0);
         return morphs;
       },
-      statements: [["element", "action", ["nextPage", "upload-file"], [], ["loc", [null, [7, 56], [7, 91]]]]],
+      statements: [["element", "action", ["nextPage", "upload-file"], [], ["loc", [null, [8, 52], [8, 87]]]]],
       locals: [],
       templates: []
     };
@@ -941,7 +1104,7 @@ define("ostp-files-ember/templates/main", ["exports"], function (exports) {
             "column": 0
           },
           "end": {
-            "line": 14,
+            "line": 9,
             "column": 0
           }
         },
@@ -953,36 +1116,24 @@ define("ostp-files-ember/templates/main", ["exports"], function (exports) {
       hasRendered: false,
       buildFragment: function buildFragment(dom) {
         var el0 = dom.createDocumentFragment();
+        var el1 = dom.createTextNode("\n    ");
+        dom.appendChild(el0, el1);
         var el1 = dom.createElement("div");
-        dom.setAttribute(el1, "class", "row");
-        var el2 = dom.createTextNode("\n    ");
+        dom.setAttribute(el1, "class", "vertical-horizontal-center-row");
+        var el2 = dom.createTextNode("\n\n      ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n          ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("h2");
-        var el4 = dom.createTextNode("Upload your file to submit it for review.");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n    ");
+        var el2 = dom.createElement("h2");
+        var el3 = dom.createTextNode("Upload your file to submit it for review.");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n    ");
+        var el2 = dom.createTextNode("\n      ");
         dom.appendChild(el1, el2);
-        var el2 = dom.createElement("div");
-        dom.setAttribute(el2, "class", "text-center");
-        var el3 = dom.createTextNode("\n\n      ");
-        dom.appendChild(el2, el3);
-        var el3 = dom.createElement("button");
-        dom.setAttribute(el3, "class", "btn btn-primary btn-lg btn-block");
-        var el4 = dom.createTextNode("Upload Document");
-        dom.appendChild(el3, el4);
-        dom.appendChild(el2, el3);
-        var el3 = dom.createTextNode("\n\n\n\n    ");
+        var el2 = dom.createElement("button");
+        dom.setAttribute(el2, "class", "btn btn-primary btn-lg btn-block");
+        var el3 = dom.createTextNode("Upload Document");
         dom.appendChild(el2, el3);
         dom.appendChild(el1, el2);
-        var el2 = dom.createTextNode("\n");
+        var el2 = dom.createTextNode("\n\n    ");
         dom.appendChild(el1, el2);
         dom.appendChild(el0, el1);
         var el1 = dom.createTextNode("\n\n");
@@ -990,12 +1141,12 @@ define("ostp-files-ember/templates/main", ["exports"], function (exports) {
         return el0;
       },
       buildRenderNodes: function buildRenderNodes(dom, fragment, contextualElement) {
-        var element0 = dom.childAt(fragment, [0, 3, 1]);
+        var element0 = dom.childAt(fragment, [1, 3]);
         var morphs = new Array(1);
         morphs[0] = dom.createElementMorph(element0);
         return morphs;
       },
-      statements: [["element", "action", ["nextPage", "main"], [], ["loc", [null, [7, 55], [7, 83]]]]],
+      statements: [["element", "action", ["nextPage", "main"], [], ["loc", [null, [5, 55], [5, 83]]]]],
       locals: [],
       templates: []
     };
@@ -1092,7 +1243,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("ostp-files-ember/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"ostp-files-ember","version":"0.0.0+dbc71a46"});
+  require("ostp-files-ember/app")["default"].create({"LOG_ACTIVE_GENERATION":true,"LOG_TRANSITIONS":true,"LOG_TRANSITIONS_INTERNAL":true,"LOG_VIEW_LOOKUPS":true,"name":"ostp-files-ember","version":"0.0.0+2dde30aa"});
 }
 
 /* jshint ignore:end */

@@ -25,7 +25,12 @@ export default Ember.Controller.extend({
     },
      selectDepartment(department) {
      this.set('department', department);
+     console.log(this.set('department', department));
+    },
+    addDepartmentSelect() {
+        $(".select").last().clone().appendTo(".selectlist");
     }
+
   }
 });
 
