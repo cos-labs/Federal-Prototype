@@ -1,0 +1,5 @@
+*.pyc
+*.log
+.idea/
+*.sqlite3
+database/
