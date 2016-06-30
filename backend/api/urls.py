@@ -1,7 +1,6 @@
-
+from api import views
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
-from api import views
 
 urlpatterns = format_suffix_patterns([
     url(r'^$', views.api_root),
@@ -24,5 +23,5 @@ urlpatterns = format_suffix_patterns([
         name='user-list'),
     url(r'^users/(?P<pk>[0-9]+)/$',
         views.UserDetail.as_view(),
-        name='user-detail'),  
+        name='user-detail'),
 ])

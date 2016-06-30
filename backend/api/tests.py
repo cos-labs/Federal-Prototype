@@ -1,11 +1,10 @@
-from django.test import TestCase
-from api.models import Author, Document, Department
-from api.serializers import AuthorSerializer, DocumentSerializer, DepartmentSerializer
 import datetime
+
+from api.models import Author, Document, Department
+from django.test import TestCase
 
 
 class SetupTestCase(TestCase):
-
     def setUp(self):
         a = Author()
         d = Document()
@@ -74,5 +73,3 @@ class SetupTestCase(TestCase):
             except:
                 pass
         self.assertEqual(Author.objects.first().email, 'foo@gmail.com')
-
-
