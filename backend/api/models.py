@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 from django.db import models
 
 
+
 class Document(models.Model):
 	date_submitted = models.DateTimeField(auto_now_add=True)
 	date_published = models.DateTimeField()

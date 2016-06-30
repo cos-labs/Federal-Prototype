@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from api.models import Document, Author, Department
+from django.contrib.auth.models import User
 
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
@@ -18,3 +19,11 @@ class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Department
 		fields = ('url', 'name', 'documents')
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+	# department = serializers.HyperlinkedRelatedField(many=True, view_name='department-detail', read_only=True)
+
+	class Meta:
+		model = User
+		# Eventually include department
+		fields = ('url', 'username')
