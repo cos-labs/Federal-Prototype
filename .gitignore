@@ -1,5 +1,17 @@
+# Compiled python files
 *.pyc
+
+# Any sort of log files
 *.log
+
+# PyCharm and WebStorm files
 .idea/
+
+# local development database
 *.sqlite3
+
+# postgres database
 database/
+
+# virtualenv files
+ostp_files_ember/env
