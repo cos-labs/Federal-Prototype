@@ -6,4 +6,4 @@ install:
 before_script:
     - flake8 .
 script:
-    - python backend/manage.py api test
+    - python backend/manage.py test api
