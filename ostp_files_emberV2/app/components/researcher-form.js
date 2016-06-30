@@ -9,28 +9,30 @@ export default Ember.Component.extend({
   department: null,
   departments: ["Plase Select Funding", "D.O.T (Department of Transportation)" , "D.O.D (Department of Defense)" , "D.O.E (Department of Energy)" , "N.I.H (National Institutes of Health)"],
 
-init: function() {
+  init: function() {
     this._super(...arguments);
     var store = this.get('store');
     store.createRecord('grant');
   },
   actions: {
     selectDepartment(g , value) {
-      console.log(g , value.target.value);
-
       g.set('grantDepartmentName' , value.target.value);
-
+      g.set('grant' , "n/a");
     },
     addDropDown() {
-       // $(".departmentSelect").last().clone().appendTo(".dropdownHolder");
-
-       // $(".grantNumber").last().clone().appendTo(".grantNumberHolder");
-
-
         var store = this.get('store');
         store.createRecord('grant');
-
-
+    },
+    buildUrl() {
+        return this.get('_url');
+    },
+    preUpload(comp, drop, file) {
+        this.set('openModal', true);
+        this.set('latestFileName', file.name);
+        var promise = new Ember.RSVP.Promise(resolve => {
+            this.set('resolve', resolve);
+        });
+       return promise;
     }
   }
 });

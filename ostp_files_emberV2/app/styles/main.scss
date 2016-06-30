@@ -134,7 +134,9 @@ body{
   box-sizing: border-box;
 }
 
-
+.form-table{
+margin-bottom:75px;
+}
 .form-table form {
   max-width: 300px;
   margin: 10px auto;
@@ -195,7 +197,7 @@ input[type="checkbox"] {
   box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
   margin-bottom: 10px;
 }
-.form-table button{
+.addfunding{
     margin-left: 375px;
 }
 .form-table fieldset {
@@ -232,3 +234,11 @@ input[type="checkbox"] {
   border-radius: 100%;
 }
 
+.meataData{
+   margin-top:25px;
+}
+
+.statusHolder{
+margin-top: 55px;
+    margin-left: 10px;
+}
