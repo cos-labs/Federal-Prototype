@@ -6,6 +6,6 @@ install:
     - npm install jshint
 before_script:
     - flake8 .
-    - jshint .
+    - jshint ostp_files_emberV2/
 script:
     - python backend/manage.py test api
