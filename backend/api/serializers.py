@@ -21,8 +21,8 @@ class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-    	model = User
-    	fields = ('url', 'id', 'username', 'password')
+        model = User
+        fields = ('url', 'id', 'username', 'password')
 
 
 class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
@@ -34,5 +34,6 @@ class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
 
 class GrantIDSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-    	model = GrantID
-    	fields = ('url', 'number', 'department', 'document')
+        model = GrantID
+        fields = ('url', 'number', 'department', 'document')
+        

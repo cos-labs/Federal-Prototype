@@ -4,12 +4,12 @@ from django.db import models
 
 
 USER_TYPES = (
-    (1, 'researcher'), 
+    (1, 'researcher'),
     (2, 'manager')
 )
 
 STATUS_CHOICES = (
-    (1, 'read'), 
+    (1, 'read'),
     (2, 'unread'),
     (3, 'archived')
 )
@@ -48,6 +48,3 @@ class GrantID(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grantids')
     document = models.ForeignKey('Document', related_name='grantids')
-
-
-
