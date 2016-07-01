@@ -15,3 +15,6 @@ database/
 
 # virtualenv files
 ostp_files_ember/env
+
+# tmp files
+ostp_files_ember/tmp
