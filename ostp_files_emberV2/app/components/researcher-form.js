@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.Component.extend({
+export default Ember.Component.extend( {
 
   store: Ember.inject.service(),
 
@@ -15,9 +15,15 @@ export default Ember.Component.extend({
     store.createRecord('grant');
   },
   actions: {
+
     selectDepartment(g , value) {
       g.set('grantDepartmentName' , value.target.value);
-      g.set('grant' , "n/a");
+    },
+    selectGrantNumber(g , value) {
+      g.set('grantNumber' , value.target.value);
+
+    },saveToModel(){
+      console.log('hry');
     },
     addDropDown() {
         var store = this.get('store');
@@ -33,6 +39,15 @@ export default Ember.Component.extend({
             this.set('resolve', resolve);
         });
        return promise;
+    },
+    validateForm(g){
+      g.save();
+      console.log(g.grantNumber);
+
+      for(var i=0; i <= $('.departmentSelect').length; i++ ){
+        console.log(store.peekAll('grant').objectAt(i).get("grantDepartmentName"));
+        console.log(store.peekAll('grant').objectAt(i).get("grantNumber"));
+      }
     }
   }
 });

@@ -12,25 +12,22 @@
     {{/each}}
   </div>
 
-
   <button class="btn btn-success  addfunding" {{action "addDropDown" }}>Add more Funding Options</button>
 
   <div class="grantNumberHolder">
       <div class="text-center grantNumber">
         {{#each model as |g|}}
         {{#if g.grantDepartmentName}}
-
            <h4 class="inline-block">{{g.grantDepartmentName}}</h4>
-
-          {{input type="text" name="department" placeholder="Grand Number" }}
+          {{input type="text" name="department" class="grantNumber" placeholder="Grand Number" value=model.grantNumber }}
         {{/if}}
         {{/each}}
 
       </div>
-
   </div>
+  {{file-chooser}}
+  {{file-renderer}}
 
-  {{file-widget preUpload=(action 'preUpload') buildUrl=(action 'buildUrl') listeners=dropzoneOptions options=dropzoneOptions}}
+   <button class="btn btn-primary btn-lg btn-block meataData"  {{action "validateForm" model}} > Next </button>
 
-  <button class="btn btn-primary btn-lg btn-block meataData"  {{action "nextPage" "file-success"}} > Next </button>
 </div>
