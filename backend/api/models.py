@@ -44,11 +44,10 @@ class Document(models.Model):
     author_list = models.CharField(max_length=500)
     #submitter = models.ForeignKey('auth.User', related_name='documents')
 
-
     class Meta:
         permissions = (
             ('view_document', 'View document'),
-        )    
+        )
 
 
 class Grant(models.Model):
