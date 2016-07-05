@@ -1,10 +1,11 @@
-from api.models import Document, Department, Usertype, GrantID
-from api.serializers import DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantIDSerializer
-from rest_framework import generics
+from api.models import Document, Department, Usertype, Grant
+from api.serializers import DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantSerializer
+from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.contrib.auth.models import User
+from api.permissions import isDepartment
 
 
 @api_view(['GET'])
@@ -14,17 +15,19 @@ def api_root(request, format=None):
         'departments': reverse('department-list', request=request, format=format),
         'users': reverse('user-list', request=request, format=format),
         'usertypes': reverse('usertype-list', request=request, format=format),
-        'grantids': reverse('grantid-list', request=request, format=format),
+        'grants': reverse('grant-list', request=request, format=format),
     })
 
 
 class DocumentList(generics.ListCreateAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DocumentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DepartmentList(generics.ListCreateAPIView):
     queryset = Department.objects.all()
@@ -50,10 +53,12 @@ class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Usertype.objects.all()
     serializer_class = UsertypeSerializer
 
-class GrantIDList(generics.ListCreateAPIView):
-    queryset = GrantID.objects.all()
-    serializer_class = GrantIDSerializer
+class GrantList(generics.ListCreateAPIView):
+    queryset = Grant.objects.all()
+    serializer_class = GrantSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
-class GrantIDDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = GrantID.objects.all()
-    serializer_class = GrantIDSerializer
+class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Grant.objects.all()
+    serializer_class = GrantSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)

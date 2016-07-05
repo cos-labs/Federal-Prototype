@@ -32,7 +32,7 @@ class Document(models.Model):
     publisher = models.CharField(max_length=100)
     institution = models.CharField(max_length=100)
     status = models.CharField(choices=STATUS_CHOICES, max_length=50)
-    departments = models.ManyToManyField(Department)
+    department = models.ForeignKey('Department', related_name="document")
 
     # Needs revision
     file_link = models.CharField(max_length=200)
@@ -44,7 +44,19 @@ class Document(models.Model):
     author_list = models.CharField(max_length=500)
     #submitter = models.ForeignKey('auth.User', related_name='documents')
 
-class GrantID(models.Model):
+
+    class Meta:
+        permissions = (
+            ('view_document', 'View document'),
+        )    
+
+
+class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grantids')
     document = models.ForeignKey('Document', related_name='grantids')
+
+    class Meta:
+        permissions = (
+            ('view_grant', 'View Grant'),
+        )
