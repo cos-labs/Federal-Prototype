@@ -42,7 +42,7 @@ class Document(models.Model):
     PI_email = models.EmailField(max_length=100)
 
     author_list = models.CharField(max_length=500)
-    #submitter = models.ForeignKey('auth.User', related_name='documents')
+    # submitter = models.ForeignKey('auth.User', related_name='documents')
 
 class GrantID(models.Model):
     number = models.CharField(max_length=100)

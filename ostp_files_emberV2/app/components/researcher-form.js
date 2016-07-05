@@ -40,14 +40,14 @@ export default Ember.Component.extend( {
         });
        return promise;
     },
-    validateForm(g){
-      g.save();
-      console.log(g.grantNumber);
-
-      for(var i=0; i <= $('.departmentSelect').length; i++ ){
-        console.log(store.peekAll('grant').objectAt(i).get("grantDepartmentName"));
-        console.log(store.peekAll('grant').objectAt(i).get("grantNumber"));
-      }
-    }
+//    validateForm(g){
+//      g.save();
+//      console.log(g.grantNumber);
+//
+//      for(var i=0; i <= ($('.departmentSelect')).length; i++ ){
+//        console.log(store.peekAll('grant').objectAt(i).get("grantDepartmentName"));
+//        console.log(store.peekAll('grant').objectAt(i).get("grantNumber"));
+//      }
+//    }
   }
 });
