@@ -44,7 +44,8 @@ class Document(models.Model):
     author_list = models.CharField(max_length=500)
     # submitter = models.ForeignKey('auth.User', related_name='documents')
 
-class GrantID(models.Model):
+
+class Grant(models.Model):
     number = models.CharField(max_length=100)
-    department = models.ForeignKey('Department', related_name='grantids')
-    document = models.ForeignKey('Document', related_name='grantids')
+    department = models.ForeignKey('Department', related_name='grants')
+    document = models.ForeignKey('Document', related_name='grants')

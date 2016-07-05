@@ -26,6 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# REST FRAMEWORK
+JSON_API_PLURALIZE_TYPES = True
+JSON_API_FORMAT_TYPES = 'underscore'
+
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
