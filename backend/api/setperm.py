@@ -1,7 +1,7 @@
 # Run this code from the django shell after migrating in order to establish usergroups and related permissions
 from django.contrib.auth.models import Group, User
 from guardian.shortcuts import assign_perm
-from api.models import Department, Usertype, Document, Grant
+from api.models import Department, Usertype, Document
 
 # Establish user groups
 managers = Group.objects.create(name='managers')
