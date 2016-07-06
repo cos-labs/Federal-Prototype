@@ -1,5 +1,4 @@
 from rest_framework import permissions
-import logging
 
 class isDepartment(permissions.BasePermission):
 
