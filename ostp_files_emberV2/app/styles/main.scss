@@ -247,7 +247,6 @@ input[type="checkbox"] {
 
 /*managers css*/
 .document-list{
-  margin-top:100px;
   width:100%;
   display: -webkit-flex;
   display: flex;
@@ -344,7 +343,7 @@ td {
   padding-bottom: 22px;
   vertical-align: top;
 }
-th {
+.more-info th {
   padding-right: 45px;
   text-align: right;
   width: 20%;
@@ -352,10 +351,10 @@ th {
 td {
   width: 40%;
 }
-thead {
+.more-info table thead {
   line-height: 44px;
 }
-thead th {
+.more-info table thead th {
   color: #337ab7;
   font-size: 24px;
 }
@@ -400,3 +399,16 @@ table h4 {
 .fileName ul li {
  height:19px;
 }
+
+.admin-settings-button{
+  position:absolute;
+  right:0;
+  top:50px;
+  border-bottom-left-radius: 2em;
+}
+
+
+.tb-file-viewer-header{
+  width: 900px;
+   margin: auto;
+    }

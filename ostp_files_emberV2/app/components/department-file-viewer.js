@@ -9,7 +9,7 @@ export default Ember.Component.extend({
               $( ".document:eq("+i+")" ).removeClass( "document-view-document" );
               $( ".document:eq("+i+")" ).toggleClass( "document-more-info" );
               $( ".view-document:eq("+i+")" ).hide();
-              $( ".more-info:eq("+i+")" ).toggle("slow");
+              $( ".more-info:eq("+i+")" ).toggle("fast");
             }
         }
 
@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             $( ".document:eq("+i+")" ).removeClass( "document-more-info"  );
             $( ".document:eq("+i+")" ).toggleClass( "document-view-document" );
             $(".more-info:eq("+i+")").hide();
-            $(".view-document:eq("+i+")").toggle("slow");
+            $(".view-document:eq("+i+")").toggle("fast");
             }
         }
 

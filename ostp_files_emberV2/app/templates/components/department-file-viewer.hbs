@@ -1,6 +1,19 @@
 {{yield}}
-  <div class="document-list">
-    <div class="document">
+
+<table class="table tb-file-viewer-header">
+  <thead class="thead-default">
+    <tr>
+      <th>Grant Number</th>
+      <th>PI</th>
+      <th>Date Submitted</th>
+      <th>Date Published</th>
+      <th>PI Email</th>
+    </tr>
+  </thead>
+ </table>
+<div class="document-list">
+
+  <div class="document">
 
       <div class="less-info">
         <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -83,9 +96,11 @@
 
       </div>
 
-      <div class='view-document'>
+      <span class='view-document'>
         {{file-renderer}}
-
-      </div>
+      </span>
     </div>
+
+
+
   </div>
