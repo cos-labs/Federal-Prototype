@@ -35,8 +35,8 @@ u2type = Usertype(user=u2, usertype="researcher", department=d2)
 u2type.save()
 u2.groups.add(researchers)
 
-doc1 = Document(date_published="2016-12-20 00:00", title="DOEdoc", publisher="blah", institution="blah", status="unread", file_link="blah", PI_first_name="first", 
-	PI_last_name="last", PI_email="this@that.com", author_list="1, 2, 3", department=d1)
+doc1 = Document(date_published="2016-12-20 00:00", title="DOEdoc", publisher="blah", institution="blah", status="unread", file_link="blah", PI_first_name="first",
+    PI_last_name="last", PI_email="this@that.com", author_list="1, 2, 3", department=d1)
 doc1.save()
 
 #Should all print true
