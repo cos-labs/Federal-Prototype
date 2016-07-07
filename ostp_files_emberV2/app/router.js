@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('researcher');
   this.route('admin');
   this.route('login');
+  this.route('settings');
 });
 
 export default Router;
