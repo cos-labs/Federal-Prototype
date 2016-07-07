@@ -23,7 +23,8 @@ export default Ember.Component.extend( {
       this.set('grantNumber', value);
     },
     submit() {
-      var g = this.get('store').createRecord('grant', {
+//      var g = this.get('store').createRecord('grant', {
+      this.get('store').createRecord('grant', {
         department: this.get('department'),
         number: this.get('grantNumber')
       });
