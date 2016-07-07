@@ -7,7 +7,7 @@ const schema = {
     "type":"object",
     "properties": {
 
-      "docName": {
+      "document-name": {
         "type":"string",
         "title":"Document Name"
       },
@@ -41,18 +41,15 @@ const schema = {
         "type":"string",
         "title":"Author(s)"
       }
-
-
-
-
-
     }
   },
+
+
   "options": {
     "helper": "The meta data associated with the document that was uploaded.",
     "fields": {
 
-      "docName": {
+      "document-name": {
         "size": 256,
         "helper": "Please enter the documents name.",
         "placeholder": "documents name"
