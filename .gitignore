@@ -18,3 +18,10 @@ ostp_files_ember/env
 
 # tmp files
 ostp_files_ember/tmp
+
+# node modules
+node_modules
+
+
+# bower components
+bower_components

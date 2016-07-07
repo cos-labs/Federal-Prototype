@@ -42,18 +42,17 @@ class Document(models.Model):
     PI_email = models.EmailField(max_length=100)
 
     author_list = models.CharField(max_length=500)
-    #submitter = models.ForeignKey('auth.User', related_name='documents')
+    # submitter = models.ForeignKey('auth.User', related_name='documents')
 
     class Meta:
         permissions = (
             ('view_document', 'View document'),
         )
 
-
 class Grant(models.Model):
     number = models.CharField(max_length=100)
-    department = models.ForeignKey('Department', related_name='grantids')
-    document = models.ForeignKey('Document', related_name='grantids')
+    department = models.ForeignKey('Department', related_name='grants')
+    document = models.ForeignKey('Document', related_name='grants')
 
     class Meta:
         permissions = (
