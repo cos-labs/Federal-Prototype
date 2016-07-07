@@ -1,10 +1,11 @@
 from api.models import Document, Department, Usertype, Grant
 from api.serializers import DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantSerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.contrib.auth.models import User
+from api.permissions import isDepartment
 
 
 @api_view(['GET'])
@@ -21,10 +22,12 @@ def api_root(request, format=None):
 class DocumentList(generics.ListCreateAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DocumentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DepartmentList(generics.ListCreateAPIView):
     queryset = Department.objects.all()
@@ -53,7 +56,9 @@ class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
 class GrantList(generics.ListCreateAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
+    permission_classes = (permissions.IsAuthenticated, isDepartment)
