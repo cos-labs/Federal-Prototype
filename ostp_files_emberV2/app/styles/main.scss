@@ -328,7 +328,7 @@ input[type="checkbox"] {
   margin-left:25px;
 }
 .less-info span{
-  padding:3px;
+  padding:8px;
 }
 
 
@@ -412,3 +412,32 @@ table h4 {
   width: 900px;
    margin: auto;
     }
+
+.tb-file-viewer-header thead tr th{
+
+}
+
+/*Settings CSS*/
+.settingsHolder{
+    border-top: 5px solid #2e6da4;
+    background: rgba(255,255,255,.49);
+    padding: 25px 15px;
+    border-radius: 2px;
+    width:600px;
+    height:100%;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding-bottom:40px;
+
+}
+.settingsHolder textarea{
+	width: 100%;
+	height: 520px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+  resize:vertical;
+}
