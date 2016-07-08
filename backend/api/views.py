@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from django.contrib.auth.models import User
 from api.permissions import isDepartment
+from rest_framework.parsers import FileUploadParser
+from rest_framework.views import APIView
 
 
 @api_view(['GET'])
@@ -56,9 +58,12 @@ class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
 class GrantList(generics.ListCreateAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)
+
+
+
