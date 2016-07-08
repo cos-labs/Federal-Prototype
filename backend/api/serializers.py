@@ -36,5 +36,3 @@ class GrantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Grant
         fields = ('url', 'number', 'department', 'document')
-
-
