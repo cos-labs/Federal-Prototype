@@ -1,4 +1,11 @@
 {{outlet}}
 {{researcher-status-header}}
-{{researcher-form model=model}}
-{{meta-data}}
+
+{{#if isFileUploaded}}
+  {{meta-data }}
+{{else}}
+  {{researcher-form model=model data=model validateForm="validateForm"}}
+<!--showMetaData=(action 'validateForm' model)-->
+{{/if}}
+
+

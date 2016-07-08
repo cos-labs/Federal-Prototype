@@ -22,6 +22,9 @@ export default Ember.Component.extend( {
       console.log("UPDATED NUMBER");
       this.set('grantNumber', value);
     },
+     validateForm: function () {
+      this.sendAction("validateForm");
+      },
     submit() {
 //      var g = this.get('store').createRecord('grant', {
       this.get('store').createRecord('grant', {
