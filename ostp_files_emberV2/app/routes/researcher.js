@@ -8,12 +8,14 @@ export default Ember.Route.extend({
       }
     },
     model() {
-      return this.store.peekAll('grant');
+      return Ember.RSVP.hash({
+      departments: this.get('store').findAll('department'),
+      grants: this.get('store').findAll('grant')
+    });
     },
     setupController(controller, model) {
 
       this._super(controller, model);
       controller.set('isFileUploaded', false);
-
   }
 });

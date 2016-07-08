@@ -3,31 +3,17 @@
 
 
   <div class="dropdownHolder">
-    {{#each model as |g|}}
-    <select class="departmentSelect select" onchange={{action "selectDepartment" g}}>
-      {{#each departments as |departmentChoice|}}
-        <option value={{departmentChoice}} selected={{eq department departmentChoice}}>{{departmentChoice}}</option>
+    <select class="departmentSelect select" onchange={{action "selectDepartment" value="target.value"}}>
+      {{#each model.departments as |departmentChoice|}}
+        <option selected={{eq department departmentChoice}} value={{departmentChoice}}>{{departmentChoice.name}}</option>
       {{/each}}
     </select>
-    {{/each}}
+    {{input type="text" name="department" class="grantNumber" on="key-press" action="updateGrantNumber" placeholder="Grant Number"}}
   </div>
 
-  <button class="btn btn-success  addfunding" {{action "addDropDown" }}>Add more Funding Options</button>
-
-  <div class="grantNumberHolder">
-      <div class="text-center grantNumber">
-        {{#each model as |g|}}
-        {{#if g.grantDepartmentName}}
-           <h4 class="inline-block">{{g.grantDepartmentName}}</h4>
-          {{input type="text" name="department" class="grantNumber" placeholder="Grant Number" value=model.grantNumber }}
-        {{/if}}
-        {{/each}}
-
-      </div>
-  </div>
   {{file-chooser}}
   {{file-renderer}}
 
-   <button class="btn btn-primary btn-lg btn-block meataData"  {{action "validateForm" model}} > Next </button>
+   <button class="btn btn-primary btn-lg btn-block metaData"  {{action "validateForm"}} > Next </button>
 
 </div>

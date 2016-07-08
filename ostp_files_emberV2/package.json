@@ -48,5 +48,8 @@
     "ember-validations": "2.0.0-alpha.4",
     "ember-welcome-page": "^1.0.1",
     "loader.js": "^4.0.1"
+  },
+  "dependencies": {
+    "ember-cli-htmlbars": "^1.0.8"
   }
 }

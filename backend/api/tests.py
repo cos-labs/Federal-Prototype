@@ -9,6 +9,13 @@ class SetupTestCase(TestCase):
         d = Document()
         dep = Department()
         try:
+            dep.name = 'NIH'
+            dep.save()
+            # dep.documents.add(d)
+            # dep.save()
+        except:
+            self.fail('Department could not be saved!')
+        try:
             d.title = 'Correlations within Causations'
             d.institution = 'COS'
             d.PI_first_name = 'Foo'
@@ -17,16 +24,10 @@ class SetupTestCase(TestCase):
             d.status = 'Pending'
             d.date_published = datetime.datetime.now()  # update this to use datetime
             d.file_link = '~/doc.txt'
+            d.department = dep
             d.save()
         except:
             self.fail('Document could not be saved!')
-        try:
-            dep.name = 'NIH'
-            dep.save()
-            # dep.documents.add(d)
-            # dep.save()
-        except:
-            self.fail('Department could not be saved!')
 
     def test_if_something(self):
         x = 1 + 1

@@ -1,0 +1,32 @@
+{{yield}}
+<div class="form-table">
+
+
+    <div class="dropdownHolder">
+        <select class="departmentSelect select" onchange={{action "selectDepartment" value="target.value"}}>
+          {{#each model as |departmentChoice|}}
+              <option value={{departmentChoice}} selected={{eq department departmentChoice}}>{{departmentChoice.name}}</option>
+          {{/each}}
+        </select>
+
+    </div>
+
+    <button class="btn btn-success  addfunding" {{action "addDropDown" }}>Add more Funding Options</button>
+
+    <div class="grantNumberHolder">
+        <div class="text-center grantNumber">
+          {{#each model as |g|}}
+            {{#if g.department}}
+                <h4 class="inline-block">{{g.name}}</h4>
+              {{input type="text" name="department" class="grantNumber" placeholder="Grant Number" value=model.grantNumber }}
+            {{/if}}
+          {{/each}}
+
+        </div>
+    </div>
+  {{file-chooser}}
+  {{file-renderer}}
+
+    <button class="btn btn-primary btn-lg btn-block metaData"  {{action "validateForm" model}} > Next </button>
+
+</div>

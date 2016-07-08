@@ -3,7 +3,7 @@ local:
     PERSONAL_ACCESS_TOKEN:
     OAUTH_SCOPES: osf.full_read osf.full_write
 stage:
-    CLIENT_ID: 32507f75e82b45d08ea69242a82bc3fb
-    PERSONAL_ACCESS_TOKEN: dDZVSUu5Y97D6O14YMKpuU204ZfMEWtF6EHnS4yw
+    CLIENT_ID: 0a8f969535694971b7bf65cd5b2efe49
+    PERSONAL_ACCESS_TOKEN: bWNxAOWsW6AjAtKncC4r1Lb2xoFvHmjqfgadNALE
     OAUTH_SCOPES: osf.full_read osf.full_write
     REDIRECT_URI: https://localhost:4200/researcher
