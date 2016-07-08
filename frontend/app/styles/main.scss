@@ -1,0 +1,443 @@
+body{
+    min-height: 700px;
+    background: #C5D6E6 url('/static/img/bg6.jpg') top center repeat-y;
+    background-size: cover;
+}
+
+.container {
+    width: 100%;
+    padding:0;
+/*
+    background:url("https://osf.io/static/img/front-page/bg-web.png") no-repeat center;
+*/
+
+}
+
+.researchers-table{
+    border-top: 5px solid #2e6da4;
+
+    background: rgba(255,255,255,.49);
+    padding: 15px 15px;
+    border-radius: 2px;
+    width:600px;
+    height:220px;
+    margin: 0 auto;
+    margin-top: 200px;
+}
+
+.admin-table{
+  background: #67a3bf;
+  background: -moz-linear-gradient(35deg, #67a3bf 0%, #166596 18%, #000000 100%);
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #67a3bf), color-stop(18%, #166596), color-stop(100%, #000000));
+  background: -webkit-linear-gradient(35deg, #67a3bf 0%, #166596 18%, #000000 100%);
+  background: -o-linear-gradient(35deg, #67a3bf 0%, #166596 18%, #000000 100%);
+  background: -ms-linear-gradient(35deg, #67a3bf 0%, #166596 18%, #000000 100%);
+  background: linear-gradient(35deg, #67a3bf 0%, #166596 18%, #000000 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#67a3bf', endColorstr='#000000', GradientType=1);
+  width:100%;
+  position:absolute;
+  bottom:0;
+  text-align:center;
+  color:white;
+  padding: 0 0 10px 0;
+}
+
+.form-table{
+    border-top: 5px solid #2e6da4;
+
+    background: rgba(255,255,255,.49);
+    padding: 25px 15px;
+    border-radius: 2px;
+    width:600px;
+    height:100%;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+.login-block {
+    width: 320px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.49);
+    border-radius: 2px;
+    border-top: 5px solid #2e6da4;
+    margin: 0 auto;
+    margin-top: 200px;
+
+}
+
+.login-block h1 {
+    text-align: center;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.login-block input {
+    width: 100%;
+    height: 42px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: Montserrat;
+    padding: 0 20px 0 50px;
+    outline: none;
+}
+
+.login-block input#username {
+    background: #fff url('http://i.imgur.com/u0XmBmv.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+
+.login-block input#password {
+    background: #fff url('http://i.imgur.com/Qf83FTt.png') 20px top no-repeat;
+    background-size: 16px 80px;
+}
+
+
+.login-block input:active, .login-block input:focus {
+    border: 1px solid #2e6da4;
+}
+
+.login-block button {
+    width: 100%;
+    height: 40px;
+    background: #337ab7;
+    box-sizing: border-box;
+    border-radius: 2px;
+    border: 1px solid #2e6da4;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: Montserrat;
+    outline: none;
+    cursor: pointer;
+}
+
+.login-block button:hover {
+    background: #3374b7;
+}
+
+
+
+
+
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.form-table{
+margin-bottom:75px;
+}
+.form-table form {
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+
+.form-table input[type="text"],
+.form-table input[type="password"],
+.form-table input[type="date"],
+.form-table input[type="datetime"],
+.form-table input[type="email"],
+.form-table input[type="number"],
+.form-table input[type="search"],
+.form-table input[type="tel"],
+.form-table input[type="time"],
+.form-table input[type="url"],
+.form-table textarea,
+.form-table select {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px;
+  width: 100%;
+  background-color: #fff;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  margin-bottom: 30px;
+}
+
+.form-table input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+.form-table select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.form-table .upload button {
+  padding: 19px 39px 18px 39px;
+  color: #FFF;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+  margin-bottom: 10px;
+}
+.addFunding{
+    margin-left: 375px;
+}
+.form-table fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+.form-table legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+.form-table  label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form-table label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.form-table .number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.2);
+  border-radius: 100%;
+}
+
+.metaData{
+   margin-top:25px;
+}
+
+.statusHolder{
+  margin-top: 55px;
+  margin-left: 10px;
+}
+
+
+
+/*managers css*/
+.document-list{
+  width:100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+
+
+}
+
+.document{
+  margin:auto;
+  margin-top:5px;
+  margin-bottom:5px;
+  Width:900px;
+  height:50px;
+  background: rgba(255, 255, 255, 0.49);
+  border-radius: 2px;
+  -webkit-transition: height 0.8s;
+	-moz-transition: height 0.8s;
+	transition: height 0.5s;
+	border-left: 5px solid #5cb85c;
+
+
+}
+
+.action-buttons {
+  float:right;
+  height:100%;
+  padding-top:15px;
+  padding-right: 10px;
+}
+
+.action-buttons li{
+  text-align: center;
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+  background: #337ab7;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid #2e6da4;
+  color: #fff;
+  cursor: pointer;
+  padding:10px;
+
+}
+
+
+.action-buttons li:hover {
+    background: #286090;
+}
+
+.more-info{
+  border-top: 1px solid #2e6da4;
+  margin-top:50px;
+  display:none;
+
+}
+.view-document {
+  border-top: 1px solid #2e6da4;
+  margin-top:50px;
+  display:none;
+
+
+}
+
+.document-more-info{
+  height:100%;
+}
+
+.document-view-document{
+  height:600px;
+}
+
+.less-info{
+  font-size:15px;
+  float:left;
+  margin-top:13px;
+  margin-left:25px;
+}
+.less-info span{
+  padding:8px;
+}
+
+
+table {
+  margin-bottom: 44px;
+}
+table:last-child {
+  margin-bottom: 0;
+}
+th,
+td {
+  padding-bottom: 22px;
+  vertical-align: top;
+}
+.more-info th {
+  padding-right: 45px;
+  text-align: right;
+  width: 20%;
+}
+td {
+  width: 40%;
+}
+.more-info table thead {
+  line-height: 44px;
+}
+.more-info table thead th {
+  color: #337ab7;
+  font-size: 24px;
+}
+tbody th {
+  color: #777777;
+  font-size: 14px;
+  font-weight: 400;
+  padding-top: 22px;
+  text-transform: uppercase;
+}
+tbody td {
+  border-top: 1px solid #337ab7;
+  padding-top: 21px;
+}
+tbody td:first-of-type {
+  padding-right: 15px;
+}
+tbody td:last-of-type {
+  padding-left: 15px;
+}
+tbody td:only-of-type {
+  padding-left: 0;
+  padding-right: 0;
+}
+table a {
+  color: #888;
+}
+table h4 {
+  margin-bottom: 0;
+}
+.schedule-offset {
+  color: #black;
+}
+
+.affiliation ul , .fileName ul{
+ padding:0;
+}
+
+.affiliation ul li , .fileName ul li {
+ list-style-type: none;
+}
+.fileName ul li {
+ height:19px;
+}
+
+.admin-settings-button{
+  position:absolute;
+  right:0;
+  top:50px;
+  border-bottom-left-radius: 2em;
+}
+
+
+.tb-file-viewer-header{
+  width: 900px;
+   margin: auto;
+    }
+
+.tb-file-viewer-header thead tr th{
+
+}
+
+/*Settings CSS*/
+.settingsHolder{
+    border-top: 5px solid #2e6da4;
+    background: rgba(255,255,255,.49);
+    padding: 25px 15px;
+    border-radius: 2px;
+    width:600px;
+    height:100%;
+    margin: 0 auto;
+    margin-top: 150px;
+    padding-bottom:40px;
+
+}
+.settingsHolder textarea{
+	width: 100%;
+	height: 520px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+	font-family: Tahoma, sans-serif;
+	background-image: url(bg.gif);
+	background-position: bottom right;
+	background-repeat: no-repeat;
+  resize:vertical;
+}
