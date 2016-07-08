@@ -1,0 +1,20 @@
+{
+  "name": "ostp-files-ember-v2",
+  "dependencies": {
+    "ember": "~2.6.0",
+    "ember-cli-shims": "0.1.1",
+    "ember-cli-test-loader": "0.2.2",
+    "ember-qunit-notifications": "0.1.0",
+    "bootstrap-sass": "^3.3.6",
+    "toastr": "^2.1.2",
+    "font-awesome": "~4.5.0",
+    "jquery": "1.11.1",
+    "alpaca": "1.5.14",
+    "handlebars": "3.0.3",
+    "bootstrap": "3.3.2",
+    "lodash": "~3.10.1"
+  },
+  "resolutions": {
+    "jquery": "1.11.1"
+  }
+}
