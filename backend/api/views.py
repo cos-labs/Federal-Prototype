@@ -56,9 +56,9 @@ class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
 class GrantList(generics.ListCreateAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)

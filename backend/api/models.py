@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
+import uuid
 
 
 USER_TYPES = (
@@ -14,6 +15,9 @@ STATUS_CHOICES = (
     (3, 'archived')
 )
 
+def upload_to(instance, filename):
+    instance.uuid = uuid.uuid4().hex
+    return 'file/%s' % (instance.uuid)
 
 class Department(models.Model):
     name = models.CharField(max_length=50)
@@ -33,9 +37,10 @@ class Document(models.Model):
     institution = models.CharField(max_length=100)
     status = models.CharField(choices=STATUS_CHOICES, max_length=50)
     department = models.ForeignKey('Department', related_name="document")
+    uuid = models.CharField(max_length=32, default='')
 
     # Needs revision
-    file_link = models.CharField(max_length=200)
+    file_link = models.FileField(upload_to=upload_to, default='')
 
     PI_first_name = models.CharField(max_length=50)
     PI_last_name = models.CharField(max_length=50)
@@ -48,6 +53,7 @@ class Document(models.Model):
         permissions = (
             ('view_document', 'View document'),
         )
+
 
 class Grant(models.Model):
     number = models.CharField(max_length=100)

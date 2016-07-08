@@ -2,6 +2,7 @@ from api import views
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
+
 urlpatterns = format_suffix_patterns([
     url(r'^$', views.api_root),
     url(r'documents$', views.DocumentList.as_view(),
@@ -29,4 +30,5 @@ urlpatterns = format_suffix_patterns([
     url(r'^grant/(?P<pk>[0-9]+)$',
         views.GrantDetail.as_view(),
         name='grant-detail'),
+
 ])

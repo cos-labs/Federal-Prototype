@@ -10,6 +10,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
         fields = ('url', 'date_submitted', 'date_published', 'title', 'publisher', 'institution',
                   'status', 'file_link', 'PI_first_name', 'PI_last_name',
                   'PI_email', 'author_list', 'department')
+        readonly_fields = ('file_link')
 
 
 class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
