@@ -40,11 +40,14 @@ export default Ember.Component.extend( {
         });
        return promise;
     },
-    validateForm(g){
+     validateForm: function (g) {
+
+
+      this.sendAction("validateForm");
+
       g.save();
       console.log(g.grantNumber);
-
-      for(var i=0; i <= $('.departmentSelect').length; i++ ){
+      for(var i=0; i <= Ember.$('.departmentSelect').length; i++ ){
         console.log(store.peekAll('grant').objectAt(i).get("grantDepartmentName"));
         console.log(store.peekAll('grant').objectAt(i).get("grantNumber"));
       }
