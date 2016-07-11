@@ -30,6 +30,12 @@ ALLOWED_HOSTS = []
 JSON_API_PLURALIZE_TYPES = True
 JSON_API_FORMAT_TYPES = 'underscore'
 
+CORS_ORIGIN_WHITELIST = (
+    'localhost:4200',
+    'localhost:7778',
+    'localhost:8000'
+)
+
 REST_FRAMEWORK = {
     'PAGE_SIZE': 10,
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
@@ -59,12 +65,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'api.apps.ApiConfig',
     'guardian',
+    'corsheaders',
 ]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

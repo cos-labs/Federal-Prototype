@@ -11,8 +11,6 @@ class SetupTestCase(TestCase):
         try:
             dep.name = 'NIH'
             dep.save()
-            # dep.documents.add(d)
-            # dep.save()
         except:
             self.fail('Department could not be saved!')
         try:
