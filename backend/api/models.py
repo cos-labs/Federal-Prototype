@@ -6,7 +6,7 @@ import uuid
 
 USER_TYPES = (
     (1, 'researcher'),
-    (2, 'manager')
+    (2, 'moderator')
 )
 
 STATUS_CHOICES = (
@@ -26,7 +26,7 @@ class Department(models.Model):
 class Usertype(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     usertype = models.CharField(choices=USER_TYPES, max_length=50)
-    department = models.ForeignKey('Department', related_name='manager', blank=True, null=True)
+    department = models.ForeignKey('Department', related_name='moderator', blank=True, null=True)
 
 
 class Document(models.Model):
@@ -37,9 +37,8 @@ class Document(models.Model):
     institution = models.CharField(max_length=100)
     status = models.CharField(choices=STATUS_CHOICES, max_length=50)
     department = models.ForeignKey('Department', related_name="document")
-    uuid = models.CharField(max_length=32, default='')
 
-    # Needs revision
+    uuid = models.CharField(max_length=32, default='')
     file_link = models.FileField(upload_to=upload_to, default='')
 
     PI_first_name = models.CharField(max_length=50)
