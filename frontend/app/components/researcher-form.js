@@ -28,7 +28,7 @@ export default Ember.Component.extend( {
         department: this.get('department'),
         number: this.get('grantNumber')
       });
-      this.sendAction("validateForm");
+      this.sendAction("validateForm" , "researcher-form");
       // g.save();
     }
   }
