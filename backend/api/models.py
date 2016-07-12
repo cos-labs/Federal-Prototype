@@ -64,3 +64,5 @@ class Grant(models.Model):
         permissions = (
             ('view_grant', 'View Grant'),
         )
+
+
