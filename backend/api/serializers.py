@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
-    department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
+    # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
         model = Document
         fields = ('url', 'date_submitted', 'date_published', 'title', 'publisher', 'institution',

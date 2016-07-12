@@ -30,5 +30,4 @@ urlpatterns = format_suffix_patterns([
     url(r'^grant/(?P<pk>[0-9]+)$',
         views.GrantDetail.as_view(),
         name='grant-detail'),
-
 ])
