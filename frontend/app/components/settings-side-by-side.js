@@ -228,6 +228,7 @@ export default Ember.Component.extend({
           JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
            console.log("Error in json");
+
           return false
           }
           console.log("Send to DB");
