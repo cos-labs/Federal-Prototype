@@ -426,7 +426,7 @@ table h4 {
     width:600px;
     height:100%;
     margin: 0 auto;
-    margin-top: 150px;
+    margin-top: 50px;
     padding-bottom:40px;
 
 }
@@ -442,3 +442,16 @@ table h4 {
   resize:vertical;
 }
 
+.settings-body{
+  display: -webkit-flex;
+  display: flex;
+  margin-top:100px;
+}
+
+
+.back-button{
+  position:absolute;
+  left:0;
+  top:50px;
+  border-bottom-right-radius: 2em;
+}

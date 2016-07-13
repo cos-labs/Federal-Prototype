@@ -1,7 +1,6 @@
 {{outlet}}
+{{#link-to 'admin' tagName="span"}}
+<button class="btn btn-default back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
+{{/link-to}}
 
-<div class="settingsHolder">
-    <label for="metadataJson">Meta Data (Json format)</label>
-    <textarea id="metadataJson"></textarea>
-    <button type="button" class="btn btn-primary" style="float:right;"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
-</div>
+{{settings-side-by-side update=(action 'update') lastUpdated=lastUpdated}}

@@ -1,0 +1,16 @@
+{{yield}}
+<div class="settings-body">
+  <div class="settingsHolder">
+      <label for="metadataJson">Meta Data (Json format)</label>
+      {{#textarea id="metadataJson" value=metadataInputJson }} {{/textarea}}
+      <button type="button" class="btn btn-primary" style="float:right;" {{action "save" }} ><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+  </div>
+
+  <div class="form-table">
+    {{#each schemaList as |schema index|}}
+      {{#if (eq index 0) }}
+        {{dynamic-form schema=schema}}
+      {{/if}}
+    {{/each}}
+  </div>
+</div>
