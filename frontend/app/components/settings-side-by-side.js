@@ -215,7 +215,8 @@ export default Ember.Component.extend({
           try {
               JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
-              return this.get("_schemaList").unshiftObject(error);
+            this.get("_schemaList").unshiftObject(error);
+            return false;
           }
           return this.get("_schemaList").unshiftObject(JSON.parse(this.get("metadataInputJson")));
 
@@ -223,7 +224,14 @@ export default Ember.Component.extend({
 
     actions: {
       save() {
-        console.log("Send to DB");
+       try {
+          JSON.parse(this.get("metadataInputJson"));
+          } catch (e) {
+           console.log("Error in json");
+          return false
+          }
+          console.log("Send to DB");
+          return true
       },
       setDefault() {
         var setTodefault  = confirm("Are you sure you want to set your current work to the default Json array? You will lose your current Json array!");
