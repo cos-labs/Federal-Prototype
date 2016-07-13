@@ -95,9 +95,17 @@ const schema = {
     }
   }
 };
+ const error  = {
+    "schema": {
+        "title": "Error: INVALID JSON",
+        "description": "There is an Error in your Json.",
+        "type": "object"
 
+    }
+};
 
 export default Ember.Component.extend({
+
     _schemaList : [JSON.stringify(schema,null, 4)],
     metadataInputJson : JSON.stringify(schema,null, 4),
     schema: Ember.computed('metadataInputJson' , function(){
@@ -108,10 +116,13 @@ export default Ember.Component.extend({
         return this.get('_schemaList');
     }),
     onSchemaChange: Ember.observer('metadataInputJson', function(){
-         console.log($( "#metadataJson" ));
+          try {
+              JSON.parse(this.get("metadataInputJson"));
+          } catch (e) {
+              return this.get("_schemaList").unshiftObject(error);
+          }
+          return this.get("_schemaList").unshiftObject(JSON.parse(this.get("metadataInputJson")));
 
-         $( "#metadataJson" ).focus();
-         this.get("_schemaList").unshiftObject(JSON.parse(this.get("metadataInputJson")));
     }),
 
     actions: {
