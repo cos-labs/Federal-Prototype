@@ -1,0 +1,18 @@
+
+{{#link-to 'moderator' tagName="span"}}
+<button class="btn btn-default back-button"><i class="fa fa-chevron-left" aria-hidden="true"  {{action "makeVisible"}} ></i> Back</button>
+{{/link-to}}
+
+<div class="flex-container">
+  <div class="setting-nav-color flex-item">
+    {{#link-to 'moderator.settings.metadata' tagName="span"}}
+      <button class="btn btn-link" style="margin-left: 25px;"  >Meta Data</button>
+    {{/link-to}}
+    {{#link-to 'moderator.settings.api' tagName="span"}}
+      <button class="btn btn-link" > API call</button>
+    {{/link-to}}
+  </div>
+</div>
+
+
+{{outlet}}

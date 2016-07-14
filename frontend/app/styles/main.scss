@@ -456,8 +456,29 @@ table h4 {
   border-bottom-right-radius: 2em;
 }
 
-.settings-nav{
-  height: 30px;
-  margin-top:120px;
-  width:100%;
+.flex-container {
+    display: flex;
+    position:fixed;
+    right:0;
+    }
+
+.flex-item {
+    color: white;
+    font-weight: bold;
+
+}
+.setting-nav-color {
+   background-color: #223543;
+   width:200px;
+   height:33px;
+   border-bottom-left-radius: 2em;
+}
+
+.setting-nav-color .btn-link{
+    color:white;
+
+}
+
+.osf-gravatar img{
+  height:20px;
 }

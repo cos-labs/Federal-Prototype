@@ -10,6 +10,12 @@ Router.map(function() {
   this.route('admin');
   this.route('login');
   this.route('settings');
+  this.route('moderator', function() {
+    this.route('settings', function() {
+      this.route('metadata');
+      this.route('api');
+    });
+  });
 });
 
 export default Router;

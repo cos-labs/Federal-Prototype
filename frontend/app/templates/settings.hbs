@@ -1,14 +1,27 @@
-{{outlet}}
 {{#link-to 'admin' tagName="span"}}
 <button class="btn btn-default back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
 {{/link-to}}
 
-<div class="settings-nav row-centered">
 
+
+<div class="flex-container">
+  <div class="setting-nav-color flex-item">
+    <button class="btn btn-link" style="margin-left: 25px;" {{action "metaData" }} >Meta Data</button>
+    <button class="btn btn-link" {{action "api" }}> API call</button>
+  </div>
 </div>
 
-<div style="text-align: center; position:relative; width: 100%; border-width: 1px 0 0 0; ">
-  <button class="btn btn-primary" >Meta Data</button>
-  <button class="btn btn-primary"> API call</button>
-</div>
-{{settings-side-by-side update=(action 'update') lastUpdated=lastUpdated}}
+{{outlet}}
+
+
+
+{{#if isApi}}
+  {{api-tab}}
+{{else}}
+  {{settings-side-by-side update=(action 'update') lastUpdated=lastUpdated}}
+{{/if}}
+
+
+
+
+
