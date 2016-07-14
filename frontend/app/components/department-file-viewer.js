@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+
    actions: {
     moreInfo(){
         for(var i = 0; i <= Ember.$(".document").length; i++){
@@ -11,6 +12,7 @@ export default Ember.Component.extend({
            Ember.$( ".more-info:eq("+i+")" ).toggle("fast");
             }
         }
+
       },
       viewDocument(){
         for(var i = 0; i <= Ember.$(".document").length; i++){
