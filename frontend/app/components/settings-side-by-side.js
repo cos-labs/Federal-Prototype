@@ -201,6 +201,10 @@ const defaultJson = {
 };
 
 export default Ember.Component.extend({
+  didRender() {
+    this._super(...arguments);
+    $(".moderatorHolder").hide();
+  },
 
     _schemaList : [JSON.stringify(schema,null, 4)],
     metadataInputJson : JSON.stringify(schema,null, 4),
