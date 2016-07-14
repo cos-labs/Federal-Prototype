@@ -203,7 +203,6 @@ const defaultJson = {
 export default Ember.Component.extend({
   didRender() {
     this._super(...arguments);
-    $(".moderatorHolder").hide();
   },
 
     _schemaList : [JSON.stringify(schema,null, 4)],
@@ -233,14 +232,14 @@ export default Ember.Component.extend({
           } catch (e) {
            console.log("Error in json");
 
-          return false
+          return false;
           }
           console.log("Send to DB");
-          return true
+          return true;
       },
       setDefault() {
         var setTodefault  = confirm("Are you sure you want to set your current work to the default Json array? You will lose your current Json array!");
-        if(setTodefault == true){
+        if(setTodefault === true){
          document.getElementById("metadataJson").value = JSON.stringify(defaultJson,null, 4);
           this.get("_schemaList").unshiftObject(defaultJson);
         }else{

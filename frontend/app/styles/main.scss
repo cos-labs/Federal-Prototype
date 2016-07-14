@@ -401,7 +401,7 @@ table h4 {
 }
 
 .admin-settings-button{
-  position:absolute;
+  position:fixed;
   right:0;
   top:50px;
   border-bottom-left-radius: 2em;
@@ -450,7 +450,7 @@ table h4 {
 
 
 .back-button{
-  position:absolute;
+  position:fixed;
   left:0;
   top:50px;
   border-bottom-right-radius: 2em;

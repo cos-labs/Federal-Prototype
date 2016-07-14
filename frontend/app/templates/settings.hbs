@@ -1,27 +1,14 @@
-{{#link-to 'admin' tagName="span"}}
-<button class="btn btn-default back-button"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</button>
-{{/link-to}}
-
-
-
+{{settings-back}}
 <div class="flex-container">
   <div class="setting-nav-color flex-item">
-    <button class="btn btn-link" style="margin-left: 25px;" {{action "metaData" }} >Meta Data</button>
-    <button class="btn btn-link" {{action "api" }}> API call</button>
+    {{#link-to 'settings.metadata' tagName="span"}}
+      <button class="btn btn-link" style="margin-left: 25px;"  >Meta Data</button>
+    {{/link-to}}
+    {{#link-to 'settings.api' tagName="span"}}
+      <button class="btn btn-link" > API call</button>
+    {{/link-to}}
   </div>
 </div>
 
+
 {{outlet}}
-
-
-
-{{#if isApi}}
-  {{api-tab}}
-{{else}}
-  {{settings-side-by-side update=(action 'update') lastUpdated=lastUpdated}}
-{{/if}}
-
-
-
-
-
