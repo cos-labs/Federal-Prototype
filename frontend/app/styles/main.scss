@@ -401,7 +401,7 @@ table h4 {
 }
 
 .admin-settings-button{
-  position:absolute;
+  position:fixed;
   right:0;
   top:50px;
   border-bottom-left-radius: 2em;
@@ -445,13 +445,40 @@ table h4 {
 .settings-body{
   display: -webkit-flex;
   display: flex;
-  margin-top:100px;
+  margin-top:20px;
 }
 
 
 .back-button{
-  position:absolute;
+  position:fixed;
   left:0;
   top:50px;
   border-bottom-right-radius: 2em;
+}
+
+.flex-container {
+    display: flex;
+    position:fixed;
+    right:0;
+    }
+
+.flex-item {
+    color: white;
+    font-weight: bold;
+
+}
+.setting-nav-color {
+   background-color: #223543;
+   width:200px;
+   height:33px;
+   border-bottom-left-radius: 2em;
+}
+
+.setting-nav-color .btn-link{
+    color:white;
+
+}
+
+.osf-gravatar img{
+  height:20px;
 }

@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+
    actions: {
     moreInfo(){
         for(var i = 0; i <= Ember.$(".document").length; i++){
