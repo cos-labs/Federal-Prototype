@@ -216,9 +216,12 @@ export default Ember.Component.extend({
     }),
     onSchemaChange: Ember.observer('metadataInputJson', function(){
           try {
+              Ember.$(".settingsHolder, .form-table").css("border-top", " 5px solid #2e6da4");
               JSON.parse(this.get("metadataInputJson"));
+
           } catch (e) {
             this.get("_schemaList").unshiftObject(error);
+            Ember.$(".settingsHolder, .form-table").css("border-top", " 5px solid #d43f3a");
             return false;
           }
           var data = JSON.parse(this.get("metadataInputJson"));
@@ -233,17 +236,22 @@ export default Ember.Component.extend({
           JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
            console.log("Error in json");
-
+            Ember.$.bootstrapGrowl("Error: Did not saved, here is an error in your Json!", { type: 'danger', align: 'center' , width: 450, hight: 40 });
           return false;
           }
           console.log("Send to DB");
+           Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 250, hight: 40 });
+
           return true;
       },
       setDefault() {
         var setTodefault  = confirm("Are you sure you want to set your current work to the default Json array? You will lose your current Json array!");
         if(setTodefault === true){
          document.getElementById("metadataJson").value = JSON.stringify(defaultJson,null, 4);
+         Ember.$(".settingsHolder, .form-table").css("border-top", " 5px solid #2e6da4");
           this.get("_schemaList").unshiftObject(defaultJson);
+          Ember.$.bootstrapGrowl("Successfully set to default json array!", { type: 'info', align: 'center' , width: 350, hight: 40 });
+
         }else{
 
         }

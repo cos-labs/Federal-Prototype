@@ -7,22 +7,21 @@ export default Ember.Component.extend({
   },
    didRender() {
     this._super(...arguments);
-    $('div[ data-item=".read"]').css("border-left", "5px solid #5cb85c");
-    $('div[ data-item=".unread"]').css("border-left", "5px solid #eea236");
-    $('div[ data-item=".archived"]').css("border-left", "5px solid #337ab7");
+     Ember.$('div[ data-item=".read"]').css("border-left", "5px solid #5cb85c");
+     Ember.$('div[ data-item=".unread"]').css("border-left", "5px solid #eea236");
+     Ember.$('div[ data-item=".archived"]').css("border-left", "5px solid #337ab7");
   },
   actions: {
     getSelectedStatusFilter() {
-      $(".filter").removeClass("active");
-      $(event.target).addClass( "active" );
-      console.log($(event.target).data('filter'));
-      var sel = $(event.target).data('filter');
-      $('div.document-list div.document').hide();
-          if(sel != ".read, .unread, .archived"){
-             $('div[ data-item="'+sel+'"]').show();
+      Ember.$(".filter").removeClass("active");
+       Ember.$(event.target).addClass( "active" );
+      var sel =  Ember.$(event.target).data('filter');
+       Ember.$('div.document-list div.document').hide();
+          if(sel !== ".read, .unread, .archived"){
+              Ember.$('div[ data-item="'+sel+'"]').show();
           }
           else {
-             $('div.document-list div.document').show();
+              Ember.$('div.document-list div.document').show();
           }
     }
   }
