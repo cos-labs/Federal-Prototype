@@ -221,7 +221,9 @@ export default Ember.Component.extend({
             this.get("_schemaList").unshiftObject(error);
             return false;
           }
-          return this.get("_schemaList").unshiftObject(JSON.parse(this.get("metadataInputJson")));
+          var data = JSON.parse(this.get("metadataInputJson"));
+          data.options.focus = "";
+          return this.get("_schemaList").unshiftObject(data);
 
     }),
 
