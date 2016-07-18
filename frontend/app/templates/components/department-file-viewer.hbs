@@ -71,9 +71,9 @@
                   <td class=" " colspan="2">
                     <span class="btn-success">Read</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -162,11 +162,11 @@
                     Status
                   </th>
                   <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
+                    <span class="btn-primary">Archive</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -255,198 +255,11 @@
                     Status
                   </th>
                   <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
+                    <span class="btn-primary">Archive</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
-                    </span>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Principal Investigator
-                  </th>
-                  <td class=" " colspan="2">
-                    Leo Leo - pi-email@email.email
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Author(s)
-                  </th>
-                  <td class=" " colspan="2">
-                    <ul>
-                      <li>Cameron Blandford</li>
-                      <li>Carolyn Stewart</li>
-                      <li>Ryan Mason</li>
-                    </ul>
-
-                  </td>
-                </tr>
-           </tbody>
-        </table>
-
-
-
-
-      </div>
-
-      <span class='view-document'>
-        {{file-renderer}}
-      </span>
-    </div>
-
-  <div class="document" data-item=".read">
-
-      <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number">##########</span>
-        <span class="pi">Leo Leo</span>
-        <span class="date-submitted">99/99/99</span>
-        <span class="date-published">1/1/1</span>
-        <span class="pi-email">pi-email@email.email</span>
-      </div>
-
-
-      <ul class="action-buttons">
-        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
-        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <li>Download</li>
-      </ul>
-
-      <div class='more-info'>
-        <table>
-              <thead>
-                <tr>
-                  <th scope="row">
-                    File Name
-                  </th>
-                  <td class="fileName" colspan="2">
-                    <ul>
-                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
-                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Affiliation
-                  </th>
-                  <td class="affiliation" colspan="2">
-                    <ul>
-                      <li>Publisher: CellPress</li>
-                      <li>Institution: University of Virginia</li>
-                    </ul>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Status
-                  </th>
-                  <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
-                    </span>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Principal Investigator
-                  </th>
-                  <td class=" " colspan="2">
-                    Leo Leo - pi-email@email.email
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Author(s)
-                  </th>
-                  <td class=" " colspan="2">
-                    <ul>
-                      <li>Cameron Blandford</li>
-                      <li>Carolyn Stewart</li>
-                      <li>Ryan Mason</li>
-                    </ul>
-
-                  </td>
-                </tr>
-           </tbody>
-        </table>
-
-
-
-
-      </div>
-
-      <span class='view-document'>
-        {{file-renderer}}
-      </span>
-    </div>
-  <div class="document" data-item=".read">
-
-      <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number">##########</span>
-        <span class="pi">Leo Leo</span>
-        <span class="date-submitted">99/99/99</span>
-        <span class="date-published">1/1/1</span>
-        <span class="pi-email">pi-email@email.email</span>
-      </div>
-
-
-      <ul class="action-buttons">
-        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
-        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <li>Download</li>
-      </ul>
-
-      <div class='more-info'>
-        <table>
-              <thead>
-                <tr>
-                  <th scope="row">
-                    File Name
-                  </th>
-                  <td class="fileName" colspan="2">
-                    <ul>
-                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
-                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Affiliation
-                  </th>
-                  <td class="affiliation" colspan="2">
-                    <ul>
-                      <li>Publisher: CellPress</li>
-                      <li>Institution: University of Virginia</li>
-                    </ul>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Status
-                  </th>
-                  <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -535,11 +348,104 @@
                     Status
                   </th>
                   <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
+                    <span class="btn-warning">Unread</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
+                    </span>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Principal Investigator
+                  </th>
+                  <td class=" " colspan="2">
+                    Leo Leo - pi-email@email.email
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Author(s)
+                  </th>
+                  <td class=" " colspan="2">
+                    <ul>
+                      <li>Cameron Blandford</li>
+                      <li>Carolyn Stewart</li>
+                      <li>Ryan Mason</li>
+                    </ul>
+
+                  </td>
+                </tr>
+           </tbody>
+        </table>
+
+
+
+
+      </div>
+
+      <span class='view-document'>
+        {{file-renderer}}
+      </span>
+    </div>
+  <div class="document" data-item=".archived">
+
+      <div class="less-info">
+        <i class="fa fa-file-text" aria-hidden="true"></i>
+        <span class="grant-number">##########</span>
+        <span class="pi">Leo Leo</span>
+        <span class="date-submitted">99/99/99</span>
+        <span class="date-published">1/1/1</span>
+        <span class="pi-email">pi-email@email.email</span>
+      </div>
+
+
+      <ul class="action-buttons">
+        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
+        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
+        <li>Download</li>
+      </ul>
+
+      <div class='more-info'>
+        <table>
+              <thead>
+                <tr>
+                  <th scope="row">
+                    File Name
+                  </th>
+                  <td class="fileName" colspan="2">
+                    <ul>
+                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
+                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
+                    </ul>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Affiliation
+                  </th>
+                  <td class="affiliation" colspan="2">
+                    <ul>
+                      <li>Publisher: CellPress</li>
+                      <li>Institution: University of Virginia</li>
+                    </ul>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Status
+                  </th>
+                  <td class=" " colspan="2">
+                    <span class="btn-primary">Archive</span>
+                    <span style="margin-left:300px;">
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -628,11 +534,104 @@
                     Status
                   </th>
                   <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
+                    <span class="btn-warning">Unread</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
+                    </span>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Principal Investigator
+                  </th>
+                  <td class=" " colspan="2">
+                    Leo Leo - pi-email@email.email
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Author(s)
+                  </th>
+                  <td class=" " colspan="2">
+                    <ul>
+                      <li>Cameron Blandford</li>
+                      <li>Carolyn Stewart</li>
+                      <li>Ryan Mason</li>
+                    </ul>
+
+                  </td>
+                </tr>
+           </tbody>
+        </table>
+
+
+
+
+      </div>
+
+      <span class='view-document'>
+        {{file-renderer}}
+      </span>
+    </div>
+  <div class="document" data-item=".unread">
+
+      <div class="less-info">
+        <i class="fa fa-file-text" aria-hidden="true"></i>
+        <span class="grant-number">##########</span>
+        <span class="pi">Leo Leo</span>
+        <span class="date-submitted">99/99/99</span>
+        <span class="date-published">1/1/1</span>
+        <span class="pi-email">pi-email@email.email</span>
+      </div>
+
+
+      <ul class="action-buttons">
+        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
+        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
+        <li>Download</li>
+      </ul>
+
+      <div class='more-info'>
+        <table>
+              <thead>
+                <tr>
+                  <th scope="row">
+                    File Name
+                  </th>
+                  <td class="fileName" colspan="2">
+                    <ul>
+                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
+                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
+                    </ul>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">
+                    Affiliation
+                  </th>
+                  <td class="affiliation" colspan="2">
+                    <ul>
+                      <li>Publisher: CellPress</li>
+                      <li>Institution: University of Virginia</li>
+                    </ul>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Status
+                  </th>
+                  <td class=" " colspan="2">
+                    <span class="btn-warning">Unread</span>
+                    <span style="margin-left:300px;">
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -723,9 +722,9 @@
                   <td class=" " colspan="2">
                     <span class="btn-success">Read</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -763,7 +762,7 @@
         {{file-renderer}}
       </span>
     </div>
-  <div class="document" data-item=".unread">
+  <div class="document" data-item=".read">
 
       <div class="less-info">
         <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -816,9 +815,9 @@
                   <td class=" " colspan="2">
                     <span class="btn-success">Read</span>
                     <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
+                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
                     </span>
 
                   </td>
@@ -857,287 +856,4 @@
       </span>
     </div>
 
-
-  <div class="document" data-item=".archived">
-
-      <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number">##########</span>
-        <span class="pi">Leo Leo</span>
-        <span class="date-submitted">99/99/99</span>
-        <span class="date-published">1/1/1</span>
-        <span class="pi-email">pi-email@email.email</span>
-      </div>
-
-
-      <ul class="action-buttons">
-        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
-        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <li>Download</li>
-      </ul>
-
-      <div class='more-info'>
-        <table>
-              <thead>
-                <tr>
-                  <th scope="row">
-                    File Name
-                  </th>
-                  <td class="fileName" colspan="2">
-                    <ul>
-                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
-                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Affiliation
-                  </th>
-                  <td class="affiliation" colspan="2">
-                    <ul>
-                      <li>Publisher: CellPress</li>
-                      <li>Institution: University of Virginia</li>
-                    </ul>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Status
-                  </th>
-                  <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
-                    </span>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Principal Investigator
-                  </th>
-                  <td class=" " colspan="2">
-                    Leo Leo - pi-email@email.email
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Author(s)
-                  </th>
-                  <td class=" " colspan="2">
-                    <ul>
-                      <li>Cameron Blandford</li>
-                      <li>Carolyn Stewart</li>
-                      <li>Ryan Mason</li>
-                    </ul>
-
-                  </td>
-                </tr>
-           </tbody>
-        </table>
-
-
-
-
-      </div>
-
-      <span class='view-document'>
-        {{file-renderer}}
-      </span>
-    </div>
-  <div class="document" data-item=".archived">
-
-      <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number">##########</span>
-        <span class="pi">Leo Leo</span>
-        <span class="date-submitted">99/99/99</span>
-        <span class="date-published">1/1/1</span>
-        <span class="pi-email">pi-email@email.email</span>
-      </div>
-
-
-      <ul class="action-buttons">
-        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
-        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <li>Download</li>
-      </ul>
-
-      <div class='more-info'>
-        <table>
-              <thead>
-                <tr>
-                  <th scope="row">
-                    File Name
-                  </th>
-                  <td class="fileName" colspan="2">
-                    <ul>
-                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
-                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Affiliation
-                  </th>
-                  <td class="affiliation" colspan="2">
-                    <ul>
-                      <li>Publisher: CellPress</li>
-                      <li>Institution: University of Virginia</li>
-                    </ul>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Status
-                  </th>
-                  <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
-                    </span>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Principal Investigator
-                  </th>
-                  <td class=" " colspan="2">
-                    Leo Leo - pi-email@email.email
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Author(s)
-                  </th>
-                  <td class=" " colspan="2">
-                    <ul>
-                      <li>Cameron Blandford</li>
-                      <li>Carolyn Stewart</li>
-                      <li>Ryan Mason</li>
-                    </ul>
-
-                  </td>
-                </tr>
-           </tbody>
-        </table>
-
-
-
-
-      </div>
-
-      <span class='view-document'>
-        {{file-renderer}}
-      </span>
-    </div>
-  <div class="document" data-item=".archived">
-
-      <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number">##########</span>
-        <span class="pi">Leo Leo</span>
-        <span class="date-submitted">99/99/99</span>
-        <span class="date-published">1/1/1</span>
-        <span class="pi-email">pi-email@email.email</span>
-      </div>
-
-
-      <ul class="action-buttons">
-        <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
-        <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <li>Download</li>
-      </ul>
-
-      <div class='more-info'>
-        <table>
-              <thead>
-                <tr>
-                  <th scope="row">
-                    File Name
-                  </th>
-                  <td class="fileName" colspan="2">
-                    <ul>
-                      <li>The Sythesis of Eicosanoyl-5-Hydroxytryptamide in Mammalian Tissue</li>
-                      <li><a href="osf.io/federal/document/594fji">osf.io/federal/document/594fji</a></li>
-                    </ul>
-                  </td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">
-                    Affiliation
-                  </th>
-                  <td class="affiliation" colspan="2">
-                    <ul>
-                      <li>Publisher: CellPress</li>
-                      <li>Institution: University of Virginia</li>
-                    </ul>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Status
-                  </th>
-                  <td class=" " colspan="2">
-                    <span class="btn-success">Read</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success">Read</button>
-                      <button type="button" class="btn btn-warning">Unread</button>
-                      <button type="button" class="btn btn-primary">Archive</button>
-                    </span>
-
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Principal Investigator
-                  </th>
-                  <td class=" " colspan="2">
-                    Leo Leo - pi-email@email.email
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">
-                    Author(s)
-                  </th>
-                  <td class=" " colspan="2">
-                    <ul>
-                      <li>Cameron Blandford</li>
-                      <li>Carolyn Stewart</li>
-                      <li>Ryan Mason</li>
-                    </ul>
-
-                  </td>
-                </tr>
-           </tbody>
-        </table>
-
-
-
-
-      </div>
-
-      <span class='view-document'>
-        {{file-renderer}}
-      </span>
-    </div>
-
-
-
-  </div>
+</div>

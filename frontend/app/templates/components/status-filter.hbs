@@ -1,7 +1,7 @@
 {{yield}}
-<ul id="filters" class="clearfix" data-filter=".read" {{action "getSelectedStatusFilter"}}>
-<li><span class="filter active" data-filter=".read, .unread, .archived">All</span></li>
-<li><span class="filter" data-filter=".read" >Read</span></li>
-<li><span class="filter" data-filter=".unread">Unread</span></li>
-<li><span class="filter" data-filter=".archived">Archived</span></li>
+<ul id="filters" class="clearfix" {{action "getSelectedStatusFilter"}}>
+<li><span class="filter active" data-filter=".read, .unread, .archived"><i class="fa fa-circle" aria-hidden="true"></i> All</span></li>
+<li><span class="filter" data-filter=".read" ><i class="fa fa-circle" aria-hidden="true"></i> Read</span></li>
+<li><span class="filter" data-filter=".unread"><i class="fa fa-circle" aria-hidden="true"></i> Unread</span></li>
+<li><span class="filter" data-filter=".archived"><i class="fa fa-circle" aria-hidden="true"></i> Archived</span></li>
 </ul>

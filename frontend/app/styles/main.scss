@@ -496,6 +496,7 @@ table h4 {
 
 	#filters li {
 		float:left;
+		padding-bottom:5px;
 	}
 
 	#filters li span {
@@ -588,3 +589,8 @@ table h4 {
  margin-top: 100px;
  color: #666
  }
+
+.document-status{
+    padding: 4px;
+    border-radius: 1px;
+}
