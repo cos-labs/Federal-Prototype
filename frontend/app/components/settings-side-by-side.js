@@ -236,11 +236,11 @@ export default Ember.Component.extend({
           JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
            console.log("Error in json");
-            Ember.$.bootstrapGrowl("Error: Did not saved, here is an error in your Json!", { type: 'danger', align: 'center' , width: 450, hight: 40 });
+            Ember.$.bootstrapGrowl("Error: Did not saved, there is an error in your Json!", { type: 'danger', align: 'center' , width: 450, hight: 40 });
           return false;
           }
           console.log("Send to DB");
-           Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 250, hight: 40 });
+           Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 200, hight: 40 });
 
           return true;
       },
