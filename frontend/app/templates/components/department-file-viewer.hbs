@@ -1,20 +1,22 @@
 {{yield}}
 
 <div style="margin-top:50px;"></div>
-{{status-filter}}
 
+<div class="department-header">
 <table class="table tb-file-viewer-header">
 
   <thead class="thead-default">
     <tr>
-      <th width="17%; padding-right:120px;">Grant Number</th>
-      <th width="7%">PI</th>
-      <th width="10%">Date Submitted</th>
-      <th width="10%">Date Published</th>
-      <th>PI Email</th>
+      <th width="17%; padding-right:120px;" class="thead-default-tr-th">Grant Number</th>
+      <th width="4%"  class="thead-default-tr-th">PI</th>
+      <th width="10%" class="thead-default-tr-th">Date Submitted</th>
+      <th width="10%" class="thead-default-tr-th">Date Published</th>
+      <th width="8%"  class="thead-default-tr-th">PI Email</th>
+      <th width="50%" >{{status-filter}}</th>
     </tr>
   </thead>
  </table>
+</div>
 
 <div class="document-list">
 

@@ -411,14 +411,7 @@ table h4 {
 }
 
 
-.tb-file-viewer-header{
-  width: 900px;
-   margin: auto;
-    }
 
-.tb-file-viewer-header thead tr th{
-
-}
 
 /*Settings CSS*/
 .settingsHolder{
@@ -487,11 +480,9 @@ table h4 {
 }
 /*Status Filter*/
 #filters {
-	margin:1%;
-	padding:0;
 	list-style:none;
-	position:absolute;
-	right:260px;
+   margin-left: 17px;
+   margin-top: 10px;
 }
 
 	#filters li {
@@ -591,6 +582,21 @@ table h4 {
  }
 
 .document-status{
-    padding: 4px;
-    border-radius: 1px;
+
+}
+
+.department-header{
+    Width: 900px;
+    max-height: 50px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.thead-default-tr-th{
+    height:0;
+    vertical-align: middle !important;
+   }
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 0 solid #ddd;
 }

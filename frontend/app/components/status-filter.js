@@ -24,7 +24,6 @@ export default Ember.Component.extend({
        Ember.$(event.target).addClass( "active" );
        var sel =  Ember.$(event.target).data('filter');
        Ember.$('div.document-list div.document').hide();
-       console.log(Ember.$(event.target));
           if(sel !== ".read, .unread, .archived" && sel !== undefined){
               Ember.$('div[ data-item="'+sel+'"]').show();
           }
