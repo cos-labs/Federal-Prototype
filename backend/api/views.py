@@ -22,12 +22,12 @@ def api_root(request, format=None):
 class DocumentList(generics.ListCreateAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DocumentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
-    permission_classes = (permissions.IsAuthenticated, isDepartment)
+    # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 class DepartmentList(generics.ListCreateAPIView):
     queryset = Department.objects.all()
