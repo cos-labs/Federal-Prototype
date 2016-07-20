@@ -97,5 +97,11 @@ const schema = {
 };
 
 export default Ember.Component.extend({
-    schema: schema
+    schema: schema,
+    actions: {
+      submit() {
+
+        this.sendAction("validateForm", "meta-data");
+      }
+  }
 });

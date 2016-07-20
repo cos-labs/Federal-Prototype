@@ -1,7 +1,14 @@
-{{outlet}}
-
-<div class="settingsHolder">
-    <label for="metadataJson">Meta Data (Json format)</label>
-    <textarea id="metadataJson"></textarea>
-    <button type="button" class="btn btn-primary" style="float:right;"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+{{settings-back}}
+<div class="flex-container">
+  <div class="setting-nav-color flex-item">
+    {{#link-to 'settings.metadata' tagName="span"}}
+      <button class="btn btn-link" style="margin-left: 25px;"  >Meta Data</button>
+    {{/link-to}}
+    {{#link-to 'settings.api' tagName="span"}}
+      <button class="btn btn-link" > API call</button>
+    {{/link-to}}
+  </div>
 </div>
+
+
+{{outlet}}

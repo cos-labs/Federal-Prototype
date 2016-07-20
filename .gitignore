@@ -14,14 +14,16 @@
 database/
 
 # virtualenv files
-ostp_files_ember/env
+frontend/env
 
 # tmp files
-ostp_files_ember/tmp
+frontend/tmp
 
 # node modules
 node_modules
 
-
 # bower components
 bower_components
+
+# old stuff
+ostp_files_emberV2

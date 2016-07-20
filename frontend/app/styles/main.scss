@@ -1,6 +1,6 @@
 body{
     min-height: 700px;
-    background: #C5D6E6 url('/static/img/bg6.jpg') top center repeat-y;
+    background: #C5D6E6 url('https://osf.io/static/img/bg6.jpg') top center repeat-y;
     background-size: cover;
 }
 
@@ -198,7 +198,7 @@ input[type="checkbox"] {
   margin-bottom: 10px;
 }
 .addFunding{
-    margin-left: 375px;
+    margin-left: 426px;
 }
 .form-table fieldset {
   margin-bottom: 30px;
@@ -267,13 +267,14 @@ input[type="checkbox"] {
   -webkit-transition: height 0.8s;
 	-moz-transition: height 0.8s;
 	transition: height 0.5s;
+/*
 	border-left: 5px solid #5cb85c;
+*/
 
 
 }
 
 .action-buttons {
-  float:right;
   height:100%;
   padding-top:15px;
   padding-right: 10px;
@@ -291,6 +292,7 @@ input[type="checkbox"] {
   color: #fff;
   cursor: pointer;
   padding:10px;
+  margin-left: 5px;
 
 }
 
@@ -301,7 +303,7 @@ input[type="checkbox"] {
 
 .more-info{
   border-top: 1px solid #2e6da4;
-  margin-top:50px;
+  margin-top:15px;
   display:none;
 
 }
@@ -321,19 +323,11 @@ input[type="checkbox"] {
   height:600px;
 }
 
-.less-info{
-  font-size:15px;
-  float:left;
-  margin-top:13px;
-  margin-left:25px;
-}
-.less-info span{
-  padding:8px;
-}
 
 
 table {
   margin-bottom: 44px;
+  color: #666
 }
 table:last-child {
   margin-bottom: 0;
@@ -401,21 +395,14 @@ table h4 {
 }
 
 .admin-settings-button{
-  position:absolute;
+  position:fixed;
   right:0;
   top:50px;
   border-bottom-left-radius: 2em;
 }
 
 
-.tb-file-viewer-header{
-  width: 900px;
-   margin: auto;
-    }
 
-.tb-file-viewer-header thead tr th{
-
-}
 
 /*Settings CSS*/
 .settingsHolder{
@@ -426,8 +413,8 @@ table h4 {
     width:600px;
     height:100%;
     margin: 0 auto;
-    margin-top: 150px;
-    padding-bottom:40px;
+    margin-top: 50px;
+    padding-bottom:20px;
 
 }
 .settingsHolder textarea{
@@ -440,4 +427,190 @@ table h4 {
 	background-position: bottom right;
 	background-repeat: no-repeat;
   resize:vertical;
+}
+
+.settings-body{
+  display: -webkit-flex;
+  display: flex;
+  margin-top:20px;
+}
+
+
+.back-button{
+  position:fixed;
+  left:0;
+  top:50px;
+  border-bottom-right-radius: 2em;
+}
+
+.flex-container {
+    display: flex;
+    position:fixed;
+    right:0;
+    }
+
+.flex-item {
+    color: white;
+    font-weight: bold;
+
+}
+.setting-nav-color {
+   background-color: #223543;
+   width:200px;
+   height:33px;
+   border-bottom-left-radius: 2em;
+}
+
+.setting-nav-color .btn-link{
+    color:white;
+
+}
+
+.osf-gravatar img{
+  height:20px;
+}
+/*Status Filter*/
+#filters {
+	list-style:none;
+   margin-left: 17px;
+   margin-top: 10px;
+}
+
+	#filters li {
+		float:left;
+		padding-bottom:5px;
+	}
+
+	#filters li span {
+		display: block;
+		padding:5px 20px;
+		text-decoration:none;
+		color:#666;
+		cursor: pointer;
+	}
+
+	#filters li span.active {
+		background: #337ab7;
+		color:#fff;
+	  border-radius: 2px;
+	}
+
+
+
+#portfoliolist .portfolio {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	width:23%;
+	margin:1%;
+	display:none;
+	float:left;
+	overflow:hidden;
+}
+
+	.portfolio-wrapper {
+		overflow:hidden;
+		position: relative !important;
+		background: #666;
+		cursor:pointer;
+	}
+
+	.portfolio img {
+		max-width:100%;
+		position: relative;
+		top:0;
+    -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	.portfolio .label {
+		position: absolute;
+		width: 100%;
+		height:40px;
+		bottom:-40px;
+    -webkit-transition: all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:         all 300ms cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+		.portfolio .label-bg {
+			background: #e95a44;
+			width: 100%;
+			height:100%;
+			position: absolute;
+			top:0;
+			left:0;
+		}
+
+		.portfolio .label-text {
+			color:#fff;
+			position: relative;
+			z-index:500;
+			padding:5px 8px;
+		}
+
+			.portfolio .text-category {
+				display:block;
+				font-size:9px;
+			}
+
+	.portfolio:hover .label {
+    bottom:0;
+  }
+	.portfolio:hover img {
+    top:-30px;
+  }
+
+
+.custom h2 {
+ color: #111;
+ font-family: 'Open Sans', sans-serif;
+ font-size: 30px; font-weight: 300;
+ line-height: 32px; margin: 0 0 72px;
+ text-align: center;
+ margin: 0;
+ margin-top: 100px;
+ color: #666
+ }
+
+
+.department-header{
+    Width: 900px;
+    max-height: 50px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.thead-default-tr-th{
+    height:0;
+    vertical-align: middle !important;
+    text-align:center;
+   }
+
+.table > thead > tr > th {
+    vertical-align: bottom;
+    border-bottom: 0 solid #ddd;
+}
+
+.less-info-holder{
+  height:50px;
+}
+
+.less-info{
+  font-size:15px;
+  float:left;
+  margin-top:13px;
+  margin-left:25px;
+}
+.less-info span{
+  padding:2px;
+}
+
+.less-info span input{
+  background: rgba(255, 255, 255, 0.0);
+  text-align:center;
+  outline: none;
+border:none;
+}
+
+.tb-file-viewer-header{
+margin-left:10px;
 }

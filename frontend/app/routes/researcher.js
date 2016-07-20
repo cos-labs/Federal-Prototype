@@ -2,9 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
     actions: {
-      validateForm: function () {
-        //this.controller.get("isFileUploaded")
-        this.controller.set("isFileUploaded" , true);
+      validateForm: function (component) {
+         if(component === "researcher-form"){
+              this.controller.set("isFileUploaded" , "meta-data");
+         }else if(component === "meta-data"){
+              this.controller.set("isFileUploaded" , "successful-upload");
+         }
       }
     },
     model() {
@@ -16,6 +19,6 @@ export default Ember.Route.extend({
     setupController(controller, model) {
 
       this._super(controller, model);
-      controller.set('isFileUploaded', false);
+      controller.set('isFileUploaded', "researcher-form");
   }
 });

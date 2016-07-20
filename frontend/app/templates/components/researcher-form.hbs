@@ -13,8 +13,12 @@
 
   <button class="btn btn-success addFunding" {{action "submit"}}>Add More Funding</button>
 
-  {{file-chooser}}
-  {{file-renderer}}
+   {{#file-chooser files=fileList as |component|}}
+        {{input type='file'
+            change=(action 'onFileInputChange' target=component)}}
+    {{/file-chooser}}
+
+
 
    <button class="btn btn-primary btn-lg btn-block metaData"  {{action "submit"}} > Next </button>
 
