@@ -12,6 +12,7 @@ export default Ember.Component.extend({
            Ember.$( ".more-info:eq("+i+")" ).toggle("fast");
             }
         }
+
       },
       viewDocument(){
         for(var i = 0; i <= Ember.$(".document").length; i++){

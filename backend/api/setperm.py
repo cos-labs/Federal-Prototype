@@ -4,14 +4,14 @@ from guardian.shortcuts import assign_perm
 from api.models import Department, Usertype, Document
 
 # Establish user groups
-managers = Group.objects.create(name='managers')
+moderators = Group.objects.create(name='moderators')
 researchers = Group.objects.create(name='researchers')
 
-# Assign manager permissions
-assign_perm("api.change_document", managers)
-assign_perm("api.view_document", managers)
-assign_perm("api.delete_document", managers)
-assign_perm("api.view_grant", managers)
+# Assign moderator permissions
+assign_perm("api.change_document", moderators)
+assign_perm("api.view_document", moderators)
+assign_perm("api.delete_document", moderators)
+assign_perm("api.view_grant", moderators)
 
 # Assign researcher permissions
 assign_perm("api.add_document", researchers)
@@ -25,9 +25,9 @@ d2.save()
 
 u1 = User.objects.create_user(username="user1", password="password1")
 u1.save()
-u1type = Usertype(user=u1, usertype="manager", department=d1)
+u1type = Usertype(user=u1, usertype="moderator", department=d1)
 u1type.save()
-u1.groups.add(managers)
+u1.groups.add(moderators)
 
 u2 = User.objects.create_user(username="user2", password="password2")
 u2.save()
