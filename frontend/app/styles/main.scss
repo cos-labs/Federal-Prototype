@@ -275,7 +275,6 @@ input[type="checkbox"] {
 }
 
 .action-buttons {
-  float:right;
   height:100%;
   padding-top:15px;
   padding-right: 10px;
@@ -293,6 +292,7 @@ input[type="checkbox"] {
   color: #fff;
   cursor: pointer;
   padding:10px;
+  margin-left: 5px;
 
 }
 
@@ -303,7 +303,7 @@ input[type="checkbox"] {
 
 .more-info{
   border-top: 1px solid #2e6da4;
-  margin-top:50px;
+  margin-top:15px;
   display:none;
 
 }
@@ -323,15 +323,6 @@ input[type="checkbox"] {
   height:600px;
 }
 
-.less-info{
-  font-size:15px;
-  float:left;
-  margin-top:13px;
-  margin-left:25px;
-}
-.less-info span{
-  padding:8px;
-}
 
 
 table {
@@ -581,9 +572,6 @@ table h4 {
  color: #666
  }
 
-.document-status{
-
-}
 
 .department-header{
     Width: 900px;
@@ -594,9 +582,35 @@ table h4 {
 .thead-default-tr-th{
     height:0;
     vertical-align: middle !important;
+    text-align:center;
    }
 
 .table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 0 solid #ddd;
+}
+
+.less-info-holder{
+  height:50px;
+}
+
+.less-info{
+  font-size:15px;
+  float:left;
+  margin-top:13px;
+  margin-left:25px;
+}
+.less-info span{
+  padding:2px;
+}
+
+.less-info span input{
+  background: rgba(255, 255, 255, 0.0);
+  text-align:center;
+  outline: none;
+border:none;
+}
+
+.tb-file-viewer-header{
+margin-left:10px;
 }
