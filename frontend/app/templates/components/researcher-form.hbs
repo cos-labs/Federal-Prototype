@@ -4,6 +4,7 @@
 
   <div class="dropdownHolder">
     <select class="departmentSelect select" onchange={{action "selectDepartment" value="target.value"}}>
+        <option>Select a Department</option>
       {{#each model.departments as |departmentChoice|}}
         <option selected={{eq department departmentChoice}} value={{departmentChoice}}>{{departmentChoice.name}}</option>
       {{/each}}
