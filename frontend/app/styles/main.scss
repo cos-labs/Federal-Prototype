@@ -608,7 +608,8 @@ table h4 {
   background: rgba(255, 255, 255, 0.0);
   text-align:center;
   outline: none;
-border:none;
+  border:none;
+   text-overflow: ellipsis;
 }
 
 .tb-file-viewer-header{
