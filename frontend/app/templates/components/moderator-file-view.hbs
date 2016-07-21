@@ -1,12 +1,12 @@
 <div class="document" data-item=".archived">
 
     <div class="less-info">
-        <i class="fa fa-file-text" aria-hidden="true"></i>
-        <span class="grant-number"><input size="10" type="text" name="grant-number" value={{grant.number}} readonly="readonly"></span>
-        <span class="pi"><input size="12" type="text" name="pi" value={{grant.document.pifullname}} readonly="readonly"></span>
-        <span class="date-submitted"><input size="7" type="text" name="date-submitted" value={{grant.document.datesubmitted}} readonly="readonly"></span>
-        <span class="date-published"><input size="7" type="text" name="date-published" value={{grant.document.datepublished}} readonly="readonly"></span>
-        <span class="pi-email"><input size="17" type="text" name="pi-email" value={{grant.document.piemail}} readonly="readonly"></span>
+      <i class="fa fa-file-text" aria-hidden="true"></i>
+        <span class="grant-number"><input size="9" type="text" name="grant-number" value={{grant.number}} readonly="readonly"></span>
+        <span class="pi"><input size="10" type="text" name="pi" value={{grant.document.pifullname}} readonly="readonly"></span>
+        <span class="date-submitted"><input size="11" type="text" name="date-submitted" value={{grant.document.datesubmitted}} readonly="readonly"></span>
+        <span class="date-published"><input size="11" type="text" name="date-published" value={{grant.document.datepublished}} readonly="readonly"></span>
+        <span class="pi-email"><input size="15" type="text" name="pi-email" value={{grant.document.piemail}} readonly="readonly"></span>
 
     </div>
 
@@ -73,7 +73,7 @@
                 </th>
                 <td class=" " colspan="2">
                     <ul>
-                        {{grant.document.authorlist}}
+                      <li>{{grant.document.authorlist}}</li>
                     </ul>
 
                 </td>

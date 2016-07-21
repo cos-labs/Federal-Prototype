@@ -15,6 +15,7 @@ export default Ember.Component.extend({
 
      Ember.$('div[ data-item=".archived"]').css("border-left", "5px solid #337ab7");
      Ember.$('span[ data-filter=".archived"] i').css({"color" : "#337ab1"});
+     Ember.$('.No-documents-error').hide();
 
 
   },
@@ -24,10 +25,19 @@ export default Ember.Component.extend({
        Ember.$(event.target).addClass( "active" );
        var sel =  Ember.$(event.target).data('filter');
        Ember.$('div.document-list div.document').hide();
+
           if(sel !== ".read, .unread, .archived" && sel !== undefined){
               Ember.$('div[ data-item="'+sel+'"]').show();
+
+              if(Ember.$('div.document').css("display") === "block"){
+                Ember.$('.No-documents-error').hide();
+              }
+              else{
+                Ember.$('.No-documents-error').show();
+              }
           }
           else {
+              Ember.$('.No-documents-error').hide();
               Ember.$('div.document-list div.document').show();
           }
     }

@@ -6,21 +6,26 @@
 <table class="table tb-file-viewer-header">
   <thead class="thead-default">
     <tr>
-      <th style="width:17%; padding-left:15px;" class="thead-default-tr-th">Grant Number</th>
-      <th style="width:4%;"  class="thead-default-tr-th">PI</th>
-      <th style="width:10%;" class="thead-default-tr-th">Date Submitted</th>
-      <th style="width:10%;" class="thead-default-tr-th">Date Published</th>
-      <th style="width:8%;"  class="thead-default-tr-th">PI Email</th>
-      <th style="width:50%;" >{{status-filter}}</th>
+      <th class="thead-default-tr-th grant-number-header">Grant Number</th>
+      <th class="thead-default-tr-th">PI</th>
+      <th class="thead-default-tr-th">Date Submitted</th>
+      <th class="thead-default-tr-th">Date Published</th>
+      <th class="thead-default-tr-th">PI Email</th>
+      <th >{{status-filter}}</th>
     </tr>
   </thead>
  </table>
 </div>
 
+
 <div class="document-list">
 
     {{#each model as |grant|}}
         {{moderator-file-view grant=grant}}
+    {{else}}
+      No documents available!
     {{/each}}
+
+<div class="No-documents-error text-center"><h2>No Documents Found!</h2></div>
 
 </div>

@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 
 export default Ember.Component.extend({
+  didRender() {
+    this._super(...arguments);
+    var d = new Date("2015-03-25");
+
+  },
   actions: {
     moreInfo(){
       for(var i = 0; i <= Ember.$(".document").length; i++){
