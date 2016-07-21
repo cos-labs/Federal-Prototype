@@ -136,7 +136,7 @@ class Document(models.Model):
     department = models.ForeignKey('Department', related_name="document")
 
     uuid = models.CharField(max_length=32, default='')
-    file_link = models.FileField(upload_to=upload_to, default='')
+    filelink = models.FileField(upload_to=upload_to, default='')
 
     pifirstname = models.CharField(max_length=50)
     pilastname = models.CharField(max_length=50)

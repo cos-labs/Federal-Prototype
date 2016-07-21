@@ -8,9 +8,9 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Document
         fields = ('url', 'datesubmitted', 'datepublished', 'title', 'publisher', 'institution',
-                  'status', 'file_link', 'pifirstname', 'pilastname',
+                  'status', 'filelink', 'pifirstname', 'pilastname',
                   'piemail', 'authorlist', 'department')
-        readonly_fields = ('file_link')
+        readonly_fields = ('filelink')
 
 
 class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
