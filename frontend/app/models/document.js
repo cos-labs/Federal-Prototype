@@ -9,7 +9,7 @@ export default Model.extend({
   publisher: attr('string'),
   institution: attr('string'),
   status: attr('string'),
-  fileLink: attr('string'),
+  filelink: attr('string'),
   pifirstname: attr('string'),
   pilastname: attr('string'),
   piemail: attr('string'),
