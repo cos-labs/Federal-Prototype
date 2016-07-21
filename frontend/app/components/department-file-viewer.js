@@ -36,11 +36,11 @@ export default Ember.Component.extend({
         if(Ember.$(".active").data("filter") !== ".read, .unread, .archived"){
           if(Ember.$(".active").data("filter") !== status){
             Ember.$(event.target).parents().eq(6).hide("slide");
-            Ember.$.bootstrapGrowl("Successfully changed document status to "+Ember.$(event.target).text()+"!", { type: 'success', align: 'center' , width: 400, hight: 40 });
+            Ember.$.bootstrapGrowl("Successfully changed document status to " + Ember.$(event.target).text() + "!", { type: 'success', align: 'center' , width: 400, hight: 40 });
           }
         }
         else{
-        Ember.$.bootstrapGrowl("Successfully changed document status to "+Ember.$(event.target).text()+"!", { type: 'success', align: 'center' , width: 400, hight: 40 });
+        Ember.$.bootstrapGrowl("Successfully changed document status to " + Ember.$(event.target).text() + "!", { type: 'success', align: 'center' , width: 400, hight: 40 });
         }
 
         console.log("update database to archive");

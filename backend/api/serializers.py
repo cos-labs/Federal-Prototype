@@ -7,10 +7,10 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
         model = Document
-        fields = ('url', 'date_submitted', 'date_published', 'title', 'publisher', 'institution',
-                  'status', 'file_link', 'PI_first_name', 'PI_last_name',
-                  'PI_email', 'author_list', 'department')
-        readonly_fields = ('file_link')
+        fields = ('url', 'datesubmitted', 'datepublished', 'title', 'publisher', 'institution',
+                  'status', 'filelink', 'pifirstname', 'pilastname',
+                  'piemail', 'authorlist', 'department')
+        readonly_fields = ('filelink')
 
 
 class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
@@ -35,4 +35,4 @@ class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
 class GrantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Grant
-        fields = ('url', 'number', 'department', 'document')
+        fields = ('url', 'number', 'department', 'document', 'settings')

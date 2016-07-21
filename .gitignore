@@ -27,3 +27,6 @@ bower_components
 
 # old stuff
 ostp_files_emberV2
+
+# files uploaded through API UI
+backend/file
