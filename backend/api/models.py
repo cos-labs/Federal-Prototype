@@ -118,6 +118,7 @@ def upload_to(instance, filename):
 
 class Department(models.Model):
     name = models.CharField(max_length=50)
+    settings = models.TextField(default=schema)
 
 
 class Usertype(models.Model):
@@ -132,7 +133,6 @@ class Document(models.Model):
     title = models.CharField(max_length=200)
     publisher = models.CharField(max_length=100)
     institution = models.CharField(max_length=100)
-    status = models.CharField(choices=STATUS_CHOICES, max_length=50)
     department = models.ForeignKey('Department', related_name="document")
 
     uuid = models.CharField(max_length=32, default='')
@@ -155,9 +155,19 @@ class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
     document = models.ForeignKey('Document', related_name='grants')
-    settings = models.TextField(default=schema)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=50)
 
     class Meta:
         permissions = (
             ('view_grant', 'View Grant'),
         )
+
+class Dynamicform(models.Model):
+    questions = models.TextField(default='')
+    answers = models.TextField(default='')
+    grant = models.ForeignKey('Grant', related_name='dynamicforms')
+
+    def save(self, *args, **kwargs):
+        if not self.questions:
+            self.questions = self.grant.department.settings
+        super(Dynamicform, self).save(*args, **kwargs)
