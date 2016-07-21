@@ -3,8 +3,6 @@ from api.models import Department, Usertype, Document, Grant
 from django.contrib.auth.models import User
 
 
-
-
 class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
