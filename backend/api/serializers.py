@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Department, Usertype, Document, Grant
+from api.models import Department, Usertype, Document, Grant, Dynamicform
 from django.contrib.auth.models import User
 
 
@@ -8,7 +8,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Document
         fields = ('url', 'datesubmitted', 'datepublished', 'title', 'publisher', 'institution',
-                  'status', 'filelink', 'pifirstname', 'pilastname',
+                  'filelink', 'pifirstname', 'pilastname',
                   'piemail', 'authorlist', 'department')
         readonly_fields = ('filelink')
 
@@ -16,7 +16,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
 class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Department
-        fields = ('url', 'name')
+        fields = ('url', 'name', 'settings')
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -35,4 +35,9 @@ class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
 class GrantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Grant
-        fields = ('url', 'number', 'department', 'document', 'settings')
+        fields = ('url', 'number', 'department', 'document', 'status')
+
+class DynamicformSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Dynamicform
+        fields = ('url', 'questions', 'answers', 'grant')

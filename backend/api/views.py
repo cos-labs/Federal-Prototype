@@ -1,5 +1,5 @@
-from api.models import Document, Department, Usertype, Grant
-from api.serializers import DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantSerializer
+from api.models import Document, Department, Usertype, Grant, Dynamicform
+from api.serializers import DynamicformSerializer, DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantSerializer
 # from rest_framework import generics, permissions
 from rest_framework import generics
 from rest_framework.decorators import api_view
@@ -17,6 +17,7 @@ def api_root(request, format=None):
         'users': reverse('user-list', request=request, format=format),
         'usertypes': reverse('usertype-list', request=request, format=format),
         'grants': reverse('grant-list', request=request, format=format),
+        'dynamicforms': reverse('dynamicform-list', request=request, format=format)
     })
 
 
@@ -63,3 +64,11 @@ class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
+
+class DynamicformList(generics.ListCreateAPIView):
+    queryset = Dynamicform.objects.all()
+    serializer_class = DynamicformSerializer
+
+class DynamicformDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Dynamicform.objects.all()
+    serializer_class = DynamicformSerializer
