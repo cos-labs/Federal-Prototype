@@ -157,7 +157,6 @@ class Grant(models.Model):
     document = models.ForeignKey('Document', related_name='grants')
     status = models.CharField(choices=STATUS_CHOICES, max_length=50)
 
-
     class Meta:
         permissions = (
             ('view_grant', 'View Grant'),

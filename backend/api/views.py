@@ -26,48 +26,59 @@ class DocumentList(generics.ListCreateAPIView):
     serializer_class = DocumentSerializer
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
+
 class DocumentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
+
 class DepartmentList(generics.ListCreateAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
+
 
 class DepartmentDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
 
+
 class UserList(generics.ListCreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
 
 class UserDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
+
 class UsertypeList(generics.ListCreateAPIView):
     queryset = Usertype.objects.all()
     serializer_class = UsertypeSerializer
 
+
 class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Usertype.objects.all()
     serializer_class = UsertypeSerializer
+
 
 class GrantList(generics.ListCreateAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
+
 class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Grant.objects.all()
     serializer_class = GrantSerializer
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
+
 class DynamicformList(generics.ListCreateAPIView):
     queryset = Dynamicform.objects.all()
     serializer_class = DynamicformSerializer
+
 
 class DynamicformDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Dynamicform.objects.all()
