@@ -127,8 +127,8 @@ class Usertype(models.Model):
 
 
 class Document(models.Model):
-    date_submitted = models.DateTimeField(auto_now_add=True)
-    date_published = models.DateTimeField()
+    datesubmitted = models.DateTimeField(auto_now_add=True)
+    datepublished = models.DateTimeField()
     title = models.CharField(max_length=200)
     publisher = models.CharField(max_length=100)
     institution = models.CharField(max_length=100)
@@ -138,11 +138,11 @@ class Document(models.Model):
     uuid = models.CharField(max_length=32, default='')
     file_link = models.FileField(upload_to=upload_to, default='')
 
-    PI_first_name = models.CharField(max_length=50)
-    PI_last_name = models.CharField(max_length=50)
-    PI_email = models.EmailField(max_length=100)
+    pifirstname = models.CharField(max_length=50)
+    pilastname = models.CharField(max_length=50)
+    piemail = models.EmailField(max_length=100)
 
-    author_list = models.CharField(max_length=500)
+    authorlist = models.CharField(max_length=500)
     # submitter = models.ForeignKey('auth.User', related_name='documents')
 
     class Meta:
