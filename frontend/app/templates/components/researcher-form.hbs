@@ -4,6 +4,7 @@
 
   <div class="dropdownHolder">
     <select class="departmentSelect select" onchange={{action "selectDepartment" value="target.value"}}>
+        <option>Select a Department</option>
       {{#each model.departments as |departmentChoice|}}
         <option selected={{eq department departmentChoice}} value={{departmentChoice}}>{{departmentChoice.name}}</option>
       {{/each}}
@@ -13,13 +14,8 @@
 
   <button class="btn btn-success addFunding" {{action "submit"}}>Add More Funding</button>
 
-   {{#file-chooser files=fileList as |component|}}
-        {{input type='file'
-            change=(action 'onFileInputChange' target=component)}}
-    {{/file-chooser}}
+   {{file-chooser files=fileList}}
 
-
-
-   <button class="btn btn-primary btn-lg btn-block metaData"  {{action "submit"}} > Next </button>
+   <button class="btn btn-primary btn-lg btn-block metaData"  {{action "submit" fileList}} > Next </button>
 
 </div>
