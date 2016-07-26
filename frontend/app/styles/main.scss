@@ -280,7 +280,7 @@ input[type="checkbox"] {
   padding-right: 10px;
 }
 
-.action-buttons li{
+.action-buttons li , .action-buttons a{
   text-align: center;
   display: inline;
   list-style-type: none;
@@ -291,7 +291,7 @@ input[type="checkbox"] {
   border: 1px solid #2e6da4;
   color: #fff;
   cursor: pointer;
-  padding:10px;
+  padding:8px;
   margin-left: 5px;
 
 }
@@ -472,8 +472,8 @@ table h4 {
 /*Status Filter*/
 #filters {
 	list-style:none;
-   margin-left: 17px;
    margin-top: 10px;
+   width: 423px;
 }
 
 	#filters li {
@@ -575,9 +575,13 @@ table h4 {
 
 .department-header{
     Width: 900px;
-    max-height: 50px;
+    max-height: 150px;
     margin-left:auto;
     margin-right:auto;
+    border-bottom: 1px solid #ababab;
+}
+.grant-number-header{
+    margin-left:100px;
 }
 .thead-default-tr-th{
     height:0;
@@ -608,9 +612,27 @@ table h4 {
   background: rgba(255, 255, 255, 0.0);
   text-align:center;
   outline: none;
-border:none;
+  border:none;
+   text-overflow: ellipsis;
 }
 
 .tb-file-viewer-header{
 margin-left:10px;
+}
+
+.formBuilderButtons{
+  float:right;
+  padding:5px;
+}
+
+.form-button-holder{
+  z-index:200;
+}
+.form-builder-save, .view-data, .clear-all{
+ display:none!important;
+}
+
+
+form-template{
+display:block;
 }

@@ -1,3 +1,4 @@
+
 import Ember from 'ember';
 //pull from  db
 const schema = {
@@ -203,9 +204,40 @@ const defaultJson = {
 export default Ember.Component.extend({
   didRender() {
     this._super(...arguments);
+    var self = this;
+    var fbTemplate = document.getElementById('fb-template');
+    var options = {
+      disableFields: [
+        'autocomplete',
+        'file',
+        'date',
+        'hidden',
+        'checkbox',
+        'checkbox-group',
+        'paragraph',
+        'number',
+        'radio-group',
+        'button',
+        'select',
+        'header'
+      ],
+      notify: {
+        success : function(){
+          var isEditing =(Ember.$("li").hasClass('editing'));
+          if(isEditing === false){
+             self.send('updateFormBuilder');
+          }
+        }
+      }
+
+
+    };
+  $(fbTemplate).formBuilder(options);
+  Ember.$(".ui-sortable").css("min-height", "150px");
   },
 
     _schemaList : [JSON.stringify(schema,null, 4)],
+
     metadataInputJson : JSON.stringify(schema,null, 4),
     schema: Ember.computed('metadataInputJson' , function(){
          return JSON.parse(this.get("metadataInputJson"));
@@ -229,7 +261,6 @@ export default Ember.Component.extend({
           return this.get("_schemaList").unshiftObject(data);
 
     }),
-
     actions: {
       save() {
        try {
@@ -243,6 +274,39 @@ export default Ember.Component.extend({
            Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 200, hight: 40 });
 
           return true;
+
+      },
+      updateFormBuilder(){
+          var propertiesArray = "";
+          var optionsArray = "";
+          var xml = Ember.$.parseXML( Ember.$("#fb-template").val()  );
+          var $xml = Ember.$( xml ),
+           $field = $xml.find('field');
+           for(var i = 0; i  <= $field.length; i++){
+              //var type = $field.eq(i).attr("type"),
+              //subtype = $field.eq(i).attr("subtype"),
+              var label = $field.eq(i).attr("label"),
+              name = $field.eq(i).attr("name"),
+              description = $field.eq(i).attr("description"),
+              placeholder = $field.eq(i).attr("placeholder");
+              if(label !== undefined){
+                 if(i === ($field.length-1)){
+                     propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"}';
+                     optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" }';
+                 }
+                 else{
+                     propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"},';
+                     optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" },';
+                 }
+               }
+           }
+         const schema = '{"schema":{"title":"Describe the document","description":"The meta data associated with the document that was uploaded.","type":"object","properties":{'+propertiesArray+'}},"options":{"helper":"The meta data associated with the document that was uploaded.","fields":{'+optionsArray+'}}}';
+         var data = JSON.parse(schema);
+         data.options.focus = "";
+         this.get("_schemaList").unshiftObject(data);
+                  document.getElementById("metadataJson").value = JSON.stringify(data,null, 4);
+
+
       },
       setDefault() {
         var setTodefault  = confirm("Are you sure you want to set your current work to the default Json array? You will lose your current Json array!");
@@ -255,6 +319,18 @@ export default Ember.Component.extend({
         }else{
 
         }
+      },
+      SetBuilderTo(typeofForm){
+        if(typeofForm === "wiziwig"){
+          Ember.$(".metaDataHolder").css("display" , "none");
+          Ember.$(".formBuilderHolder").css("display" , "block");
+        }else{
+          Ember.$(".formBuilderHolder").css("display" , "none");
+          Ember.$(".metaDataHolder").css("display" , "block");
+        }
+
       }
+
+
     }
 });
