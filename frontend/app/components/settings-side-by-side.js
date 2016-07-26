@@ -223,8 +223,8 @@ export default Ember.Component.extend({
       ],
       notify: {
         success : function(){
-          var isEditing =($("li").hasClass('editing'));
-          if(isEditing == false){
+          var isEditing =(Ember.$("li").hasClass('editing'));
+          if(isEditing === false){
              self.send('updateFormBuilder');
           }
         }
@@ -233,7 +233,7 @@ export default Ember.Component.extend({
 
     };
   $(fbTemplate).formBuilder(options);
-  $(".ui-sortable").css("min-height", "150px");
+  Ember.$(".ui-sortable").css("min-height", "150px");
   },
 
     _schemaList : [JSON.stringify(schema,null, 4)],
@@ -279,18 +279,18 @@ export default Ember.Component.extend({
       updateFormBuilder(){
           var propertiesArray = "";
           var optionsArray = "";
-          var xml = $.parseXML( $("#fb-template").val()  );
-          var $xml = $( xml ),
+          var xml = Ember.$.parseXML( Ember.$("#fb-template").val()  );
+          var $xml = Ember.$( xml ),
            $field = $xml.find('field');
            for(var i = 0; i  <= $field.length; i++){
-              var type = $field.eq(i).attr("type"),
-              subtype = $field.eq(i).attr("subtype"),
-              label = $field.eq(i).attr("label"),
+              //var type = $field.eq(i).attr("type"),
+              //subtype = $field.eq(i).attr("subtype"),
+              var label = $field.eq(i).attr("label"),
               name = $field.eq(i).attr("name"),
               description = $field.eq(i).attr("description"),
               placeholder = $field.eq(i).attr("placeholder");
               if(label !== undefined){
-                 if(i == ($field.length-1)){
+                 if(i === ($field.length-1)){
                      propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"}';
                      optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" }';
                  }
