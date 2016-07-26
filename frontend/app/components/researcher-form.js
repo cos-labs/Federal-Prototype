@@ -34,8 +34,10 @@ export default Ember.Component.extend( {
 
       store.findRecord('file', folderid).then(function(folder) {
         var file = fileList.pop();
-        var nf = fm.uploadFile(folder, file.name, file);
-        return nf;
+        let nf = fm.uploadFile(folder, file.name, file);
+        return nf.then((file) => {
+          return file;
+        });
 
       }).then(function(newFile) {
         console.log(newFile);

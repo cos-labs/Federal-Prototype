@@ -27,3 +27,6 @@ bower_components
 
 # old stuff
 ostp_files_emberV2
+
+#migrations
+backend/api/migrations

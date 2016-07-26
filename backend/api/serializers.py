@@ -7,9 +7,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
         model = Document
-        fields = ('url', 'date_submitted', 'date_published', 'title', 'publisher', 'institution',
-                  'status', 'file_link', 'PI_first_name', 'PI_last_name',
-                  'PI_email', 'author_list', 'department')
+        fields = ('url', 'name', 'path')
         readonly_fields = ('file_link')
 
 
