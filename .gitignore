@@ -32,4 +32,4 @@ ostp_files_emberV2
 backend/file/*
 
 #migrations
-backend/api/migrations
+backend/api/migrations/*
