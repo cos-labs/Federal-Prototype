@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework_json_api import serializers
 from api.models import Department, Usertype, Document, Grant
 from django.contrib.auth.models import User
 
