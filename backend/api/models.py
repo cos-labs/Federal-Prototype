@@ -142,7 +142,7 @@ class Document(models.Model):
     path = models.CharField(max_length=50, default='')  # TODO: error handling here
 
     def __str__(self):
-        return self.title
+        return self.name
 
 
     class Meta:

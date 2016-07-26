@@ -24,7 +24,7 @@ export default Ember.Route.extend({
           }
         );
       },
-      submit(grant, departmentId, fileList) {
+      submit(grant, departmentId, fileList, document) {
         
         var store = this.get('store');
         var folderid = "57878c5e8ca57e01e4774a90";
@@ -53,31 +53,25 @@ export default Ember.Route.extend({
           //   .then((doc) => {
           //     return doc;
           //   });
-          grant.set('document.name', name);
-          grant.set('document.path', path);
-          grant.set('department', department);
-          console.log('about to ~get~ document');
-          var d = grant.get('document');
-          console.log('successful get!');
-          console.log('d: ', d);
-          d.save();
-          grant.save()
-            .then((doc) => {
-              return doc;
+          console.log('setting name and path of document...');
+          document.set('name', name);
+          document.set('path', path);
+          document.save()
+            .then( function() {
+              grant.set('department', department);
+              grant.set('document', document);
+              console.log('about to ~get~ document');
+              console.log('successful get!');
+              grant.save()
+                .then((doc) => {
+                  return doc;
+                });
             });
 
 
-        }).then(function(doc) {
-          //
-          // var grant = store.createRecord('grant', {
-          //   department: department,
-          //   number: number,
-          //   document: doc,
-          //
-          // });
-          doc.get('grants').push(grant);
-          grant.save();
-          return grant;
+        }).then(function() {
+
+          console.log("YAY!!!");
 
         }).then(null, function(error) {
           console.log("Oops: " + error.message)
@@ -87,11 +81,8 @@ export default Ember.Route.extend({
     model() {
       return Ember.RSVP.hash({
       departments: this.get('store').findAll('department'),
-      grant: this.get('store').createRecord('grant',
-        {
-          document: this.get('store').createRecord('document')
-        }
-      ),
+      document: this.get('store').createRecord('document'),
+      grant: this.get('store').createRecord('grant'),
     });
     },
     setupController(controller, model) {

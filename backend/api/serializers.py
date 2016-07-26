@@ -37,9 +37,14 @@ class GrantSerializer(serializers.ModelSerializer):
         related_link_url_kwarg='department_pk'  # this line is scary
     )
 
+    document = relations.ResourceRelatedField(
+        queryset=Document.objects,
+        related_link_url_kwarg='document_pk'  # this line is scary
+    )
+
     class Meta:
         model = Grant
-        fields = ('id', 'number', 'department')
+        fields = ('id', 'number', 'document', 'department')
 
 
 class DynamicformSerializer(serializers.ModelSerializer):
