@@ -14,8 +14,7 @@ export default Model.extend({
   pilastname: attr('string'),
   piemail: attr('string'),
   authorlist: attr('string'),
+  name: attr('string', { defaultValue: 'Untitled'} ),
+  path: attr('string'),
   grants: hasMany('grant'),
-  pifullname: Ember.computed('pifirstname', 'pilastname', function() {
-    return `${this.get('pifirstname')} ${this.get('pilastname')}`;
-  })
 });

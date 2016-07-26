@@ -12,6 +12,11 @@ Hooplah hooplah hooplah.
 
 * Leo leo leo.
 
+## Installation
+* install ember-osf in home directory
+* make sure to ```ember install ../../ember-osf``` and ```npm link ../../ember-osf``` from the frontend directory of this repo.
+
+
 
 MFR stuff
 pip install virtualenv

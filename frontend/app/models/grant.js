@@ -4,7 +4,8 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   number: attr('string'),
-  department:  belongsTo('department'),
-  document: belongsTo('document'),
-  settings: attr('string'),
+  status: attr('string', { defaultValue: 'unread'}),
+  department:  belongsTo('department', async=true),
+  document: belongsTo('document', async=true),
+//  dynamicform: belongsTo('dynamicform')
 });
