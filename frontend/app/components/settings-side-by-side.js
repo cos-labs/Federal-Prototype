@@ -223,9 +223,13 @@ export default Ember.Component.extend({
       ],
       notify: {
         success : function(){
-          self.send('updateFormBuilder');
+          var isEditing =($("li").hasClass('editing'));
+          if(isEditing == false){
+             self.send('updateFormBuilder');
+          }
         }
       }
+
 
     };
   $(fbTemplate).formBuilder(options);
@@ -285,8 +289,6 @@ export default Ember.Component.extend({
               name = $field.eq(i).attr("name"),
               description = $field.eq(i).attr("description"),
               placeholder = $field.eq(i).attr("placeholder");
-              console.log(xml , placeholder);
-
               if(label !== undefined){
                  if(i == ($field.length-1)){
                      propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"}';
@@ -297,15 +299,13 @@ export default Ember.Component.extend({
                      optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" },';
                  }
                }
-
-
-
            }
-
          const schema = '{"schema":{"title":"Describe the document","description":"The meta data associated with the document that was uploaded.","type":"object","properties":{'+propertiesArray+'}},"options":{"helper":"The meta data associated with the document that was uploaded.","fields":{'+optionsArray+'}}}';
          var data = JSON.parse(schema);
          data.options.focus = "";
          this.get("_schemaList").unshiftObject(data);
+                  document.getElementById("metadataJson").value = JSON.stringify(data,null, 4);
+
 
       },
       setDefault() {
