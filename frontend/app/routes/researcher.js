@@ -67,12 +67,6 @@ export default Ember.Route.extend({
                   return doc;
                 });
             });
-
-
-        }).then(function() {
-
-          console.log("YAY!!!");
-
         }).then(null, function(error) {
           console.log("Oops: " + error.message)
         });
