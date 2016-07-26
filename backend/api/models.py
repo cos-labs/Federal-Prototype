@@ -112,13 +112,18 @@ STATUS_CHOICES = (
     (3, 'archived')
 )
 
+
 def upload_to(instance, filename):
     instance.uuid = uuid.uuid4().hex
-    return 'file/%s' % (instance.uuid)
+    return 'file/%s' % instance.uuid
+
 
 class Department(models.Model):
     name = models.CharField(max_length=50)
     settings = models.TextField(default=schema)
+
+    def __str__(self):
+        return self.name
 
 
 class Usertype(models.Model):
@@ -126,24 +131,18 @@ class Usertype(models.Model):
     usertype = models.CharField(choices=USER_TYPES, max_length=50)
     department = models.ForeignKey('Department', related_name='moderator', blank=True, null=True)
 
+    def __str__(self):
+        return self.usertype
+
 
 class Document(models.Model):
     datesubmitted = models.DateTimeField(auto_now_add=True)
-    datepublished = models.DateTimeField()
     title = models.CharField(max_length=200)
-    publisher = models.CharField(max_length=100)
-    institution = models.CharField(max_length=100)
-    department = models.ForeignKey('Department', related_name="document")
-
     uuid = models.CharField(max_length=32, default='')
     filelink = models.FileField(upload_to=upload_to, default='')
 
-    pifirstname = models.CharField(max_length=50)
-    pilastname = models.CharField(max_length=50)
-    piemail = models.EmailField(max_length=100)
-
-    authorlist = models.CharField(max_length=500)
-    # submitter = models.ForeignKey('auth.User', related_name='documents')
+    def __str__(self):
+        return self.title
 
     class Meta:
         permissions = (
@@ -154,8 +153,12 @@ class Document(models.Model):
 class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
-    document = models.ForeignKey('Document', related_name='grants')
-    status = models.CharField(choices=STATUS_CHOICES, max_length=50)
+    # document = models.ForeignKey('Document', related_name='grants')
+    # status = models.CharField(choices=STATUS_CHOICES, max_length=50)
+
+    def __str__(self):
+        # return "(" + self.department.name + ") " + self.document.title
+        return self.number
 
     class Meta:
         permissions = (

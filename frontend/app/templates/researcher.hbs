@@ -3,7 +3,7 @@
 
 
 {{#if (eq isFileUploaded "researcher-form")}}
-  {{researcher-form model=model data=model validateForm="validateForm"}}
+  {{researcher-form model=model action='saveGrant'}}
 {{else if (eq isFileUploaded "meta-data") }}
   {{meta-data validateForm="validateForm"}}
 {{else if (eq isFileUploaded "successful-upload")}}

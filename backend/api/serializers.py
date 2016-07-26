@@ -7,9 +7,7 @@ class DocumentSerializer(serializers.HyperlinkedModelSerializer):
     # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
         model = Document
-        fields = ('url', 'datesubmitted', 'datepublished', 'title', 'publisher', 'institution',
-                  'filelink', 'pifirstname', 'pilastname',
-                  'piemail', 'authorlist', 'department')
+        fields = ('url', 'datesubmitted','title','filelink')
         readonly_fields = ('filelink')
 
 
@@ -27,6 +25,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
 
 class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
     department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
+
     class Meta:
         model = Usertype
         fields = ('url', 'department', 'usertype', 'user')
@@ -35,7 +34,8 @@ class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
 class GrantSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Grant
-        fields = ('url', 'number', 'department', 'document', 'status')
+        fields = ('url', 'number', 'department')
+        # fields = ('url', 'number')
 
 class DynamicformSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:

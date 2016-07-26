@@ -3,19 +3,19 @@
 
 
   <div class="dropdownHolder">
-    <select class="departmentSelect select" onchange={{action "selectDepartment" value="target.value"}}>
+    <select class="departmentSelect select" onchange={{action (mut departmentId) value="target.value"}}>
         <option>Select a Department</option>
       {{#each model.departments as |departmentChoice|}}
-        <option selected={{eq department departmentChoice}} value={{departmentChoice}}>{{departmentChoice.name}}</option>
+        <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
       {{/each}}
     </select>
-    {{input value=grantNumber class="form-control" id="grantid" placeholder="Grant Number"}}
+    {{input value=model.grant.number class="form-control" id="grantid" placeholder="Grant Number"}}
   </div>
 
   <button class="btn btn-success addFunding" {{action "submit"}}>Add More Funding</button>
 
    {{file-chooser files=fileList}}
 
-   <button class="btn btn-primary btn-lg btn-block metaData"  {{action "submit" fileList}} > Next </button>
+   <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'buttonClicked' model.grant departmentId}} > Next </button>
 
 </div>
