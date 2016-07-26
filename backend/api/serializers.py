@@ -9,24 +9,33 @@ class DocumentSerializer(serializers.ModelSerializer):
         model = Document
         fields = ('url', 'name', 'path')
         readonly_fields = ('file_link')
+    class JSONAPIMeta:
+        resource_name = "documents"
+
 
 
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
         fields = ('id', 'name', 'settings')
+    class JSONAPIMeta:
+        resource_name = "departments"
 
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'password')
+    class JSONAPIMeta:
+        resource_name = "users"
 
 
 class UsertypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usertype
         fields = ('id', 'department', 'usertype', 'user')
+    class JSONAPIMeta:
+        resource_name = "usertypes"
 
 
 class GrantSerializer(serializers.ModelSerializer):
@@ -45,9 +54,12 @@ class GrantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grant
         fields = ('id', 'number', 'document', 'department')
-
+    class JSONAPIMeta:
+        resource_name = "grants"
 
 class DynamicformSerializer(serializers.ModelSerializer):
     class Meta:
         model = Dynamicform
         fields = ('id', 'questions', 'answers', 'grant')
+    class JSONAPIMeta:
+        resource_name = "dynamicforms"
