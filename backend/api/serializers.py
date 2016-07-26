@@ -13,7 +13,6 @@ class DocumentSerializer(serializers.ModelSerializer):
         resource_name = "documents"
 
 
-
 class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
