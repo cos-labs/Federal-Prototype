@@ -6,24 +6,24 @@ export default Ember.Route.extend({
     store: Ember.inject.service(),
 
     actions: {
-      saveGrant(grant, departmentId, document) {
-        // grant.save();
-        console.log('g number: ', grant.get('number'));
-        console.log('looking for department with id: ', departmentId);
-        this.get('store').findRecord('department', departmentId)
-          .then( function(d) {
-            if (d === null) {
-              console.log('no department found (null)');
-            }
-            d.get('grants').pushObject(grant);
-            console.log();
-            // grant.set('department', d.get('id'));
-            console.log('dept object:', grant.get('department').get('name'));
-          }).then( function() {
-            grant.save();
-          }
-        );
-      },
+      // saveGrant(grant, departmentId, document) {
+      //   // grant.save();
+      //   console.log('g number: ', grant.get('number'));
+      //   console.log('looking for department with id: ', departmentId);
+      //   this.get('store').findRecord('department', departmentId)
+      //     .then( function(d) {
+      //       if (d === null) {
+      //         console.log('no department found (null)');
+      //       }
+      //       d.get('grants').pushObject(grant);
+      //       console.log();
+      //       // grant.set('department', d.get('id'));
+      //       console.log('dept object:', grant.get('department').get('name'));
+      //     }).then( function() {
+      //       grant.save();
+      //     }
+      //   );
+      // },
       submit(grant, departmentId, fileList, document) {
         
         var store = this.get('store');
@@ -41,34 +41,19 @@ export default Ember.Route.extend({
         }).then(function(newFile) {
           var name = newFile.get('name');
           var path = newFile.get('path');
-          console.log('grant.document: ', grant.document);
-          console.log('grant.get(\'document\'): ', grant.get('document'));
-          console.log('grant.get(document.name): ', grant.get('document.name'));
-          console.log('name: ', name);
-          console.log('path: ', path);
-
-          // grant.set('document.name', newFile.get('name'))
-          //   .then(() => grant.set('document.path', newFile.get('path')), (error) => console.log(error.message))
-          //   .then(() => grant.get('document').save())
-          //   .then((doc) => {
-          //     return doc;
-          //   });
-          console.log('setting name and path of document...');
           document.set('name', name);
           document.set('path', path);
           document.save()
             .then( function() {
               grant.set('department', department);
               grant.set('document', document);
-              console.log('about to ~get~ document');
-              console.log('successful get!');
               grant.save()
                 .then((doc) => {
                   return doc;
                 });
             });
         }).then(null, function(error) {
-          console.log("Oops: " + error.message)
+          console.log("Oops: " + error.message);
         });
       }
     },
