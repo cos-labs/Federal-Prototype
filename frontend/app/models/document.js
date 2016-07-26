@@ -4,7 +4,7 @@ import { hasMany } from 'ember-data/relationships';
 
 export default Model.extend({
   datesubmitted: attr('string'),
-  title: attr('string', { defaultValue: 'Untitled'} ),
-  filelink: attr('string'),
+  name: attr('string', { defaultValue: 'Untitled'} ),
+  paths: attr('string'),
   grants: hasMany('grant'),
 });

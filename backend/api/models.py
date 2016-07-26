@@ -112,7 +112,7 @@ STATUS_CHOICES = (
     (3, 'archived')
 )
 
-
+# necessary for local uploads only
 def upload_to(instance, filename):
     instance.uuid = uuid.uuid4().hex
     return 'file/%s' % instance.uuid
@@ -136,13 +136,14 @@ class Usertype(models.Model):
 
 
 class Document(models.Model):
+
     datesubmitted = models.DateTimeField(auto_now_add=True)
-    title = models.CharField(max_length=200)
-    uuid = models.CharField(max_length=32, default='')
-    filelink = models.FileField(upload_to=upload_to, default='')
+    name = models.CharField(max_length=300, default='Untitled')
+    path = models.CharField(max_length=50, default='')  # TODO: error handling here
 
     def __str__(self):
         return self.title
+
 
     class Meta:
         permissions = (
@@ -153,7 +154,7 @@ class Document(models.Model):
 class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
-    # document = models.ForeignKey('Document', related_name='grants')
+    document = models.ForeignKey('Document', related_name='grants')
     # status = models.CharField(choices=STATUS_CHOICES, max_length=50)
 
     def __str__(self):

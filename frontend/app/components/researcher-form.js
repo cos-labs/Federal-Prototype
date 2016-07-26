@@ -7,9 +7,10 @@ export default Ember.Component.extend( {
   departmentId: -1,
   actions: {
 
-    buttonClicked(param1, param2) {
-      this.sendAction('action', param1, param2);
+    buttonClicked(param1, param2, param3) {
+      this.sendAction('action', param1, param2, param3);
     }
+
   }
 });
 

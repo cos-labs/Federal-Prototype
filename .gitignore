@@ -30,3 +30,6 @@ ostp_files_emberV2
 
 # files uploaded through API UI
 backend/file/*
+
+#migrations
+backend/api/migrations
