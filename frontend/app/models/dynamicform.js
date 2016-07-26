@@ -6,5 +6,5 @@ import { belongsTo } from 'ember-data/relationships';
 export default Model.extend({
   questions: attr('string'),
   answers: attr('string'),
-  grant: belongsTo('grant')
+//  grant: belongsTo('grant')
 });
