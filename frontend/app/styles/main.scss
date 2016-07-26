@@ -619,3 +619,19 @@ table h4 {
 .tb-file-viewer-header{
 margin-left:10px;
 }
+
+.formBuilderButtons{
+  float:right;
+  padding:5px;
+}
+
+.form-button-holder{
+  z-index:200;
+}
+.form-builder-save, .view-data{
+ display:none!important;
+}
+
+form-template{
+display:block;
+}
