@@ -5,25 +5,20 @@ export default Ember.Route.extend({
       saveGrant(grant, departmentId, document) {
         // grant.save();
         console.log('g number: ', grant.get('number'));
-        // console.log('g status: ', grant.status);
-        console.log('getting department based on grant.departmentid');
-        console.log('peeking for department with id: ', departmentId);
+        console.log('looking for department with id: ', departmentId);
         this.get('store').findRecord('department', departmentId)
           .then( function(d) {
             if (d === null) {
               console.log('no department found (null)');
             }
             d.get('grants').pushObject(grant);
-            // grant.set('department', d);
+            console.log()
+            // grant.set('department', d.get('id'));
             console.log('dept object:', grant.get('department').get('name'));
           }).then( function() {
             grant.save();
           }
         );
-        // console.log('setting dept to that number');
-        // grant.set('department', dept);
-        // console.log('attempting save of: ', grant);
-        console.log('depID: ', departmentId);
       }
     },
     model() {
