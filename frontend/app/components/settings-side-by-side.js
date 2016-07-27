@@ -201,6 +201,8 @@ const defaultJson = {
   }
 };
 
+var check = true;
+
 export default Ember.Component.extend({
   didRender() {
     this._super(...arguments);
@@ -262,7 +264,9 @@ export default Ember.Component.extend({
     }),
     actions: {
       save() {
-       try {
+      console.log(check);
+        if(check){
+          try {
           JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
            console.log("Error in json");
@@ -273,9 +277,13 @@ export default Ember.Component.extend({
            Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 200, hight: 40 });
 
           return true;
+        }else{
+          Ember.$.bootstrapGrowl("Error: You have fields that are undefined!", { type: 'danger', align: 'center' , width: 350, hight: 40 });
 
+        }
       },
       updateFormBuilder(){
+          check = false;
           var propertiesArray = [];
           var optionsArray = [];
           var xml = Ember.$.parseXML( Ember.$("#fb-template").val()  );
@@ -291,6 +299,16 @@ export default Ember.Component.extend({
               placeholder = $field.eq(i).attr("placeholder"),
               options = [],
               optionValue = [];
+              if(i === ($field.length-1)){
+                console.log(label , name , placeholder , description)
+                if(label !== undefined && name !== undefined  && placeholder !== undefined && description  !== undefined ){
+                  check = true;
+                }else{
+
+                  check = false;
+                }
+               }
+
               for(var n = 0; n <= $field.eq(i).children().length; n++){
                 if($field.eq(i).children().eq(n).val() !== undefined){
                   options.push('"'+$field.eq(i).children().eq(n).text()+'"');
@@ -300,6 +318,7 @@ export default Ember.Component.extend({
               options = "["+options.toString()+"]";
               optionValue = "["+optionValue.toString()+"]";
 
+              //This is where the xml to JSON happens
               if(label !== undefined){
                 if(type ==="select"){
                    propertiesArray.push('"'+name+'": {"type":"string","title":"'+label+'","enum":'+optionValue+'}');
