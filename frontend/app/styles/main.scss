@@ -428,6 +428,9 @@ table h4 {
 	background-repeat: no-repeat;
   resize:vertical;
 }
+textarea{
+  resize:vertical;
+}
 
 .settings-body{
   display: -webkit-flex;
@@ -447,6 +450,7 @@ table h4 {
     display: flex;
     position:fixed;
     right:0;
+    top: 50px;
     }
 
 .flex-item {
@@ -631,7 +635,11 @@ margin-left:10px;
 .form-builder-save, .view-data, .clear-all{
  display:none!important;
 }
+.clear-all{
+width:150px;
+order-radius: 5px;
 
+}
 
 form-template{
 display:block;
