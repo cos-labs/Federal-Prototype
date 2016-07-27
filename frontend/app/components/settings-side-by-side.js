@@ -299,12 +299,13 @@ export default Ember.Component.extend({
               placeholder = $field.eq(i).attr("placeholder"),
               options = [],
               optionValue = [];
+
               if(i === ($field.length-1)){
-                console.log(label , name , placeholder , description)
+                console.log(label , name , placeholder , description,$field.length )
                 if(label !== undefined && name !== undefined  && placeholder !== undefined && description  !== undefined ){
                   check = true;
                 }else{
-
+                console.log(label , name , placeholder , description,$field.length )
                   check = false;
                 }
                }
