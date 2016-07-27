@@ -27,7 +27,7 @@
                 <td class="fileName" colspan="2">
                     <ul>
                         <li>{{grant.document.title}}</li>
-                        <li><a href={{grant.document.filelink}} target="_top">Download File</a></li>
+                        <li><a href={{get-api grant.document.path}} target="_blank">View File API</a></li>
                     </ul>
                 </td>
             </tr>
@@ -87,7 +87,7 @@
     </div>
 
       <span class='view-document'>
-          {{file-renderer}}
+          {{file-renderer download=(get-download grant.document.path)}}      
       </span>
 
 </div>
