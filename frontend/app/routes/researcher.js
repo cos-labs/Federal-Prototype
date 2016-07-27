@@ -6,30 +6,13 @@ export default Ember.Route.extend({
     store: Ember.inject.service(),
 
     actions: {
-      // saveGrant(grant, departmentId, document) {
-      //   // grant.save();
-      //   console.log('g number: ', grant.get('number'));
-      //   console.log('looking for department with id: ', departmentId);
-      //   this.get('store').findRecord('department', departmentId)
-      //     .then( function(d) {
-      //       if (d === null) {
-      //         console.log('no department found (null)');
-      //       }
-      //       d.get('grants').pushObject(grant);
-      //       console.log();
-      //       // grant.set('department', d.get('id'));
-      //       console.log('dept object:', grant.get('department').get('name'));
-      //     }).then( function() {
-      //       grant.save();
-      //     }
-      //   );
-      // },
       submit(grant, departmentId, fileList, document) {
         
         var store = this.get('store');
         var folderid = "57878c5e8ca57e01e4774a90";
         var fm = this.get('fileManager');
         var department = this.get('store').peekRecord('department', departmentId);
+        var controller = this.controller;
 
         store.findRecord('file', folderid).then(function(folder) {
           var file = fileList.pop();
@@ -37,7 +20,6 @@ export default Ember.Route.extend({
           return nf.then((file) => {
             return file;
           });
-
         }).then(function(newFile) {
           var name = newFile.get('name');
           var path = newFile.get('path');
@@ -54,6 +36,8 @@ export default Ember.Route.extend({
             });
         }).then(null, function(error) {
           console.log("Oops: " + error.message);
+        }).then(function() {
+          controller.set("isFileUploaded", "meta-data");
         });
       }
     },
