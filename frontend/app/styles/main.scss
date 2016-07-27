@@ -308,13 +308,20 @@ input[type="checkbox"] {
 
 }
 .view-document {
-  border-top: 1px solid #2e6da4;
-  margin-top:50px;
+  overflow:hidden;
+  padding-right: 5px;
   display:none;
+  margin-top: -560px;
+  width: inherit;
+  height:inherit!important;
 
 
 }
 
+.view-document div iframe{
+height:540px;
+
+}
 .document-more-info{
   height:100%;
 }
