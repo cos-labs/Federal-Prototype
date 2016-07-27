@@ -1,10 +1,9 @@
 import Ember from 'ember';
 
+// Take in file path as params[0]
 export function getDownload(params/*, hash*/) {
-    var path = params[0];
     var download = 'https://staging-files.osf.io/v1/resources/zr5mn/providers/osfstorage';
-    var link = download + path;
-    return link;
+    return download + params[0];
 }
 
 export default Ember.Helper.helper(getDownload);
