@@ -14,7 +14,7 @@
     <ul class="action-buttons">
         <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
         <li class='view-document-button' {{action "viewDocument" this}}>View Document<span class="caret"></span></li>
-        <a href={{grant.document.filelink}} target="_top" >Download</a>
+        <a href={{get-download grant.document.path}} target="_top" >Download</a>
     </ul>
 
     <div class='more-info'>
