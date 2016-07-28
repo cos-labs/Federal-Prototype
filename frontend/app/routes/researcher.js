@@ -7,7 +7,7 @@ export default Ember.Route.extend({
 
     actions: {
       submit(grant, departmentId, fileList, document) {
-        
+
         var store = this.get('store');
         var folderid = "57878c5e8ca57e01e4774a90";
         var fm = this.get('fileManager');
@@ -34,18 +34,18 @@ export default Ember.Route.extend({
                   return doc;
                 });
             });
-        }).then(null, function(error) {
-          console.log("Oops: " + error.message);
         }).then(function() {
-          controller.set("isFileUploaded", "meta-data");
+          controller.set('isFileUploaded', 'meta-data');
+        }, function(error) {
+          console.log("Oops: " + error.message);
         });
       }
     },
     model() {
       return Ember.RSVP.hash({
-      departments: this.get('store').findAll('department'),
-      document: this.get('store').createRecord('document'),
-      grant: this.get('store').createRecord('grant'),
+      departments: this.store.findAll('department'),
+      document: this.store.createRecord('document'),
+      grant: this.store.createRecord('grant')
     });
     },
     setupController(controller, model) {
