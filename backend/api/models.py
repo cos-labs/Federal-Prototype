@@ -98,7 +98,7 @@ schema = '''{
 
     }
   }
-};
+}
 '''
 
 USER_TYPES = (
@@ -154,23 +154,31 @@ class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
     document = models.ForeignKey('Document', related_name='grants')
-    # status = models.CharField(choices=STATUS_CHOICES, max_length=50)
+    status = models.CharField(choices=STATUS_CHOICES, max_length=50)
+    questions = models.TextField(default=schema, blank=True, null=True)
+    answers = models.TextField(default='', blank=True, null=True)
 
     def __str__(self):
-        # return "(" + self.department.name + ") " + self.document.title
-        return self.number
+        return self.number + " / " + self.department.name + " / " + self.document.name
 
     class Meta:
         permissions = (
             ('view_grant', 'View Grant'),
         )
 
-class Dynamicform(models.Model):
-    questions = models.TextField(default='')
-    answers = models.TextField(default='')
-    grant = models.ForeignKey('Grant', related_name='dynamicforms')
-
     def save(self, *args, **kwargs):
         if not self.questions:
-            self.questions = self.grant.department.settings
-        super(Dynamicform, self).save(*args, **kwargs)
+            self.questions = self.department.settings
+        super(Grant, self).save(*args, **kwargs)
+
+
+#
+# class Dynamicform(models.Model):
+#     questions = models.TextField(default=schema, blank=True, null=True)
+#     answers = models.TextField(default='', blank=True, null=True)
+#     grant = models.ForeignKey('Grant', related_name='dynamicforms')
+#
+    # def save(self, *args, **kwargs):
+    #     if not self.questions:
+    #         self.questions = self.grant.department.settings
+    #     super(Dynamicform, self).save(*args, **kwargs)

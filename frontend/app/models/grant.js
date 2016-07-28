@@ -7,5 +7,6 @@ export default Model.extend({
   status: attr('string', { defaultValue: 'unread'}),
   department:  belongsTo('department'),
   document: belongsTo('document'),
-//  dynamicform: belongsTo('dynamicform')
+  questions: attr('string'),
+  answers: attr('string'),
 });
