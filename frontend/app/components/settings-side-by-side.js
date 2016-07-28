@@ -201,6 +201,9 @@ const defaultJson = {
   }
 };
 
+var check = true;
+var checkArray = [];
+
 export default Ember.Component.extend({
   didRender() {
     this._super(...arguments);
@@ -218,7 +221,6 @@ export default Ember.Component.extend({
         'number',
         'radio-group',
         'button',
-        'select',
         'header'
       ],
       notify: {
@@ -263,7 +265,9 @@ export default Ember.Component.extend({
     }),
     actions: {
       save() {
-       try {
+      console.log(check);
+        if(check){
+          try {
           JSON.parse(this.get("metadataInputJson"));
           } catch (e) {
            console.log("Error in json");
@@ -274,37 +278,69 @@ export default Ember.Component.extend({
            Ember.$.bootstrapGrowl("Successfully saved!", { type: 'success', align: 'center' , width: 200, hight: 40 });
 
           return true;
+        }else{
+          Ember.$.bootstrapGrowl("Error: You have fields that are undefined!", { type: 'danger', align: 'center' , width: 350, hight: 40 });
 
+        }
       },
       updateFormBuilder(){
-          var propertiesArray = "";
-          var optionsArray = "";
+          check = false;
+          var propertiesArray = [];
+          var optionsArray = [];
           var xml = Ember.$.parseXML( Ember.$("#fb-template").val()  );
-          var $xml = Ember.$( xml ),
-           $field = $xml.find('field');
+          var $xml = Ember.$( xml );
+          var $field = $xml.find('field');
+
            for(var i = 0; i  <= $field.length; i++){
-              //var type = $field.eq(i).attr("type"),
+              var type = $field.eq(i).attr("type");
               //subtype = $field.eq(i).attr("subtype"),
               var label = $field.eq(i).attr("label"),
               name = $field.eq(i).attr("name"),
               description = $field.eq(i).attr("description"),
-              placeholder = $field.eq(i).attr("placeholder");
+              placeholder = $field.eq(i).attr("placeholder"),
+              options = [],
+              optionValue = [];
+
+              if(i === ($field.length-1)){
+                if(label !== undefined && name !== undefined  && placeholder !== undefined && description  !== undefined ){
+                  check = true;
+                  checkArray.push(true);
+                }else{
+                  check = false;
+                  checkArray.push(placeholder);
+                }
+
+                console.log($field.length , checkArray);
+               }
+
+
+
+              for(var n = 0; n <= $field.eq(i).children().length; n++){
+                if($field.eq(i).children().eq(n).val() !==  undefined){
+                  options.push('"'+$field.eq(i).children().eq(n).text()+'"');
+                  optionValue.push('"'+$field.eq(i).children().eq(n).attr("value")+'"');
+                }
+              }
+              options = "["+options.toString()+"]";
+              optionValue = "["+optionValue.toString()+"]";
+
+              //This is where the xml to JSON happens
               if(label !== undefined){
-                 if(i === ($field.length-1)){
-                     propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"}';
-                     optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" }';
-                 }
-                 else{
-                     propertiesArray += '"'+name+'": {"type":"string","title":"'+label+'"},';
-                     optionsArray += '"'+name+'": {"size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" },';
+                if(type ==="select"){
+                   propertiesArray.push('"'+name+'": {"type":"string","title":"'+label+'","enum":'+optionValue+'}');
+                   optionsArray.push('"'+name+'": {"type":"'+type+'", "helper": "'+description+'", "placeholder": "'+placeholder+'","optionLabels": '+options+' }');
+
+                 }else{
+                   propertiesArray.push('"'+name+'": {"type":"string","title":"'+label+'"}');
+                   optionsArray.push('"'+name+'": {"type":"'+type+'","size": 256, "helper": "'+description+'", "placeholder": "'+placeholder+'" }');
                  }
                }
            }
-         const schema = '{"schema":{"title":"Describe the document","description":"The meta data associated with the document that was uploaded.","type":"object","properties":{'+propertiesArray+'}},"options":{"helper":"The meta data associated with the document that was uploaded.","fields":{'+optionsArray+'}}}';
+         const schema = '{"schema":{"title":"Describe the document","description":"The meta data associated with the document that was uploaded.","type":"object","properties":{'+propertiesArray.toString()+'}},"options":{"helper":"The meta data associated with the document that was uploaded.","fields":{'+optionsArray.toString()+'}}}';
          var data = JSON.parse(schema);
          data.options.focus = "";
          this.get("_schemaList").unshiftObject(data);
-                  document.getElementById("metadataJson").value = JSON.stringify(data,null, 4);
+         document.getElementById("metadataJson").value = JSON.stringify(data,null, 4);
 
 
       },
@@ -315,10 +351,7 @@ export default Ember.Component.extend({
          Ember.$(".settingsHolder, .form-table").css("border-top", " 5px solid #2e6da4");
           this.get("_schemaList").unshiftObject(defaultJson);
           Ember.$.bootstrapGrowl("Successfully set to default json array!", { type: 'info', align: 'center' , width: 350, hight: 40 });
-
-        }else{
-
-        }
+        }else{}
       },
       SetBuilderTo(typeofForm){
         if(typeofForm === "wiziwig"){
