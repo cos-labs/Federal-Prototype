@@ -202,6 +202,7 @@ const defaultJson = {
 };
 
 var check = true;
+var checkArray = [];
 
 export default Ember.Component.extend({
   didRender() {
@@ -301,17 +302,21 @@ export default Ember.Component.extend({
               optionValue = [];
 
               if(i === ($field.length-1)){
-                console.log(label , name , placeholder , description,$field.length )
                 if(label !== undefined && name !== undefined  && placeholder !== undefined && description  !== undefined ){
                   check = true;
+                  checkArray.push(true);
                 }else{
-                console.log(label , name , placeholder , description,$field.length )
                   check = false;
+                  checkArray.push(placeholder);
                 }
+
+                console.log($field.length , checkArray);
                }
 
+
+
               for(var n = 0; n <= $field.eq(i).children().length; n++){
-                if($field.eq(i).children().eq(n).val() !== undefined){
+                if($field.eq(i).children().eq(n).val() !==  undefined){
                   options.push('"'+$field.eq(i).children().eq(n).text()+'"');
                   optionValue.push('"'+$field.eq(i).children().eq(n).attr("value")+'"');
                 }
@@ -346,10 +351,7 @@ export default Ember.Component.extend({
          Ember.$(".settingsHolder, .form-table").css("border-top", " 5px solid #2e6da4");
           this.get("_schemaList").unshiftObject(defaultJson);
           Ember.$.bootstrapGrowl("Successfully set to default json array!", { type: 'info', align: 'center' , width: 350, hight: 40 });
-
-        }else{
-
-        }
+        }else{}
       },
       SetBuilderTo(typeofForm){
         if(typeofForm === "wiziwig"){
