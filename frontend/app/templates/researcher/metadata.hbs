@@ -1,6 +1,5 @@
-{{yield}}
+{{outlet}}
 <div class="form-table">
   {{dynamic-form schema=model.grant.questions}}
   <button class="btn btn-primary btn-lg btn-block metaData"  {{action "submit" model}} > Submit Document </button>
 </div>
-{{model.grant.questions}}

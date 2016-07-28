@@ -1,11 +1,2 @@
-{{outlet}}
 {{researcher-status-header}}
-
-
-{{#if (eq isFileUploaded "researcher-form")}}
-  {{researcher-form model=model action='submit'}}
-{{else if (eq isFileUploaded "meta-data") }}
-  {{meta-data validateForm="validateForm" model=model}}
-{{else if (eq isFileUploaded "successful-upload")}}
-  {{successful-upload validateForm="validateForm"}}
-{{/if}}
+{{outlet}}
