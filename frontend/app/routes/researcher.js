@@ -1,21 +1,16 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-    actions: {
-      validateForm: function () {
-        //this.controller.get("isFileUploaded")
-        this.controller.set("isFileUploaded" , true);
-      }
-    },
-    model() {
+ beforeModel: function() {
+    if(document.location.pathname === "/researcher/grant"){ this.transitionTo('researcher.grant'); }
+    else if(document.location.pathname === "/researcher/metadata"){ this.transitionTo('researcher.metadata'); }
+    else{this.transitionTo('researcher.grant'); }
+  },
+  model() {
       return Ember.RSVP.hash({
-      departments: this.get('store').findAll('department'),
-      grants: this.get('store').findAll('grant')
+      departments: this.store.findAll('department'),
+      document: this.store.createRecord('document'),
+      grant: this.store.createRecord('grant'),
     });
     },
-    setupController(controller, model) {
-
-      this._super(controller, model);
-      controller.set('isFileUploaded', false);
-  }
 });

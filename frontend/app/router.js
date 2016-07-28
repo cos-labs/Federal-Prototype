@@ -6,10 +6,17 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('researcher');
-  this.route('admin');
+  this.route('researcher', function() {
+    this.route('metadata');
+    this.route('grant');
+  });
   this.route('login');
-  this.route('settings');
+  this.route('moderator');
+  this.route('settings', function() {
+    this.route('metadata');
+    this.route('api');
+  });
 });
 
 export default Router;
+

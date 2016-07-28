@@ -1,38 +1,69 @@
-from rest_framework import serializers
+from rest_framework_json_api import serializers, relations
 from api.models import Department, Usertype, Document, Grant
 from django.contrib.auth.models import User
 
 
-class DocumentSerializer(serializers.HyperlinkedModelSerializer):
-    department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
+class DocumentSerializer(serializers.ModelSerializer):
+    # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
     class Meta:
         model = Document
-        fields = ('url', 'date_submitted', 'date_published', 'title', 'publisher', 'institution',
-                  'status', 'file_link', 'PI_first_name', 'PI_last_name',
-                  'PI_email', 'author_list', 'department')
+        fields = ('url', 'name', 'path')
         readonly_fields = ('file_link')
 
+    class JSONAPIMeta:
+        resource_name = "documents"
 
-class DepartmentSerializer(serializers.HyperlinkedModelSerializer):
+
+class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Department
-        fields = ('url', 'name')
+        fields = ('id', 'name', 'settings')
+
+    class JSONAPIMeta:
+        resource_name = "departments"
 
 
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'id', 'username', 'password')
+        fields = ('id', 'username', 'password')
+
+    class JSONAPIMeta:
+        resource_name = "users"
 
 
-class UsertypeSerializer(serializers.HyperlinkedModelSerializer):
-    department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
+class UsertypeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Usertype
-        fields = ('url', 'department', 'usertype', 'user')
+        fields = ('id', 'department', 'usertype', 'user')
+
+    class JSONAPIMeta:
+        resource_name = "usertypes"
 
 
-class GrantSerializer(serializers.HyperlinkedModelSerializer):
+class GrantSerializer(serializers.ModelSerializer):
+
+    # this requires extensive testing! I'm not sure if it actually works, though I believe it does
+    department = relations.ResourceRelatedField(
+        queryset=Department.objects,
+        related_link_url_kwarg='department_pk'  # this line is scary
+    )
+
+    document = relations.ResourceRelatedField(
+        queryset=Document.objects,
+        related_link_url_kwarg='document_pk'  # this line is scary
+    )
+
     class Meta:
         model = Grant
-        fields = ('url', 'number', 'department', 'document')
+        fields = ('id', 'number', 'document', 'department', 'questions', 'answers')
+
+    class JSONAPIMeta:
+        resource_name = "grants"
+#
+# class DynamicformSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Dynamicform
+#         fields = ('id', 'questions', 'answers', 'grant')
+#     class JSONAPIMeta:
+#         resource_name = "dynamicforms"
