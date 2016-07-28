@@ -1,8 +1,8 @@
 import Ember from 'ember';
 
-// Take in file path as params[0]
+// Take in doc id as params[0]
 export function getApi(params/*, hash*/) {
-    var link = 'https://staging-api.osf.io/v2/files';
+    var link = 'localhost:8000/documents/';
     return link + params[0];
 }
 
