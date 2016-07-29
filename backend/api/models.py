@@ -96,10 +96,17 @@ schema = '''{
         "placeholder": "e.g. Cameron, Blandford Carolyn Stewart, Ryan Mason"
       }
 
+    },
+    "form": {
+        "buttons": {
+            "submit": {
+                "title": "Submit!"
+            }
+        }
     }
   }
-}
-'''
+}'''
+
 
 USER_TYPES = (
     (1, 'researcher'),
