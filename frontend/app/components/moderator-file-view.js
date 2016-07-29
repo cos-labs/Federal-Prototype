@@ -1,14 +1,48 @@
 import Ember from 'ember';
 
 
+// var pi = 'abcd';
+// var datepublished = '';
+var jsonArray = [];
 export default Ember.Component.extend({
-  didRender() {
+  datepublished: '',
+  pi: '',
+  piemail: '',
+
+  afterModel() {
     this._super(...arguments);
-    var d = new Date("2015-03-25");
+      this.set('answers', this.grant.get('answers'));
+      this.set('pi', answers['pi']);
+
+  },
+  didInsertElement(){
+    var answers = this.grant.get('answers');
+    this.set('pi', answers['pi']);
+    this.set('datepublished', answers['date-published']);
+    this.set('piemail', answers['pi-email']);
+    var moreInfoHTML = '<table> <tbody>';
+    
+
+    for (var prop in answers) {
+       moreInfoHTML += '<tr> <th scope="row"> '+prop+' </th> <td class="affiliation" colspan="2">'+ answers[prop]+' </td> </tr>'; 
+     }
+    moreInfoHTML += ' </tbody> </table>';
+    jsonArray.push(moreInfoHTML);
+   
+   console.log(jsonArray.length, jsonArray)   
+   for(var k = 0; k <= jsonArray.length; k++){
+    $(".more-info").eq(k).html(jsonArray[k]);   
+
+   }
+
+
+
+
 
   },
   actions: {
     moreInfo(){
+
       for(var i = 0; i <= Ember.$(".document").length; i++){
         if(Ember.$(".more-info-button").index(event.target) === i){
           Ember.$( ".document:eq("+i+")" ).removeClass( "document-view-document" );

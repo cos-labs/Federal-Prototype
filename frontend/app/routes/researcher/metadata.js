@@ -8,8 +8,10 @@ model() {
   const formActions = {
     submit: function() {
       var value = this.getValue();
-      alert(JSON.stringify(value, null, "  "));
+      parentModel.grant.set('answers',value);
       console.log(value);
+      parentModel.grant.save();
+      // Add transition to successful-upload.hbs
     },
   };
   return { parentModel, formActions };

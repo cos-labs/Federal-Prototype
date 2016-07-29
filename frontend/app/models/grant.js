@@ -8,5 +8,5 @@ export default Model.extend({
   department:  belongsTo('department'),
   document: belongsTo('document'),
   questions: attr('string'),
-  answers: attr('string'),
+  answers: attr('json-transform', {defaultValue: '{}'} ),
 });
