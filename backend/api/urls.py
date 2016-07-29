@@ -27,7 +27,7 @@ urlpatterns = format_suffix_patterns([
         name='user-detail'),
     url(r'grants$', views.GrantList.as_view(),
         name='grant-list'),
-    url(r'^grant/(?P<pk>[0-9]+)$',
+    url(r'^grants/(?P<pk>[0-9]+)$',
         views.GrantDetail.as_view(),
         name='grant-detail'),
     # url(r'dynamicforms', views.DynamicformList.as_view(),
