@@ -1,8 +1,6 @@
 import Ember from 'ember';
 
 
-// var pi = 'abcd';
-// var datepublished = '';
 var jsonArray = [];
 export default Ember.Component.extend({
   datepublished: '',
@@ -34,10 +32,6 @@ export default Ember.Component.extend({
     $(".more-info").eq(k).html(jsonArray[k]);   
 
    }
-
-
-
-
 
   },
   actions: {
@@ -81,8 +75,6 @@ export default Ember.Component.extend({
       else{
         Ember.$.bootstrapGrowl("Successfully changed document status to " + Ember.$(event.target).text() + "!", { type: 'success', align: 'center' , width: 400, hight: 40 });
       }
-
-      console.log("update database to archive");
 
     }
   }
