@@ -113,12 +113,6 @@ USER_TYPES = (
     (2, 'moderator')
 )
 
-STATUS_CHOICES = (
-    (1, 'read'),
-    (2, 'unread'),
-    (3, 'archived')
-)
-
 # necessary for local uploads only
 def upload_to(instance, filename):
     instance.uuid = uuid.uuid4().hex
@@ -161,7 +155,7 @@ class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
     document = models.ForeignKey('Document', related_name='grants')
-    status = models.CharField(choices=STATUS_CHOICES, max_length=50)
+    status = models.TextField(default='.unread', max_length=20)
     questions = models.TextField(default=schema, blank=True, null=True)
     answers = models.TextField(default='', blank=True, null=True)
 
@@ -177,15 +171,3 @@ class Grant(models.Model):
         if not self.questions:
             self.questions = self.department.settings
         super(Grant, self).save(*args, **kwargs)
-
-
-#
-# class Dynamicform(models.Model):
-#     questions = models.TextField(default=schema, blank=True, null=True)
-#     answers = models.TextField(default='', blank=True, null=True)
-#     grant = models.ForeignKey('Grant', related_name='dynamicforms')
-#
-    # def save(self, *args, **kwargs):
-    #     if not self.questions:
-    #         self.questions = self.grant.department.settings
-    #     super(Dynamicform, self).save(*args, **kwargs)
