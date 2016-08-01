@@ -1,4 +1,5 @@
-<div class="document" data-item=".archived">
+
+<div class="document" data-item={{grant.status}}>
 
     <div class="less-info">
       <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -18,8 +19,40 @@
     </ul>
 
     <div class='more-info'>
+      <div class='more-info-buttons'>
+       <table>
+         <tbody class="more-info-content">
+          <tr>
+            <th scope="row">
+                      Status
+            </th>
+            <td class=" " colspan="2">
+                <span class="btn-warning">Unread</span>
+                <span style="margin-left:300px;">
+                  <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
+                  <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
+                  <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
+                </span>
 
-        <table>
+            </td>
+
+          </tr>
+            <tr>
+            <th scope="row">
+              File API
+            </th>
+            <td class=" " colspan="2">
+              <a href={{get-api grant.document.id}} target="_blank">View File API</a>
+
+            </td>
+          </tr>
+         </tbody>
+       </table>
+      </div>
+      <!--<div class='more-info-content'></div>-->
+
+
+<!--        <table>
             <thead>
             <tr>
                 <th scope="row">
@@ -50,15 +83,7 @@
                 <th scope="row">
                     Status
                 </th>
-                <td class=" " colspan="2">
-                    <span class="btn-primary">Archive</span>
-                    <span style="margin-left:300px;">
-                      <button type="button" class="btn btn-success" {{action "setDocumentStatus" ".read" "#5cb85c" "btn-success"}}>Read</button>
-                      <button type="button" class="btn btn-warning" {{action "setDocumentStatus" ".unread" "#eea236" "btn-warning"}}>Unread</button>
-                      <button type="button" class="btn btn-primary" {{action "setDocumentStatus" ".archived" "#337ab7" "btn-primary"}}>Archive</button>
-                    </span>
 
-                </td>
             </tr>
             <tr>
                 <th scope="row">
@@ -80,7 +105,7 @@
                 </td>
             </tr>
             </tbody>
-        </table>
+        </table>-->
 
 
 
@@ -91,5 +116,6 @@
 
           {{file-renderer download=(get-download grant.document.path)}}
       </span>
+
 
 </div>

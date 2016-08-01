@@ -19,7 +19,7 @@ model() {
 actions: {
  transitionTo() {
   var controller = this.controller;
-  controller.transitionToRoute('researcher.success');
+  this.transitionTo('researcher.success');
   }
 
 }
