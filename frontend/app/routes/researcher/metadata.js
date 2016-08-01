@@ -2,7 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-
 model() {
   var parentModel = this.modelFor('researcher');
   const formActions = {
@@ -12,8 +11,17 @@ model() {
       console.log(value);
       parentModel.grant.save();
       // Add transition to successful-upload.hbs
+      this.transitionTo();
     },
   };
   return { parentModel, formActions };
+},
+actions: {
+ transitionTo() {
+  var controller = this.controller;
+  controller.transitionToRoute('researcher.success');
+  }
+
 }
+
 });

@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('researcher', function() {
     this.route('metadata');
     this.route('grant');
+    this.route('success');
   });
   this.route('login');
   this.route('moderator');
