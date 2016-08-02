@@ -10,6 +10,6 @@ class isDepartment(permissions.BasePermission):
         except:
             return False
 
-        if usertype.usertype == "manager":
+        if usertype.usertype == "moderator":
             return obj.department == usertype.department
         return False

@@ -11,19 +11,17 @@ class SetupTestCase(TestCase):
         try:
             dep.name = 'NIH'
             dep.save()
-            # dep.documents.add(d)
-            # dep.save()
         except:
             self.fail('Department could not be saved!')
         try:
             d.title = 'Correlations within Causations'
             d.institution = 'COS'
-            d.PI_first_name = 'Foo'
-            d.PI_last_name = 'Bar'
-            d.PI_email = 'foo@bar.com'
+            d.pifirstname = 'Foo'
+            d.pilastname = 'Bar'
+            d.piemail = 'foo@bar.com'
             d.status = 'Pending'
-            d.date_published = datetime.datetime.now()  # update this to use datetime
-            d.file_link = '~/doc.txt'
+            d.datepublished = datetime.datetime.now()  # update this to use datetime
+            d.filelink = '~/doc.txt'
             d.department = dep
             d.save()
         except:
