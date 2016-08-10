@@ -56,9 +56,10 @@ Routes
  * I forget?
 
 ### General Workflow
-
+![some text](https://raw.githubusercontent.com/Rytiggy/Federal-Prototype/master/Federal%20Prototype%20Documentation%20(1).png)
 
 ### Researcher `Upload Document` Workflow
+![some text](https://raw.githubusercontent.com/Rytiggy/Federal-Prototype/master/Federal%20Prototype%20Documentation.png)
 
 ## Future Ideas
 1. Further implementation of GUI Form builder 
