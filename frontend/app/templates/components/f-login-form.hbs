@@ -3,12 +3,30 @@
 
 <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <div class="login-block">
-    <h1>Login</h1>
-    <input type="text" value="" placeholder="Username" id="username" />
-    <input type="password" value="" placeholder="Password" id="password" />
+<div class="menu">
+  {{#if session.isAuthenticated}}
+    <a {{action 'invalidateSession'}}>Logout</a>
+  {{else}}
+    {{#link-to 'login'}}Login{{/link-to}}
+  {{/if}}
+</div>
+<div class="main">
+  {{outlet}}
+</div>
 
-  {{#link-to 'moderator' tagName="button"}}
-    Submit
-  {{/link-to}}
+
+
+ <form {{action 'authenticate' on='submit'}}>
+  <label for="identification">Login</label>
+  {{input id='identification' placeholder='Enter Login' value=identification}}
+  <label for="password">Password</label>
+  {{input id='password' placeholder='Enter Password' type='password' value=password}}
+  <button type="submit">Login</button>
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
+</form>
+
 
 </div>
+
