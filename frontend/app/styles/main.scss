@@ -673,9 +673,6 @@ display:block;
 
 .researcher-file-view{
   background: rgba(255, 255, 255, 0.49);
-  margin-top:10px;
-  background-clip: padding-box; 
-  border-radius: 5px;
 }
 
 .researcher-file-view:hover{
@@ -686,4 +683,16 @@ display:block;
 .researcher-file-view td{
   padding: 15px;
 }
+
+tbody .researcher-file-view td:first-child
+{
+    border-radius: 5px 0 0 5px;
+
+}
+tbody .researcher-file-view td:nth-child(3)
+{
+    border-radius: 0 5px 5px 0;
+}
+
+
 
