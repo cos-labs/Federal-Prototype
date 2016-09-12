@@ -10,6 +10,7 @@ Router.map(function() {
     this.route('metadata');
     this.route('grant');
     this.route('success');
+    this.route('status');
   });
   this.route('login');
   this.route('moderator');
