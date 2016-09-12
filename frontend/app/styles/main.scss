@@ -665,16 +665,17 @@ display:block;
     padding-left: 15px;
     padding-right:15px;
     padding-bottom:5px;
-    border-bottom: 1px solid #666;
+    border-bottom: 1px solid #a8b8c4;
 
 }
-
 
 .top-buffer { margin-top:50px; }
 
 .researcher-file-view{
   background: rgba(255, 255, 255, 0.49);
   margin-top:10px;
+  background-clip: padding-box; 
+  border-radius: 5px;
 }
 
 .researcher-file-view:hover{
