@@ -656,14 +656,32 @@ display:block;
 {
   margin: 0 auto !important;
   float: none !important;
-    width:900px;
+  width:900px;
+  border-collapse:separate; 
+  border-spacing: 0 7px;
+
 }
+.center-table th{
+    padding-left: 15px;
+    padding-right:15px;
+    padding-bottom:5px;
+    border-bottom: 1px solid #666;
+
+}
+
 
 .top-buffer { margin-top:50px; }
 
 .researcher-file-view{
   background: rgba(255, 255, 255, 0.49);
+  margin-top:10px;
 }
+
+.researcher-file-view:hover{
+    background: rgba(255, 255, 255, 0.65);
+
+}
+
 .researcher-file-view td{
   padding: 15px;
 }
