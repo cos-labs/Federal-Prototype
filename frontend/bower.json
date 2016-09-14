@@ -9,8 +9,8 @@
     "toastr": "^2.1.2",
     "font-awesome": "~4.5.0",
     "jquery": "1.11.1",
-    "alpaca": "1.5.14",
     "handlebars": "3.0.3",
+    "alpaca": "https://github.com/HalcyonChimera/alpaca.git",
     "bootstrap": "3.3.2",
     "lodash": "~3.10.1"
   },
