@@ -14,20 +14,20 @@ Federal Prototype
 ### Setup
 Globally install the ember CLI @ v2.6, then install all required frontend packages
 
-```$npm install -g ember-cli@2.6
-$npm install
-$bower install```
+- `$npm install -g ember-cli@2.`6
+- `$npm install`
+- `$bower install`
 
 Make a new virtualenv, install the required python packages via pip, then remake the migrations and start the server.
 
-```$ mkvirtualenv <federal prototype venv>
-$ pip install -r requirements.txt
-$ python manage.py makemigrations api
-$ python manage.py migrate```
+- `$ mkvirtualenv <federal prototype venv>`
+- `$ pip install -r requirements.txt`
+- `$ python backend/manage.py makemigrations api`
+- `$ python backend/manage.py migrate`
 
 Install ember-osf in your home directory (assuming that federal-prototype is also installed in your home directory), and don’t forget to npm link ../../ember-osf from the frontend directory of this repo.
-$ ember install ../../ember-osf
-$ npm link ../../ember-osf
+- `$ ember install ../../ember-osf`
+- `$ npm link ../../ember-osf`
 
 ## Developer's Notes
 ###Backend
@@ -42,6 +42,7 @@ Acts as a usergroup in terms of permissions (NOT YET IMPLEMENTED)
  * All information for a particular grant is stored here, meaning the grant ID, the department associated with the grant, the document associated with the grant, and the researcher associated with the grant, along with all the metadata required about the document attached to the grant (specific to the grant’s department).
 * Document
  * Contains a link/access to the file (which is stored on the OSF).
+
 ### Frontend
 Routes
 
