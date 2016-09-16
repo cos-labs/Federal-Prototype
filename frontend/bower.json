@@ -15,6 +15,7 @@
     "lodash": "~3.10.1"
   },
   "resolutions": {
-    "jquery": "1.11.1"
+    "jquery": "1.11.1",
+    "bootstrap": "3.3.2"
   }
 }
