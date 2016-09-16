@@ -9,12 +9,13 @@
     "toastr": "^2.1.2",
     "font-awesome": "~4.5.0",
     "jquery": "1.11.1",
-    "handlebars": "3.0.3",
+    "handlebars": "4.0.5",
     "alpaca": "https://github.com/HalcyonChimera/alpaca.git",
     "bootstrap": "3.3.2",
     "lodash": "~3.10.1"
   },
   "resolutions": {
-    "jquery": "1.11.1"
+    "jquery": "1.11.1",
+    "bootstrap": "3.3.2"
   }
 }
