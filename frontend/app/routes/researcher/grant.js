@@ -5,8 +5,8 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     fileManager: Ember.inject.service(),
-    store: Ember.inject.service(),
-    session: Ember.inject.service(),
+    //store: Ember.inject.service(),
+    //session: Ember.inject.service(),
     
     actions: {
       submit(grant, departmentId, fileList, document) {
