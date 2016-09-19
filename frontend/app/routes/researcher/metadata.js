@@ -1,10 +1,9 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
 
 
 
-const schemaObject = {
+var schemaObject = {
     "schema": {
         "title": "Your Information",
         "type": "object",
@@ -52,6 +51,7 @@ const schemaObject = {
     }
 };
 
+export default Ember.Route.extend({
 model() {
   var parentModel = this.modelFor('researcher');
   const formActions = {
@@ -64,7 +64,8 @@ model() {
       this.transitionTo();
     },
   };
-  return { parentModel, formActions };
+  //return { parentModel, formActions };
+  return schemaObject; 
 },
 actions: {
  transitionTo() {
