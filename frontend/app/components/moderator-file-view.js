@@ -10,6 +10,7 @@ export default Ember.Component.extend({
   afterModel() {
     this._super(...arguments);
       this.set('answers', this.grant.get('answers'));
+      var answers = this.grant.get('answers');
       this.set('pi', answers['pi']);
 
   },
@@ -18,8 +19,8 @@ export default Ember.Component.extend({
     this.set('pi', answers['pi']);
     this.set('datepublished', answers['date-published']);
     this.set('piemail', answers['pi-email']);
-    var moreInfoHTML = '<table> <tbody>';
-    var moreInfoHTML =  $(".more-info-buttons").html();
+    // var moreInfoHTML = '<table> <tbody>';
+    var moreInfoHTML =  Ember.$(".more-info-buttons").html();
 
 
     for (var prop in answers) {
@@ -28,9 +29,9 @@ export default Ember.Component.extend({
     moreInfoHTML += ' </tbody> </table>';
     jsonArray.push(moreInfoHTML);
 
-   console.log(jsonArray.length, jsonArray)
+   console.log(jsonArray.length, jsonArray);
    for(var k = 0; k <= jsonArray.length; k++){
-    $(".more-info-content").eq(k).html(jsonArray[k]);
+    Ember.$(".more-info-content").eq(k).html(jsonArray[k]);
 
    }
 
@@ -58,7 +59,7 @@ export default Ember.Component.extend({
         }
       }
     },
-    setDocumentStatus(status , color, buttonType, name){
+    setDocumentStatus(status , color, buttonType){
       var thisParents = Ember.$(event.target).parents().eq(7);
       var thisParentSiblings = Ember.$(event.target).parent().siblings();
       thisParents.data('item', status);

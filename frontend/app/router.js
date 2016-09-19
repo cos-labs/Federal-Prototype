@@ -11,8 +11,8 @@ Router.map(function() {
     this.route('grant');
     this.route('success');
   });
-  this.route('login');
   this.route('moderator');
+  this.route('institution');
   this.route('settings', function() {
     this.route('metadata');
     this.route('api');
