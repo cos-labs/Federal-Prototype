@@ -1,7 +1,7 @@
 {
-  "name": "ostp-files-ember-v2",
-  "version": "0.0.0",
-  "description": "Small description for ostp-files-ember-v2 goes here",
+  "name": "federal-prototype",
+  "version": "0.0.1",
+  "description": "A tool for facilitating communication / research transfer between researchers and grant-givers.",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -14,7 +14,7 @@
   },
   "repository": "",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 6.4.0"
   },
   "author": "",
   "license": "MIT",
@@ -26,7 +26,7 @@
     "ember-cli-babel": "^5.1.6",
     "ember-cli-bootstrap-sassy": "0.5.3",
     "ember-cli-dependency-checker": "^1.2.0",
-    "ember-cli-dynamic-forms": "0.1.1",
+    "ember-cli-dynamic-forms": "0.2.3",
     "ember-cli-htmlbars": "^1.0.3",
     "ember-cli-htmlbars-inline-precompile": "^0.3.1",
     "ember-cli-inject-live-reload": "^1.4.0",
