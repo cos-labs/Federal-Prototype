@@ -1,4 +1,12 @@
-{{osf-navbar loginAction=(action 'login')}}
+<style>
+.fedhead {
+    position: relative;
+}
+.navbar-fixed-top {
+    position: relative;
+}
+</style>
+{{osf-navbar class='fedhead' loginAction=(action 'login')}}
 <div class="container">
 	{{outlet}}
 </div>
