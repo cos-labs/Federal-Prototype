@@ -13,7 +13,7 @@ Federal Prototype
 ### Setup
 Globally install the ember CLI @ v2.6, then install all required frontend packages
 
-- `$npm install -g ember-cli@2.`6
+- `$npm install -g ember-cli@2.6`
 - `$npm install`
 - `$bower install`
 
