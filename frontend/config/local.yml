@@ -6,7 +6,7 @@ stage:
     CLIENT_ID: 3df077f151dd4de48876baf63fa9d7a6
     PERSONAL_ACCESS_TOKEN: NL83YVL8EZMyKUFpbA4vrYsdt9ET0tqmZZtDP6uh
     OAUTH_SCOPES: osf.full_read osf.full_write
-    REDIRECT_URI: http://localhost:4200/login/
+    REDIRECT_URI: http://localhost:4200/
 
 ######## ember-osf settings ########
 # local:
@@ -31,5 +31,5 @@ test:
     CLIENT_ID: null
     PERSONAL_ACCESS_TOKEN: null
     OAUTH_SCOPES: osf.full_read osf.full_write
-    REDIRECT_URI: http://localhost:4200/login/
+    REDIRECT_URI: http://localhost:4200/
 ######### end ember-osf ##########
