@@ -61,15 +61,15 @@ model() {
       console.log(value);
       parentModel.grant.save();
       // Add transition to successful-upload.hbs
-      this.transitionTo();
+      this.transitionTo('researcher.success');
     },
   };
-  //return { parentModel, formActions };
-  return schemaObject; 
+  return { parentModel, formActions };
+  // return schemaObject; 
 },
 actions: {
  transitionTo() {
-  var controller = this.controller;
+  // var controller = this.controller;
   this.transitionTo('researcher.success');
   }
 

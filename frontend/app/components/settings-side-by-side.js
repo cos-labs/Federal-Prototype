@@ -230,7 +230,7 @@ export default Ember.Component.extend({
 
 
         };
-        $(fbTemplate).formBuilder(options);
+        Ember.$(fbTemplate).formBuilder(options);
         Ember.$(".ui-sortable").css("min-height", "150px");
     },
 

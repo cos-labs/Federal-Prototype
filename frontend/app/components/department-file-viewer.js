@@ -24,7 +24,7 @@ export default Ember.Component.extend({
             }
         }
       },
-      setDocumentStatus(status , color, buttonType, name){
+      setDocumentStatus(status , color, buttonType){
 
         var thisParents = Ember.$(event.target).parents().eq(6);
         var thisParentSiblings = Ember.$(event.target).parent().siblings();
