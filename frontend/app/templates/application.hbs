@@ -1,5 +1,15 @@
+<style>
+.fedhead {
+    position: relative;
+}
+.navbar-fixed-top {
+    position: relative;
+}
+</style>
+{{osf-navbar class='fedhead' loginAction=(action 'login')}}
 <div class="container">
-	{{osf-navbar loginAction=(action 'login')}}
-	<div class="m-b-xl"></div>
 	{{outlet}}
 </div>
+{{osf-footer}}
+{{osf-copyright}}
+{{osf-mode-footer}}

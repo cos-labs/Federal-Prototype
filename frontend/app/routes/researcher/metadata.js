@@ -1,7 +1,57 @@
 import Ember from 'ember';
 
-export default Ember.Route.extend({
 
+
+
+var schemaObject = {
+    "schema": {
+        "title": "Your Information",
+        "type": "object",
+        "properties": {
+            "firstName": {
+                "title": "First Name",
+                "type": "string"
+            },
+            "lastName": {
+                "title": "Last Name",
+                "type": "string"
+            },
+            "age": {
+                "title": "Age",
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+            }
+        }
+    },
+    "options": {
+        "focus":false,
+        "form": {
+            "attributes": {
+                "action": "http://httpbin.org/post",
+                "method": "post"
+            },
+            "buttons": {
+                "noop": {
+                    "type": "button",
+                    "value": "Do Nothing",
+                    "styles": "btn btn-primary"
+                },
+                "validate": {
+                    "title": "Validate and view JSON!"
+                },
+                "submit": {
+                    "id": "mySubmit",
+                    "attributes": {
+                        "data-test": "123"
+                    }
+                }
+            }
+        }
+    }
+};
+
+export default Ember.Route.extend({
 model() {
   var parentModel = this.modelFor('researcher');
   const formActions = {
@@ -14,7 +64,8 @@ model() {
       this.transitionTo();
     },
   };
-  return { parentModel, formActions };
+  //return { parentModel, formActions };
+  return schemaObject; 
 },
 actions: {
  transitionTo() {

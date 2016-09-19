@@ -1,15 +1,18 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     fileManager: Ember.inject.service(),
-    store: Ember.inject.service(),
-
+    //store: Ember.inject.service(),
+    //session: Ember.inject.service(),
+    
     actions: {
       submit(grant, departmentId, fileList, document) {
 
         var store = this.get('store');
-        var folderid = "57878c5e8ca57e01e4774a90";
+        var folderid = "57dc5d9d8ca57e01d895a3c7";
         var fm = this.get('fileManager');
         var department = this.get('store').peekRecord('department', departmentId);
         var controller = this.controller;
