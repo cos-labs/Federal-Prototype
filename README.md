@@ -1,5 +1,6 @@
 Federal Prototype
 ============
+![Build Status](https://travis-ci.org/CenterForOpenScience/Federal-Prototype.svg?branch=master)
 
 ### Overview
 * The Federal Prototype Project was a project that was centered around a new government mandated that states that any research that is funded by the government must not be behind a paywall.
