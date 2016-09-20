@@ -29,18 +29,18 @@ Make a new virtual environment, install the required python packages via pip, th
 - `$ python backend/manage.py migrate`
 
 Install ember-osf 
-Assuming ember-osf will be or is installed in the same directory as Federal-Prototype, 
+Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
 
 - `cd $FED_PROTO && cd ..`
 - `git clone https://github.com/CenterForOpenScience/ember-osf.git`
 
-And link ember-osf to Federal-Prototype.
+Link ember-osf to Federal-Prototype.
 
 - `cd $FED_PROTO/frontend`
 - `$ ember install ../../ember-osf`
 - `$ npm link ../../ember-osf`
 
-You may need to generate blueprints for some of this project's dependencies.
+Blueprints may need to be generated for some of this project's dependencies.
 
 - `cd $FED_PROTO/frontend`
 - `ember generate ember-osf`
@@ -49,8 +49,15 @@ You may need to generate blueprints for some of this project's dependencies.
 To run this project, you'll need to start the ember server, and the django backend. The ember server requires that you specify which backend to use.
 
 - `python $FED_PROTO/backend/manage.py runserver`
-- `export BACKEND=stage` will set the backend to the staging environment of OSF and export the variable to your environment. Backends are defined in `frontend/config/local.yml`. You may find it convenient to add this line at the end of your virtual environments `activate.sh`. Running the backend locally will require running OSF, Waterbutler, and CAS locally also. 
-- `cd frontend && ember server`
+- `export BACKEND=stage`
+
+Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally.
+
+It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset. 
+
+Build and run the frontend.
+
+- `cd $FED_PROTO/frontend && ember server`
 
 ## Developer's Notes
 
