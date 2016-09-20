@@ -3,12 +3,8 @@ Federal Prototype
 ![Build Status](https://travis-ci.org/CenterForOpenScience/Federal-Prototype.svg?branch=master)
 
 ## Overview
-* The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall.
 
-* There is not a platform that was created to facilitate this proccess 
-
-* It is a primary objective of this project to develop a user frindly API for other software to make use of.
-* A user-friendly interface has also been developed so users may make use of this API, even though other software may not exist to do so yet.
+The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall. There has been no platform created to facilitate this proccess. It is a primary objective of this project to develop a user frindly API for other software to make use of. A user-friendly interface has also been developed to allow users to make use of this API, even though other software may not exist to do so yet.
 
 ## Setup
 
@@ -80,8 +76,8 @@ Routes
  * Metadata (add metadata associated with grant)
  * Index
 * Settings
- * Api (review some of the basics of our public API)
- * Metadata (use a JSON-form-builder to construct/edit a metadata form)
+ * API (review some of the basics of our public API)
+ * Metadata (use a JSON form builder to construct/edit a metadata form)
 * Login
  * Self-explanatory
 * Moderator
@@ -97,13 +93,13 @@ Routes
 1. Further implementation of GUI Form builder 
 2. Editable status filters 
 3. More options to settings page 
-4. Json to from builder Xml (so if you update the json maulay it will update the xml)
+4. JSON to from builder XML (so if you update the json maulay it will update the XML)
 
 ## Major Libraries 
 1. FormBuilder https://formbuilder.online/
 2. BootstrapGrowl http://ifightcrime.github.io/bootstrap-growl/
 
-## To dos
-1. Authentication, Permissions
-2. Allow multiple grants per document (front and backend)
-3. Metadata Form Builder, get json format to be able to build xml for drag and drop form
+> ## TODO
+> 1. Authentication, permissions
+> 2. Allow multiple grants per document (front and backend)
+> 3. Metadata form builder, get JSON format to be able to build XML for drag and drop form
