@@ -8,13 +8,13 @@ The Federal Prototype Project is centered around a new government mandate. This 
 
 ## Setup
 
-The following comprise the steps to run this software locally for those that wish to develop on this project.
-Assuming $FED_PROTO is the root of this repository.
+The following comprise the steps to run this software locally for those that wish to develop with this project.
+Assuming `$FED_PROTO` is the root of this repository.
 
 - `cd $FED_PROTO/frontend`
-- `$npm install -g ember-cli@2.6`
-- `$npm install`
-- `$bower install`
+- `$ npm install -g ember-cli@2.6`
+- `$ npm install`
+- `$ bower install`
 
 Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
