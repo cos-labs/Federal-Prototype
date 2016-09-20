@@ -2,7 +2,7 @@ Federal Prototype
 ============
 ![Build Status](https://travis-ci.org/CenterForOpenScience/Federal-Prototype.svg?branch=master)
 
-### Overview
+## Overview
 * The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall.
 
 * There is not a platform that was created to facilitate this proccess 
@@ -10,7 +10,7 @@ Federal Prototype
 * It is a primary objective of this project to develop a user frindly API for other software to make use of.
 * A user-friendly interface has also been developed so users may make use of this API, even though other software may not exist to do so yet.
 
-### Setup
+## Setup
 
 The following comprise the steps to run this software locally for those that wish to develop on this project.
 Assuming $FED_PROTO is the root of this repository.
@@ -20,15 +20,13 @@ Assuming $FED_PROTO is the root of this repository.
 - `$npm install`
 - `$bower install`
 
-Make a new virtualenv, install the required python packages via pip, then remake the migrations and start the server.
+Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
 - `cd $FED_PROTO/backend`
 - `$ mkvirtualenv <federal prototype venv>`
 - `$ pip install -r requirements.txt`
 - `$ python backend/manage.py makemigrations api`
 - `$ python backend/manage.py migrate`
-
-****************
 
 Install ember-osf 
 Assuming ember-osf will be or is installed in the same directory as Federal-Prototype, 
@@ -41,8 +39,6 @@ And link ember-osf to Federal-Prototype.
 - `cd $FED_PROTO/frontend`
 - `$ ember install ../../ember-osf`
 - `$ npm link ../../ember-osf`
-
-****************
 
 You may need to generate blueprints for some of this project's dependencies.
 
@@ -58,7 +54,7 @@ To run this project, you'll need to start the ember server, and the django backe
 
 ## Developer's Notes
 
-###Backend
+### Backend
 
 API endpoints:
 
