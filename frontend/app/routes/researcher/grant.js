@@ -5,14 +5,15 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     fileManager: Ember.inject.service(),
-    //store: Ember.inject.service(),
-    //session: Ember.inject.service(),
+    store: Ember.inject.service(),
+    session: Ember.inject.service(),
     
     actions: {
       submit(grant, departmentId, fileList, document) {
 
         var store = this.get('store');
         var folderid = "57dc5d9d8ca57e01d895a3c7";
+        debugger;
         var fm = this.get('fileManager');
         var department = this.get('store').peekRecord('department', departmentId);
         var controller = this.controller;
@@ -38,7 +39,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
               controller.transitionToRoute('researcher.metadata')
             });
           });
-        }, function(error) {
+        }).then(function(){}, function(error) {
           console.log("Oops: " + error.message);
         });
       }
