@@ -46,14 +46,11 @@ Blueprints may need to be generated for some of this project's dependencies.
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
 
-To run this project, you'll need to start the ember server, and the django backend. The ember server requires that you specify which backend to use.
+To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally.
+
 
 - `python $FED_PROTO/backend/manage.py runserver`
-- `export BACKEND=stage`
-
-Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally.
-
-It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset. 
+- `export BACKEND=stage` *It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset.*
 
 Build and run the frontend.
 
