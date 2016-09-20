@@ -28,6 +28,11 @@ Install ember-osf in your home directory (assuming that federal-prototype is als
 - `$ ember install ../../ember-osf`
 - `$ npm link ../../ember-osf`
 
+You may need to generate blueprints for some of this project's dependencies.
+
+- `ember generate ember-osf`
+- `ember generate ember-cli-dynamic-forms`
+
 ## Developer's Notes
 ###Backend
 API endpoints:
