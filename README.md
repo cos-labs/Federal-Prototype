@@ -24,8 +24,7 @@ Make a new virtual environment, install the required python packages via pip, th
 - `$ python backend/manage.py makemigrations api`
 - `$ python backend/manage.py migrate`
 
-Install ember-osf 
-Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
+Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
 
 - `cd $FED_PROTO && cd ..`
 - `git clone https://github.com/CenterForOpenScience/ember-osf.git`
@@ -42,8 +41,7 @@ Blueprints may need to be generated for some of this project's dependencies.
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
 
-To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally.
-
+To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
 
 - `python $FED_PROTO/backend/manage.py runserver`
 - `export BACKEND=stage` *It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset.*
