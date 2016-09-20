@@ -85,7 +85,7 @@ Routes
 * Login
  * Self-explanatory
 * Moderator
- * I forget?
+ * (documentation incomplete)
 
 ### General Workflow
 ![some text](https://raw.githubusercontent.com/Rytiggy/Federal-Prototype/master/Federal%20Prototype%20Documentation%20(1).png)
