@@ -3,76 +3,79 @@ import Ember from 'ember';
 
 
 
-var schemaObject = {
-    "schema": {
-        "title": "Your Information",
-        "type": "object",
-        "properties": {
-            "firstName": {
-                "title": "First Name",
-                "type": "string"
-            },
-            "lastName": {
-                "title": "Last Name",
-                "type": "string"
-            },
-            "age": {
-                "title": "Age",
-                "type": "integer",
-                "minimum": 0,
-                "maximum": 100
-            }
-        }
-    },
-    "options": {
-        "focus":false,
-        "form": {
-            "attributes": {
-                "action": "http://httpbin.org/post",
-                "method": "post"
-            },
-            "buttons": {
-                "noop": {
-                    "type": "button",
-                    "value": "Do Nothing",
-                    "styles": "btn btn-primary"
-                },
-                "validate": {
-                    "title": "Validate and view JSON!"
-                },
-                "submit": {
-                    "id": "mySubmit",
-                    "attributes": {
-                        "data-test": "123"
-                    }
-                }
-            }
-        }
+const basicObject = {
+  "schema": {
+    "title":"User Feedback",
+    "description":"What do you think about Alpaca?",
+    "type":"object",
+    "properties": {
+      "name": {
+        "type":"string",
+        "title":"Name"
+      },
+      "feedback": {
+        "type":"string",
+        "title":"Feedback"
+      },
+      "ranking": {
+        "type":"string",
+        "title":"Ranking",
+        "enum":['excellent','ok','so so']
+      }
     }
+  },
+  "options": {
+    "helper": "Tell us what you think about Alpaca!",
+    "fields": {
+      "name": {
+        "size": 20,
+        "helper": "Please enter your name.",
+        "placeholder": "Enter your name"
+      },
+      "feedback" : {
+        "type": "textarea",
+        "rows": 5,
+        "cols": 40,
+        "helper": "Please enter your feedback."
+      },
+      "ranking": {
+        "type": "select",
+        "helper": "Select your ranking.",
+        "optionLabels": ["Awesome!", "It's Ok", "Hmm..."]
+      }
+    }
+  }
 };
 
 export default Ember.Route.extend({
 model() {
-  var parentModel = this.modelFor('researcher');
-  const formActions = {
-    submit: function() {
-      var value = this.getValue();
-      parentModel.grant.set('answers',value);
-      console.log(value);
-      parentModel.grant.save();
+  //var parentModel = schemaObject
+  //this.modelFor('researcher');
+  //const formActions = {
+    //submit: function() {
+      //var value = this.getValue();
+      //parentModel.grant.set('answers',value);
+      //console.log(value);
+      //parentModel.grant.save();
       // Add transition to successful-upload.hbs
-      this.transitionTo();
-    },
-  };
-  //return { parentModel, formActions };
-  return schemaObject; 
+      //this.transitionTo();
+    //},
+  //};
+  return basicObject
+  //return { 
+  //  schema: schemaObject, 
+  //  formActions: formActions 
+  //};
 },
-actions: {
- transitionTo() {
-  var controller = this.controller;
-  this.transitionTo('researcher.success');
-  }
+  actions: {
 
-}
+
+
+// transitionTo() {
+//  var controller = this.controller;
+//  this.transitionTo('researcher.success');
+//  }
+
+  }
 
 });
