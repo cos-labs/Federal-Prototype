@@ -28,18 +28,16 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
           var path = newFile.get('path');
           document.set('name', name);
           document.set('path', path);
-          document.save()
-            .then( function() {
-              grant.set('department', department);
-              grant.set('document', document);
-             // grant.set('status');
-              grant.save()
-                .then((g) => {
-                  grant = g;
-                })
-                .then(() => controller.transitionToRoute('researcher.metadata'));
+          document.save().then( function() {
+            grant.set('department', department);
+            grant.set('document', document);
+            // grant.set('status');
+            grant.save().then((g) => {
+              grant = g;
+            }).then(() => {
+              controller.transitionToRoute('researcher.metadata')
             });
-        }).then(function() {
+          });
         }, function(error) {
           console.log("Oops: " + error.message);
         });
