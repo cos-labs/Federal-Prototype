@@ -33,8 +33,16 @@ You may need to generate blueprints for some of this project's dependencies.
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
 
+To run this project, you'll need to start the ember server, and the django backend. The ember server requires that you specify which backend to use.
+
+- `python backend/manage.py runserver`
+- `export BACKEND=stage` will set the backend to the staging environment of OSF and export the variable to your environment. Backends are defined in `frontend/config/local.yml`. You may find it convenient to add this line at the end of your virtual environments `activate.sh`. Running the backend locally will require running OSF, Waterbutler, and CAS locally also. 
+- `cd frontend && ember server`
+
 ## Developer's Notes
+
 ###Backend
+
 API endpoints:
 
 * Department
