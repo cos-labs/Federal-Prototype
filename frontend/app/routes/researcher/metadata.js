@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     var parentModel = this.modelFor('researcher');
-    this.modelFor('researcher');
     const formActions = {
       submit: function() {
         var value = this.getValue();
