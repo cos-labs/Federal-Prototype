@@ -3,39 +3,56 @@ Federal Prototype
 ![Build Status](https://travis-ci.org/CenterForOpenScience/Federal-Prototype.svg?branch=master)
 
 ### Overview
-* The Federal Prototype Project was a project that was centered around a new government mandated that states that any research that is funded by the government must not be behind a paywall.
+* The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall.
 
-* The problem that we are addressing is that this mandate was put into place but there was never  platform that was created to do that, that is where we come in. 
+* There is not a platform that was created to facilitate this proccess 
 
-* We created an API with endpoints that anyone can connect to and hook into their system
-* We also made a front end that can handle all of our sites backend with some added features.
+* It is a primary objective of this project to develop a user frindly API for other software to make use of.
+* A user-friendly interface has also been developed so users may make use of this API, even though other software may not exist to do so yet.
 
 ### Setup
-Globally install the ember CLI @ v2.6, then install all required frontend packages
 
+The following comprise the steps to run this software locally for those that wish to develop on this project.
+Assuming $FED_PROTO is the root of this repository.
+
+- `cd $FED_PROTO/frontend`
 - `$npm install -g ember-cli@2.6`
 - `$npm install`
 - `$bower install`
 
 Make a new virtualenv, install the required python packages via pip, then remake the migrations and start the server.
 
+- `cd $FED_PROTO/backend`
 - `$ mkvirtualenv <federal prototype venv>`
 - `$ pip install -r requirements.txt`
 - `$ python backend/manage.py makemigrations api`
 - `$ python backend/manage.py migrate`
 
-Install ember-osf in your home directory (assuming that federal-prototype is also installed in your home directory), and don’t forget to npm link ../../ember-osf from the frontend directory of this repo.
+****************
+
+Install ember-osf 
+Assuming ember-osf will be or is installed in the same directory as Federal-Prototype, 
+
+- `cd $FED_PROTO && cd ..`
+- `git clone https://github.com/CenterForOpenScience/ember-osf.git`
+
+And link ember-osf to Federal-Prototype.
+
+- `cd $FED_PROTO/frontend`
 - `$ ember install ../../ember-osf`
 - `$ npm link ../../ember-osf`
 
+****************
+
 You may need to generate blueprints for some of this project's dependencies.
 
+- `cd $FED_PROTO/frontend`
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
 
 To run this project, you'll need to start the ember server, and the django backend. The ember server requires that you specify which backend to use.
 
-- `python backend/manage.py runserver`
+- `python $FED_PROTO/backend/manage.py runserver`
 - `export BACKEND=stage` will set the backend to the staging environment of OSF and export the variable to your environment. Backends are defined in `frontend/config/local.yml`. You may find it convenient to add this line at the end of your virtual environments `activate.sh`. Running the backend locally will require running OSF, Waterbutler, and CAS locally also. 
 - `cd frontend && ember server`
 
