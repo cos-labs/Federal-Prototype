@@ -9,11 +9,11 @@
     "toastr": "^2.1.2",
     "font-awesome": "~4.5.0",
     "jquery": "1.11.1",
-    "alpaca": "1.5.14",
-    "handlebars": "3.0.3",
+    "alpaca": "https://github.com/gitana/alpaca.git#ade59b36bebb0f2de04aa34a05c44e23281ea17a",
+    "handlebars": "4.0.5",
     "bootstrap": "3.3.2",
     "lodash": "~3.10.1"
-  },
+},
   "resolutions": {
     "jquery": "1.11.1"
   }
