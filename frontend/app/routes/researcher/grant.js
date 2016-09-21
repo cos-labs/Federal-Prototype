@@ -1,15 +1,19 @@
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend({
+
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     fileManager: Ember.inject.service(),
     store: Ember.inject.service(),
-
+    session: Ember.inject.service(),
+    
     actions: {
       submit(grant, departmentId, fileList, document) {
 
         var store = this.get('store');
-        var folderid = "57878c5e8ca57e01e4774a90";
+        var folderid = "57dc5d9d8ca57e01d895a3c7";
+        debugger;
         var fm = this.get('fileManager');
         var department = this.get('store').peekRecord('department', departmentId);
         var controller = this.controller;
@@ -25,19 +29,17 @@ export default Ember.Route.extend({
           var path = newFile.get('path');
           document.set('name', name);
           document.set('path', path);
-          document.save()
-            .then( function() {
-              grant.set('department', department);
-              grant.set('document', document);
-             // grant.set('status');
-              grant.save()
-                .then((g) => {
-                  grant = g;
-                })
-                .then(() => controller.transitionToRoute('researcher.metadata'));
+          document.save().then( function() {
+            grant.set('department', department);
+            grant.set('document', document);
+            // grant.set('status');
+            grant.save().then((g) => {
+              grant = g;
+            }).then(() => {
+              controller.transitionToRoute('researcher.metadata')
             });
-        }).then(function() {
-        }, function(error) {
+          });
+        }).then(function(){}, function(error) {
           console.log("Oops: " + error.message);
         });
       }

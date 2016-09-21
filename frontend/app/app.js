@@ -11,6 +11,13 @@ App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,
   Resolver
+//: Ember.DefaultResolver.extend({
+    //resolveTemplate: function(parsedName) {
+      //var resolvedTemplate = this._super(parsedName);
+      //if (resolvedTemplate) { return resolvedTemplate; }
+      //return Ember.TEMPLATES['not_found'];
+    //}
+//  })
 });
 
 
