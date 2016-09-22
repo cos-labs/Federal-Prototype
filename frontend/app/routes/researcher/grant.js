@@ -1,56 +1,43 @@
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-    fileManager: Ember.inject.service(),
     store: Ember.inject.service(),
     session: Ember.inject.service(),
     
     actions: {
-      submit(grant, departmentId, fileList, document) {
-
-        var store = this.get('store');
-        var folderid = "57dc5d9d8ca57e01d895a3c7";
-        debugger;
-        var fm = this.get('fileManager');
-        var department = this.get('store').peekRecord('department', departmentId);
-        var controller = this.controller;
-
-        store.findRecord('file', folderid).then(function(folder) {
-          var file = fileList.pop();
-          let nf = fm.uploadFile(folder, file.name, file);
-          return nf.then((file) => {
-            return file;
-          });
-        }).then(function(newFile) {
-          var name = newFile.get('name');
-          var path = newFile.get('path');
-          document.set('name', name);
-          document.set('path', path);
-          document.save().then( function() {
-            grant.set('department', department);
-            grant.set('document', document);
-            // grant.set('status');
-            grant.save().then((g) => {
-              grant = g;
-            }).then(() => {
-              controller.transitionToRoute('researcher.metadata')
-            });
-          });
-        }).then(function(){}, function(error) {
-          console.log("Oops: " + error.message);
-        });
-      }
+        submit() {
+            this.transitionTo('researcher.metadata')
+        },
+        departmentSelected(departmentId) {
+            this.get('store').getRecord('department', departmentId);
+        },
     },
 
     model() {
-      return this.modelFor('researcher');
+        var researcher = this.modelFor('researcher');
+        return Ember.RSVP.hash({
+            document: researcher.document,
+            departments: researcher.departments,
+            grants: this.get('store').findAll('grant')
+        })
     },
-    setupController(controller, model) {
 
-      this._super(controller, model);
-      controller.set('isFileUploaded', "researcher-form");
-  }
+    setupController(controller, model) {
+        this._super(controller, model);
+        debugger;
+        controller.set('isFileUploaded', "researcher-form");
+        var grants = model.grants.reduce(function(r, n, i) {
+            if (n.get('document').get('id') == model.document.get('id')) { r.push(n); }
+            return r;
+        }, [])
+        debugger;
+        controller.set('grants', grants)
+        controller.set('document', model.document)
+        controller.set('departments', model.departments)
+    
+    }
+
 });
+

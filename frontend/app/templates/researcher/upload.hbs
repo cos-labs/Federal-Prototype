@@ -1,0 +1,10 @@
+<div class="form-table">
+    <p>Notify your pertinent institutions and Granting agencies of research in two simple steps.</p>
+    <ol>
+        <li>Upload your research to a non-paywalled provider.</li>
+        <li>Connect grants to your research</li>
+    </ol>
+    
+    {{file-chooser files=fileList}}
+    <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' fileList model.document}} > Upload </button>
+</div>
