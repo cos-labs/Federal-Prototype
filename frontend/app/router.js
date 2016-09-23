@@ -7,12 +7,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
     this.route('researcher', function() {
-        this.route('metadata');
-        this.route('upload');
-        this.route('grant');
-        this.route('success');
-        this.route('status');
+      this.route('metadata');
+      this.route('upload');
+      this.route('grant');
+      this.route('success');
+      this.route('status');
 
+      this.route('inbox');
     });
     this.route('grants', function() {
         this.route('create');
