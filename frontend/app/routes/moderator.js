@@ -1,7 +1,8 @@
 import Ember from 'ember';
+//add this and the AuthenticatedRouteMixin to the extend rout to protect it unless logged in
+
 
 export default Ember.Route.extend({
-
     model() {
         return Ember.RSVP.hash({
             grants: this.get('store').findAll('grant'),

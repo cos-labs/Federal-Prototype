@@ -11,13 +11,17 @@ Router.map(function() {
         this.route('upload');
         this.route('grant');
         this.route('success');
+        this.route('status');
+
     });
     this.route('grants', function() {
         this.route('create');
     });
     this.route('documents', function() {
         this.route('create');
-    })
+    });
+      this.route('login');
+
     this.route('moderator');
     this.route('institution');
     this.route('settings', function() {

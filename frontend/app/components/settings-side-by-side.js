@@ -199,8 +199,9 @@ const defaultJson = {
         }
     }
 };
-
 export default Ember.Component.extend({
+ //shepard stuff
+
     didRender() {
         this._super(...arguments);
         var self = this;
@@ -231,8 +232,43 @@ export default Ember.Component.extend({
 
         };
         $(fbTemplate).formBuilder(options);
+       
+
+        //Shepard
         Ember.$(".ui-sortable").css("min-height", "150px");
+
+
+        let tour = new Shepherd.Tour({
+              defaults: {
+                classes: 'shepherd-theme-arrows'
+              }
+            });
+
+            tour.addStep('example', {
+              title: 'Create your form',
+              text: 'Creating a form is easy! just drag and drop the form element you want.',
+              attachTo: '.formBuilderHolder bottom',
+              advanceOn: '.docs-link click'
+            });
+
+              tour.addStep('example', {
+              title: 'Create your form',
+              text: 'You can use the drag and drop builder or the json builder.',
+              attachTo: '.form-button-holder right',
+              advanceOn: '.docs-link click'
+            });
+
+             tour.addStep('example', {
+              title: 'View your work',
+              text: 'This will display a live preview of what you are working on.',
+              attachTo: '.alpaca-container-label left',
+              advanceOn: '.docs-link click'
+            });
+         tour.start();
+
     },
+
+
 
     _schemaList: [JSON.stringify(schema, null, 4)],
 

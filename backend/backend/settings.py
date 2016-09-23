@@ -32,8 +32,7 @@ JSON_API_FORMAT_TYPES = 'camelize'
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:4200',
-    'localhost:7778',
-    'localhost:8000'
+    'localhost:7778'
 )
 
 REST_FRAMEWORK = {
