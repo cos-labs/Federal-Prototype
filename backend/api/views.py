@@ -64,8 +64,13 @@ class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 class GrantList(generics.ListCreateAPIView):
-    queryset = Grant.objects.all()
     serializer_class = GrantSerializer
+    def get_queryset(self):
+        queryset = Grant.objects.all()
+        pi = self.request.query_params.get('pi', None)
+        if pi is not None:
+            queryset = queryset.filter(pi=pi)
+        return queryset
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
 
