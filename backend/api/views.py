@@ -68,8 +68,15 @@ class GrantList(generics.ListCreateAPIView):
     def get_queryset(self):
         queryset = Grant.objects.all()
         pi = self.request.query_params.get('pi', None)
+        institution = self.request.query_params.get('institution', None)
+        status = self.request.query_params.get('status', None)
         if pi is not None:
             queryset = queryset.filter(pi=pi)
+        if institution is not None:
+            queryset = queryset.filter(institution=institution)
+        if status is not None:
+            queryset = queryset.filter(status=status)
+        
         return queryset
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
