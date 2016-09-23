@@ -2,8 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     grants: [],
-    institution: true,
-    agency: false,
+    agency: true,
     //active_grant: null,
     //document: {},
     departments: {},

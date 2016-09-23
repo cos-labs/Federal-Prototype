@@ -3,15 +3,27 @@
 <div class='container tools'>
     <div class='col-md-6 add-grant'>
         <h2>Add a grant</h2>
-        <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
-            <option>Select a Department</option>
-            {{#each departments as |departmentChoice|}}
-              <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
-            {{/each}}
-        </select>
-        <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
-        <input class='input input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
-        <button type='button' class='btn btn-primary' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
+        {{#if institution}}
+            <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
+                <option>Select a Department</option>
+                {{#each departments as |departmentChoice|}}
+                <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+                {{/each}}
+            </select>
+            <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
+            <input class='input input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
+            <button type='button' class='btn btn-primary' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
+        {{/if}}
+        {{#if agency}}
+            <select class="institutionSelect input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
+                <option>Select an Institution</option>
+                {{#each institutions as |inst|}}
+                <option selected={{eq inst institutionChoice}} value={{inst}}>{{inst}}</option>
+                {{/each}}
+            </select>
+            <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
+            <button type='button' class='btn btn-primary' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
+        {{/if}} 
     </div>
 </div>
 
@@ -55,10 +67,18 @@
             </tr>
         </table></td></tr>-->
     {{else}}
-<tr><td colspan='7' class='No-documents-error'>
-            <h2>This institution has not been associated with any grants yet.</h2>
-            <p>To associate a grant with this institution, select the department that awarded the grant, enter a grant number, then select the principal investigator in the toolbar above. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
-        </td></tr>
+        {{#if institution}}
+            <tr><td colspan='7' class='No-documents-error'>
+                <h2>This institution has not been associated with any grants yet.</h2>
+                <p>To associate a grant with this institution, select the department that awarded the grant, enter a grant number, then select the principal investigator in the toolbar above. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
+            </td></tr>
+        {{/if}}
+        {{#if agency}}
+            <tr><td colspan='7' class='No-documents-error'>
+                <h2>This institution has awarded any grants yet.</h2>
+                <p>To award a grant to aninstitution, select the institution that has been awarded the grant, then enter a grant number. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
+            </td></tr>
+        {{/if}}
     {{/each}}
     </tbody>
  </table>

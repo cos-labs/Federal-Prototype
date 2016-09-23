@@ -546,18 +546,30 @@ textarea{
     top:-30px;
   }
 
-
-.custom h2 {
- color: #111;
- font-family: 'Open Sans', sans-serif;
- font-size: 30px; font-weight: 300;
- line-height: 32px; margin: 0 0 72px;
- text-align: center;
- margin: 0;
- margin-top: 100px;
- color: #666
+.custom button {
+    float: left;
+    background-color: #ffffff;
+    color: #3f59a6;
+    margin-top: 20px;
+}
+.custom {
+    background-color: #3f74a6;
+    padding: 40px;
+    padding-top: 80px;
+    padding-bottom: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 30px; font-weight: 300;
+    line-height: 32px; margin: 0 0 72px;
+    text-align: center;
+    margin: 0;
+    color: #ddd
  }
-
+.custom h1 {
+    font-weight: 200;
+}
+.navbar{
+    margin-bottom: 0;
+}
 
 .tools {
 background: #eaeaea; /* Old browsers */
