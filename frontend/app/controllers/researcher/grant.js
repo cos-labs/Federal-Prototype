@@ -7,7 +7,6 @@ export default Ember.Controller.extend({
     departments: {},
     actions: {
         addGrant(grant_id, department_id) {
-            debugger;
             var dep = this.get('store').peekRecord('department', department_id);
             var grant = this.get('store').createRecord('grant')
             grant.set('department', dep)

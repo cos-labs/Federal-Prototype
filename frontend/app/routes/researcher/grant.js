@@ -26,13 +26,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     setupController(controller, model) {
         this._super(controller, model);
-        debugger;
         controller.set('isFileUploaded', "researcher-form");
         var grants = model.grants.reduce(function(r, n, i) {
             if (n.get('document').get('id') == model.document.get('id')) { r.push(n); }
             return r;
         }, [])
-        debugger;
         controller.set('grants', grants)
         controller.set('document', model.document)
         controller.set('departments', model.departments)
