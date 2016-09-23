@@ -2,10 +2,11 @@
 {{#link-to 'settings' tagName="span"}}
     <button class=" btn btn-default admin-settings-button"><i class="fa fa-cog" aria-hidden="true"></i> Settings</button>
   {{/link-to}}
-  <span class="custom">
-  <h2>-Office of Open Science-</h2>
-  </span>
-  {{department-file-viewer model=model}}
+  <div class="custom">
+  {{#link-to 'index'}}<button class='btn btn-primary'><i class='fa fa-chevron-circle-left'></i>&nbsp;Home</button>{{/link-to}}
+  <h2>Office of Open Science</h2>
+  </div>
+  {{department-file-viewer model=grants departments=departments createGrantHook=(action 'createGrant') institution=institution institutions=institutions agency=agency}}
 </span>
 {{outlet}}
 

@@ -1,18 +1,33 @@
 <div class="form-table">
 
+    <h1>Associate Grants</h1>
+        Add a grant entry for each grant that was awarded to fund this research
+    <hr />
+  {{#each grants as |grant|}}
+    <div class='row'>
+        <div class='col-md-10'>{{input value=grant.number class="form-control" id="grantid" placeholder="Grant Number" change="departmentSelected grant.number"}}</div>
+        <div class='col-md-2'><button class="btn col-md-5 btn-primary btn-lg btn-block"  {{action 'edit' model.grant departmentId fileList model.document}} >Edit</button></div>
+    </div>
+  {{else}}
+    <p>
+        No grants currently apply to this document. To connect a grant, Use the drop-down meny to select the department that awarded the grant, then press the 'Add a grant' button below.
+    </p>
+  {{/each}}
 
-  <div class="dropdownHolder">
-    <select class="departmentSelect select" onchange={{action (mut departmentId) value="target.value"}}>
+
+   <div class='row'>
+   <div class="dropdownHolder col-md-9">
+    <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
         <option>Select a Department</option>
-      {{#each model.departments as |departmentChoice|}}
-        <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
-      {{/each}}
+        {{#each departments as |departmentChoice|}}
+          <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+        {{/each}}
     </select>
-    {{input value=model.grant.number class="form-control" id="grantid" placeholder="Grant Number"}}
   </div>
 
-  <button class="btn btn-success addFunding" {{action "submit"}}>Add More Funding</button>
+  <div class='col-md-3'><button class="btn btn-success" {{action "addGrant" model.grants departmentId}}>Add a grant</button></div>
+</div>  
 
-   {{file-chooser files=fileList}}
-   <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' model.grant departmentId fileList model.document}} > Next </button>
+    <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' model.grant departmentId fileList model.document}} > Submit </button>
+
 </div>

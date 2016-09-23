@@ -1,5 +1,33 @@
 
-<div class="document" data-item={{grant.status}}>
+
+
+
+
+
+<tr>
+    <td>{{grant.number}}</td>
+    <td>{{grant.document.name}}</td>
+    <td>{{grant.document.pi}}</td>
+    <td>{{grant.department}}</td>
+    <td>{{grant.status}}</td>
+    <td><button type='button' class="btn btn-primary" {{action 'moreInfo' this}}>More</button></td>
+</tr>
+<!--<tr><td colspan='6'><table>
+    <tr>
+    </tr>
+    <tr>
+        <td></td>
+    </tr>
+</table></td></tr>-->
+
+
+
+
+
+
+
+
+<!--<div class="document" data-item={{grant.status}}>
 
     <div class="less-info">
       <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -8,9 +36,7 @@
         <span class="date-submitted"><input size="11" type="text" name="date-submitted" value={{grant.document.datesubmitted}} readonly="readonly"></span>
         <span class="date-published"><input size="11" type="text" name="date-published" value={{this.datepublished}} readonly="readonly"></span>
         <span class="pi-email"><input size="15" type="text" name="pi-email" value={{this.piemail}} readonly="readonly"></span>
-
     </div>
-
 
     <ul class="action-buttons">
         <li class='more-info-button' {{action "moreInfo" this}}>More Info<span class="caret"></span></li>
@@ -48,7 +74,7 @@
           </tr>
          </tbody>
        </table>
-      </div>
+      </div>-->
       <!--<div class='more-info-content'></div>-->
 
 
@@ -108,7 +134,7 @@
         </table>-->
 
 
-
+<!--
 
     </div>
 
@@ -118,4 +144,4 @@
       </span>
 
 
-</div>
+</div>-->
