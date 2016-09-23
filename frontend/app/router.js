@@ -6,18 +6,28 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('researcher', function() {
-    this.route('metadata');
-    this.route('grant');
-    this.route('success');
-    this.route('status');
-  });
-  this.route('login');
-  this.route('moderator');
-  this.route('settings', function() {
-    this.route('metadata');
-    this.route('api');
-  });
+    this.route('researcher', function() {
+        this.route('metadata');
+        this.route('upload');
+        this.route('grant');
+        this.route('success');
+        this.route('status');
+
+    });
+    this.route('grants', function() {
+        this.route('create');
+    });
+    this.route('documents', function() {
+        this.route('create');
+    });
+      this.route('login');
+
+    this.route('moderator');
+    this.route('institution');
+    this.route('settings', function() {
+        this.route('metadata');
+        this.route('api');
+    });
 });
 
 export default Router;

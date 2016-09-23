@@ -1,19 +1,80 @@
 
-<div class="researchers-table">
-  <h1>Researchers</h1>
-  <h4>Upload your research projects to be reviewed. Or <a href="researcher/status">check the status</a> of a paper.</h4>
+<div class='container row'>
+
+
+<style>
+.container {
+    max-width: 1170px;
+}
+.row {
+    margin: 0;
+}
+.col {
+    overflow: hidden;
+    height: initial;
+    margin: 100px auto;
+    border-top: 5px solid #2e6da4;
+    background: rgba(255,255,255,.49);
+    padding: 15px 15px;
+    border-radius: 2px;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.bens {
+    background-color: #eeeeee;
+    border-radius: 2px;
+    padding: 20px 30px;
+    margin-bottom: 30px;
+}
+</style>
+
+
+
+<div class="col-md-4"><div class='col'>
+  <h1>Researchers</h1> 
+  <h4>Convenient compliance</h4>
   <hr />
-  {{#link-to 'researcher' tagName="span"}}
-  <button class="btn btn-primary btn-lg btn-block"  >Upload Document</button>
+  <ul class='bens'>
+    <li>Submit your research</li>
+    <li>Review the status of submitted research</li>
+    <li>Respond to discussion pertaining your research</li>
+    <li><a href="researcher/status">check the status</a> of a paper</li>
+  </ul>
+  {{#link-to 'researcher.upload' tagName="span"}}
+  <button class="btn btn-primary btn-lg btn-block"  >Upload Research</button>
   {{/link-to}}
+</div></div>
+
+<div class="col-md-4"><div class='col'>
+  <h1>Institutions</h1>
+  <h4>Coordinated funding tools</h4>
+  <hr />
+  <ul class='bens'>
+    <li>Request materials be submitted by your researchers</li>
+    <li>Review submitted research</li>
+    <li>Coordinate the submission and review of research performed with grants by your institution</li>
+  </ul>
+  {{#link-to 'institution' tagName="span"}}
+  <button class="btn btn-primary btn-lg btn-block">Review Grants</button>
+  {{/link-to}}
+</div></div>
+
+<div class='col-md-4'><div class='col'>
+  <h1>Granting Agencies</h1>
+  <h4>Grant accountability simplified</h4>
+  <hr />
+  <ul class='bens'>
+    <li>Manage the requirements of research you provide grants to.</li>
+    <li>Review submitted research</li>
+    <li>Communicate with the research's authors ranting agency to.</li>
+    <li>Track information on all the grants awarded.</li>
+  </ul>
+  {{#link-to 'moderator' tagName="span"}}
+  <button class="btn btn-primary btn-lg btn-block"  >Administer Grants</button>
+  {{/link-to}}  
+</div></div>
+
+
+
 </div>
 
-
-<div class="admin-table">
-
-    <h2>Moderators</h2>
-    <p>Login as a Moderator to review submissions.</p>
-    {{#link-to 'login' tagName="span"}}
-    <button class="btn btn-success">Review Submissions</button>
-    {{/link-to}}
-</div>
