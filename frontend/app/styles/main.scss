@@ -571,12 +571,12 @@ textarea{
     margin-bottom: 0;
 }
 
+.button-pos{
+  margin-bottom: 4px!important;
+
+}
 .tools {
-background: #eaeaea; /* Old browsers */
-background: -moz-linear-gradient(top,  #eaeaea 1%, #d1d1d1 5%, #aaaaaa 95%, #939393 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top,  #eaeaea 1%,#d1d1d1 5%,#aaaaaa 95%,#939393 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom,  #eaeaea 1%,#d1d1d1 5%,#aaaaaa 95%,#939393 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eaeaea', endColorstr='#939393',GradientType=0 ); /* IE6-9 */
+  text-align:center ;
     
 }
 .tools .add-grant {

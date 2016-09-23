@@ -1,7 +1,9 @@
 {{yield}}
 
 <div class='container tools'>
-    <div class='col-md-6 add-grant'>
+   
+    <div class='add-grant'>
+       
         <h2>Add a grant</h2>
         {{#if institution}}
             <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
@@ -12,8 +14,9 @@
             </select>
             <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
             <input class='input input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
-            <button type='button' class='btn btn-primary' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
+            <button type='button' class='btn btn-primary'  {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
         {{/if}}
+
         {{#if agency}}
             <select class="institutionSelect input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
                 <option>Select an Institution</option>
@@ -22,7 +25,7 @@
                 {{/each}}
             </select>
             <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
-            <button type='button' class='btn btn-primary' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
+            <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add a grant</button>
         {{/if}} 
     </div>
 </div>
