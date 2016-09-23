@@ -160,7 +160,7 @@ class Grant(models.Model):
     questions = models.TextField(default=schema, blank=True, null=True)
     answers = models.TextField(default='', blank=True, null=True)
     institution = models.BooleanField(default=False)
-    pi = models.CharField(max_length=255, default='anonymous', null=False)
+    pi = models.CharField(max_length=255, default='anonymous', null=True)
 
     def __str__(self):
         return self.number + " / " + self.department.name + " / " + self.document.name
