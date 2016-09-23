@@ -2,7 +2,7 @@
 module.exports = function(environment) {
   var ENV = {
     authorizationType: 'token',
-    modulePrefix: 'ostp-files-ember-v2',
+    modulePrefix: 'federal-prototype',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
