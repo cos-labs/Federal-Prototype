@@ -5,7 +5,7 @@
   <span class="custom">
   <h1>Institution Overview</h1>
   </span>
-  {{department-file-viewer model=model}}
+  {{department-file-viewer model=grants departments=departments createGrantHook=(action 'createGrant')}}
 </span>
 {{outlet}}
 

@@ -1,21 +1,21 @@
 {
-  "name": "ostp-files-ember-v2",
-  "dependencies": {
-    "ember": "~2.6.0",
-    "ember-cli-shims": "0.1.1",
-    "ember-cli-test-loader": "0.2.2",
-    "ember-qunit-notifications": "0.1.0",
-    "bootstrap-sass": "^3.3.6",
-    "toastr": "^2.1.2",
-    "font-awesome": "~4.5.0",
-    "jquery": ">=1.11.3",
-    "handlebars": "4.0.5",
-    "alpaca": "ade59b36bebb0f2de04aa34a05c44e23281ea17a",
-    "bootstrap": "^3.3.2",
-    "lodash": "~4.6.1"
-  },
-  "resolutions": {
-    "jquery": "^1.11.1",
-    "bootstrap": "^3.3.7"
-  }
+    "name": "ostp-files-ember-v2",
+    "dependencies": {
+        "ember": "~2.6.0",
+        "ember-cli-shims": "0.1.1",
+        "ember-cli-test-loader": "0.2.2",
+        "ember-qunit-notifications": "0.1.0",
+        "bootstrap-sass": "^3.3.6",
+        "toastr": "^2.1.2",
+        "font-awesome": "~4.5.0",
+        "jquery": ">=1.11.3",
+        "handlebars": "4.0.5",
+        "alpaca": "ade59b36bebb0f2de04aa34a05c44e23281ea17a",
+        "bootstrap": "^3.3.2",
+        "lodash": "~4.6.1"
+    },
+    "resolutions": {
+        "jquery": "^1.11.1",
+        "bootstrap": "^3.3.7"
+    }
 }
