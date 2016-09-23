@@ -10,5 +10,5 @@ export default Model.extend({
     questions: attr('string'),
     answers: attr('json-transform', {defaultValue: '{}'} ),
     institution: attr('boolean', {defaultValue: false}),
-    pi: attr('string')
+    pi: attr('string', {defaultValue: 'anonymous'})
 });
