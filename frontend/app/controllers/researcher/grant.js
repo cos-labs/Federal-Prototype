@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
             grant.set('department', dep)
             grant.set('document', this.get('document'))
             grant.set('questions', dep.toJSON().settings);
-            grant.set('institutions'i)
+            grant.set('institutions')
             grant.save();
             this.set('active_grant', grant)
             var grants = this.get('grants');
