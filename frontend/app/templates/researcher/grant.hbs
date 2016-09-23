@@ -1,33 +1,45 @@
 <div class="form-table">
+  <h1>Connect Grants</h1> Add a grant entry for each grant that was awarded to fund this research
+  <hr /> 
 
-    <h1>Associate Grants</h1>
-        Add a grant entry for each grant that was awarded to fund this research
-    <hr />
   {{#each grants as |grant|}}
-    <div class='row'>
-        <div class='col-md-10'>{{input value=grant.number class="form-control" id="grantid" placeholder="Grant Number" change="departmentSelected grant.number"}}</div>
-        <div class='col-md-2'><button class="btn col-md-5 btn-primary btn-lg btn-block"  {{action 'edit' model.grant departmentId fileList model.document}} >Edit</button></div>
+
+  <div class='row'>
+    <div class='col-md-10'><h4>{{grant.department.name}} - {{grant.number}} </h4></div>
+    <div class='col-md-2'>
+      <button class="btn col-md-5 btn-primary btn-lg btn-block" {{action 'edit' model.grant departmentId fileList model.document}}>Edit</button>
     </div>
-  {{else}}
-    <p>
-        No grants currently apply to this document. To connect a grant, Use the drop-down meny to select the department that awarded the grant, then press the 'Add a grant' button below.
-    </p>
-  {{/each}}
-
-
-   <div class='row'>
-   <div class="dropdownHolder col-md-9">
-    <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
-        <option>Select a Department</option>
-        {{#each departments as |departmentChoice|}}
-          <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
-        {{/each}}
-    </select>
   </div>
 
-  <div class='col-md-3'><button class="btn btn-success" {{action "addGrant" model.grants departmentId}}>Add a grant</button></div>
-</div>  
+  {{else}}
 
-    <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' model.grant departmentId fileList model.document}} > Submit </button>
+  <p>
+    No grants currently apply to this document. To connect a grant, Use the drop-down menu to select the department that awarded the grant, type in your grant number, then press the 'Add a grant' button below.
+  </p>
 
+  {{/each}}
+
+  <hr/>
+
+  <div class='row'>
+
+    <div class="dropdownHolder col-md-12">
+      <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value" }}>
+        <option>Select a Department</option>
+        {{#each departments as |departmentChoice|}}
+        <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+  </div>
+  <div class='row'>
+    <!-- grant number for new grant-->
+    <div class='col-md-9'>
+      {{input type="text" value=grantNumber}}
+    </div>
+    <div class='col-md-3'>
+      <button class="btn btn-success" {{action "addGrant" model.grants departmentId grantNumber}}>Add a grant</button>
+    </div>
+  </div>
+  <button class="btn btn-primary btn-lg btn-block metaData" {{action 'submit' model.grant departmentId fileList model.document}}> Submit </button>
 </div>
