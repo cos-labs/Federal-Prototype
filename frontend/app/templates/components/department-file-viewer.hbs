@@ -1,29 +1,54 @@
 {{yield}}
 
-<div style="margin-top:50px;"></div>
 
 <div class="department-header">
-<table class="table tb-file-viewer-header">
-  <thead class="thead-default">
-    <tr>
-      <th class="thead-default-tr-th grant-number-header">Grant Number</th>
-      <th class="thead-default-tr-th">PI</th>
-      <th class="thead-default-tr-th">Date Submitted</th>
-      <th class="thead-default-tr-th">Date Published</th>
-      <th class="thead-default-tr-th">PI Email</th>
-      <th >{{status-filter}}</th>
-    </tr>
-  </thead>
- </table>
-</div>
 
+<table class="table table-bordered table-hover">
+    
+    <thead class="thead-default thead-grants">
+        <tr>
+            <th class="thead-default-tr-th grant-number-header">Grant Number</th>
+            <th class="thead-default-tr-th">Granting Agency</th>
+            <th class="thead-default-tr-th">Title</th>
+            <th class="thead-default-tr-th">PI</th>
+            <th class="thead-default-tr-th">Status</th>
+            <th ></th>
+        </tr>
+    </thead>
 
-<div class="document-list">
-
+    <tbody>
     {{#each model as |grant|}}
-        {{moderator-file-view grant=grant}}
+        <tr>
+            <td>{{grant.number}}</td>
+            <td>{{grant.department.name}}</td>
+            <td>unknown</td>
+            <td>{{grant.pi}}</td>
+            <td>{{grant.status}}</td>
+            <td><button type='button' class="btn btn-primary" {{action 'moreInfo' this}}>More</button></td>
+        </tr>
+        <!--<tr><td colspan='6'><table>
+            <tr>
+            </tr>
+            <tr>
+                <td></td>
+            </tr>
+        </table></td></tr>-->
+    {{else}}
+        {{#if institution}}
+            <tr><td colspan='7' class='No-documents-error'>
+                <h2>This institution has not been associated with any grants yet.</h2>
+                <p>To associate a grant with this institution, select the department that awarded the grant, enter a grant number, then select the principal investigator in the toolbar above. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
+            </td></tr>
+        {{/if}}
+        {{#if agency}}
+            <tr><td colspan='7' class='No-documents-error'>
+                <h2>This institution has awarded any grants yet.</h2>
+                <p>To award a grant to aninstitution, select the institution that has been awarded the grant, then enter a grant number. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
+            </td></tr>
+        {{/if}}
     {{/each}}
+    </tbody>
+ </table>
 
-<div class="No-documents-error text-center"><h2>No Documents Found!</h2></div>
 
 </div>

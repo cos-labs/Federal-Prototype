@@ -6,10 +6,14 @@
     position: relative;
 }
 </style>
+<div style='display: flex; min-height:100vh; flex-direction: column;'>
+<div style='flex: 1;'>
 {{osf-navbar class='fedhead' loginAction=(action 'login')}}
 <div class="container">
 	{{outlet}}
 </div>
+</div>
 {{osf-footer}}
 {{osf-copyright}}
 {{osf-mode-footer}}
+</div>

@@ -1,0 +1,32 @@
+
+<style>
+
+.addgrant {
+    background-color: rgba(250,250,250,0.3);
+    padding: 30px;
+    text-align: center;
+}
+
+.addgrant .container {
+    max-width: 600px;
+}
+
+</style>
+
+<div class='addgrant'>
+    <div class='container'>
+        <select class="departmentSelect form-control input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
+            <option>Select a Department</option>
+            {{#each departments as |departmentChoice|}}
+            <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+            {{/each}}
+        </select>
+        <br>
+        <input class='form-control input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
+        <br>
+        <input class='form-control input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
+        <br>
+        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add this grant</button>
+    </div>
+</div>
+

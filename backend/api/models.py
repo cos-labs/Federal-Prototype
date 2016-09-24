@@ -110,7 +110,8 @@ schema = '''{
 
 USER_TYPES = (
     (1, 'researcher'),
-    (2, 'moderator')
+    (2, 'moderator'),
+    (3, 'coordinator')
 )
 
 # necessary for local uploads only
@@ -154,10 +155,12 @@ class Document(models.Model):
 class Grant(models.Model):
     number = models.CharField(max_length=100)
     department = models.ForeignKey('Department', related_name='grants')
-    document = models.ForeignKey('Document', related_name='grants')
+    document = models.ForeignKey('Document', related_name='grants', null=True)
     status = models.TextField(default='.unread', max_length=20)
     questions = models.TextField(default=schema, blank=True, null=True)
     answers = models.TextField(default='', blank=True, null=True)
+    institution = models.BooleanField(default=False)
+    pi = models.CharField(max_length=255, default='anonymous', null=True)
 
     def __str__(self):
         return self.number + " / " + self.department.name + " / " + self.document.name
