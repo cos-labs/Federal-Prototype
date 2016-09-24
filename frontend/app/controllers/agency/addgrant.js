@@ -18,11 +18,10 @@ export default Ember.Controller.extend({
                 grant.set('institution', true);
                 this.store.findRecord('document', 117).then((r) => {
                     grant.set('document', r);
-                    grant.save();
-                    //this.set('active_grant', grant)
-                    var grants = this.get('grants');
-                    grants.push(grant);
-                    this.set('grants', grants.slice());
+                    grant.save().then(() => {
+                        Ember.$.bootstrapGrowl("Succesfully created grant number" + grant_number + ", { type: 'success', align: 'center' , width: 400, hight: 40 });
+                        this.transitionToRoute('agency.overview');
+                    });
                 });
             });
         }
