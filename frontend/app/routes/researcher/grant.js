@@ -1,7 +1,6 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend( {
 
     store: Ember.inject.service(),
     session: Ember.inject.service(),
@@ -26,19 +25,14 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     setupController(controller, model) {
         this._super(controller, model);
-        // debugger;
         controller.set('isFileUploaded', "researcher-form");
         var grants = model.grants.reduce(function(r, n, i) {
             if (n.get('document').get('id') == model.document.get('id')) { r.push(n); }
             return r;
         }, [])
-        // debugger;
-        controller.set('grants', grants);
-        controller.set('document', model.document);
-        controller.set('departments', model.departments);
-        controller.set('store', Ember.inject.service('store'));
-    
+        controller.set('grants', grants)
+        controller.set('document', model.document)
+        controller.set('departments', model.departments)    
     }
-
 });
 

@@ -1,8 +1,7 @@
 import Ember from 'ember';
-import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
 
-export default Ember.Route.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend( {
 
     fileManager: Ember.inject.service(),
     store: Ember.inject.service(),
@@ -43,5 +42,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
       this._super(controller, model);
       controller.set('isFileUploaded', "researcher-form");
-  }
+    }
 });

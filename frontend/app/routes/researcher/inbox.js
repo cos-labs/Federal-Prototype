@@ -1,7 +1,8 @@
 import Ember from 'ember';
+//add this and the AuthenticatedRouteMixin to the extend rout to protect it unless logged in
+
 
 export default Ember.Route.extend({
-
     model() {
         return Ember.RSVP.hash({
             grants: this.get('store').findAll('grant'),
@@ -24,9 +25,9 @@ export default Ember.Route.extend({
     setupController(controller, model) {
         controller.set('agency', true);
         controller.set('isFileUploaded', "researcher-form");
-        controller.set('grants', model.grants)
-        controller.set('documents', model.documents)
-        controller.set('institutions', model.institutions)
+        controller.set('grants', model.grants);
+        controller.set('documents', model.documents);
+        controller.set('institutions', model.institutions);
     }
 
 });
