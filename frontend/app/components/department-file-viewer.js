@@ -1,8 +1,6 @@
 
 import Ember from 'ember';
 
-var jsonArray = [];
-
 export default Ember.Component.extend({
 
     datepublished: '',
@@ -35,7 +33,7 @@ export default Ember.Component.extend({
     afterModel() {
         this._super(...arguments);
         this.set('answers', this.grant.get('answers'));
-        this.set('pi', answers['pi']);
+        this.set('pi', this.get('answers')['pi']);
     },
 
     actions: {
@@ -63,7 +61,7 @@ export default Ember.Component.extend({
                 }
             }
         },
-        setDocumentStatus(status , color, buttonType, name){
+        setDocumentStatus(status , color, buttonType){
             var thisParents = Ember.$(event.target).parents().eq(6);
             var thisParentSiblings = Ember.$(event.target).parent().siblings();
             thisParents.data('item', status);

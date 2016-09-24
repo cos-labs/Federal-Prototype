@@ -11,9 +11,9 @@ export default Ember.Controller.extend({
     actions: {
         addGrant(grant_id, department_id, grantNumber) {
             var dep = this.get('store').peekRecord('department', department_id);
-            var grant = this.get('store').createRecord('grant')
-            grant.set('department', dep)
-            grant.set('document', this.get('document'))
+            var grant = this.get('store').createRecord('grant');
+            grant.set('department', dep);
+            grant.set('document', this.get('document'));
             grant.set('questions', dep.toJSON().settings);
             grant.set('number', grantNumber);
             this.get('currentUser').load().then((c) => {
