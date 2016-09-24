@@ -21,13 +21,13 @@ export default Ember.Route.extend({
                 var value = this.getValue();
                 model.grant.set('answers',value);
                 model.grant.save();
-                controller.transitionToRoute('researcher.inbox');
+                controller.transitionToRoute('researcher.grant');
             },
             addGrant: function() {
                 var value = this.getValue();
                 model.grant.set('answers',value);
                 model.grant.save();
-                controller.transitionToRoute('researcher.grant');
+                controller.transitionToRoute('researcher.inbox');
             },
         };
         model.formActions = formActions;
@@ -35,5 +35,4 @@ export default Ember.Route.extend({
         controller.set('grant', model.grant);
         controller.set('formActions', formActions);
     }
-
 });
