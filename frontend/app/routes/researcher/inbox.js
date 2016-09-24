@@ -5,7 +5,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     currentUser: Ember.inject.service(),
     model() {
-            debugger;
             return Ember.RSVP.hash({
                 // grants: this.get('store').query('grant', { pi: this.get('currentUser').load().then((x) => x.get('fullName') )}),
                 grants: this.get('store').query('grant', { pi: 'Cameron Blandford' }),
@@ -26,7 +25,6 @@ export default Ember.Route.extend({
     },
 
     setupController(controller, model) {
-        debugger;
         controller.set('agency', true);
         controller.set('isFileUploaded', "researcher-form");
         controller.set('grants', model.grants);
