@@ -11,7 +11,7 @@ export default Ember.Route.extend( {
       submit(fileList, doc) {
 
         var store = this.get('store');
-        var folderid = "57e2ef768ca57e01c133a457";
+        var folderid = "57e6cdae0dc31001c9a9f41a";
         var fm = this.get('fileManager');
         var controller = this.controller;
 
