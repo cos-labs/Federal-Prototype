@@ -7,7 +7,7 @@ export default Ember.Route.extend( {
     
     actions: {
         submit() {
-            this.transitionTo('researcher.metadata')
+            this.transitionTo('researcher.metadata');
         },
         departmentSelected(departmentId) {
             this.get('store').getRecord('department', departmentId);
@@ -20,21 +20,19 @@ export default Ember.Route.extend( {
             document: researcher.document,
             departments: researcher.departments,
             grants: this.get('store').findAll('grant')
-        })
+        });
     },
 
     setupController(controller, model) {
         this._super(controller, model);
         controller.set('isFileUploaded', "researcher-form");
-        var grants = model.grants.reduce(function(r, n, i) {
-            if (n.get('document').get('id') == model.document.get('id')) { r.push(n); }
+        var grants = model.grants.reduce(function(r, n, i) { //jshint ignore:line
+            if (n.get('document').get('id') === model.document.get('id')) { r.push(n); }
             return r;
-        }, [])
-        controller.set('grants', grants)
-        controller.set('document', model.document)
-        controller.set('departments', model.departments)
-    
+        }, []);
+        controller.set('grants', grants);
+        controller.set('document', model.document);
+        controller.set('departments', model.departments);  
     }
-
 });
 

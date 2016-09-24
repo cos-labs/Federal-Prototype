@@ -231,14 +231,14 @@ export default Ember.Component.extend({
 
 
         };
-        $(fbTemplate).formBuilder(options);
+        Ember.$(fbTemplate).formBuilder(options);
        
 
         //Shepard
         Ember.$(".ui-sortable").css("min-height", "150px");
 
 
-        let tour = new Shepherd.Tour({
+        let tour = new Shepherd.Tour({ // jshint ignore:line
               defaults: {
                 classes: 'shepherd-theme-arrows'
               }

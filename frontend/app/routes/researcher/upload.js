@@ -27,7 +27,7 @@ export default Ember.Route.extend( {
           doc.set('name', name);
           doc.set('path', path);
           doc.save().then( function() {
-            controller.transitionToRoute('researcher.grant')
+            controller.transitionToRoute('researcher.grant');
           });
         }).then(function(){}, function(error) {
           console.log("Oops: " + error.message);

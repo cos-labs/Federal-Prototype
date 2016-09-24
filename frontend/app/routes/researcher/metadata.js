@@ -6,7 +6,7 @@ export default Ember.Route.extend({
   
     model() {
         var grantController = this.controllerFor('researcher.grant');
-        var questions = JSON.parse(grantController.active_grant.get('questions'))
+        var questions = JSON.parse(grantController.active_grant.get('questions'));
         questions.options.form.buttons.addGrant = {
             "id": 'addGrant',
             'title': 'Connect another grant'
@@ -24,7 +24,7 @@ export default Ember.Route.extend({
                 controller.transitionToRoute('researcher.grant');
             }
         };
-        model.formActions = formActions
+        model.formActions = formActions;
         controller.set('model', model);
         controller.set('grant', model.grant);
         controller.set('formActions', formActions);
