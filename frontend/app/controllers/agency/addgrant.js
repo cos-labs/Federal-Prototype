@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
                 this.store.findRecord('document', 117).then((r) => {
                     grant.set('document', r);
                     grant.save().then(() => {
-                        Ember.$.bootstrapGrowl("Succesfully created grant number" + grant_number + ", { type: 'success', align: 'center' , width: 400, hight: 40 });
+                        Ember.$.bootstrapGrowl("Succesfully created grant number" + grant_number + ".", { type: 'success', align: 'center' , width: 400, hight: 40 });
                         this.transitionToRoute('agency.overview');
                     });
                 });
