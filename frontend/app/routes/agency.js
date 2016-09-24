@@ -25,9 +25,9 @@ export default Ember.Route.extend({
     setupController(controller, model) {
         controller.set('agency', true);
         controller.set('isFileUploaded', "researcher-form");
-        controller.set('grants', model.grants)
-        controller.set('documents', model.documents)
-        controller.set('institutions', model.institutions)
+        controller.set('grants', model.grants);
+        controller.set('documents', model.documents);
+        controller.set('institutions', model.institutions);
     }
 
 });

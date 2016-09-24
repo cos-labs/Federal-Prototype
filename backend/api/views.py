@@ -76,7 +76,7 @@ class GrantList(generics.ListCreateAPIView):
             queryset = queryset.filter(institution=institution)
         if status is not None:
             queryset = queryset.filter(status=status)
-        
+
         return queryset
     # permission_classes = (permissions.IsAuthenticated, isDepartment)
 
