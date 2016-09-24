@@ -26,7 +26,6 @@
         <br>
         <input class='form-control input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
         <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrantHook' departmentId grant_number grant_pi}}>Add this grant</button>
+        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrant' departmentId grant_number grant_pi}}>Add this grant</button>
     </div>
 </div>
-
