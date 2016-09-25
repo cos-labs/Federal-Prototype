@@ -10,7 +10,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             filter: {
                 name: "Department of Open Science",
             },
-        })
+        });
         this.set('department', dept.get('firstObject'));       
         return Ember.RSVP.hash({
             grants: this.get('store').query('grant', {
