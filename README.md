@@ -19,7 +19,7 @@ Install ember and link ember-osf to Federal-Prototype.
 
 - `$ npm install -g ember-cli@2.8`
 - `cd $FED_PROTO/frontend`
-- `$ ember install ../../ember-osf`
+- `$ npm install ../../ember-osf`
 - `$ npm link ../../ember-osf`
 
 The following comprise the steps to run this software locally for those that wish to develop with this project.
