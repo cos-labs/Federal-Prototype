@@ -18,7 +18,7 @@ export default Ember.Component.extend({
         function getAvailableActions(grant, role) {
             var options = [];
             if (grant.open) {
-                if (!grant.get('document') || (grant.get('document').get('id') === 117)) {
+                if (!grant.get('document') || (grant.get('document').get('id') === 125)) {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
                         options.push('Request Upload');
                     }
@@ -27,7 +27,7 @@ export default Ember.Component.extend({
                     }
                 } else {
                     options.push('View Document');
-                    if (!grant.get('answers') || (grant.get('document').get('id') === 117)) {
+                    if (!grant.get('answers') || (grant.get('document').get('id') === 125)) {
                         if ((role !== 'pi') && !grant.get('metadata_requested')) {
                             options.push('Request Metadata'); }
                         if (role !== 'agency') {
