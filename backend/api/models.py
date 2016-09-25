@@ -160,7 +160,7 @@ class Grant(models.Model):
     status = models.TextField(default='New', max_length=160)
     pistatus = models.TextField(default='New', max_length=160)
     institutionstatus = models.TextField(default='New', max_length=160)
-    agencystatus = models.TextField(default='New', max_length=160)    
+    agencystatus = models.TextField(default='New', max_length=160)
     questions = models.TextField(default=schema, blank=True, null=True)
     answers = models.TextField(default='', blank=True, null=True)
     metadatarequested = models.BooleanField(default=False)
