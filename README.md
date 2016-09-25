@@ -12,8 +12,9 @@ Assuming `$FED_PROTO` is the root of this repository.
 
 Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
 
-- `cd $FED_PROTO && cd ..`
-- `git clone https://github.com/CenterForOpenScience/ember-osf.git`
+- `$ git clone <this repository>`
+- `$ cd $FED_PROTO && cd ..`
+- `$ git clone https://github.com/CenterForOpenScience/ember-osf.git`
 
 Link ember-osf to Federal-Prototype.
 
