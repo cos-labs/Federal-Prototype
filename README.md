@@ -41,6 +41,7 @@ Blueprints may need to be generated for some of this project's dependencies.
 - `cd $FED_PROTO/frontend`
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
+- When generating ember-cli-dynamic-forms, if you're asked to choose a version of handlebars, choose `4.0.5`.
 
 To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
 
