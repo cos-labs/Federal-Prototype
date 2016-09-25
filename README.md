@@ -8,8 +8,20 @@ The Federal Prototype Project is centered around a new government mandate. This 
 
 ## Setup
 
-The following comprise the steps to run this software locally for those that wish to develop with this project.
 Assuming `$FED_PROTO` is the root of this repository.
+
+Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
+
+- `cd $FED_PROTO && cd ..`
+- `git clone https://github.com/CenterForOpenScience/ember-osf.git`
+
+Link ember-osf to Federal-Prototype.
+
+- `cd $FED_PROTO/frontend`
+- `$ ember install ../../ember-osf`
+- `$ npm link ../../ember-osf`
+
+The following comprise the steps to run this software locally for those that wish to develop with this project.
 
 - `cd $FED_PROTO/frontend`
 - `$ npm install -g ember-cli@2.8`
@@ -23,17 +35,6 @@ Make a new virtual environment, install the required python packages via pip, th
 - `$ pip install -r requirements.txt`
 - `$ python backend/manage.py makemigrations api`
 - `$ python backend/manage.py migrate`
-
-Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
-
-- `cd $FED_PROTO && cd ..`
-- `git clone https://github.com/CenterForOpenScience/ember-osf.git`
-
-Link ember-osf to Federal-Prototype.
-
-- `cd $FED_PROTO/frontend`
-- `$ ember install ../../ember-osf`
-- `$ npm link ../../ember-osf`
 
 Blueprints may need to be generated for some of this project's dependencies.
 
