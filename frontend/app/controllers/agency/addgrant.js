@@ -8,21 +8,21 @@ export default Ember.Controller.extend({
     //document: {},
     departments: {},
     actions: {
-        createGrant(department_id, grant_number, pi_name) {
-            var dep = this.get('store').peekRecord('department', department_id);
-            var grant = this.get('store').createRecord('grant');
-            grant.set('number', grant_number);
-            grant.set('department', dep);
-            grant.set('pi', pi_name);
-            grant.set('questions', dep.toJSON().settings);
-            grant.set('institution', true);
-            this.store.findRecord('document', 117).then((r) => {
-                grant.set('document', r);
-                grant.save();
-                //this.set('active_grant', grant)
-                var grants = this.get('grants');
-                grants.push(grant);
-                this.set('grants', grants.slice());
+        addGrant(department_id, grant_number, pi_name) {
+            this.get('store').findRecord('department', 3).then((dep) => {
+                var grant = this.get('store').createRecord('grant');
+                grant.set('number', grant_number);
+                grant.set('department', dep);
+                grant.set('pi', pi_name);
+                grant.set('questions', dep.toJSON().settings);
+                grant.set('institution', true);
+                this.store.findRecord('document', 117).then((r) => {
+                    grant.set('document', r);
+                    grant.save().then(() => {
+                        Ember.$.bootstrapGrowl("Succesfully created grant number " + grant_number + ".", { type: 'success', align: 'center' , width: 400, hight: 40 });
+                        this.transitionToRoute('agency.overview');
+                    });
+                });
             });
         }
     }
