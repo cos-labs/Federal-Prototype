@@ -8,11 +8,23 @@ The Federal Prototype Project is centered around a new government mandate. This 
 
 ## Setup
 
-The following comprise the steps to run this software locally for those that wish to develop with this project.
 Assuming `$FED_PROTO` is the root of this repository.
 
+Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
+
+- `$ git clone <this repository>`
+- Without changing directories, `$ git clone https://github.com/CenterForOpenScience/ember-osf.git`
+
+Install ember and link ember-osf to Federal-Prototype.
+
+- `$ npm install -g ember-cli@2.8`
 - `cd $FED_PROTO/frontend`
-- `$ npm install -g ember-cli@2.6`
+- `$ npm install ../../ember-osf`
+- `$ npm link ../../ember-osf`
+
+The following comprise the steps to run this software locally for those that wish to develop with this project.
+
+- `cd $FED_PROTO/frontend`
 - `$ npm install`
 - `$ bower install`
 
@@ -24,22 +36,12 @@ Make a new virtual environment, install the required python packages via pip, th
 - `$ python backend/manage.py makemigrations api`
 - `$ python backend/manage.py migrate`
 
-Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
-
-- `cd $FED_PROTO && cd ..`
-- `git clone https://github.com/CenterForOpenScience/ember-osf.git`
-
-Link ember-osf to Federal-Prototype.
-
-- `cd $FED_PROTO/frontend`
-- `$ ember install ../../ember-osf`
-- `$ npm link ../../ember-osf`
-
 Blueprints may need to be generated for some of this project's dependencies.
 
 - `cd $FED_PROTO/frontend`
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
+- When generating ember-cli-dynamic-forms, if you're asked to choose a version of handlebars, choose `4.0.5`.
 
 To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
 
