@@ -12,7 +12,7 @@ The following comprise the steps to run this software locally for those that wis
 Assuming `$FED_PROTO` is the root of this repository.
 
 - `cd $FED_PROTO/frontend`
-- `$ npm install -g ember-cli@2.6`
+- `$ npm install -g ember-cli@2.8`
 - `$ npm install`
 - `$ bower install`
 
