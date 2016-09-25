@@ -13,11 +13,11 @@ Assuming `$FED_PROTO` is the root of this repository.
 Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
 
 - `$ git clone <this repository>`
-- `$ cd $FED_PROTO && cd ..`
-- `$ git clone https://github.com/CenterForOpenScience/ember-osf.git`
+- Without changing directories, `$ git clone https://github.com/CenterForOpenScience/ember-osf.git`
 
-Link ember-osf to Federal-Prototype.
+Install ember and link ember-osf to Federal-Prototype.
 
+- `$ npm install -g ember-cli@2.8`
 - `cd $FED_PROTO/frontend`
 - `$ ember install ../../ember-osf`
 - `$ npm link ../../ember-osf`
@@ -25,7 +25,6 @@ Link ember-osf to Federal-Prototype.
 The following comprise the steps to run this software locally for those that wish to develop with this project.
 
 - `cd $FED_PROTO/frontend`
-- `$ npm install -g ember-cli@2.8`
 - `$ npm install`
 - `$ bower install`
 
