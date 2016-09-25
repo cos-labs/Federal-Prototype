@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
             grant.set('institution', true);
             this.store.findRecord('document', 22).then((r) => {
                 grant.set('document', r);
-                grant.save().then((r) => {
+                grant.save().then(() => {
                     Ember.$.bootstrapGrowl("Successfully added new grant!", { type: 'success', align: 'center' , width: 400, hight: 40 });
                     this.transitionToRoute('institution.overview');
                 });
