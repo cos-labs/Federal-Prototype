@@ -1,4 +1,4 @@
-mport Ember from 'ember';
+import Ember from 'ember';
 
 
 export default Ember.Component.extend({
@@ -86,12 +86,12 @@ export default Ember.Component.extend({
                     ['status', 'pistatus', 'agencystatus', 'institutionstatus'].map((att) => {
                         grant.set(att, 'Pending Research Upload');
                     });
-                    if (role == 'agency') ['status', 'pistatus', 'institutionstatus'].map((att) => {
+                    if (role == 'agency') { ['status', 'pistatus', 'institutionstatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
-                    });
-                    if (role == 'institution') ['status', 'pistatus'].map((att) => {
+                    }); }
+                    if (role == 'institution') { ['status', 'pistatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
-                    });
+                    }); }
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request to upload the research for grant number " + grant.get('number') + ". has been sent", { type: 'info', align: 'center' , width: 400, height: 40 });
                     })
@@ -111,12 +111,12 @@ export default Ember.Component.extend({
                     ['status', 'pistatus', 'agencystatus', 'institutionstatus'].map((att) => {
                         grant.set(att, 'Pending Research Upload');
                     });
-                    if (role == 'agency') ['status', 'pistatus', 'institutionstatus'].map((att) => {
+                    if (role == 'agency') { ['status', 'pistatus', 'institutionstatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
-                    });
-                    if (role == 'institution') ['status', 'pistatus'].map((att) => {
+                    }); }
+                    if (role == 'institution') { ['status', 'pistatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
-                    });
+                    }); }
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request for metadata to be added to grant number " + grant.get('number') + " has been sent.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     })
@@ -128,8 +128,8 @@ export default Ember.Component.extend({
                 },
                 
                 "Message PI": function() {
-                    if (role == 'agency') grant.set('agencystatus', 'Pending PI Response');
-                    if (role == 'institution') grant.set('institutionstatus', 'Pending PI Response');
+                    if (role == 'agency') { grant.set('agencystatus', 'Pending PI Response'); }
+                    if (role == 'institution') { grant.set('institutionstatus', 'Pending PI Response'); }
                     grant.set('pistatus', 'Message Waiting');
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A message regarding " + grant.get('number') + " has been sent to the primary investigator.", { type: 'info', align: 'center' , width: 400, height: 40 });
@@ -137,8 +137,8 @@ export default Ember.Component.extend({
                 },
                 
                 "Message Institution": function() {
-                    if (role == 'pi') grant.set('pistatus', 'Pending Institution Response');
-                    if (role == 'agency') grant.set('agencystatus', 'Pending Institution Response');
+                    if (role == 'pi') { grant.set('pistatus', 'Pending Institution Response'); }
+                    if (role == 'agency') { grant.set('agencystatus', 'Pending Institution Response'); }
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A message regarding " + grant.get('number') + " has been sent to the institution.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     })
@@ -146,8 +146,8 @@ export default Ember.Component.extend({
                 
                 "Message Agency": function() {
                     grant.set('status', 'Pending Agency Response');
-                    if (role == 'pi') grant.set('pistatus', 'Pending Agency Response');
-                    if (role == 'institution') grant.set('institutionstatus', 'Pending Agency Response');
+                    if (role == 'pi') { grant.set('pistatus', 'Pending Agency Response'); }
+                    if (role == 'institution') { grant.set('institutionstatus', 'Pending Agency Response'); }
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A message regarding grant number " + grant.get('number') + " has been sent to the agency.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     })
@@ -183,9 +183,9 @@ export default Ember.Component.extend({
                 },
                 
                 "Edit": function() {
-                    if (role == 'pi') grant.set('pistatus', 'Grant Information Updated');
-                    if (role == 'institution') grant.set('institutionstatus', 'Grant Information Updated');
-                    if (role == 'agency') grant.set('agencystatus', 'Grant Information Updated');
+                    if (role == 'pi') { grant.set('pistatus', 'Grant Information Updated'); }
+                    if (role == 'institution') { grant.set('institutionstatus', 'Grant Information Updated'); }
+                    if (role == 'agency') { grant.set('agencystatus', 'Grant Information Updated'); }
                     grant.set('status', 'Grant Information Updated');
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("Succesfully updated grant information for grant number " + grant.get('number') + ".", { type: 'success', align: 'center' , width: 400, height: 40 });
