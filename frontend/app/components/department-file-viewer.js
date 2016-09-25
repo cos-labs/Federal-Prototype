@@ -52,6 +52,7 @@ export default Ember.Component.extend({
             console.log(arg);
         }, 
     
+        
         nextPageHook() {
             //this.attrs.nextPageHook();
         },
