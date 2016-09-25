@@ -37,6 +37,9 @@ export default Ember.Component.extend({
     },
 
     actions: {
+        updateStatus(arg) {
+            console.log(arg);
+        }, 
         createGrantHook(dept_id, grant_id, pi_name) {
             this.attrs.createGrantHook(dept_id, grant_id, pi_name);
         },
