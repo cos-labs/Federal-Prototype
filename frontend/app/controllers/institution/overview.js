@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
     grants: [],
     institution: true,
     agency: false,
+    role: 'institution',
     //active_grant: null,
     //document: {},
     departments: {},
