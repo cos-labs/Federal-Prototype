@@ -20,19 +20,12 @@
     {{#each model as |grant|}}
         <tr>
             <td>{{grant.number}}</td>
-            <td>{{grant.department.name}}</td>
+            <td>{{grant.number}}</td>
             <td>unknown</td>
             <td>{{grant.pi}}</td>
             <td>{{grant.status}}</td>
             <td>{{grant-action-button grant=grant role=role clickHandler=(action 'updateStatus')}}</td>
         </tr>
-        <!--<tr><td colspan='6'><table>
-            <tr>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table></td></tr>-->
     {{else}}
         {{#if institution}}
             <tr><td colspan='7' class='No-documents-error'>
