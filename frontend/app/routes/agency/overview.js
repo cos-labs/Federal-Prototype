@@ -33,6 +33,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.set('isFileUploaded', "researcher-form");
         controller.set('grants', model.grants);
         //controller.set('document', model.document)
+        controller.set('role', 'agency');
         controller.set('departments', model.departments);
     }
 
