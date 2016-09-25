@@ -1,0 +1,7 @@
+
+<select class='form-control' onchange={{action "clickHandler" value="target.value"}}>
+        <option disabled selected>Actions</option>
+        {{#each this.availableactions as |item|}}
+            <option value={{item}}>{{item}}</option>
+        {{/each}}
+</select>
