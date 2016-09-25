@@ -7,13 +7,11 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     store: Ember.inject.service(),
     session: Ember.inject.service(),
     
-    //model() {
-    //    return Ember.RSVP.hash({
-    //        grants: this.get('store').query('grant', {
-    //            institution: true,
-    //        }),
-    //        departments: this.get('store').findAll('department'),
-    //    });
-    //}
+    model() {
+        return Ember.RSVP.hash({
+            grants: this.get('store').findAll('grant'),
+            departments: this.get('store').findAll('department'),
+        });
+    }
 
 });

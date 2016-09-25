@@ -26,7 +26,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         controller.set('grants', model.grants.filter(function(grant) {
             return grant.get('institution');
         }));
-        controller.set('role', 'institution');
         //controller.set('document', model.document)
         controller.set('departments', model.departments);
     }
