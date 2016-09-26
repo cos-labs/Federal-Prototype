@@ -1,3 +1,12 @@
+<style>
+.upload-container {
+	margin: 0 auto 0 auto;
+	width:auto;
+}
+.upload-option {
+}
+</style>
+
 <div class="form-table">
     <p>Notify your pertinent institutions and Granting agencies of research in two simple steps.</p>
     <ol>
@@ -5,6 +14,11 @@
         <li>Connect grants to your research</li>
     </ol>
     
-    {{file-chooser files=fileList}}
+    {{file-chooser multiple=false files=fileList}}
     <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' fileList model.document}} > Upload </button>
+    <hr/>
+    <div class='upload-container'>You can also: 
+    <button class='btn btn-default'><i class='fa fa-github' aria-hidden='true'></i> Import from Github</button>
+    <button class='btn btn-default'><i class='fa fa-dropbox' aria-hidden='true'></i> Import from Dropbox</button>
+    </div>
 </div>
