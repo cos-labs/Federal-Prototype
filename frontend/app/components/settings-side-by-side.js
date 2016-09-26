@@ -290,8 +290,7 @@ export default Ember.Component.extend({
             return false;
         }
         var data = JSON.parse(this.get("metadataInputJson"));
-        data.options.focus = "";
-/////        
+        data.options.focus = "";        
         return this.get("_schemaList").unshiftObject(data);
 
     }),
