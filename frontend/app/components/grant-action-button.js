@@ -20,6 +20,9 @@ export default Ember.Component.extend({
         function getAvailableActions(grant, role) {
             var options = [];
             if (grant.get('open')) {
+                if (!grant.get('pi') && role === 'institution') {
+                    options.push('Assign to a PI')
+                }
                 if (grant.get('document').get('id') === "125") {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
                         options.push('Request Upload');
@@ -78,8 +81,7 @@ export default Ember.Component.extend({
                         grant.set(att, 'File Uploaded');
                     });
                     grant.save().then(function() {
-                        self.get('router').transitionTo('researcher.attach');
-                    });
+                        self.get('router').transitionTo('researcher.attach')                    });
                 },
                 
                 "Request Upload": function() {
@@ -120,7 +122,19 @@ export default Ember.Component.extend({
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request for metadata to be added to grant number " + grant.get('number') + " has been sent.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     });
-                    grant.save();
+                },
+
+                "Assign to a PI": function() {
+                    ['status', 'pistatus', 'agencystatus', 'institutionstatus'].map((att) => {
+                        grant.set(att, 'PI Assigned');
+                    });
+                    grant.set('pistatus', "New");
+                    self.get('router').transitionTo('institution.assign').then(function(route){
+                        Ember.run.schedule('afterRender', self, function () {
+                            route.get('controller').set('grant', grant);
+                        });
+                    });
+
                 },
                 
                 "View Metadata": function() {
