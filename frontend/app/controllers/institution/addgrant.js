@@ -8,14 +8,18 @@ export default Ember.Controller.extend({
     actions: {
         createGrant(department_id, grant_number, pi_name) {
             var dep = this.get('store').peekRecord('department', department_id);
-            var grant = this.get('store').createRecord('grant');
-            grant.set('number', grant_number);
-            grant.set('department', dep);
-            grant.set('pi', pi_name);
-            grant.set('questions', dep.toJSON().settings);
-            grant.set('institution', true);
-            this.store.findRecord('document', 125).then((r) => {
-                grant.set('document', r);
+            var doc = this.get('store').createRecord('document')
+            doc.set('name', 'Not Uploaded');
+            doc.set('path', '/dev/null');
+            doc.set('datesubmitted', 'Thursday, 1 January 1970');
+            doc.save().then((doc) => {
+                var grant = this.get('store').createRecord('grant');
+                grant.set('number', grant_number);
+                grant.set('department', dep);
+                grant.set('pi', pi_name);
+                grant.set('questions', dep.toJSON().settings);
+                grant.set('institution', true);
+                grant.set('document', doc);
                 grant.save().then(() => {
                     Ember.$.bootstrapGrowl("Successfully added new grant!", { type: 'success', align: 'center' , width: 400, hight: 40 });
                     this.transitionToRoute('institution.overview');

@@ -8,30 +8,30 @@ export default Ember.Route.extend( {
     session: Ember.inject.service(),
     
     actions: {
-      submit() {
+      submit(files, grant) {
 
-        //var store = this.get('store');
-        //var folderid = "57e6cdae0dc31001c9a9f41a";
-        //var fm = this.get('fileManager');
+        var store = this.get('store');
+        var folderid = "57e6cdae0dc31001c9a9f41a";
+        var fm = this.get('fileManager');
         var controller = this.controller;
 
-        //store.findRecord('file', folderid).then(function(folder) {
-        //  var file = fileList.pop();
-        //  let nf = fm.uploadFile(folder, file.name, file);
-        //  return nf.then((file) => {
-        //    return file;
-        //  });
-        //}).then(function(newFile) {
-         // var name = newFile.get('name');
-         // var path = newFile.get('path');
-         // doc.set('name', name);
-         // doc.set('path', path);
-         // doc.save().then( function() {
+        store.findRecord('file', folderid).then(function(folder) {
+          var file = files.pop();
+          let nf = fm.uploadFile(folder, file.name, file);
+          return nf.then((file) => {
+            return file;
+          });
+        }).then(function(newFile) {
+          var name = newFile.get('name');
+          var path = newFile.get('path');
+          grant.set('document.name', name);
+          grant.set('document.path', path);
+          grant.save().then( function() {
            controller.transitionToRoute('researcher.inbox');
-         // });
-        //}).then(function(){}, function(error) {
-         // console.log("Oops: " + error.message);
-        //});
+          });
+        }).then(function(){}, function(error) {
+          console.log("Oops: " + error.message);
+        });
       }
     },
 
