@@ -1,12 +1,9 @@
 <div class="form-table">
-    <p>Notify your pertinent institutions and Granting agencies of research in two simple steps.</p>
-    <ol>
-        <li>Upload your research to a non-paywalled provider.</li>
-        <li>Connect grants to your research</li>
-    </ol>
+    <h2>Connect Research to a Grant</h2>         
+    <p>Connect Research to Grant {{grant.number}} by uploading your research to a non-paywalled provider.</p>
     
-    {{file-chooser multiple=false files=fileList}}
-    <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit' fileList model.document}} > Upload </button>
+    {{file-chooser multiple=true files=files}}
+    <button class="btn btn-primary btn-lg btn-block metaData"  {{action 'submit'  files grant}} > Upload </button>
     <hr/>
     <div class='upload-container'>You can also: 
     <button class='btn btn-default'>Import from OSF</button>

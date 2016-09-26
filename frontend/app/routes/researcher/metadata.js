@@ -21,13 +21,16 @@ export default Ember.Route.extend({
                 var value = this.getValue();
                 model.grant.set('answers',value);
                 model.grant.save();
-                controller.transitionToRoute('researcher.grant');
+                model.grant.save().then(() => {
+                    controller.transitionToRoute('researcher.grant');
+                });
             },
             addGrant: function() {
                 var value = this.getValue();
                 model.grant.set('answers',value);
-                model.grant.save();
-                controller.transitionToRoute('researcher.inbox');
+                model.grant.save().then(() => {
+                    controller.transitionToRoute('researcher.inbox');
+                });
             },
         };
         model.formActions = formActions;
