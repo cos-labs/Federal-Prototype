@@ -44,6 +44,7 @@ export default Ember.Component.extend({
         }, 
         
         nextPageHook() {
+            console.log('page');
              //this.attrs.nextPageHook();
         },
         createGrantHook(dept_id, grant_id, pi_name) {
