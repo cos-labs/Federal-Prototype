@@ -13,7 +13,7 @@ export default Ember.Route.extend( {
         //var store = this.get('store');
         //var folderid = "57e6cdae0dc31001c9a9f41a";
         //var fm = this.get('fileManager');
-        //var controller = this.controller;
+        var controller = this.controller;
 
         //store.findRecord('file', folderid).then(function(folder) {
         //  var file = fileList.pop();
@@ -27,7 +27,7 @@ export default Ember.Route.extend( {
          // doc.set('name', name);
          // doc.set('path', path);
          // doc.save().then( function() {
-         //   controller.transitionToRoute('researcher.inbox');
+           controller.transitionToRoute('researcher.inbox');
          // });
         //}).then(function(){}, function(error) {
          // console.log("Oops: " + error.message);
