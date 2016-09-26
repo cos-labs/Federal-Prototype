@@ -54,6 +54,48 @@
     align-items: center;
     }
 
+.flexboxparenta {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-arount;
+    -ms-flex-line-pack: space-between;
+    align-content: justify;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center; 
+}
+
+.flexbox-child > i.fa {
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    color: rgba(60,65,90,0.4);
+    text-shadow: 0 1px 4px rgba(250,250,250, 0.7);
+}
+
+.flexbox-childa {
+    -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+ 
+
+}
 
 .flexbox-child {
 
@@ -61,7 +103,7 @@
     background-color: rgba(250,250,250,0.3);
     width: 340px;
     margin: 20px;
-    -webkit-order: 0;
+     -webkit-order: 0;
     -ms-flex-order: 0;
     order: 0;
     -webkit-flex: 1 1 auto;
@@ -70,13 +112,13 @@
     -webkit-align-self: stretch;
     -ms-flex-item-align: stretch;
     align-self: stretch;
-    }
+   }
 
 </style>
 
 <div class='flexbox-parent'>
 
-<div class='flexbox-child'>
+<div class='flexbox-child flexbox-parenta'>
   <i class='fa fa-group fa-5x'></i>
   <h1>Researchers</h1> 
   <h4>Convenient compliance</h4>
@@ -97,7 +139,7 @@
     <h1>Institutions</h1>
     <h4>Coordinated funding tools</h4>
     <hr />
-    <ul class='bens'>
+    <ul class='bens flexbox-childa'>
         <li>Request materials be submitted by your researchers</li>
         <li>Review submitted research</li>
         <li>Coordinate the submission and review of research performed with grants by your institution</li>
