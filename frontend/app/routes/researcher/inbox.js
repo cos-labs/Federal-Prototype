@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     model() {
             return Ember.RSVP.hash({
                 // grants: this.get('store').query('grant', { pi: this.get('currentUser').load().then((x) => x.get('fullName') )}),
-                grants: this.get('store').query('grant', { pi: 'Cameron Blandford' }),
+                grants: this.get('store').query('grant', { pi: 'Jeff Spies' }),
                 documents: this.get('store').findAll('document'),
                 institutions: [
                     'UVA',

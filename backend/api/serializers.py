@@ -56,7 +56,23 @@ class GrantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Grant
-        fields = ('id', 'number', 'status', 'document', 'department', 'questions', 'answers', 'institution', 'pi')
+        fields = (
+            'id',
+            'open',
+            'number', 
+            'pistatus',
+            'status',
+            'institutionstatus',
+            'agencystatus',
+            'metadatarequested',
+            'uploadrequested',
+            'document',
+            'department',
+            'questions',
+            'answers',
+            'institution',
+            'pi'
+        )
 
     class JSONAPIMeta:
         resource_name = "grants"
