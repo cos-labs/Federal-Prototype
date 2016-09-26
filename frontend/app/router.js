@@ -17,6 +17,7 @@ Router.map(function() {
     this.route('researcher', function() {
       this.route('metadata');
       this.route('upload');
+      this.route('attach');
       this.route('grant');
       this.route('success');
       this.route('status');
