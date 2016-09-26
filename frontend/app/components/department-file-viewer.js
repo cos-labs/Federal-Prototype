@@ -53,8 +53,12 @@ export default Ember.Component.extend({
         }, 
         
         nextPageHook() {
-            console.log('page');
-             //this.attrs.nextPageHook();
+            console.log('page next');
+             this.attrs.getGrantsPage(1);
+        },
+        prevPageHook() {
+            console.log('page back');
+            //this.attrs.getGrantsPage(1);
         },
         createGrantHook(dept_id, grant_id, pi_name) {
             this.attrs.createGrantHook(dept_id, grant_id, pi_name);

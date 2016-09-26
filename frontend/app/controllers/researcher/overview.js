@@ -9,6 +9,8 @@ export default Ember.Controller.extend({
     //document: {},
     departments: {},
     actions: {
+
+        
         createGrant(department_id, grant_number, pi_name) {
             var grant = this.get('store').createRecord('grant');
             this.get('store').findRecord('department', 4).then((dep) => {
