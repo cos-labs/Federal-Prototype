@@ -8,7 +8,16 @@ export default Ember.Component.extend({
     piemail: '',
     currentPage: 1,
     notlastpage: true,
-    notfirstpage: false,  
+    notfirstpage: false,
+    roleIsInstitution: Ember.computed('role', function() {
+        return this.get('role') === 'institution';
+    }),
+    roleIsAgency: Ember.computed('role', function() {
+        return this.get('role') === 'agency';
+    }),
+    roleIsPI: Ember.computed('role', function() {
+        return this.get('role') === 'pi';
+    }),
     didInsertElement(){
         /*var answers = this.grant.get('answers');
         this.set('pi', answers['pi']);
