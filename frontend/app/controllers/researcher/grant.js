@@ -9,6 +9,10 @@ export default Ember.Controller.extend({
     document: {},
     departments: {},
     actions: {
+        submit() {
+            console.log('done');
+            this.transitionToRoute('researcher.inbox')
+        },
         addGrant(grant_id, department_id, grantNumber) {
             var dep = this.get('store').peekRecord('department', department_id);
             var grant = this.get('store').createRecord('grant');
