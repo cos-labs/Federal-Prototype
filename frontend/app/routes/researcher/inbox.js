@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     model() {
             return Ember.RSVP.hash({
                 // grants: this.get('store').query('grant', { pi: this.get('currentUser').load().then((x) => x.get('fullName') )}),
-                grants: this.get('store').query('grant', { pi: 'Cameron Blandford' }),
+                grants: this.get('store').query('grant', { pi: 'Jeff Spies' }),
                 documents: this.get('store').findAll('document'),
                 institutions: [
                     'UVA',
@@ -26,6 +26,7 @@ export default Ember.Route.extend({
 
     setupController(controller, model) {
         controller.set('agency', true);
+        controller.set('role', 'pi');
         controller.set('isFileUploaded', "researcher-form");
         controller.set('grants', model.grants);
         controller.set('documents', model.documents);

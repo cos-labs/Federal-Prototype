@@ -23,16 +23,13 @@
             <td>{{grant.department.name}}</td>
             <td>unknown</td>
             <td>{{grant.pi}}</td>
-            <td>{{grant.status}}</td>
+            <td>
+                {{if roleIsPI grant.pistatus}}
+                {{if roleIsAgency grant.agencystatus}}
+                {{if roleIsInstitution grant.institutionstatus}}
+            </td>
             <td>{{grant-action-button grant=grant role=role clickHandler=(action 'updateStatus')}}</td>
         </tr>
-        <!--<tr><td colspan='6'><table>
-            <tr>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-        </table></td></tr>-->
     {{else}}
         {{#if institution}}
             <tr><td colspan='7' class='No-documents-error'>
@@ -50,5 +47,27 @@
     </tbody>
  </table>
 
+
+</div>
+
+<style>
+
+
+.navfooter {
+    background-color: rgba(250,250,250,0.3);
+    padding: 16px;
+    -webkit-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    text-align: center;
+}
+
+</style>
+
+
+<div class='navfooter'>
+
+<button class='btn btn-primary'><i class='fa fa-chevron-left'></i></button>
+<button class='btn btn-primary'><i class='fa fa-chevron-right'></i></button>
 
 </div>

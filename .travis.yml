@@ -2,7 +2,7 @@ language: python
 python:
   - "3.5"
 install:
-    - pip install -r requirements.txt
+    - pip install -r backend/requirements.txt
     - npm install jshint
 before_script:
     - flake8 backend/
