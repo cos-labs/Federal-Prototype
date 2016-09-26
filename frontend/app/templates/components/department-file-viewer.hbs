@@ -23,7 +23,11 @@
             <td>{{grant.department.name}}</td>
             <td>unknown</td>
             <td>{{grant.pi}}</td>
-            <td>{{grant.status}}</td>
+            <td>
+                {{if roleIsPI grant.pistatus}}
+                {{if roleIsAgency grant.agencystatus}}
+                {{if roleIsInstitution grant.institutionstatus}}
+            </td>
             <td>{{grant-action-button grant=grant role=role clickHandler=(action 'updateStatus')}}</td>
         </tr>
     {{else}}
