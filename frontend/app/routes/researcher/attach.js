@@ -38,7 +38,7 @@ export default Ember.Route.extend( {
     //model() {
       //return this.modelFor('researcher');
     //},
-    setupController(controller, model) {
+    setupController(controller, model) { //jshint ignore:line
       //controller.set('fileList', [{}]);  
       //this._super(controller, model);
       //controller.set('isFileUploaded', "researcher-form");

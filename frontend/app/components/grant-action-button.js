@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             var options = [];
             if (grant.get('open')) {
                 if (!grant.get('pi') && role === 'institution') {
-                    options.push('Assign to a PI')
+                    options.push('Assign to a PI');
                 }
                 if (grant.get('document').get('path') === "/dev/null") {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {

@@ -59,7 +59,7 @@ class GrantSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'open',
-            'number', 
+            'number',
             'pistatus',
             'status',
             'institutionstatus',
