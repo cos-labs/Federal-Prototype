@@ -11,7 +11,7 @@
     "jquery": ">=1.11.3",
     "handlebars": "4.0.5",
     "alpaca": "ade59b36bebb0f2de04aa34a05c44e23281ea17a",
-    "bootstrap": "3.3.2",
+    "bootstrap": "3.3.7",
     "lodash": "~4.6.1",
     "tether": "^1.3.7",
     "Shepherd": "shepherd#*",
