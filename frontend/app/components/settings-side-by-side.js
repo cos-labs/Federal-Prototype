@@ -205,7 +205,7 @@ export default Ember.Component.extend({
     didRender() {
         this._super(...arguments);
         var self = this;
-        var fbTemplate = document.getElementById('fb-template');
+        var fbTemplate = document.getElementById('build-wrap');
         var options = {
             disableFields: [
                 'autocomplete',
@@ -231,7 +231,7 @@ export default Ember.Component.extend({
 
 
         };
-        Ember.$(fbTemplate).formBuilder(options);
+        $(fbTemplate).formBuilder(options);
        
 
         //Shepard
@@ -291,6 +291,7 @@ export default Ember.Component.extend({
         }
         var data = JSON.parse(this.get("metadataInputJson"));
         data.options.focus = "";
+/////        
         return this.get("_schemaList").unshiftObject(data);
 
     }),
