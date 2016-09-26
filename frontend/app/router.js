@@ -28,6 +28,7 @@ Router.map(function() {
         this.route('overview');
         this.route('analytics');
         this.route('addgrant');
+        this.route('assign');
     });
     
     this.route('agency', function() {
