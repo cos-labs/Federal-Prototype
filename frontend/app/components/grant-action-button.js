@@ -21,7 +21,7 @@ export default Ember.Component.extend({
             var options = [];
             if (grant.get('open')) {
                 if (!grant.get('pi') && role === 'institution') {
-                    options.push('Assign to a PI')
+                    options.push('Assign to a PI');
                 }
                 if (grant.get('document').get('id') === "125") {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
@@ -81,7 +81,8 @@ export default Ember.Component.extend({
                         grant.set(att, 'File Uploaded');
                     });
                     grant.save().then(function() {
-                        self.get('router').transitionTo('researcher.attach')                    });
+                        self.get('router').transitionTo('researcher.attach');
+                    });
                 },
                 
                 "Request Upload": function() {
