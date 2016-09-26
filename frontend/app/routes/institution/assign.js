@@ -25,7 +25,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
         }
     },
 
-    setupController(controller, model) {
+    setupController(controller, model) { //jshint ignore:line
         controller.set('institution', true);
         controller.set('grants', 'model.grants');
     }
