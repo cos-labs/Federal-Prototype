@@ -13,12 +13,14 @@ export default Ember.Component.extend({
 
     availableactions: [],
 
+    
+    router: Ember.inject.service('router'),
 
     didReceiveAttrs() {
         function getAvailableActions(grant, role) {
             var options = [];
-            if (grant.open) {
-                if (!grant.get('document') || (grant.get('document').get('id') === 125)) {
+            if (grant.get('open')) {
+                if (grant.get('document').get('id') === "125") {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
                         options.push('Request Upload');
                     }
@@ -66,6 +68,7 @@ export default Ember.Component.extend({
 
     actions: {
         clickHandler(action) {
+            var self = this;
             var grant = this.get('grant');
             var role = this.get('role');
             var actions = {
@@ -75,7 +78,7 @@ export default Ember.Component.extend({
                         grant.set(att, 'File Uploaded');
                     });
                     grant.save().then(function() {
-                        Ember.$.bootstrapGrowl("Successfully attached file to grant number " + grant.get('number') + ".", { type: 'success', align: 'center' , width: 400, height: 40 });
+                        self.get('router').transitionTo('researcher.attach');
                     });
                 },
                 
