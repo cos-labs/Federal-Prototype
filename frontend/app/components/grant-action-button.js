@@ -23,7 +23,7 @@ export default Ember.Component.extend({
                 if (!grant.get('pi') && role === 'institution') {
                     options.push('Assign to a PI');
                 }
-                if (grant.get('document').get('path') === "/dev/null") {
+                if (["", undefined, "/dev/null"].indexOf(grant.get('document').get('path') ) !== -1) {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
                         options.push('Request Upload');
                     }
@@ -32,7 +32,7 @@ export default Ember.Component.extend({
                     }
                 } else {
                     options.push('View Document');
-                    if (!grant.get('answers')) {
+                    if (grant.get('answers') === '{}') {
                         if ((role !== 'pi') && !grant.get('metadata_requested')) {
                             options.push('Request Metadata'); }
                         if (role !== 'agency') {
