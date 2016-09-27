@@ -21,7 +21,7 @@ Router.map(function() {
       this.route('grant');
       this.route('success');
       this.route('status');
-      this.route('inbox');
+      this.route('overview');
     });
 
     this.route('institution', function() {

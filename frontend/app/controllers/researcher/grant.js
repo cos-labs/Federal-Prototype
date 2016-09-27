@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
     actions: {
         submit() {
             console.log('done');
-            this.transitionToRoute('researcher.inbox');
+            this.transitionToRoute('researcher.overview');
         },
         addGrant(grant_id, department_id, grantNumber) {
             var dep = this.get('store').peekRecord('department', department_id);

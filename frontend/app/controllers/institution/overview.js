@@ -10,40 +10,16 @@ export default Ember.Controller.extend({
     //document: {},
     departments: {},
     actions: {
-        nextPage() {
-            //try {
-            //var newPage = this.get('currentPage')+1
-             //   this.set('currentPage', newPage);
-                
-             //   if (this.get('role') == 'institution') {
-             //       var grants = this.store.query('grants', {
-             //           institution: true,
-             //           page: this.get('currentPage'),
-             //       }).then((gs) => {
-             //           this.set('model', gs);
-             //       });
-             //   }
-             //   if (this.get('role') == 'pi') { 
-             //       var grants = this.store.query('grants', {
-             //           pi: "Cameron Blandford",
-             //           page: this.get('currentPage'),
-             //       }).then((gs) => {
-             //           this.set('model', gs);
-             //       });
-             //   }
-             //   if (this.get('role') == 'agency') {
-             //           var grants = this.store.query('grants', {
-             //               department: this.get('dept'),
-             //               page: this.get('currentPage'),
-             //           }).then((gs) => {
-             //               this.set('model', gs);
-             //           });
-             //   }
-            //} catch(err) {
-                
-            //}
-
-        }, 
+        getGrantsPage(page_number) {
+            console.log('getting grants');
+            console.log(page_number);
+            this.get('store').query('grant', {
+                'institution': true,
+                'page': page_number
+            }).then((grants) => {
+                this.set('grants', grants);
+            });
+        },
 
         createGrant(department_id, grant_number, pi_name) {
             var dep = this.get('store').peekRecord('department', department_id);
