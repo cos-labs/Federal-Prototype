@@ -21,13 +21,14 @@ Router.map(function() {
       this.route('grant');
       this.route('success');
       this.route('status');
-      this.route('inbox');
+      this.route('overview');
     });
 
     this.route('institution', function() {
         this.route('overview');
         this.route('analytics');
         this.route('addgrant');
+        this.route('assign');
     });
     
     this.route('agency', function() {

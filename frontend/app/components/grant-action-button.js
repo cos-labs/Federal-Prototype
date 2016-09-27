@@ -20,7 +20,10 @@ export default Ember.Component.extend({
         function getAvailableActions(grant, role) {
             var options = [];
             if (grant.get('open')) {
-                if (grant.get('document').get('id') === "125") {
+                if (!grant.get('pi') && role === 'institution') {
+                    options.push('Assign to a PI');
+                }
+                if (["", undefined, "/dev/null"].indexOf(grant.get('document').get('path') ) !== -1) {
                     if ((role !== 'pi') && !grant.get('upload_requested')) {
                         options.push('Request Upload');
                     }
@@ -29,7 +32,7 @@ export default Ember.Component.extend({
                     }
                 } else {
                     options.push('View Document');
-                    if (!grant.get('answers')) {
+                    if (grant.get('answers') === '{}') {
                         if ((role !== 'pi') && !grant.get('metadata_requested')) {
                             options.push('Request Metadata'); }
                         if (role !== 'agency') {
@@ -78,7 +81,11 @@ export default Ember.Component.extend({
                         grant.set(att, 'File Uploaded');
                     });
                     grant.save().then(function() {
-                        self.get('router').transitionTo('researcher.attach');
+                        self.get('router').transitionTo('researcher.attach').then((route) => {
+                            Ember.run.schedule('afterRender', self, function() {
+                                route.get('controller').set('grant', grant);
+                            });
+                        });
                     });
                 },
                 
@@ -120,7 +127,19 @@ export default Ember.Component.extend({
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request for metadata to be added to grant number " + grant.get('number') + " has been sent.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     });
-                    grant.save();
+                },
+
+                "Assign to a PI": function() {
+                    ['status', 'pistatus', 'agencystatus', 'institutionstatus'].map((att) => {
+                        grant.set(att, 'PI Assigned');
+                    });
+                    grant.set('pistatus', "New");
+                    self.get('router').transitionTo('institution.assign').then(function(route){
+                        Ember.run.schedule('afterRender', self, function() {
+                            route.get('controller').set('grant', grant);
+                        });
+                    });
+
                 },
                 
                 "View Metadata": function() {

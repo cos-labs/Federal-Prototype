@@ -51,10 +51,23 @@ export default Ember.Component.extend({
         updateStatus(arg) {
             console.log(arg);
         }, 
-        
+        jumpToPage(page_number) {
+            console.log(page_number);
+            this.attrs.getGrantsPage(page_number);
+        },
         nextPageHook() {
-            console.log('page');
-             //this.attrs.nextPageHook();
+            var pagination = this.get('model').get('meta.pagination');
+            console.log(pagination);
+            var next_page = pagination.page + 1;
+            if (next_page > pagination.pages) { return; }
+            this.send('jumpToPage', next_page);
+        },
+        prevPageHook() {
+            var pagination = this.get('model').get('meta.pagination');
+            console.log(pagination);
+            var prev_page = pagination.page - 1;
+            if (prev_page < 1) { return; }
+            this.send('jumpToPage', prev_page);
         },
         createGrantHook(dept_id, grant_id, pi_name) {
             this.attrs.createGrantHook(dept_id, grant_id, pi_name);

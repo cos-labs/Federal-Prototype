@@ -24,6 +24,7 @@
   border-radius: 2px;
   padding: 20px 30px;
   margin-bottom: 30px;
+  min-height: 175px;
 }
 </style>
 
@@ -101,7 +102,7 @@
 
     padding: 10px;
     background-color: rgba(250,250,250,0.3);
-    width: 340px;
+    width: 330px;
     margin: 20px;
      -webkit-order: 0;
     -ms-flex-order: 0;
@@ -127,10 +128,10 @@
     <li>Submit your research</li>
     <li>Review the status of submitted research</li>
     <li>Respond to discussion pertaining your research</li>
-    <li><a href="researcher/inbox">check the status</a> of a paper</li>
+    <li>Check the status of a paper</li>
   </ul>
-  {{#link-to 'researcher.upload' tagName="span"}}
-  <button class="btn btn-primary btn-lg btn-block"  >Upload Research</button>
+  {{#link-to 'researcher.overview' tagName="span"}}
+  <button class="btn btn-primary btn-lg btn-block">Assigned Grants</button>
   {{/link-to}}
 </div>
 
