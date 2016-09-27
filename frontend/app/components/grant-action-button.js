@@ -24,7 +24,7 @@ export default Ember.Component.extend({
                     options.push('Assign to a PI');
                 }
                 if (["", undefined, "/dev/null"].indexOf(grant.get('document').get('path') ) !== -1) {
-                    if ((role !== 'pi') && !grant.get('upload_requested')) {
+                    if ((role !== 'pi') && !grant.get('uploadrequested')) {
                         options.push('Request Upload');
                     }
                     if (role !== 'agency') {
@@ -32,8 +32,9 @@ export default Ember.Component.extend({
                     }
                 } else {
                     options.push('View Document');
+                    console.log(grant.get('answers'));
                     if (grant.get('answers') === '{}') {
-                        if ((role !== 'pi') && !grant.get('metadata_requested')) {
+                        if ((role !== 'pi') && !grant.get('metadatarequested')) {
                             options.push('Request Metadata'); }
                         if (role !== 'agency') {
                             options.push('Add Metadata');
@@ -84,6 +85,7 @@ export default Ember.Component.extend({
                         self.get('router').transitionTo('researcher.attach').then((route) => {
                             Ember.run.schedule('afterRender', self, function() {
                                 route.get('controller').set('grant', grant);
+                                grant.set('uploadrequested', false);
                             });
                         });
                     });
@@ -99,6 +101,7 @@ export default Ember.Component.extend({
                     if (role === 'institution') { ['status', 'pistatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
                     }); }
+                    grant.set('uploadrequested', true)
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request to upload the research for grant number " + grant.get('number') + ". has been sent", { type: 'info', align: 'center' , width: 400, height: 40 });
                     });
@@ -109,6 +112,7 @@ export default Ember.Component.extend({
                     ['status', 'pistatus', 'agencystatus', 'institutionstatus'].map((att) => {
                         grant.set(att, 'Metadata Added');
                     });
+                    grant.set('metadatarequested', false);
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("Metadata has been added to grant number " + grant.get('number') + ".", { type: 'success', align: 'center' , width: 400, height: 40 });
                     });
@@ -124,6 +128,7 @@ export default Ember.Component.extend({
                     if (role === 'institution') { ['status', 'pistatus'].map((att) => {
                         grant.set(att, 'Research Upload Requested');
                     }); }
+                    grant.set('metadatarequested', true)
                     grant.save().then(function() {
                         Ember.$.bootstrapGrowl("A request for metadata to be added to grant number " + grant.get('number') + " has been sent.", { type: 'info', align: 'center' , width: 400, height: 40 });
                     });
