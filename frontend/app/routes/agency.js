@@ -1,10 +1,7 @@
 import Ember from 'ember';
-//add this and the AuthenticatedRouteMixin to the extend rout to protect it unless logged in
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';4   
 
-import OsfCookieLoginRouteMixin from 'ember-osf/mixins/osf-cookie-login-route';
-
-export default Ember.Route.extend(OsfCookieLoginRouteMixin, {
-
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model() {
         return Ember.RSVP.hash({
             grants: this.get('store').findAll('grant'),
