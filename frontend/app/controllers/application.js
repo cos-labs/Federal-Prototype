@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-import OsfAnosticAuthControllerMixin from 'ember-osf/mixins/osf-agnostic-auth-controller';
+import OsfAgnosticAuthControllerMixin from 'ember-osf/mixins/osf-agnostic-auth-controller';
 
 import {
     getAuthUrl
