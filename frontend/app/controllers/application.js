@@ -1,12 +1,12 @@
 import Ember from 'ember';
 
-import OsfTokenLoginControllerMixin from 'ember-osf/mixins/osf-token-login-controller';
+import OsfAnosticAuthControllerMixin from 'ember-osf/mixins/osf-agnostic-auth-controller';
 
 import {
     getAuthUrl
 } from 'ember-osf/utils/auth';
 
-export default Ember.Controller.extend(OsfTokenLoginControllerMixin, {
+export default Ember.Controller.extend(OsfAgnosticAuthControllerMixin, {
     toast: Ember.inject.service(),
     authUrl: getAuthUrl(),
     actions: {
