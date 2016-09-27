@@ -141,9 +141,16 @@ export default Ember.Component.extend({
                     });
 
                 },
-                
                 "View Metadata": function() {
                     console.log('Displaying grant metadata...');
+                },               
+                "View Document": function() {
+                    console.log('Displaying document...');
+                    self.get('router').transitionTo('preview').then(function(route) {
+                        Ember.run.schedule('afterRender', self, function() {
+                            route.get('controller').set('document', grant.get('document.path'))
+                        }
+                    })
                 },
                 
                 "Message PI": function() {

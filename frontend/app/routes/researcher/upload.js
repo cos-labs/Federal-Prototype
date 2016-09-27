@@ -32,6 +32,7 @@ export default Ember.Route.extend( {
         }).then(function(newFile) {
           var name = newFile.get('name');
           var path = newFile.get('path');
+            debugger;
           doc.set('name', name);
           doc.set('path', path);
           doc.save().then( function() {
