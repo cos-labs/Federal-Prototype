@@ -13,7 +13,7 @@ export default Ember.Route.extend( {
             var store = this.get('store');
             var folderid = "57e6cdae0dc31001c9a9f41a";
             var controller = this.controller;
-            var fm = this.get('fileManager')
+            var fm = this.get('fileManager');
 
             store.findRecord('file', folderid).then((folder) => {
                 return fm.uploadFile(folder, files[0].name, files[0])
