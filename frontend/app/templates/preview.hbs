@@ -2,6 +2,7 @@
 h1.preview {
     background-color: #777;
     color: #fff;
+    padding: 20px 0;
     margin: 0;
     -webkit-box-shadow: inset 0px -84px 5px -84px rgba(0,0,0,0.75), inset 0px 82px 59px -84px rgba(0,0,0,0.75);
     -moz-box-shadow:  inset 0px -84px 5px -84px rgba(0,0,0,0.75), inset 0px 82px 59px -84px rgba(0,0,0,0.75);
@@ -21,7 +22,7 @@ h1.preview {
     display: inline-block;
 }
 </style>
-<h1 class='preview'>Preview File</h1>
+<h1 class='preview'>{{filename}}</h1>
 <div class='mfr--wrapper-wrapper'>
 <div class='mfr--wrapper'>
 {{file-renderer download=path width='800' height='1000' allowfullscreen=true}}
