@@ -1,6 +1,21 @@
+<style>
+h1.preview {
+    background-color: #777;
+    color: #fff;
+    margin: 0;
+    padding: 20px 0 10px 0;
+}
 
-<h1>Preview File</h1>
-<button class='btn btn-lg-primary'>Back</button>
-{{file-renderer download=path width="800" height="1000" allowfullscreen=true}}
+.mfr--wrapper {
+    margin: 10px auto
+    tex
+}
+.mfr--wrapper iframe {
+}
+</style>
+<h1 class='preview'>Preview File</h1>
+<div class='mfr--wrapper'>
+{{file-renderer download=path width='500' height='800' allowfullscreen=true}}
+</div>
 {{outlet}}
 
