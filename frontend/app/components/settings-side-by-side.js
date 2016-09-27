@@ -231,7 +231,7 @@ export default Ember.Component.extend({
 
 
         };
-        Ember.$(fbTemplate).formBuilder(options);
+        $(fbTemplate).formBuilder(options);
        
 
         //Shepard
