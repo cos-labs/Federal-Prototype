@@ -22,14 +22,14 @@ export default Ember.Route.extend({
                 model.grant.set('answers',value);
                 model.grant.save();
                 model.grant.save().then(() => {
-                    controller.transitionToRoute('researcher.grant');
+                    controller.transitionToRoute('researcher.overview');
                 });
             },
             addGrant: function() {
                 var value = this.getValue();
                 model.grant.set('answers',value);
                 model.grant.save().then(() => {
-                    controller.transitionToRoute('researcher.overview');
+                    controller.transitionToRoute('researcher.grant');
                 });
             },
         };

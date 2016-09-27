@@ -6,9 +6,6 @@ export default Ember.Route.extend( {
     session: Ember.inject.service(),
     
     actions: {
-        submit() {
-            this.transitionTo('researcher.metadata');
-        },
         departmentSelected(departmentId) {
             this.get('store').getRecord('department', departmentId);
         },
