@@ -220,7 +220,7 @@ export default Ember.Component.extend({
                 'button',
                 'header'
             ],
-            dataType: 'json''
+            dataType: 'json',
             notify: {
                 success: function() {
                     var isEditing = (Ember.$("li").hasClass('editing'));
