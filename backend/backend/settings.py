@@ -30,10 +30,14 @@ ALLOWED_HOSTS = []
 JSON_API_PLURALIZE_TYPES = True
 JSON_API_FORMAT_TYPES = 'camelize'
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:4200',
-    'localhost:7778'
-)
+
+# TODO REMOVE BEFORE PRODUCTION
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+#CORS_ORIGIN_WHITELIST = (
+#    'localhost:4200',
+#    'localhost:7778'
+#)
 
 REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
@@ -107,7 +111,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.environ.get('DATABASE_NAME', os.path.join(BASE_DIR, 'db.sqlite3')),
     }
 }
 
