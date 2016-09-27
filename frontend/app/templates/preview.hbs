@@ -3,19 +3,29 @@ h1.preview {
     background-color: #777;
     color: #fff;
     margin: 0;
-    padding: 20px 0 10px 0;
+    -webkit-box-shadow: inset 0px -84px 5px -84px rgba(0,0,0,0.75), inset 0px 82px 59px -84px rgba(0,0,0,0.75);
+    -moz-box-shadow:  inset 0px -84px 5px -84px rgba(0,0,0,0.75), inset 0px 82px 59px -84px rgba(0,0,0,0.75);
+    box-shadow: inset 0px -84px 5px -84px rgba(0,0,0,0.75), inset 0px 82px 59px -84px rgba(0,0,0,0.75);adding: 20px 0 10px 0;
 }
 
-.mfr--wrapper {
-    margin: 10px auto
-    tex
+.mfr--wrapper-wrapper {
+    padding: 20px;
+    background-color: rgba(250,250,250,0.3);
+    text-align: center;
+    -webkit-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    text-align: center;
 }
-.mfr--wrapper iframe {
+.mfr--wrapper {
+    display: inline-block;
 }
 </style>
 <h1 class='preview'>Preview File</h1>
+<div class='mfr--wrapper-wrapper'>
 <div class='mfr--wrapper'>
-{{file-renderer download=path width='500' height='800' allowfullscreen=true}}
+{{file-renderer download=path width='800' height='1000' allowfullscreen=true}}
+</div>
 </div>
 {{outlet}}
 
