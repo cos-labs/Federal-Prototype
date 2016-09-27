@@ -6,15 +6,7 @@
     <title>Federal Prototype</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <script type="text/javascript">
-    // Add x-csrf-token to all ajax request
-    $.ajaxSetup({
-      headers: {
-          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
-      }
-    }); 
-    </script>
+
     {{content-for "head"}}
 
     <link rel="stylesheet" href="assets/vendor.css">
