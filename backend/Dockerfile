@@ -51,6 +51,7 @@ RUN apt-get remove -y gcc
 COPY ./ /code/
 
 RUN python manage.py collectstatic --noinput
+RUN python manage.py flush
 
 ARG GIT_COMMIT=
 ENV GIT_COMMIT ${GIT_COMMIT}
