@@ -14,13 +14,13 @@
 
     <div class="formBuilderHolder">
       <label >Drag and Drop Builder</label>
-       <div  id="build-wrap" value=onFormChange ></div>
+       <div  id="build-wrap" value='onFormChange' ></div>
 
     </div>
     <button type="button" class="btn btn-primary" style="float:right;" {{action "save" }} ><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
   </div>
 
-  <div class="form-table">
+  <div class="form-table"> 
     {{#each schemaList as |schema index|}}
       {{#if (eq index 0) }}
         {{dynamic-form schema=schema}}
