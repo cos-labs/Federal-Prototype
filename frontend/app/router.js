@@ -41,6 +41,8 @@ Router.map(function() {
         });
     });
     
+    this.route('preview');
+    
 
 });
 
