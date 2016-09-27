@@ -85,7 +85,7 @@ export default Ember.Component.extend({
                             Ember.run.schedule('afterRender', self, function() {
                                 route.get('controller').set('grant', grant);
                             });
-                        })
+                        });
                     });
                 },
                 
