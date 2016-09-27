@@ -220,11 +220,13 @@ export default Ember.Component.extend({
                 'button',
                 'header'
             ],
+            dataType: 'json''
             notify: {
                 success: function() {
                     var isEditing = (Ember.$("li").hasClass('editing'));
                     if (isEditing === false) {
-                        self.send('updateFormBuilder');
+                        console.log('should I render here?');
+                        //self.send('updateFormBuilder');
                     }
                 }
             }
@@ -232,9 +234,11 @@ export default Ember.Component.extend({
 
         };
         $(fbTemplate).formBuilder(options);
-
-        debugger;
-    } 
+        //    formBuilder.data('formBuilder').actions.
+        //var interval = setInterval(function(t) {
+        //    formBuilder.data('formBuilder').actions.
+        //}, 100)
+    },
 /*
         //Shepard
         Ember.$(".ui-sortable").css("min-height", "150px");
@@ -296,6 +300,7 @@ export default Ember.Component.extend({
         return this.get("_schemaList").unshiftObject(data);
 
     }),
+*/
     actions: {
         save() {
                 try {
@@ -321,8 +326,11 @@ export default Ember.Component.extend({
                 return true;
 
         },
+    }
+/*
         updateFormBuilder() {
-            var propertiesArray = [];
+  
+          var propertiesArray = [];
             var optionsArray = [];
             var xml = Ember.$.parseXML(Ember.$("#fb-template").val());
             var $xml = Ember.$(xml);
