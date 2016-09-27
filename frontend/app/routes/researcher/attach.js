@@ -8,39 +8,32 @@ export default Ember.Route.extend( {
     session: Ember.inject.service(),
     
     actions: {
-      submit(files, grant) {
+        submit(files, grant) {
 
-        var store = this.get('store');
-        var folderid = "57e6cdae0dc31001c9a9f41a";
-        var fm = this.get('fileManager');
-        var controller = this.controller;
+            var store = this.get('store');
+            var folderid = "57e6cdae0dc31001c9a9f41a";
+            var controller = this.controller;
+            var fm = this.get('fileManager')
 
-        store.findRecord('file', folderid).then(function(folder) {
-          var file = files.pop();
-          let nf = fm.uploadFile(folder, file.name, file);
-          return nf.then((file) => {
-            return file;
-          });
-        }).then(function(newFile) {
-          var name = newFile.get('name');
-          var path = newFile.get('path');
-          grant.set('document.name', name);
-          grant.set('document.path', path);
-          grant.save().then( function() {
-           controller.transitionToRoute('researcher.inbox');
-          });
-        }).then(function(){}, function(error) {
-          console.log("Oops: " + error.message);
-        });
-      }
+            store.findRecord('file', folderid).then((folder) => {
+                return fm.uploadFile(folder, files[0].name, files[0])
+                    .then((file) => {
+                        return file;
+                });
+            }).then(function(newFile) {
+                var name = newFile.get('name');
+                var path = newFile.get('path');
+                grant.get('document');
+                grant.set('document.name', name);
+                grant.set('document.path', path);
+                grant.save().then( function() {
+                    controller.transitionToRoute('researcher.overview');
+                });
+            }).then(function(){}, function(error) {
+                console.log("Oops: " + error.message);
+            });
+        
+        }
     },
 
-    //model() {
-      //return this.modelFor('researcher');
-    //},
-    setupController(controller, model) { //jshint ignore:line
-      //controller.set('fileList', [{}]);  
-      //this._super(controller, model);
-      //controller.set('isFileUploaded', "researcher-form");
-    }
 });

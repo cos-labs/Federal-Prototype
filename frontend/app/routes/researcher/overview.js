@@ -7,7 +7,7 @@ export default Ember.Route.extend({
     model() {
             return Ember.RSVP.hash({
                 // grants: this.get('store').query('grant', { pi: this.get('currentUser').load().then((x) => x.get('fullName') )}),
-                grants: this.get('store').query('grant', { pi: 'Jeff Spies' }),
+                grants: this.get('store').query('grant', { pi: 'Jeff Spies', page: 1 }),
                 documents: this.get('store').findAll('document'),
                 institutions: [
                     'UVA',
@@ -24,26 +24,26 @@ export default Ember.Route.extend({
         },
         didRender: function() {
 
-            let tour = new Shepherd.Tour({ // jshint ignore:line
-                defaults: {
-                    classes: 'shepherd-theme-arrows'
-                }
-            });
+            //let tour = new Shepherd.Tour({ // jshint ignore:line
+            //    defaults: {
+            //        classes: 'shepherd-theme-arrows'
+            //    }
+            //});
 
-            var step = tour.addStep('upload', {
-                title: 'Upload your research.',
-                text: 'Use our upload tool to upload and connect your research to existing grants or a new grant, and add metadata about the grant.',
-                attachTo: '#uploadhere left',
-                advanceOn: '.docs-link click'
-            });
+            //var step = tour.addStep('upload', {
+            //    title: 'Upload your research.',
+            //    text: 'Use our upload tool to upload and connect your research to existing grants or a new grant, and add metadata about the grant.',
+            //    attachTo: '#uploadhere left',
+            //    advanceOn: '.docs-link click'
+            //});
 
-            tour.start();
+            //tour.start();
 
-            setTimeout((e) => {
-                if (step.isOpen()) {
-                    Shepherd.activeTour.next();
-                }
-            }, 6000);
+            //setTimeout((e) => {
+            //    if (step.isOpen()) {
+            //        Shepherd.activeTour.next();
+            //    }
+            //}, 6000);
 
         },
     },

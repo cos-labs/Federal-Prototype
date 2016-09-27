@@ -29,7 +29,7 @@ export default Ember.Route.extend({
                 var value = this.getValue();
                 model.grant.set('answers',value);
                 model.grant.save().then(() => {
-                    controller.transitionToRoute('researcher.inbox');
+                    controller.transitionToRoute('researcher.overview');
                 });
             },
         };

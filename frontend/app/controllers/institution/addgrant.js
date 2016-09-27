@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
     actions: {
         createGrant(department_id, grant_number, pi_name) {
             var dep = this.get('store').peekRecord('department', department_id);
-            var doc = this.get('store').createRecord('document')
+            var doc = this.get('store').createRecord('document');
             doc.set('name', 'Not Uploaded');
             doc.set('path', '/dev/null');
             doc.set('datesubmitted', 'Thursday, 1 January 1970');
