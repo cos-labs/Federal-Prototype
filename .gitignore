@@ -4,6 +4,8 @@
 # Any sort of log files
 *.log
 
+local.yml
+
 # PyCharm and WebStorm files
 .idea/
 
