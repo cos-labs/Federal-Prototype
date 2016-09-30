@@ -1,0 +1,72 @@
+
+<style>
+
+.flexbox-parent {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: space-between;
+    -ms-flex-line-pack: space-between;
+    align-content: space-between;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    }
+
+.flexbox-child > i.fa {
+    display: block;
+    margin: 5px auto;
+    text-align: center;
+    color: rgba(60,65,90,0.4);
+    text-shadow: 0 1px 4px rgba(250,250,250, 0.7);
+}
+
+.flexbox-child {
+
+    padding: 10px;
+    background-color: rgba(250,250,250,0.3);
+    width: 500px;
+    margin: 20px;
+     -webkit-order: 0;
+    -ms-flex-order: 0;
+    order: 0;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 0 0 auto;
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+   }
+
+</style>
+
+<div class='signup flexbox-parent'>
+    <div class='flexbox-child'>
+        <h1>Already enrolled?</h1>
+        <h2>Sign In</h2>
+    </div>
+    <div class='flexbox-child'>
+        <h1>Enroll</h1>
+        <h2>Researchers</h2>
+        <p>Just sign in with an OSF account!</p>
+        <h2>Enroll an Institution or Agency</h2>
+        {{input class='form-control input-lg' placeholder='Contact Name'}}
+        <br>
+        {{input class='form-control input-lg' placeholder='phone number'}}
+        <br>
+        {{input class='form-control input-lg' placeholder='email Address'}}
+        <br>
+        {{input class='form-control input-lg' placeholder='Institution or Agency name'}}
+        <br>
+        {{input class='form-control input-lg' placeholder='Institution of Agencymailing address'}}
+    </div>
+</div>

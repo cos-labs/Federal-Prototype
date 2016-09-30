@@ -42,6 +42,7 @@ Router.map(function() {
     });
     
     this.route('preview');
+    this.route('signup');
     
 
 });
