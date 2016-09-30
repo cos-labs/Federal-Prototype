@@ -1,6 +1,21 @@
 {{yield}}
 
 
+<style>
+
+.navfooter {
+    background-color: rgba(250,250,250,0.3);
+    padding: 16px;
+    -webkit-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    -moz-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
+    text-align: center;
+}
+
+</style>
+
+
+
 <div class="department-header">
 
 <table class="table table-bordered table-hover">
@@ -34,14 +49,21 @@
         {{#if institution}}
             <tr><td colspan='7' class='No-documents-error'>
                 <h2>This institution has not been associated with any grants yet.</h2>
-                <p>To associate a grant with this institution, select the department that awarded the grant, enter a grant number, then select the principal investigator in the toolbar above. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
+                <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
             </td></tr>
-        {{/if}}
-        {{#if agency}}
-            <tr><td colspan='7' class='No-documents-error'>
-                <h2>This institution has awarded any grants yet.</h2>
-                <p>To award a grant to aninstitution, select the institution that has been awarded the grant, then enter a grant number. When the information is correct, press the 'Add a grant' button to associate the grant with the institution. The grant will appear in this table.</p>
-            </td></tr>
+        {{else}}
+            {{#if agency}}
+                <tr><td colspan='7' class='No-documents-error'>
+                    <h2>This agency has not awarded any grants yet.</h2>
+                    <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
+                </td></tr>
+            {{else}}
+                <tr><td colspan='7' class='No-documents-error'>
+                    <h2>There are no grants.</h2>
+                    <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
+                </td></tr>
+                
+            {{/if}}
         {{/if}}
     {{/each}}
     </tbody>
@@ -50,19 +72,6 @@
 
 </div>
 
-<style>
-
-
-.navfooter {
-    background-color: rgba(250,250,250,0.3);
-    padding: 16px;
-    -webkit-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
-    -moz-box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
-    box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
-    text-align: center;
-}
-
-</style>
 
 
 <div class='navfooter'>
