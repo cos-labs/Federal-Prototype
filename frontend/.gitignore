@@ -1,5 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# config
+/config/local.yml
+
 # compiled output
 /dist
 /tmp
