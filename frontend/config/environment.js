@@ -29,7 +29,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
     ENV.APP.GRANTS_BACKEND = 'http://localhost:8001/api';
-  }
+  };
 
   if (environment === 'test') {
     // Testem prefers this...
@@ -41,11 +41,11 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
-  }
+  };
 
   if (environment === 'production') {
     ENV.APP.GRANTS_BACKEND = '/api';
-  }
+  };
 
   ENV['ember-simple-auth'] = { authenticationRoute: 'signup' };
 

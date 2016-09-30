@@ -51,6 +51,7 @@
     "loader.js": "^4.0.1"
   },
   "dependencies": {
-    "ember-cli-htmlbars": "^1.0.8"
+    "ember-cli-htmlbars": "^1.0.8",
+    "prism": "^1.0.0"
   }
 }
