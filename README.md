@@ -50,7 +50,7 @@ To run this project, the ember server needs to be started, as does the django ba
 
 Build and run the frontend.
 
-- `cd $FED_PROTO/frontend && ember server`
+- `cd $FED_PROTO/frontend && ember server --environment development`
 
 ## Developer's Notes
 
