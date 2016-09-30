@@ -137,6 +137,15 @@ class Usertype(models.Model):
         return self.usertype
 
 
+class Role(models.Model):
+    user = models.CharField(max_length=8, null=True)
+    institution = models.BooleanField(default=True)
+    agency = models.ForeignKey('Department', null=True, blank=True)
+    
+    def __str__(self):
+        return self.name
+
+
 class Document(models.Model):
 
     datesubmitted = models.DateTimeField(auto_now_add=True)

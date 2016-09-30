@@ -47,5 +47,7 @@ module.exports = function(environment) {
     ENV.APP.GRANTS_BACKEND = '/api';
   }
 
+  ENV['ember-simple-auth'] = { authenticationRoute: 'signup' };
+
   return ENV;
 };
