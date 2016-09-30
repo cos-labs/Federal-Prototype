@@ -10,10 +10,5 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
       departments: this.get('store').findAll('department'),
       document: this.get('store').createRecord('document'),
     });
-  },
-    actions: {
-        abort: function(error, transition) {
-            console.log('error'); 
-        },
-    },
+  }
 });
