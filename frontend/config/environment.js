@@ -28,7 +28,7 @@ module.exports = function(environment) {
     ENV.APP.LOG_TRANSITIONS = true;
     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.APP.GRANTS_BACKEND = 'http://localhost:8001';
+    ENV.APP.GRANTS_BACKEND = 'http://localhost:8001/api';
   }
 
   if (environment === 'test') {
