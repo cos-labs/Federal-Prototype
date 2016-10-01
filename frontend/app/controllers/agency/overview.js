@@ -16,7 +16,7 @@ export default Ember.Controller.extend({
                 grant.set('number', grant_number);
                 grant.set('department', dep);
                 grant.set('pi', pi_name);
-                grant.set('questions', dep.toJSON().settings);
+                grant.set('schema', dep.toJSON().schema);
                 grant.set('institution', true);
                 this.store.findRecord('document', 125).then((r) => {
                     grant.set('document', r);

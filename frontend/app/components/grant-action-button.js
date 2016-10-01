@@ -32,8 +32,8 @@ export default Ember.Component.extend({
                     }
                 } else {
                     options.push('View Document');
-                    console.log(grant.get('answers'));
-                    if (grant.get('answers') === '{}') {
+                    console.log(grant.get('metadata'));
+                    if (grant.get('metadata') === '{}') {
                         if ((role !== 'pi') && !grant.get('metadatarequested')) {
                             options.push('Request Metadata'); }
                         if (role !== 'agency') {

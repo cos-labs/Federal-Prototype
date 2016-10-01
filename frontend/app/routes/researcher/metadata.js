@@ -6,12 +6,12 @@ export default Ember.Route.extend({
   
     model() {
         var grantController = this.controllerFor('researcher.grant');
-        var questions = JSON.parse(grantController.active_grant.get('questions'));
-        questions.options.form.buttons.addGrant = {
+        var schema = JSON.parse(grantController.active_grant.get('schema'));
+        schema.options.form.buttons.addGrant = {
             "id": 'addGrant',
             'title': 'Connect another grant'
         };
-        grantController.active_grant.set('questions', JSON.stringify(questions));
+        grantController.active_grant.set('schema', JSON.stringify(schema));
         return { grant: grantController.active_grant };
     },
 
@@ -19,7 +19,7 @@ export default Ember.Route.extend({
         const formActions = {
             submit: function() {
                 var value = this.getValue();
-                model.grant.set('answers',value);
+                model.grant.set('metadata',value);
                 model.grant.save();
                 model.grant.save().then(() => {
                     controller.transitionToRoute('researcher.overview');
@@ -27,7 +27,7 @@ export default Ember.Route.extend({
             },
             addGrant: function() {
                 var value = this.getValue();
-                model.grant.set('answers',value);
+                model.grant.set('metadata',value);
                 model.grant.save().then(() => {
                     controller.transitionToRoute('researcher.grant');
                 });

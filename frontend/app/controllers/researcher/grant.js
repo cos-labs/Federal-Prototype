@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
             var grant = this.get('store').createRecord('grant');
             grant.set('department', dep);
             grant.set('document', this.get('document'));
-            grant.set('questions', dep.toJSON().settings);
+            grant.set('schema', dep.toJSON().schema);
             grant.set('number', grantNumber);
             this.get('currentUser').load().then((c) => {
                 this.set('user', c);

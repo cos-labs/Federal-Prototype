@@ -13,8 +13,8 @@ export default Model.extend({
     status: attr('string', {defaultValue: 'New'}),
     department:  belongsTo('department'),
     document: belongsTo('document'),
-    questions: attr('string'),
-    answers: attr('json-transform', {defaultValue: '{}'}),
+    schema: attr('string'),
+    metadata: attr('json-transform', {defaultValue: '{}'}),
     institution: attr('boolean', {defaultValue: false}),
     pi: attr('string', {defaultValue: 'anonymous'})
 });
