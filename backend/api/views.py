@@ -1,67 +1,50 @@
-from api.models import Document, Department, Usertype, Grant
-from api.serializers import DocumentSerializer, DepartmentSerializer, UsertypeSerializer, UserSerializer, GrantSerializer
-from rest_framework import generics
+
+from api.models import Document, Agency, Grant
+from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer
+from rest_framework import generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
+from rest_framework_json_api.views import RelationshipView
 from django.contrib.auth.models import User
 
 
 @api_view(['GET'])
 def api_root(request, format=None):
     return Response({
+        'agencies': reverse('agency-list', request=request, format=format),
         'documents': reverse('document-list', request=request, format=format),
-        'departments': reverse('department-list', request=request, format=format),
-        'users': reverse('user-list', request=request, format=format),
-        'usertypes': reverse('usertype-list', request=request, format=format),
         'grants': reverse('grant-list', request=request, format=format),
+        'users': reverse('user-list', request=request, format=format),
     })
 
 
-class DocumentList(generics.ListCreateAPIView):
+class DocumentViewSet(viewsets.ModelViewSet):
     queryset = Document.objects.all()
     serializer_class = DocumentSerializer
 
 
-class DocumentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Document.objects.all()
-    serializer_class = DocumentSerializer
-
-
-class DepartmentList(generics.ListCreateAPIView):
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
-
-
-class DepartmentDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Department.objects.all()
-    serializer_class = DepartmentSerializer
-
-
-class UserList(generics.ListCreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UserDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-
-
-class UsertypeList(generics.ListCreateAPIView):
-    queryset = Usertype.objects.all()
-    serializer_class = UsertypeSerializer
-
-
-class UsertypeDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Usertype.objects.all()
-    serializer_class = UsertypeSerializer
-
-
-class GrantList(generics.ListCreateAPIView):
-    serializer_class = GrantSerializer
+class AgencyViewSet(viewsets.ModelViewSet):
+    queryset = Agency.objects.all()
+    serializer_class = AgencySerializer
+    
     def get_queryset(self):
-        queryset = Grant.objects.all()
+        queryset = Agency.objects.all()
+        return queryset
+ 
+
+class AgencyRelationshipView(RelationshipView):
+    queryset = Agency.objects.all()
+
+
+class GrantViewSet(viewsets.ModelViewSet):
+    queryset = Grant.objects.all()
+    serializer_class = GrantSerializer
+
+    def get_queryset(self):
+        queryset=self.queryset
+        if 'agency_pk' in self.kwargs:
+            return queryset.filter(agency__pk=self.kwargs['agency_pk'])
         pi = self.request.query_params.get('pi', None)
         institution = self.request.query_params.get('institution', None)
         status = self.request.query_params.get('status', None)
@@ -71,10 +54,10 @@ class GrantList(generics.ListCreateAPIView):
             queryset = queryset.filter(institution=institution)
         if status is not None:
             queryset = queryset.filter(status=status)
-
         return queryset
 
 
-class GrantDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Grant.objects.all()
-    serializer_class = GrantSerializer
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
