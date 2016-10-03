@@ -8,13 +8,13 @@ export default Ember.Controller.extend({
     role: 'agency',
     //active_grant: null,
     //document: {},
-    departments: {},
+    agencies: {},
     actions: {
-        createGrant(department_id, grant_number, pi_name) {
+        createGrant(agency_id, grant_number, pi_name) {
             var grant = this.get('store').createRecord('grant');
-            this.get('store').findRecord('department', 4).then((dep) => {
+            this.get('store').findRecord('agency', 4).then((agency) => {
                 grant.set('number', grant_number);
-                grant.set('department', dep);
+                grant.set('agency', agency);
                 grant.set('pi', pi_name);
                 grant.set('schema', dep.toJSON().schema);
                 grant.set('institution', true);
@@ -32,7 +32,7 @@ export default Ember.Controller.extend({
             console.log('getting grants');
             console.log(page_number);
             this.get('store').query('grant', {
-                'department': 4,
+                'agency': 4,
                 'page': page_number
             }).then((grants) => {
                 this.set('grants', grants);

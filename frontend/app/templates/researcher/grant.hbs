@@ -5,16 +5,16 @@
   {{#each grants as |grant|}}
 
   <div class='row'>
-    <div class='col-md-10'><h4>{{grant.department.name}} - {{grant.number}} </h4></div>
+    <div class='col-md-10'><h4>{{grant.agency.name}} - {{grant.number}} </h4></div>
     <div class='col-md-2'>
-      <button class="btn col-md-5 btn-primary btn-lg btn-block" {{action 'edit' model.grant departmentId fileList model.document}}>Edit</button>
+      <button class="btn col-md-5 btn-primary btn-lg btn-block" {{action 'edit' model.grant agencyId fileList model.document}}>Edit</button>
     </div>
   </div>
 
   {{else}}
 
   <p>
-    No grants currently apply to this document. To connect a grant, Use the drop-down menu to select the department that awarded the grant, type in your grant number, then press the 'Add a grant' button below.
+    No grants currently apply to this document. To connect a grant, Use the drop-down menu to select the agency that awarded the grant, type in your grant number, then press the 'Add a grant' button below.
   </p>
 
   {{/each}}
@@ -24,10 +24,10 @@
   <div class='row'>
 
     <div class="dropdownHolder col-md-12">
-      <select class="departmentSelect input-lg select" onchange={{action (mut departmentId) value="target.value" }}>
-        <option>Select a Department</option>
-        {{#each departments as |departmentChoice|}}
-        <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+      <select class="agencySelect input-lg select" onchange={{action (mut agencyId) value="target.value" }}>
+        <option>Select an Agency</option>
+        {{#each agencies as |agencyChoice|}}
+        <option selected={{eq agency agencyChoice}} value={{agencyChoice.id}}>{{agencyChoice.name}}</option>
         {{/each}}
       </select>
     </div>
@@ -38,8 +38,8 @@
       {{input type="text" value=grantNumber}}
     </div>
     <div class='col-md-3'>
-      <button class="btn btn-success" {{action "addGrant" model.grants departmentId grantNumber}}>Add a grant</button>
+      <button class="btn btn-success" {{action "addGrant" model.grants agencyId grantNumber}}>Add a grant</button>
     </div>
   </div>
-  <button class="btn btn-primary btn-lg btn-block metaData" {{action 'submit' model.grant departmentId fileList model.document}}>Finish</button>
+  <button class="btn btn-primary btn-lg btn-block metaData" {{action 'submit' model.grant agencyId fileList model.document}}>Finish</button>
 </div>

@@ -16,7 +16,7 @@
 
 
 
-<div class="department-header">
+<div class="agency-header">
 
 <table class="table table-bordered table-hover">
     
@@ -35,7 +35,7 @@
     {{#each model as |grant|}}
         <tr>
             <td>{{grant.number}}</td>
-            <td>{{grant.department.name}}</td>
+            <td>{{grant.agency.name}}</td>
             <td>{{grant.document.name}}</td>
             <td>{{grant.pi}}</td>
             <td>
@@ -47,18 +47,18 @@
         </tr>
     {{else}}
         {{#if institution}}
-            <tr><td colspan='7' class='No-documents-error'>
+            <tr><td colspan='7' class='no-grants-error'>
                 <h2>This institution has not been associated with any grants yet.</h2>
                 <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
             </td></tr>
         {{else}}
             {{#if agency}}
-                <tr><td colspan='7' class='No-documents-error'>
+                <tr><td colspan='7' class='no-grants-error'>
                     <h2>This agency has not awarded any grants yet.</h2>
                     <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
                 </td></tr>
             {{else}}
-                <tr><td colspan='7' class='No-documents-error'>
+                <tr><td colspan='7' class='no-grants-error'>
                     <h2>There are no grants.</h2>
                     <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
                 </td></tr>

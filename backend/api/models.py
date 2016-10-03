@@ -124,7 +124,11 @@ def upload_to(instance, filename):
 
 class Agency(Group):
     schema = models.TextField(default=defaultSchema)
- 
+
+    #def __init__(self):
+    #    super(Agency, self).__init__() 
+    #    self.users = self.user_set
+
     def __str__(self):
         return self.name
 
@@ -144,7 +148,14 @@ class Document(models.Model):
         )
 
 
+class Institution(Group):
+    
+    def __str__(self):
+        return self.name
+
+
 class Grant(models.Model):
+    
     open = models.BooleanField(default=True)
     number = models.CharField(max_length=100)
     agency = models.ForeignKey('Agency', related_name='grants')
@@ -157,7 +168,7 @@ class Grant(models.Model):
     metadata = models.TextField(default='', blank=True, null=True)
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
-    institution = models.BooleanField(default=False)
+    institution = models.ForeignKey('Institution', related_name='grants', default='none', null=True, blank=True)
     pi = models.CharField(max_length=255, default='anonymous', null=True)
 
     def __str__(self):
@@ -173,3 +184,7 @@ class Grant(models.Model):
             self.schema = self.agency.schema
         super(Grant, self).save(*args, **kwargs)
         assign_perm('view_grant', self.agency, self)
+
+
+    
+

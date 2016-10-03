@@ -6,8 +6,8 @@ export default Ember.Route.extend({
     
     model() {
         return Ember.RSVP.hash({
+            agencies: this.get('store').findAll('agency'),
             grants: this.get('store').findAll('grant'),
-            departments: this.get('store').findAll('department'),
         });
     },
     
@@ -24,7 +24,7 @@ export default Ember.Route.extend({
             return grant.get('institution');
         }));
         //controller.set('document', model.document)
-        controller.set('departments', model.departments);
+        controller.set('agencies', model.agencies);
     }
 
 });

@@ -6,8 +6,8 @@ export default Ember.Route.extend( {
     session: Ember.inject.service(),
     
     actions: {
-        departmentSelected(departmentId) {
-            this.get('store').getRecord('department', departmentId);
+        agencySelected(agencyId) {
+            this.get('store').getRecord('agency', agencyId);
         },
     },
 
@@ -15,7 +15,7 @@ export default Ember.Route.extend( {
         var researcher = this.modelFor('researcher');
         return Ember.RSVP.hash({
             document: researcher.document,
-            departments: researcher.departments,
+            agency: researcher.agencies,
             grants: this.get('store').findAll('grant')
         });
     },
@@ -23,13 +23,13 @@ export default Ember.Route.extend( {
     setupController(controller, model) {
         this._super(controller, model);
         controller.set('isFileUploaded', "researcher-form");
-        var grants = model.grants.reduce(function(r, n, i) { //jshint ignore:line
+        var grants = model.grants.reduce(function(r, n) {
             if (n.get('document').get('id') === model.document.get('id')) { r.push(n); }
             return r;
         }, []);
         controller.set('grants', grants);
         controller.set('document', model.document);
-        controller.set('departments', model.departments);  
+        controller.set('agencies', model.agencies);  
     }
 });
 

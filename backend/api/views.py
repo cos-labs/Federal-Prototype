@@ -1,6 +1,6 @@
 
-from api.models import Document, Agency, Grant
-from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer
+from api.models import Document, Agency, Grant, Institution
+from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer, InstitutionSerializer
 from rest_framework import generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -16,12 +16,8 @@ def api_root(request, format=None):
         'documents': reverse('document-list', request=request, format=format),
         'grants': reverse('grant-list', request=request, format=format),
         'users': reverse('user-list', request=request, format=format),
+        'institutions': reverse('institution-list', request=request, format=format),
     })
-
-
-class DocumentViewSet(viewsets.ModelViewSet):
-    queryset = Document.objects.all()
-    serializer_class = DocumentSerializer
 
 
 class AgencyViewSet(viewsets.ModelViewSet):
@@ -35,6 +31,15 @@ class AgencyViewSet(viewsets.ModelViewSet):
 
 class AgencyRelationshipView(RelationshipView):
     queryset = Agency.objects.all()
+
+
+class DocumentViewSet(viewsets.ModelViewSet):
+    queryset = Document.objects.all()
+    serializer_class = DocumentSerializer
+
+
+#class DocumentRelationshipView(RelationshipView):
+#    queryset = Document.objects.all()
 
 
 class GrantViewSet(viewsets.ModelViewSet):
@@ -57,7 +62,21 @@ class GrantViewSet(viewsets.ModelViewSet):
         return queryset
 
 
+#class GrantRelationshipView(RelationshipView):
+#    queryset = Agency.objects.all()
+
+
+class InstitutionViewSet(viewsets.ModelViewSet):
+    queryset = Institution.objects.all()
+    serializer_class = InstitutionSerializer
+
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    serializer_class = UserSerializer
+    def get_serializer_class(self):
+        return UserSerializer
+
+#class UserRelationshipView(RelationshipView):
+#    queryset = User.objects.all()
 
