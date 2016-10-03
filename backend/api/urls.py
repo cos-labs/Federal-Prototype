@@ -1,38 +1,28 @@
-from api import views
-from django.conf.urls import url
-from rest_framework.urlpatterns import format_suffix_patterns
 
+from django.conf.urls import url, include
+from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework_nested import routers
+
+from api import views
+
+router = routers.SimpleRouter()
+router.register(r'agencies', views.AgencyViewSet)
+router.register(r'documents', views.DocumentViewSet)
+router.register(r'grants', views.GrantViewSet)
+router.register(r'institutions', views.InstitutionViewSet)
+router.register(r'users', views.UserViewSet)
+
+agencyRouter = routers.NestedSimpleRouter(router, r'agencies', lookup='agency')
+agencyRouter.register(r'grants', views.GrantViewSet, base_name='agency-grant')
+
+institutionRouter = routers.NestedSimpleRouter(router, r'institutions', lookup='institution')
+institutionRouter.register(r'grants', views.GrantViewSet, base_name='institution-grant')
 
 urlpatterns = format_suffix_patterns([
-    url(r'^$', views.api_root),
-    url(r'documents$', views.DocumentList.as_view(),
-        name='document-list'),
-    url(r'^documents/(?P<pk>[0-9]+)$',
-        views.DocumentDetail.as_view(),
-        name='document-detail'),
-    url(r'departments$', views.DepartmentList.as_view(),
-        name='department-list'),
-    url(r'^departments/(?P<pk>[0-9]+)$',
-        views.DepartmentDetail.as_view(),
-        name='department-detail'),
-    url(r'usertypes$', views.UsertypeList.as_view(),
-        name='usertype-list'),
-    url(r'^usertype/(?P<pk>[0-9]+)$',
-        views.UsertypeDetail.as_view(),
-        name='usertype-detail'),
-    url(r'users$', views.UserList.as_view(),
-        name='user-list'),
-    url(r'^user/(?P<pk>[0-9]+)$',
-        views.UserDetail.as_view(),
-        name='user-detail'),
-    url(r'grants$', views.GrantList.as_view(),
-        name='grant-list'),
-    url(r'^grants/(?P<pk>[0-9]+)$',
-        views.GrantDetail.as_view(),
-        name='grant-detail'),
-    # url(r'dynamicforms', views.DynamicformList.as_view(),
-    #     name='dynamicform-list'),
-    # url(r'^dynamicform/(?P<pk>[0-9]+)$',
-    #     views.DynamicformDetail.as_view(),
-    #     name='dynamicform-detail'),
+    url(r'^$',views.api_root),
+    url(r'^', include(router.urls)),
+    url(r'^', include(agencyRouter.urls)),
+    url(r'^', include(institutionRouter.urls)),
+    url(r'^agencies/(?P<pk>[^/.]+)/relationships/(?P<related_field>[^/.]+)/$', views.AgencyRelationshipView.as_view(), name='agency-relationships'),
 ])
+

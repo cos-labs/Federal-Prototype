@@ -3,18 +3,18 @@ import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
-    open: attr('boolean', {defaultValue: true}),
-    number: attr('string'),
-    metadatarequested: attr('boolean', {defaultValue: false}),
-    uploadrequested: attr('boolean', {defaultValue: false}),
-    pistatus: attr('string', {defaultValue: 'New'}),
-    institutionstatus: attr('string', {defaultValue: 'New'}),
+    agency:  belongsTo('agency'),
     agencystatus: attr('string', {defaultValue: 'New'}),
-    status: attr('string', {defaultValue: 'New'}),
-    department:  belongsTo('department'),
     document: belongsTo('document'),
-    questions: attr('string'),
-    answers: attr('json-transform', {defaultValue: '{}'}),
     institution: attr('boolean', {defaultValue: false}),
+    institutionstatus: attr('string', {defaultValue: 'New'}),
+    metadata: attr('json-transform', {defaultValue: '{}'}),
+    metadatarequested: attr('boolean', {defaultValue: false}),
+    number: attr('string'),
+    open: attr('boolean', {defaultValue: true}),
     pi: attr('string', {defaultValue: 'anonymous'})
+    pistatus: attr('string', {defaultValue: 'New'}),
+    schema: attr('string'),
+    status: attr('string', {defaultValue: 'New'}),
+    uploadrequested: attr('boolean', {defaultValue: false}),
 });

@@ -4,10 +4,10 @@ export default Ember.Controller.extend({
     grants: [],
     institution: true,
     agency: false,
-    departments: {},
+    agencies: {},
     actions: {
-        createGrant(department_id, grant_number, pi_name) {
-            var dep = this.get('store').peekRecord('department', department_id);
+        createGrant(agency_id, grant_number, pi_name) {
+            var agency = this.get('store').peekRecord('agency', agency_id);
             var doc = this.get('store').createRecord('document');
             doc.set('name', 'Not Uploaded');
             doc.set('path', '/dev/null');
@@ -15,9 +15,9 @@ export default Ember.Controller.extend({
             doc.save().then((doc) => {
                 var grant = this.get('store').createRecord('grant');
                 grant.set('number', grant_number);
-                grant.set('department', dep);
+                grant.set('agency', agency);
                 grant.set('pi', pi_name);
-                grant.set('questions', dep.toJSON().settings);
+                grant.set('schema', dep.toJSON().schema);
                 grant.set('institution', true);
                 grant.set('document', doc);
                 grant.save().then(() => {

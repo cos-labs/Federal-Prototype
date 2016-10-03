@@ -1,9 +1,11 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
+from django.contrib.auth.models import Group
 from django.db import models
 import uuid
+from guardian.shortcuts import assign_perm
 
-schema = '''{
+defaultSchema = '''{
   "schema": {
     "title":"Describe the document",
     "description":"The meta data associated with the document that was uploaded.",
@@ -120,28 +122,13 @@ def upload_to(instance, filename):
     return 'file/%s' % instance.uuid
 
 
-class Department(models.Model):
-    name = models.CharField(max_length=256)
-    settings = models.TextField(default=schema)
+class Agency(Group):
+    schema = models.TextField(default=defaultSchema)
 
-    def __str__(self):
-        return self.name
+    #def __init__(self):
+    #    super(Agency, self).__init__() 
+    #    self.users = self.user_set
 
-
-class Usertype(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    usertype = models.CharField(choices=USER_TYPES, max_length=50)
-    department = models.ForeignKey('Department', related_name='moderator', blank=True, null=True)
-
-    def __str__(self):
-        return self.usertype
-
-
-class Role(models.Model):
-    user = models.CharField(max_length=8, null=True)
-    institution = models.BooleanField(default=True)
-    agency = models.ForeignKey('Department', null=True, blank=True)
-    
     def __str__(self):
         return self.name
 
@@ -161,24 +148,31 @@ class Document(models.Model):
         )
 
 
+class Institution(Group):
+    
+    def __str__(self):
+        return self.name
+
+
 class Grant(models.Model):
+    
     open = models.BooleanField(default=True)
     number = models.CharField(max_length=100)
-    department = models.ForeignKey('Department', related_name='grants')
+    agency = models.ForeignKey('Agency', related_name='grants')
     document = models.ForeignKey('Document', related_name='grants', default=None, null=True, blank=True)
     status = models.TextField(default='New', max_length=160)
     pistatus = models.TextField(default='New', max_length=160)
     institutionstatus = models.TextField(default='New', max_length=160)
     agencystatus = models.TextField(default='New', max_length=160)
-    questions = models.TextField(default=schema, blank=True, null=True)
-    answers = models.TextField(default='', blank=True, null=True)
+    schema = models.TextField(default=defaultSchema, blank=True, null=True)
+    metadata = models.TextField(default='', blank=True, null=True)
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
-    institution = models.BooleanField(default=False)
+    institution = models.ForeignKey('Institution', related_name='grants', default='none', null=True, blank=True)
     pi = models.CharField(max_length=255, default='anonymous', null=True)
 
     def __str__(self):
-        return self.number + " / " + self.department.name
+        return self.number + " / " + self.agency.name
 
     class Meta:
         permissions = (
@@ -186,6 +180,11 @@ class Grant(models.Model):
         )
 
     def save(self, *args, **kwargs):
-        if not self.questions:
-            self.questions = self.department.settings
+        if not self.schema:
+            self.schema = self.agency.schema
         super(Grant, self).save(*args, **kwargs)
+        assign_perm('view_grant', self.agency, self)
+
+
+    
+

@@ -1,10 +1,38 @@
 from rest_framework_json_api import serializers, relations
-from api.models import Department, Usertype, Document, Grant
-from django.contrib.auth.models import User
+from api.models import Agency, Document, Grant, Institution
+from django.contrib.auth.models import User, Group
+
+
+class AgencySerializer(serializers.ModelSerializer):
+    
+    grants = relations.ResourceRelatedField(
+        many=True,
+        queryset=Grant.objects,
+        related_link_view_name='agency-grant-list',
+        related_link_url_kwarg='agency_pk',
+        self_link_view_name='agency-relationships', )
+
+    user_set = relations.ResourceRelatedField(
+        many=True,
+        queryset=User.objects,
+    ) 
+ 
+    class Meta:
+        model = Agency
+        fields = (
+            'id',
+            'name',
+            'schema',
+            'grants',
+            'user_set',
+        )
+
+    class JSONAPIMeta:
+        resource_name = "agencies"
 
 
 class DocumentSerializer(serializers.ModelSerializer):
-    # department = serializers.HyperlinkedRelatedField(view_name='department-detail', read_only=True)
+
     class Meta:
         model = Document
         fields = ('url', 'name', 'path', 'datesubmitted')
@@ -14,72 +42,85 @@ class DocumentSerializer(serializers.ModelSerializer):
         resource_name = "documents"
 
 
-class DepartmentSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Department
-        fields = ('id', 'name', 'settings')
-
-    class JSONAPIMeta:
-        resource_name = "departments"
-
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = User
-        fields = ('id', 'username', 'password')
+        fields = (
+            'id',
+            'username',
+        )
 
     class JSONAPIMeta:
         resource_name = "users"
 
 
-class UsertypeSerializer(serializers.ModelSerializer):
+class UserPrivateSerializer(serializers.ModelSerializer):
+
     class Meta:
-        model = Usertype
-        fields = ('id', 'department', 'usertype', 'user')
+        model = User
+        fields = (
+            'id',
+            'username',
+            'groups',
+        )
 
     class JSONAPIMeta:
-        resource_name = "usertypes"
+        resource_name = "users"
+
+
+
+class InstitutionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Institution
+        fields = (
+            'id',
+            'name',
+            'user_set',
+            'grants',
+        )
+
+    class JSONAPIMeta:
+        resource_name = 'institutions'
 
 
 class GrantSerializer(serializers.ModelSerializer):
 
-    # this requires extensive testing! I'm not sure if it actually works, though I believe it does
-    department = relations.ResourceRelatedField(
-        queryset=Department.objects,
-        related_link_url_kwarg='department_pk'  # this line is scary
+    agency = relations.ResourceRelatedField(
+        queryset=Agency.objects,
+        related_link_url_kwarg='agency_pk'
     )
-
     document = relations.ResourceRelatedField(
         queryset=Document.objects,
-        related_link_url_kwarg='document_pk'  # this line is scary
+        related_link_url_kwarg='document_pk'
+    )
+    institution = relations.ResourceRelatedField(
+        allow_null=True,
+        queryset=Institution.objects,
+        related_link_url_kwarg='institution_pk'
     )
 
     class Meta:
         model = Grant
         fields = (
-            'id',
-            'open',
-            'number',
-            'pistatus',
-            'status',
-            'institutionstatus',
+            'agency',
             'agencystatus',
-            'metadatarequested',
-            'uploadrequested',
             'document',
-            'department',
-            'questions',
-            'answers',
+            'id',
             'institution',
-            'pi'
-        )
+            'institutionstatus',
+            'metadata',
+            'metadatarequested',
+            'number',
+            'open',
+            'pi',
+            'pistatus',
+            'schema',
+            'status',
+            'uploadrequested', )
 
     class JSONAPIMeta:
         resource_name = "grants"
-#
-# class DynamicformSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Dynamicform
-#         fields = ('id', 'questions', 'answers', 'grant')
-#     class JSONAPIMeta:
-#         resource_name = "dynamicforms"
+

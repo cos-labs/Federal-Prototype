@@ -15,10 +15,10 @@
 
 <div class='addgrant'>
     <div class='container'>
-        <select class="departmentSelect form-control input-lg select" onchange={{action (mut departmentId) value="target.value"}}>
-            <option>Select a Department</option>
-            {{#each departments as |departmentChoice|}}
-            <option selected={{eq department departmentChoice}} value={{departmentChoice.id}}>{{departmentChoice.name}}</option>
+        <select class="agencySelect form-control input-lg select" onchange={{action (mut agencyId) value="target.value"}}>
+            <option>Select an Agency</option>
+            {{#each agencies as |agencyChoice|}}
+            <option selected={{eq agency agencyChoice}} value={{agencyChoice.id}}>{{agencyChoice.name}}</option>
             {{/each}}
         </select>
         <br>
@@ -26,6 +26,6 @@
         <br>
         <input class='form-control input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
         <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrant' departmentId grant_number grant_pi}}>Add this grant</button>
+        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrant' agencyId grant_number grant_pi}}>Add this grant</button>
     </div>
 </div>

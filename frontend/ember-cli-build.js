@@ -8,6 +8,9 @@ module.exports = function(defaults) {
     
     var app = new EmberApp(defaults, {
         // Add options here
+        'ember-bootstrap': {
+            importBootstrapCSS: false
+        }
     });
 
     // Use `app.import` to add additional libraries to the generated
@@ -23,6 +26,7 @@ module.exports = function(defaults) {
     // please specify an object with the list of modules as keys
     // along with the exports of each module as its value.
   
+    
     // Import component styles from addon
     app.import(path.join(app.bowerDirectory, 'osf-style/vendor/prism/prism.css'));
     app.import(path.join(app.bowerDirectory, 'osf-style/page.css'));

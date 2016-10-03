@@ -7,7 +7,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
   session: Ember.inject.service(),
   model() {
       return Ember.RSVP.hash({
-      departments: this.get('store').findAll('department'),
+      agencies: this.get('store').findAll('agency'),
       document: this.get('store').createRecord('document'),
     });
   }

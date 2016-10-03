@@ -650,18 +650,18 @@ textarea{
     
 }
 
-.department-header{
+.agency-header{
     margin-left:auto;
     margin-right:auto;
     overflow: hidden;
 }
-.department-header table {
+.agency-header table {
     background-color: #ffffff;
     //background-color: rgba(250,250,250,0.4);
 }
 
-.department-header .table > tbody > tr > td,
-.department-header .table > thead > tr > th {
+.agency-header .table > tbody > tr > td,
+.agency-header .table > thead > tr > th {
     vertical-align: middle;
 }
 .table > thead > tr > th {

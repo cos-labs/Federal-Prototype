@@ -6,15 +6,15 @@ export default Ember.Controller.extend({
     agency: false,
     //active_grant: null,
     //document: {},
-    departments: {},
+    agencies: {},
     actions: {
-        addGrant(department_id, grant_number, pi_name) {
-            this.get('store').findRecord('department', 4).then((dep) => {
+        addGrant(agency_id, grant_number, pi_name) {
+            this.get('store').findRecord('agency', 4).then((agency) => {
                 var grant = this.get('store').createRecord('grant');
                 grant.set('number', grant_number);
-                grant.set('department', dep);
+                grant.set('agency', agency);
                 grant.set('pi', pi_name);
-                grant.set('questions', dep.toJSON().settings);
+                grant.set('schema', dep.toJSON().schema);
                 grant.set('institution', true);
                 this.store.findRecord('document', 125).then((r) => {
                     grant.set('document', r);

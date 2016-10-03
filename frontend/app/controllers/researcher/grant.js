@@ -7,18 +7,18 @@ export default Ember.Controller.extend({
     currentUser: Ember.inject.service(),
     user: {},
     document: {},
-    departments: {},
+    agencies: {},
     actions: {
         submit() {
             console.log('done');
             this.transitionToRoute('researcher.overview');
         },
-        addGrant(grant_id, department_id, grantNumber) {
-            var dep = this.get('store').peekRecord('department', department_id);
+        addGrant(grant_id, agency_id, grantNumber) {
+            var agency = this.get('store').peekRecord('agency', agency_id);
             var grant = this.get('store').createRecord('grant');
-            grant.set('department', dep);
+            grant.set('agency', agency);
             grant.set('document', this.get('document'));
-            grant.set('questions', dep.toJSON().settings);
+            grant.set('schema', dep.toJSON().schema);
             grant.set('number', grantNumber);
             this.get('currentUser').load().then((c) => {
                 this.set('user', c);
