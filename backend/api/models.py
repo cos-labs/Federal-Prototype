@@ -171,12 +171,14 @@ class Grant(models.Model):
     uploadrequested = models.BooleanField(default=False)
     institution = models.ForeignKey('Institution', related_name='grants', default='none', null=True, blank=True)
     pi = models.ForeignKey(User, null=True)
-
-    __pi = None
+    
+    _institution = None
+    _pi = None
 
     def __init__(self, *args, **kwargs):
         super(Grant, self).__init__(*args, **kwargs)
-        self.__pi = self.pi
+        self._institution = self.institution
+        self._pi = self.pi
 
     def __str__(self):
         return self.number + " / " + self.agency.name
@@ -185,19 +187,33 @@ class Grant(models.Model):
         permissions = (
             ('view_grant', 'View Grant'),
             ('modify_grant', 'Modify Grant'),
+            ('assign_grant_to_pi', 'Assign Grant to PI'),
+            ('assign_grant_to_institution', 'Assign Grant to Institution'),
         )
 
     def save(self, *args, **kwargs):
+
         if not self.schema:
             self.schema = self.agency.schema
-        if self.pi != self.__pi and not request.user.has_perm('assign_grant'):
-            return HttpResponse('Unauthorized', status=401)
+
+        # Dont update fields without permission:
+        if self.schema != self._schema and not agency.user_set.filter(username=request.user.username).exists():
+            self.schema = self._schema
+        if self.institution != self._institution and not request.user.has_perm('assign_grant_to_institution'):
+            self.institution = self._institution    
+        if self.pi != self._pi and not request.user.has_perm('assign_grant_to_pi'):
+            self.pi = self._pi
+
         super(Grant, self).save(*args, **kwargs)
+
+        # Fix permissions
         assign_perm('view_grant', self.agency, self)
         assign_perm('modify_grant', self.agency, self)
+        assign_perm('view_grant', self.institution, self)
+        assign_perm('modify_grant', self.institution, self)
         assign_perm('view_grant', self.pi, self)
         assign_perm('modify_grant', self.pi, self)
-
+        
 
     
 
