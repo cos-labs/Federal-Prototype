@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
 from django.db import models
 import uuid
+from django.http import HttpResponse
 from guardian.shortcuts import assign_perm
 
 defaultSchema = '''{
@@ -169,7 +170,13 @@ class Grant(models.Model):
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
     institution = models.ForeignKey('Institution', related_name='grants', default='none', null=True, blank=True)
-    pi = models.CharField(max_length=255, default='anonymous', null=True)
+    pi = models.ForeignKey(User, null=True)
+
+    __pi = None
+
+    def __init__(self, *args, **kwargs):
+        super(Grant, self).__init__(*args, **kwargs)
+        self.__pi = self.pi
 
     def __str__(self):
         return self.number + " / " + self.agency.name
@@ -177,13 +184,19 @@ class Grant(models.Model):
     class Meta:
         permissions = (
             ('view_grant', 'View Grant'),
+            ('modify_grant', 'Modify Grant'),
         )
 
     def save(self, *args, **kwargs):
         if not self.schema:
             self.schema = self.agency.schema
+        if self.pi != self.__pi and not request.user.has_perm('assign_grant'):
+            return HttpResponse('Unauthorized', status=401)
         super(Grant, self).save(*args, **kwargs)
         assign_perm('view_grant', self.agency, self)
+        assign_perm('modify_grant', self.agency, self)
+        assign_perm('view_grant', self.pi, self)
+        assign_perm('modify_grant', self.pi, self)
 
 
     

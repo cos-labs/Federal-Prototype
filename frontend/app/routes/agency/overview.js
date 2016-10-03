@@ -10,11 +10,11 @@ export default Ember.Route.extend({
                 name: "Department of Open Science",
             },
         });
-        this.set('agency', dept.get('firstObject'));       
+        this.set('agency', agency.get('firstObject'));       
         return Ember.RSVP.hash({
             grants: this.get('store').query('grant', {
                 filter: { 
-                    agency: dept.get('firstObject'),
+                    agency: agency.get('firstObject'),
                 },
             }),
         });
