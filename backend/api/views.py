@@ -1,12 +1,16 @@
 
-from api.models import Document, Agency, Grant, Institution
-from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer, InstitutionSerializer
+
+from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
+
 from rest_framework import generics, viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework_json_api.views import RelationshipView
-from django.contrib.auth.models import User
+
+from api.models import Document, Agency, Grant, Institution
+from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer, InstitutionSerializer, UserPrivateSerializer
 
 
 @api_view(['GET'])
@@ -74,9 +78,9 @@ class InstitutionViewSet(viewsets.ModelViewSet):
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
-    def get_serializer_class(self):
-        return UserSerializer
-
+    serializer_class = UserPrivateSerializer
+    
 #class UserRelationshipView(RelationshipView):
 #    queryset = User.objects.all()
+
 

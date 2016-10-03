@@ -56,7 +56,7 @@ class UserSerializer(serializers.ModelSerializer):
         resource_name = "users"
 
 
-class SensitiveUserSerializer(serializers.ModelSerializer):
+class UserPrivateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
