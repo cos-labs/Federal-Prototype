@@ -124,14 +124,14 @@ def upload_to(instance, filename):
 
 
 class Agency(Group):
-    schema = models.TextField(default=defaultSchema)
-
-    #def __init__(self):
-    #    super(Agency, self).__init__() 
-    #    self.users = self.user_set
 
     def __str__(self):
         return self.name
+
+
+class Schema(models.Model):
+
+    content = models.TextField()
 
 
 class Document(models.Model):
@@ -170,15 +170,22 @@ class Grant(models.Model):
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
     institution = models.ForeignKey('Institution', related_name='grants', default='none', null=True, blank=True)
-    pi = models.ForeignKey(User, null=True)
+    pi = models.TextField(max_length=10, null=True)
     
     _institution = None
     _pi = None
+    _pi_user = None
+    _schema = None
 
     def __init__(self, *args, **kwargs):
         super(Grant, self).__init__(*args, **kwargs)
         self._institution = self.institution
         self._pi = self.pi
+        self._schema = self.schema
+        try:
+            self._pi_user = User.objects.get(username=self.pi)
+        except:
+            pass
 
     def __str__(self):
         return self.number + " / " + self.agency.name
@@ -196,23 +203,20 @@ class Grant(models.Model):
         if not self.schema:
             self.schema = self.agency.schema
 
-        # Dont update fields without permission:
-        if self.schema != self._schema and not agency.user_set.filter(username=request.user.username).exists():
-            self.schema = self._schema
-        if self.institution != self._institution and not request.user.has_perm('assign_grant_to_institution'):
-            self.institution = self._institution    
-        if self.pi != self._pi and not request.user.has_perm('assign_grant_to_pi'):
-            self.pi = self._pi
 
-        super(Grant, self).save(*args, **kwargs)
-
+        #is_agency = agency.user_set.filter(username=request.user.username).exists()
+        
+        
+        return super(Gran, self).save(*args, **kwargs)
         # Fix permissions
+        
         assign_perm('view_grant', self.agency, self)
         assign_perm('modify_grant', self.agency, self)
-        assign_perm('view_grant', self.institution, self)
-        assign_perm('modify_grant', self.institution, self)
         assign_perm('view_grant', self.pi, self)
         assign_perm('modify_grant', self.pi, self)
+        if self.institution:
+            assign_perm('view_grant', self.institution, self)
+            assign_perm('modify_grant', self.institution, self)
         
 
     

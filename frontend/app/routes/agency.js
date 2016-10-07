@@ -4,30 +4,21 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model() {
-        return Ember.RSVP.hash({
-            grants: this.get('store').findAll('grant'),
-            documents: this.get('store').findAll('document'),
-            institutions: [
-                'UVA',
-                'HARVARD',
-                'CALTECH',
-                'MIT'
-            ],
-        });
+        return this.get('store').query('agency', {
+            filter: {
+                permission: 'administer'
+            }
+        })
     },
     
     actions: {
-        didTransition: function() {
-            Ember.$(".moderatorHolder").show();
-        }
+        changeAgency() {
+            this,transitionTo();
+        },
     },
 
     setupController(controller, model) {
-        controller.set('agency', true);
-        controller.set('isFileUploaded', "researcher-form");
-        controller.set('grants', model.grants);
-        controller.set('documents', model.documents);
-        controller.set('institutions', model.institutions);
+        controller.set('agency', model);
     }
 
 });

@@ -88,6 +88,8 @@ class InstitutionSerializer(serializers.ModelSerializer):
 
 class GrantSerializer(serializers.ModelSerializer):
 
+    
+
     agency = relations.ResourceRelatedField(
         queryset=Agency.objects,
         related_link_url_kwarg='agency_pk'
@@ -102,6 +104,17 @@ class GrantSerializer(serializers.ModelSerializer):
         related_link_url_kwarg='institution_pk'
     )
 
+    def update(self, instance, validated_data):
+        # Dont update fields without permission:
+        if self.schema != self._schema and not request.user.has_perm('set_schema'):
+            self.schema = self._schema
+        if self.pi != self._pi and not request.user.has_perm('assign_grant_to_pi'):
+            self.pi = self._pi
+        if self.institution:
+            if self.institution != self._institution and not request.user.has_perm('assign_grant_to_institution'):
+                self.institution = self._institution    
+        return super(GrantSerializer, self).save(*args, **kwargs)
+    
     class Meta:
         model = Grant
         fields = (

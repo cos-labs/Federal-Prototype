@@ -30,6 +30,8 @@ class AgencyViewSet(viewsets.ModelViewSet):
     
     def get_queryset(self):
         queryset = Agency.objects.all()
+        if 'filter[permission]' in self.request.GET:
+            return Agency.objects.filter(user__username=self.request.user.username)
         return queryset
  
 

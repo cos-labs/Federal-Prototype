@@ -5,9 +5,16 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     currentUser: Ember.inject.service(),
     model() {
+            pi_guid = this.get('currentUser').load().then((user) => {
+                debugger;
+                return user.id;
+            });
+            
+            grants = this.get('store').query('grant', {
+                pi: pi_guid
+            })
             return Ember.RSVP.hash({
-                // grants: this.get('store').query('grant', { pi: this.get('currentUser').load().then((x) => x.get('fullName') )}),
-                grants: this.get('store').query('grant', { pi: 'Jeff Spies', page: 1 }),
+                grants: this.get('store').query('grant', { pi: this.get()}),
                 documents: this.get('store').findAll('document'),
                 institutions: [
                     'UVA',
@@ -51,7 +58,6 @@ export default Ember.Route.extend({
     setupController(controller, model) {
         controller.set('agency', true);
         controller.set('role', 'pi');
-        controller.set('isFileUploaded', "researcher-form");
         controller.set('grants', model.grants);
         controller.set('documents', model.documents);
         controller.set('institutions', model.institutions);
