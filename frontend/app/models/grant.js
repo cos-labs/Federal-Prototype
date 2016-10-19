@@ -12,9 +12,9 @@ export default Model.extend({
     metadatarequested: attr('boolean', {defaultValue: false}),
     number: attr('string'),
     open: attr('boolean', {defaultValue: true}),
-    pi: attr('string', {defaultValue: 'anonymous'})
+    pi: attr('string', {defaultValue: 'anonymous'}),
     pistatus: attr('string', {defaultValue: 'New'}),
     schema: attr('string'),
     status: attr('string', {defaultValue: 'New'}),
-    uploadrequested: attr('boolean', {defaultValue: false}),
+    uploadrequested: attr('boolean', {defaultValue: false})
 });
