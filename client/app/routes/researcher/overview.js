@@ -5,12 +5,11 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     currentUser: Ember.inject.service(),
     model() {
-            pi_guid = this.get('currentUser').load().then((user) => {
-                debugger;
+            let pi_guid = this.get('currentUser').load().then((user) => {
                 return user.id;
             });
             
-            grants = this.get('store').query('grant', {
+            let grants = this.get('store').query('grant', {
                 pi: pi_guid
             })
             return Ember.RSVP.hash({
