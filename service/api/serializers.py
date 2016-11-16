@@ -22,7 +22,6 @@ class AgencySerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'name',
-            'schema',
             'grants',
             'user_set',
         )
