@@ -69,8 +69,8 @@ export default Ember.Component.extend({
             if (prev_page < 1) { return; }
             this.send('jumpToPage', prev_page);
         },
-        createGrantHook(dept_id, grant_id, pi_name) {
-            this.attrs.createGrantHook(dept_id, grant_id, pi_name);
+        createGrantHook(agency_id, grant_id, pi_name) {
+            this.attrs.createGrantHook(agency_id, grant_id, pi_name);
         }
         //moreInfo() {
         //    for (var i = 0; i <= Ember.$(".document").length; i++) {
