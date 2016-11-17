@@ -10,6 +10,9 @@ module.exports = function(defaults) {
         // Add options here
         'ember-bootstrap': {
             importBootstrapCSS: false
+        },
+        babel: {
+            includePolyfill: true
         }
     });
 

@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "ember-cli-htmlbars": "^1.0.8",
-    "prism": "^1.0.0"
+    "prism": "^1.0.0",
+    "regenerator": "^0.8.46"
   }
 }
