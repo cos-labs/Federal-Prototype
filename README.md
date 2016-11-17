@@ -4,7 +4,7 @@ Federal Prototype
 
 ## Overview
 
-The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall. There has been no platform created to facilitate this proccess. It is a primary objective of this project to develop a user frindly API for other software to make use of. A user-friendly interface has also been developed to allow users to make use of this API, even though other software may not exist to do so yet.
+The Federal Prototype Project is centered around a new government mandate. This mandate states that any research that is funded by the government must not be behind a paywall. There has been no platform created to facilitate this proccess. It is a primary objective of this project to develop a user frindly API for other software to make use of. A user-friendly interface has also been developed to allow users to make use of this API.
 
 ## Setup
 
