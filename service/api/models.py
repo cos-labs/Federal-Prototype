@@ -150,13 +150,13 @@ class Document(models.Model):
 
 
 class Institution(Group):
-    
+
     def __str__(self):
         return self.name
 
 
 class Grant(models.Model):
-    
+
     open = models.BooleanField(default=True)
     number = models.CharField(max_length=100)
     agency = models.ForeignKey('Agency', related_name='grants')
@@ -171,7 +171,7 @@ class Grant(models.Model):
     uploadrequested = models.BooleanField(default=False)
     institution = models.ForeignKey('Institution', related_name='grants', default=None, null=True, blank=True)
     pi = models.TextField(max_length=10, null=True)
-    
+
     _institution = None
     _pi = None
     _pi_user = None
@@ -205,11 +205,11 @@ class Grant(models.Model):
 
 
         #is_agency = agency.user_set.filter(username=request.user.username).exists()
-        
-        
+
+
         return super(Gran, self).save(*args, **kwargs)
         # Fix permissions
-        
+
         assign_perm('view_grant', self.agency, self)
         assign_perm('modify_grant', self.agency, self)
         assign_perm('view_grant', self.pi, self)
@@ -217,7 +217,7 @@ class Grant(models.Model):
         if self.institution:
             assign_perm('view_grant', self.institution, self)
             assign_perm('modify_grant', self.institution, self)
-        
 
-    
+
+
 

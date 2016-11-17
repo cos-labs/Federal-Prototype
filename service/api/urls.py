@@ -5,7 +5,7 @@ from rest_framework_nested import routers
 
 from api import views
 
-router = routers.SimpleRouter()
+router = routers.SimpleRouter(trailing_slash=False)
 router.register(r'agencies', views.AgencyViewSet)
 router.register(r'documents', views.DocumentViewSet)
 router.register(r'grants', views.GrantViewSet)
