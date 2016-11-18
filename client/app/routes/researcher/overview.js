@@ -22,7 +22,7 @@ export default Ember.Route.extend({
                 'HARVARD',
                 'CALTECH',
                 'MIT'
-            ],
+            ]
         });
     },
 
