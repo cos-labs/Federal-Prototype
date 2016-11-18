@@ -1,4 +1,4 @@
-Federal Prototype
+OSF Grants
 ============
 ![Build Status](https://travis-ci.org/CenterForOpenScience/Federal-Prototype.svg?branch=master)
 
