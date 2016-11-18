@@ -1,5 +1,5 @@
 from rest_framework_json_api import serializers, relations
-from api.models import Agency, Document, Grant, Institution
+from api.models import Agency, Document, Grant, Institution, Schema
 from django.contrib.auth.models import User, Group
 
 
@@ -72,17 +72,39 @@ class UserPrivateSerializer(serializers.ModelSerializer):
 
 class InstitutionSerializer(serializers.ModelSerializer):
 
+    schemas = relations.ResourceRelatedField(
+        many=True,
+        queryset=Schema.objects,
+        related_link_url_kwarg='schema_pk'
+    )
+    
     class Meta:
         model = Institution
         fields = (
             'id',
             'name',
+            'schemas',
             'user_set',
             'grants',
         )
 
     class JSONAPIMeta:
         resource_name = 'institutions'
+
+
+class SchemaSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Schema
+        fields = (
+            'id',
+            'name',
+            'content',
+        )
+
+    class JSONAPIMeta:
+        resource_name = 'institutions'
+
 
 
 class GrantSerializer(serializers.ModelSerializer):

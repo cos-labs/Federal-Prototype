@@ -9,8 +9,18 @@ from rest_framework.response import Response
 from rest_framework.reverse import reverse
 from rest_framework_json_api.views import RelationshipView
 
-from api.models import Document, Agency, Grant, Institution
-from api.serializers import DocumentSerializer, AgencySerializer, UserSerializer, GrantSerializer, InstitutionSerializer, UserPrivateSerializer
+from api.models import Document
+from api.models import Agency
+from api.models import Grant
+from api.models import Schema
+from api.models import Institution
+from api.serializers import DocumentSerializer
+from api.serializers import AgencySerializer
+from api.serializers import UserSerializer
+from api.serializers import GrantSerializer
+from api.serializers import InstitutionSerializer
+from api.serializers import UserPrivateSerializer
+from api.serializers import SchemaSerializer
 
 
 @api_view(['GET'])
@@ -19,8 +29,9 @@ def api_root(request, format=None):
         'agencies': reverse('agency-list', request=request, format=format),
         'documents': reverse('document-list', request=request, format=format),
         'grants': reverse('grant-list', request=request, format=format),
-        'users': reverse('user-list', request=request, format=format),
         'institutions': reverse('institution-list', request=request, format=format),
+        'schemas': reverse('schema-list', request=request, format=format),
+        'users': reverse('user-list', request=request, format=format),
     })
 
 
@@ -47,6 +58,9 @@ class DocumentViewSet(viewsets.ModelViewSet):
 #class DocumentRelationshipView(RelationshipView):
 #    queryset = Document.objects.all()
 
+class SchemaViewSet(viewsets.ModelViewSet):
+    queryset = Schema.objects.all()
+    serializer_class = SchemaSerializer
 
 class GrantViewSet(viewsets.ModelViewSet):
     queryset = Grant.objects.all()
