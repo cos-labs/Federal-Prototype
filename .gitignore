@@ -38,3 +38,6 @@ backend/api/migrations/*
 
 #frontend
 frontend/*
+
+#local.py db file
+local.py
