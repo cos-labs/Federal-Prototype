@@ -12,11 +12,7 @@ export default Model.extend({
     metadatarequested: attr('boolean', {defaultValue: false}),
     number: attr('string'),
     open: attr('boolean', {defaultValue: true}),
-<<<<<<< HEAD:frontend/app/models/grant.js
     pi: attr('string', {defaultValue: 'anonymous'}),
-=======
-    pi: attr('string'),
->>>>>>> cda5ae47b7fd1b41f4b0b65cc4842e3ab4326d3f:client/app/models/grant.js
     pistatus: attr('string', {defaultValue: 'New'}),
     schema: attr('string'),
     status: attr('string', {defaultValue: 'New'}),

@@ -35,3 +35,6 @@ backend/file/*
 
 #migrations
 backend/api/migrations/*
+
+#frontend
+frontend/*
