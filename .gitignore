@@ -31,13 +31,14 @@ bower_components
 ostp_files_emberV2
 
 # files uploaded through API UI
-backend/file/*
+service/file/*
 
 #migrations
-backend/api/migrations/*
+service/api/migrations/*
 
 #frontend
 frontend/*
+frontend/app/routes/agency/*
 
 #local.py db file
 local.py
