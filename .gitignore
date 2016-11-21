@@ -37,7 +37,7 @@ service/file/*
 service/api/migrations/*
 
 #frontend
-frontend/*
+frontend
 frontend/app/routes/agency/*
 
 #local.py db file
