@@ -10,10 +10,11 @@ Router.map(function() {
     this.route('grants', function() {
         this.route('create');
     });
+
     this.route('documents', function() {
         this.route('create');
     });
-    
+
     this.route('researcher', function() {
       this.route('metadata');
       this.route('upload');
@@ -25,14 +26,14 @@ Router.map(function() {
     });
 
     this.route('institution', function() {
-        this.route('overview');
+        this.route('overview', {path: '/:institution/overview'});
         this.route('analytics');
         this.route('addgrant');
         this.route('assign');
     });
-    
+
     this.route('agency', function() {
-        this.route('overview');
+        this.route('overview', {path: '/agency/:agency/overview'});
         this.route('analytics');
         this.route('addgrant');
         this.route('settings', function() {
@@ -40,11 +41,9 @@ Router.map(function() {
             this.route('api');
         });
     });
-    
+
     this.route('preview');
     this.route('signup');
-    
-
 });
 
 export default Router;

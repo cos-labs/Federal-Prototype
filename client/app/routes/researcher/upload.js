@@ -8,7 +8,7 @@ export default Ember.Route.extend( {
     session: Ember.inject.service(),
     
     actions: {
-      submit(fileList, doc) {
+      submit(fileList) {
 
         //this.store.findRecord('document', 125).then((r) => {
         //    grant.set('document', r);
@@ -22,6 +22,9 @@ export default Ember.Route.extend( {
         var folderid = "57e6cdae0dc31001c9a9f41a";
         var fm = this.get('fileManager');
         var controller = this.controller;
+
+        let doc = store.createRecord('document');
+        debugger;
 
         store.findRecord('file', folderid).then(function(folder) {
           var file = fileList.pop();
