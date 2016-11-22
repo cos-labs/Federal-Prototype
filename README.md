@@ -14,8 +14,8 @@ Assuming `$FED_PROTO` is the root of this repository, the following comprise the
 
 Before setting up the service, make sure you have everything you need to get started.
 
-- Install Python 3.5 or higher
-- Install Postgres 9.5 or higher
+- Python 3.5 or higher
+- Postgres 9.6 or higher
 
 Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
