@@ -8,48 +8,37 @@ The Federal Prototype Project is centered around a new government mandate. This 
 
 ## Setup
 
-Assuming `$FED_PROTO` is the root of this repository.
+Assuming `$FED_PROTO` is the root of this repository, the following comprise the steps to run this software locally for those that wish to develop with this project.
 
-Install ember-osf. Assuming ember-osf will be or is installed in the same directory as Federal-Prototype;
-
-- `$ git clone <this repository>`
-- Without changing directories, `$ git clone https://github.com/CenterForOpenScience/ember-osf.git`
-
-Install ember and link ember-osf to Federal-Prototype.
-
-- `$ npm install -g ember-cli@2.8`
-- `cd $FED_PROTO/frontend`
-- `$ npm install ../../ember-osf`
-- `$ npm link ../../ember-osf`
-
-The following comprise the steps to run this software locally for those that wish to develop with this project.
-
-- `cd $FED_PROTO/frontend`
-- `$ npm install`
-- `$ bower install`
+### Service
 
 Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
-- `cd $FED_PROTO/backend`
-- `$ mkvirtualenv <federal prototype venv>`
+- `cd $FED_PROTO/service`
+- `$ mkvirtualenv -p `which python3` <federal prototype venv>`
 - `$ pip install -r requirements.txt`
-- `$ python backend/manage.py makemigrations api`
-- `$ python backend/manage.py migrate`
+- `$ python service/manage.py makemigrations api`
+- `$ python service/manage.py migrate`
+
+To start the server:
+
+- `python $FED_PROTO/backend/manage.py runserver 8001`
+
+### Client
+- `cd $FED_PROTO/client`
+- `$ npm install`
+- `$ bower install`
 
 Blueprints may need to be generated for some of this project's dependencies.
 
-- `cd $FED_PROTO/frontend`
+- `cd $FED_PROTO/client`
 - `ember generate ember-osf`
 - `ember generate ember-cli-dynamic-forms`
 - When generating ember-cli-dynamic-forms, if you're asked to choose a version of handlebars, choose `4.0.5`.
 
-To run this project, the ember server needs to be started, as does the django backend. It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
+It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/frontend/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
 
-- `python $FED_PROTO/backend/manage.py runserver`
 - `export BACKEND=stage` *It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset.*
-
-Build and run the frontend.
-
 - `cd $FED_PROTO/frontend && ember server --environment development`
 
 ## Developer's Notes
