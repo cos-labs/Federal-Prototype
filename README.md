@@ -15,13 +15,16 @@ Assuming `$FED_PROTO` is the root of this repository, the following comprise the
 Before setting up the service, make sure you have everything you need to get started.
 
 - Python 3.5 or higher. Ensure the correct version is on your path. (For those using brew, `which python3` should return `/usr/local/bin/python3`.)
-- Postgres 9.6 or higher
+- Postgres 9.6 or higher. Postgres should be running, and a database created.
 
 Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
 - `cd $FED_PROTO/service`
 - ```$ mkvirtualenv -p `which python3` <federal prototype venv>```
 - `$ pip install -r requirements.txt`
+
+- Create a `$FED_PROTO/service/service/settings/local.py`, in which the postgres server is configured for Django.
+
 - `$ python service/manage.py makemigrations api`
 - `$ python service/manage.py migrate`
 
