@@ -44,7 +44,7 @@ Blueprints may need to be generated for some of this project's dependencies.
 It may be helpful to specify which backend to use for ember. Backends are defined in `$FED_PROTO/client/config/local.yml`. Running the local backend will require running OSF, Waterbutler, and CAS to be running locally. See the respective documentation for more information on this software.
 
 - `export BACKEND=stage` *It may be convenient to add this line at the end of the virtual environment's `activate.sh`, which would cause `BACKEND` to be set whenever the virtual environment is activated. Other programns that alter the environment, or resetting the environment may cause this evironment variable to be unset.*
-- `cd $FED_PROTO/frontend && ember server --environment development`
+- `cd $FED_PROTO/client && ember server --environment development`
 
 ## Developer's Notes
 
