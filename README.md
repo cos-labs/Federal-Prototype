@@ -22,11 +22,9 @@ Make a new virtual environment, install the required python packages via pip, th
 - `cd $FED_PROTO/service`
 - ```$ mkvirtualenv -p `which python3` <federal prototype venv>```
 - `$ pip install -r requirements.txt`
-
-- Create a `$FED_PROTO/service/service/settings/local.py`, in which the postgres server is configured for Django.
-
-- `$ python service/manage.py makemigrations api`
-- `$ python service/manage.py migrate`
+- Create a `service/settings/local.py`, in which the postgres server is configured for Django.
+- `$ python manage.py makemigrations api`
+- `$ python manage.py migrate`
 
 To start the server:
 
