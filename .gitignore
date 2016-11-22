@@ -35,4 +35,10 @@ service/file/*
 
 #migrations
 service/api/migrations/*
-service/service/settings/local.py
+
+#frontend
+frontend
+frontend/app/routes/agency/*
+
+#local.py db file
+local.py

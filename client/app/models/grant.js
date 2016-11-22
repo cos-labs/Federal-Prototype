@@ -16,5 +16,5 @@ export default Model.extend({
     pistatus: attr('string', {defaultValue: 'New'}),
     schema: attr('string'),
     status: attr('string', {defaultValue: 'New'}),
-    uploadrequested: attr('boolean', {defaultValue: false}),
+    uploadrequested: attr('boolean', {defaultValue: false})
 });
