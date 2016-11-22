@@ -15,7 +15,7 @@ Assuming `$FED_PROTO` is the root of this repository, the following comprise the
 Make a new virtual environment, install the required python packages via pip, then remake the migrations and start the server.
 
 - `cd $FED_PROTO/service`
-- `$ mkvirtualenv -p ```which python3``` <federal prototype venv>`
+- ```$ mkvirtualenv -p `which python3` <federal prototype venv>```
 - `$ pip install -r requirements.txt`
 - `$ python service/manage.py makemigrations api`
 - `$ python service/manage.py migrate`
