@@ -29,6 +29,7 @@ Router.map(function() {
     });
 
     this.route('institution', function() {
+        this.route('index');
         this.route('overview', {path: ':institution'});
         this.route('analytics');
         this.route('addgrant');
@@ -36,7 +37,7 @@ Router.map(function() {
     });
 
     this.route('agency', function() {
-        this.route('overview', {path: '/agency/:agency/overview'});
+        this.route('overview', {path: ':agency'});
         this.route('analytics');
         this.route('addgrant');
         this.route('settings', function() {
