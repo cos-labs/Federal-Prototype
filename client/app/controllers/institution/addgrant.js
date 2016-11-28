@@ -16,7 +16,6 @@ export default Ember.Controller.extend({
                 var grant = this.get('store').createRecord('grant');
                 grant.set('number', grant_number);
                 grant.set('agency', agency);
-                debugger
                 grant.set('pi', pi_name);
                 grant.set('schema', dep.toJSON().schema);
                 grant.set('institution', true);

@@ -9,9 +9,9 @@ import requests
 
 
 class OSFTokenAuthMiddleware(object):
-   
+
     def process_request(self, request):
-        
+
         if 'ember_simple_auth:session' not in request.COOKIES:
             return None
 
@@ -26,7 +26,7 @@ class OSFTokenAuthMiddleware(object):
             ##return HttpResponse('Unauthorized', status=401)
         except:
             user = User.objects.create_user(osf_user.json()['data']['id'])
-        
+
         user.backend = 'django.contrib.auth.backends.ModelBackend' # Hack to allow login without authentication
         login(request, user)
 

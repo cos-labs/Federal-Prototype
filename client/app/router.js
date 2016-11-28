@@ -8,8 +8,11 @@ const Router = Ember.Router.extend({
 Router.map(function() {
 
     this.route('grants', function() {
+        this.route('detail', {path: '/:grant'});
         this.route('create');
     });
+
+    this.route('analytics');
 
     this.route('documents', function() {
         this.route('create');
@@ -26,7 +29,7 @@ Router.map(function() {
     });
 
     this.route('institution', function() {
-        this.route('overview', {path: '/:institution/overview'});
+        this.route('overview', {path: ':institution'});
         this.route('analytics');
         this.route('addgrant');
         this.route('assign');

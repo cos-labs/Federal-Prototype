@@ -13,6 +13,45 @@ body{
 
 }
 
+.breadcrumbs {
+    margin: 0;
+    padding: 5px;
+    overflow: hidden;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d3d3d3+0,939393+100 */
+    background: #d3d3d3; /* Old browsers */
+    background: -moz-linear-gradient(top, #d3d3d3 0%, #939393 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #d3d3d3 0%,#939393 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #d3d3d3 0%,#939393 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.breadcrumbs > li {
+    float: left;
+    padding: 5px;
+    list-style-type: none;
+    font-size: 14px;
+}
+
+.breadcrumbs > li:before {
+    font-family: FontAwesome;
+    content: "\f054";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+    font-size: 10px;
+}
+
+.breadcrumbs >li:first-child:before {
+    content: '';
+}
+
+.breadcrumbs > li:first-child > a {
+    font-family: FontAwesome;
+    content: "\f095";
+    display: inline-block;
+    padding-right: 3px;
+    vertical-align: middle;
+}
+
 .flexbox-child {
     border-top: 1px solid rgba(250, 250, 250, 0.3);
     border-bottom: 1px solid rgba(0,0,0,0.2);
