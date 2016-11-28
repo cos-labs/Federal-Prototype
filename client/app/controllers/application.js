@@ -7,7 +7,6 @@ import {
 } from 'ember-osf/utils/auth';
 
 export default Ember.Controller.extend(OsfAgnosticAuthControllerMixin, {
-    breadCrumb: '\uf015',
     toast: Ember.inject.service(),
     authUrl: getAuthUrl(),
     actions: {

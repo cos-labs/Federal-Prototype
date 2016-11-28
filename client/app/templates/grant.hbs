@@ -1,1 +1,22 @@
-  {{grant-viewer role="institution" model=grants agency=agency createGrantHook=(action 'createGrant') institution=institution agency=agency getGrantsPage=(action 'getGrantsPage')}}
+<select class="institutionSelect input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
+    <option>Select an Institution</option>
+    {{#each institutions as |inst|}}
+    <option selected={{eq inst institutionChoice}} value={{inst}}>{{inst}}</option>
+    {{/each}}
+</select>
+<input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
+<button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrantHook' agencyId grant_number grant_pi}}>Add a grant</button>
+
+
+
+        {{#if institution}}
+            <select class="agencySelect input-lg select" onchange={{action (mut agencyId) value="target.value"}}>
+                <option>Select an Agency</option>
+                {{#each agecies as |agencyChoice|}}
+                <option selected={{eq agency agencyChoice}} value={{agencyChoice.id}}>{{agencyChoice.name}}</option>
+                {{/each}}
+            </select>
+            <input class='input input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
+            <input class='input input-lg' value={{grant_pi}} onchange={{action (mut grant_pi) value='target.value'}} placeholder='Principal Investigator'>
+            <button type='button' class='btn btn-primary'  {{action 'createGrantHook' agencyId grant_number grant_pi}}>Add a grant</button>
+        {{/if}}
