@@ -49,13 +49,7 @@
         {{#if institution}}
             <tr><td colspan='7' class='no-grants-error'>
                 <h2>This institution has not been associated with any grants yet.</h2>
-                <hr>
-                <h3>Search for Grants</h3>
-                <p>The agency that awards a grant may upload information about that grant, such as the metatdata they require, reccommended locations to provide data, and other information about the grant that was awarded. Grants can be searched for by their grant number.</p>
-                {{input value=grantNumberToLookup}}<button class='btn btn-primary' {{action 'lookupGrant'}}>Lookup Grant</button>
-                <hr>
-                <h3>Create a Grant</h3>
-                <p>Creating a new grant will require a grant number, the name of the granting agency, and the name of the institution responsible for the awarded grant. The grant will be automatically assigned to this </p>
+                <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
             </td></tr>
         {{else}}
             {{#if agency}}
@@ -68,6 +62,7 @@
                     <h2>There are no grants.</h2>
                     <p>To create a grant, press the 'Add a grant' button. Once created, the grant will appear in this table.</p>
                 </td></tr>
+                
             {{/if}}
         {{/if}}
     {{/each}}
