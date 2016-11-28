@@ -131,13 +131,15 @@ class Agency(Group):
 
 class Schema(models.Model):
 
+    name = models.CharField(max_length=300, default='Untitled Schema')
+    institution = models.ForeignKey('Institution', related_name='schemas', default=None, null=True, blank=True)
     content = models.TextField()
 
 
 class Document(models.Model):
 
     datesubmitted = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(max_length=300, default='Untitled')
+    name = models.CharField(max_length=300, default='Untitled Document')
     path = models.CharField(max_length=50, default='')  # TODO: error handling here
 
     def __str__(self):
@@ -165,7 +167,7 @@ class Grant(models.Model):
     pistatus = models.TextField(default='New', max_length=160)
     institutionstatus = models.TextField(default='New', max_length=160)
     agencystatus = models.TextField(default='New', max_length=160)
-    schema = models.TextField(default=defaultSchema, blank=True, null=True)
+    schema = models.ForeignKey('Schema', blank=True, null=True)
     metadata = models.TextField(default='', blank=True, null=True)
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
@@ -200,14 +202,14 @@ class Grant(models.Model):
 
     def save(self, *args, **kwargs):
 
-        if not self.schema:
-            self.schema = self.agency.schema
+        #if not self.schema:
+        #    self.schema = self.agency.schema
 
 
         #is_agency = agency.user_set.filter(username=request.user.username).exists()
 
 
-        return super(Gran, self).save(*args, **kwargs)
+        return super(Grant, self).save(*args, **kwargs)
         # Fix permissions
 
         assign_perm('view_grant', self.agency, self)

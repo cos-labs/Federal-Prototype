@@ -10,21 +10,12 @@ export default Ember.Route.extend( {
     actions: {
       submit(fileList) {
 
-        //this.store.findRecord('document', 125).then((r) => {
-        //    grant.set('document', r);
-         //   grant.save().then(() => {
-        //        controller.transitionToRoute('researcher.grant');
-        //    });
-        //});
-
-
         var store = this.get('store');
         var folderid = "57e6cdae0dc31001c9a9f41a";
         var fm = this.get('fileManager');
         var controller = this.controller;
 
         let doc = store.createRecord('document');
-        debugger;
 
         store.findRecord('file', folderid).then(function(folder) {
           var file = fileList.pop();
@@ -46,12 +37,4 @@ export default Ember.Route.extend( {
       }
     },
 
-    //model() {
-    //  return this.modelFor('researcher');
-    //},
-    //setupController(controller, model) {
-
-    //  this._super(controller, model);
-    //  controller.set('isFileUploaded', "researcher-form");
-    //}
 });

@@ -11,6 +11,7 @@ router.register(r'documents', views.DocumentViewSet)
 router.register(r'grants', views.GrantViewSet)
 router.register(r'institutions', views.InstitutionViewSet)
 router.register(r'users', views.UserViewSet)
+router.register(r'schemas', views.SchemaViewSet)
 
 agencyRouter = routers.NestedSimpleRouter(router, r'agencies', lookup='agency')
 agencyRouter.register(r'grants', views.GrantViewSet, base_name='agency-grant')

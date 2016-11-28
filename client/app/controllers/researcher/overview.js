@@ -3,6 +3,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
     grants: [],
+    breadCrumb: 'Researcher',
     actions: {
         getGrantsPage(page_number) {
             console.log('getting grants');
