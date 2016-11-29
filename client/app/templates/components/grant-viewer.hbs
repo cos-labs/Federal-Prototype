@@ -85,7 +85,7 @@
 <div class='creategrantbox'>
     <h3>Create a Grant</h3>
     <p>Creating a new grant will require a grant number, the name of the granting agency, and the name of the institution responsible for the awarded grant. The grant will be automatically assigned to this </p>
-    <button class='btn btn-primary' {{action 'createGrantHook'}}>Create Grant</button>
+    {{#link-to 'institution.detail.create'}}<button class='btn btn-primary'>Create Grant</button>{{/link-to}}
 </div>
 </div>
 <div class='navfooter'>

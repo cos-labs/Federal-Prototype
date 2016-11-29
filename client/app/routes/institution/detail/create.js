@@ -8,8 +8,8 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     
     model() {
         return Ember.RSVP.hash({
-            grants: this.get('store').findAll('grant'),
-            agencies: this.get('store').findAll('agency'),
+            institution: this.modelFor('institution.detail'),
+            agencies: this.get('store').findAll('agency')
         });
     },
     
@@ -20,12 +20,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     setupController(controller, model) {
-        controller.set('institution', true);
-        controller.set('isFileUploaded', "researcher-form");
-        controller.set('grants', model.grants.filter(function(grant) {
-            return grant.get('institution');
-        }));
-        //controller.set('document', model.document)
+        controller.set('institution', model.institution);
         controller.set('agencies', model.agencies);
     }
 
