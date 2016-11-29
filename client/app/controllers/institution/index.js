@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    breadCrumb: 'Select',
     grants: [],
     institutions: [],
     agency: false,
@@ -22,7 +23,7 @@ export default Ember.Controller.extend({
  //                grant.set('document', doc);
  //                grant.save().then(() => {
  //                    Ember.$.bootstrapGrowl("Successfully added new grant!", { type: 'success', align: 'center' , width: 400, hight: 40 });
-                    this.transitionToRoute('institution.overview', institution);
+                    this.transitionToRoute('institution.detail', institution);
  //                });
  //            });
         }

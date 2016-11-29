@@ -171,7 +171,8 @@ class Grant(models.Model):
     metadata = models.TextField(default='', blank=True, null=True)
     metadatarequested = models.BooleanField(default=False)
     uploadrequested = models.BooleanField(default=False)
-    institution = models.ForeignKey('Institution', related_name='grants', default=None, null=True, blank=True)
+    #institution = models.ForeignKey('Institution', related_name='grants', default=None, null=True, blank=True)
+    institution = models.TextField(max_length=10, null=True)
     pi = models.TextField(max_length=10, null=True)
 
     _institution = None

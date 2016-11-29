@@ -19,8 +19,8 @@ export default function() {
         this.use('cross-fade'),
         this.reverse('cross-fade')
     );
-    
-    
+
+
     this.transition(
         this.fromRoute('index'),
         this.toRoute('institution'),
@@ -28,17 +28,9 @@ export default function() {
         this.reverse('cross-fade')
     );
 
-   
     this.transition(
         this.fromRoute('institution'),
         this.toRoute('institution.index'),
-        this.use('cross-fade'),
-        this.reverse('cross-fade')
-    );
-   
-    this.transition(
-        this.fromRoute('institution.index'),
-        this.toRoute('institution.overview'),
         this.use('cross-fade'),
         this.reverse('cross-fade')
     );

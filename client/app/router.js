@@ -29,11 +29,11 @@ Router.map(function() {
     });
 
     this.route('institution', function() {
-        this.route('index');
-        this.route('overview', {path: ':institution'});
-        this.route('analytics');
-        this.route('addgrant');
-        this.route('assign');
+        this.route('detail', {path: ':institution'}, function() {
+            this.route('create');
+            this.route('analytics');
+            this.route('assign');
+        });
     });
 
     this.route('agency', function() {

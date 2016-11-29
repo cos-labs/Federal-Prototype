@@ -6,7 +6,7 @@ export default Model.extend({
     agency:  belongsTo('agency'),
     agencystatus: attr('string', {defaultValue: 'New'}),
     document: belongsTo('document'),
-    institution: attr('boolean', {defaultValue: false}),
+    institution: attr('string'),
     institutionstatus: attr('string', {defaultValue: 'New'}),
     metadata: attr('json-transform', {defaultValue: '{}'}),
     metadatarequested: attr('boolean', {defaultValue: false}),

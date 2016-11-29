@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
     agencies: {},
     actions: {
         createGrant(agency_id, grant_number, pi_name) {
+            debugger;
             var agency = this.get('store').peekRecord('agency', agency_id);
             var doc = this.get('store').createRecord('document');
             doc.set('name', 'Not Uploaded');
@@ -17,8 +18,8 @@ export default Ember.Controller.extend({
                 grant.set('number', grant_number);
                 grant.set('agency', agency);
                 grant.set('pi', pi_name);
-                grant.set('schema', dep.toJSON().schema);
-                grant.set('institution', true);
+                grant.set('schema', agency.toJSON().schema);
+                grant.set('institution', institution.id);
                 grant.set('document', doc);
                 grant.save().then(() => {
                     Ember.$.bootstrapGrowl("Successfully added new grant!", { type: 'success', align: 'center' , width: 400, hight: 40 });

@@ -5,10 +5,9 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     
-    model() {
-        return Ember.RSVP.hash({
-            agencies: this.get('store').findAll('agency'),
-        });
+    model(params) {
+        debugger;
+        return this.get('store').findRecord('institution', params.institution)
     },
     
     actions: {
@@ -18,6 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     setupController(controller, model) {
+        debugger;
         controller.set('role', 'institution');
         //controller.set('isFileUploaded', "researcher-form");
         // debugger;
