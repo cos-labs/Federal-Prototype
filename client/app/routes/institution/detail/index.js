@@ -4,12 +4,11 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
-    
+
     model(params) {
-        debugger;
-        return this.get('store').findRecord('institution', params.institution)
+        return this.modelFor('institution.detail');
     },
-    
+
     actions: {
         didTransition: function() {
             Ember.$(".moderatorHolder").show();

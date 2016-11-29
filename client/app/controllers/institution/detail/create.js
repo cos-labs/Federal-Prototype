@@ -7,7 +7,6 @@ export default Ember.Controller.extend({
     agencies: {},
     actions: {
         createGrant(agency_id, grant_number, pi_name) {
-            debugger;
             var agency = this.get('store').peekRecord('agency', agency_id);
             var doc = this.get('store').createRecord('document');
             doc.set('name', 'Not Uploaded');

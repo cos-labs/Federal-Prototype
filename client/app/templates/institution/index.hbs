@@ -23,19 +23,20 @@
             {{/each}}
         </select>
         <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'viewGrants' institutionId}}>View Grants</button>
-
-      <!--  <hr>
+        {{#link-to 'institution.detail' institutionId class='btn btn-primary btn-lg button-pos'}}
+            <!--<button type='button' class='btn btn-primary btn-lg button-pos'>View Grants</button>-->
+            VIEW GRANTS
+        {{/link-to}}
+<!--
         <br>
         <p>If the currently logged in user does not have the correct permissions, he or she may request those permissions from the Institution's administration. Select the Institution to make the request to below and press 'Send Request'.</p>
         <select class="institutionSelect form-control input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
             <option>Select An Institution</option>
             {{#each institutions as |institution|}}
-                <option selected={{eq activeInstitution institution}} value={{institution.id}}>{{institution.name}}</option>
+                <option selected={{eq activeInstitution institution}} value={{institution}}>{{institution.name}}</option>
             {{/each}}
         </select>
         <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'requestPermission' institutionId}}>Request Permission</button> -->
-
+-->
     </div>
 </div>
