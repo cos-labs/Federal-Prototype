@@ -11,10 +11,23 @@
     box-shadow: inset 0px 122px 10px -122px rgba(0,0,0,0.75);
     text-align: center;
 }
-
+.databox {
+    background-color: #ccc;
+    padding: 5px;
+}
+.creategrantbox {
+    background-color: #666;
+    padding: 5px;
+    color: #d8d8d8;
+}
 </style>
+<div class='componentwrapper'>
+<div class='databox'>
 
-
+    <h3>Search for Grants</h3>
+    <p>The agency that awards a grant may upload information about that grant, such as the metatdata they require, reccommended locations to provide data, and other information about the grant that was awarded. Grants can be searched for by their grant number.</p>
+    {{input value=grantNumberToLookup}}<button class='btn btn-primary' {{action 'lookupGrant'}}>Lookup Grant</button>
+</div>
 
 <div class="agency-header">
 
@@ -49,13 +62,6 @@
         {{#if institution}}
             <tr><td colspan='7' class='no-grants-error'>
                 <h2>This institution has not been associated with any grants yet.</h2>
-                <hr>
-                <h3>Search for Grants</h3>
-                <p>The agency that awards a grant may upload information about that grant, such as the metatdata they require, reccommended locations to provide data, and other information about the grant that was awarded. Grants can be searched for by their grant number.</p>
-                {{input value=grantNumberToLookup}}<button class='btn btn-primary' {{action 'lookupGrant'}}>Lookup Grant</button>
-                <hr>
-                <h3>Create a Grant</h3>
-                <p>Creating a new grant will require a grant number, the name of the granting agency, and the name of the institution responsible for the awarded grant. The grant will be automatically assigned to this </p>
             </td></tr>
         {{else}}
             {{#if agency}}
@@ -76,9 +82,12 @@
 
 
 </div>
-
-
-
+<div class='creategrantbox'>
+    <h3>Create a Grant</h3>
+    <p>Creating a new grant will require a grant number, the name of the granting agency, and the name of the institution responsible for the awarded grant. The grant will be automatically assigned to this </p>
+    <button class='btn btn-primary' {{action 'createGrantHook'}}>Create Grant</button>
+</div>
+</div>
 <div class='navfooter'>
 
 <button class='btn btn-primary' {{action 'prevPageHook'}}><i class='fa fa-chevron-left'></i></button>
