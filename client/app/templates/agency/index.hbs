@@ -18,7 +18,7 @@
         <br>
         <select class="agencySelect form-control input-lg select" onchange={{action (mut agencyId) value="target.value"}}>
             <option>Select An Agency</option>
-            {{#each agenciesy as |agencyChoice|}}
+            {{#each agencies as |agencyChoice|}}
             <option selected={{eq agency agencyChoice}} value={{agencyChoice.id}}>{{agencyChoice.name}}</option>
             {{/each}}
         </select>
