@@ -15,7 +15,7 @@ export default Ember.Route.extend( {
         var researcher = this.modelFor('researcher');
         return Ember.RSVP.hash({
             document: researcher.document,
-            agency: researcher.agencies,
+            agency: this.get('store').findAll('agency'),
             grants: this.get('store').findAll('grant')
         });
     },
@@ -24,12 +24,17 @@ export default Ember.Route.extend( {
         this._super(controller, model);
         controller.set('isFileUploaded', "researcher-form");
         var grants = model.grants.reduce(function(r, n) {
-            if (n.get('document').get('id') === model.document.get('id')) { r.push(n); }
+            console.log(n);
+            console.log(n.get);
+            console.log(n.get('document'));
+            console.log(n.get('document.id'));
+
+            //if (!n.get('document') || n.get('document').get('id') === model.document.get('id')) { r.push(n); }
             return r;
         }, []);
         controller.set('grants', grants);
         controller.set('document', model.document);
-        controller.set('agencies', model.agencies);  
+        controller.set('agencies', model.agency);  
     }
 });
 

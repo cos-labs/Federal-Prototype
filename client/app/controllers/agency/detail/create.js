@@ -9,7 +9,6 @@ export default Ember.Controller.extend({
     agencies: {},
     actions: {
         addGrant(agency_id, grant_number, pi_name, institutionId) {
-            debugger;
             var grant = this.get('store').createRecord('grant');
             grant.set('number', grant_number);
             grant.set('agency', this.get('agency'));

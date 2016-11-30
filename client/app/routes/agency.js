@@ -3,21 +3,16 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
     model() {
-        return this.get('store').query('agency', {
-            filter: {
-                permission: 'administer'
-            }
-        });
+        return this.get('store').findAll('agency');
     },
 
     actions: {
         changeAgency() {
-            this,transitionTo();
+            this.transitionTo();
         }
     },
 
     setupController(controller, model) {
-        debugger;
         controller.set('agencies', model);
     }
 

@@ -17,6 +17,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     setupController(controller, model) {
         controller.set('agency', model);
+        controller.set('grants', model.get('grants'));
     }
 
 });

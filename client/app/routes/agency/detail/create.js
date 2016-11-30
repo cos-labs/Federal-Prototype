@@ -23,7 +23,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
             return grant.get('institution');
         }));
         controller.set('agency', model.agency);
-        debugger;
     }
 
 });

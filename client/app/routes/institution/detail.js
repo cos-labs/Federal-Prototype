@@ -7,6 +7,6 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     setupController(controller, model) {
-        controller.set('institutions', model);
+        controller.set('institution', model);
     }
 });

@@ -85,7 +85,6 @@ class InstitutionSerializer(serializers.ModelSerializer):
             'name',
             'schemas',
             'user_set',
-            'grants',
         )
 
     class JSONAPIMeta:

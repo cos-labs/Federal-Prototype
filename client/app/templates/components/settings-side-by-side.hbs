@@ -1,9 +1,10 @@
 {{yield}}
 <div class="settings-body">
+
   <div class="settingsHolder">
     <div class="form-button-holder">
-      <button type="button" class="btn btn-default formBuilderButtons" {{action "SetBuilderTo"  "wiziwig"}}>Form Builder</button>
-      <button type="button" class="btn btn-default formBuilderButtons" {{action "SetBuilderTo" "json"}}>Json From Builder</button>
+     <button type="button" class="btn btn-default formBuilderButtons" {{action "SetBuilderTo"  "wiziwig"}}>Form Builder</button>
+      <button type="button" class="btn btn-default formBuilderButtons" {{action "SetBuilderTo" "json"}}>Json From Builder</button> 
     </div>
       <hr />
      <div class="metaDataHolder" style="display:none">
@@ -12,20 +13,21 @@
        <button type="button" class="btn btn-warning " style="float:left;" {{action "setDefault" }} ><i class="fa fa-repeat fa-rotate-270" aria-hidden="true"></i> Reset to Default</button>
     </div>
 
-    <div class="formBuilderHolder">
+    <div class="formBuilderHolder" >
       <label >Drag and Drop Builder</label>
-       <div  id="build-wrap" value='onFormChange' ></div>
+      <div class="build-wrap" value='onFormChange' ></div>
+
 
     </div>
-    <button type="button" class="btn btn-primary" style="float:right;" {{action "save" }} ><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+    <button type="button" class="btn btn-primary save-button-1" style="float:right;" {{action "save" }} ><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</button>
+    <button type="button" class="btn btn-primary save-button-1" style="float:right;" {{action "updateFormBuilder" }} ><i class="fa fa-floppy-o" aria-hidden="true"></i> updateFormBuilder</button>
+
   </div>
 
   <div class="form-table"> 
-    {{#each schemaList as |schema index|}}
-      {{#if (eq index 0) }}
-        {{dynamic-form schema=schema}}
-      {{/if}}
-    {{/each}}
+
+
+     {{dynamic-form schema=schema}}
+
   </div>
 </div>
-
