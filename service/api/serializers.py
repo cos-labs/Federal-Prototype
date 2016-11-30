@@ -116,14 +116,15 @@ class GrantSerializer(serializers.ModelSerializer):
         related_link_url_kwarg='agency_pk'
     )
     document = relations.ResourceRelatedField(
+        allow_null=True,
         queryset=Document.objects,
         related_link_url_kwarg='document_pk'
     )
-    institution = relations.ResourceRelatedField(
-        allow_null=True,
-        queryset=Institution.objects,
-        related_link_url_kwarg='institution_pk'
-    )
+    #    institution = relations.ResourceRelatedField(
+    #        allow_null=True,
+    #        queryset=Institution.objects,
+    #        related_link_url_kwarg='institution_pk'
+    #    )
 
     def update(self, instance, validated_data):
         # Dont update fields without permission:

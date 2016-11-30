@@ -162,7 +162,7 @@ class Grant(models.Model):
     open = models.BooleanField(default=True)
     number = models.CharField(max_length=100)
     agency = models.ForeignKey('Agency', related_name='grants')
-    document = models.ForeignKey('Document', related_name='grants', default=None, null=True, blank=True)
+    document = models.ForeignKey('Document', related_name='grants', null=True, blank=True)
     status = models.TextField(default='New', max_length=160)
     pistatus = models.TextField(default='New', max_length=160)
     institutionstatus = models.TextField(default='New', max_length=160)
@@ -176,6 +176,7 @@ class Grant(models.Model):
     pi = models.TextField(max_length=10, null=True)
 
     _institution = None
+    _institution_group = None
     _pi = None
     _pi_user = None
     _schema = None
@@ -187,6 +188,10 @@ class Grant(models.Model):
         self._schema = self.schema
         try:
             self._pi_user = User.objects.get(username=self.pi)
+        except:
+            pass
+        try:
+            self._institution_group = Group.objects.get(name=self._institution)
         except:
             pass
 
