@@ -1,9 +1,15 @@
 
-
 import Ember from 'ember';
 
 
 export default Ember.Route.extend({
+    
+    model() {
+        return Ember.RSVP.hash({
+            agency: this.modelFor('agency.detail'),
+            grants: this.get('store').findAll('grant'),
+        });
+    },
     
     actions: {
         didTransition: function() {
@@ -12,9 +18,8 @@ export default Ember.Route.extend({
     },
 
     setupController(controller, model) {
-        controller.set('grants', model.grants);
+        controller.set('agency', model.agency);
     }
 
 });
-
 

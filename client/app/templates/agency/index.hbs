@@ -14,26 +14,19 @@
 
 <div class='visor'>
     <div class='container'>
-        <p>Select an institution from the dropdown to coordinate for. If the desired institution is not listed, then the currently logged in user does not have the required permissions to coordinate for that institution.</p>
+        <p>Select an Agency from the dropdown to administrate for. If the desired agency is not listed, then the currently logged in user does not have the required permissions to coordinate for that agency.</p>
         <br>
-        <select class="institutionSelect form-control input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
-            <option>Select An Institution</option>
-            {{#each institution as |institutionChoice|}}
-            <option selected={{eq agency institutionChoice}} value={{institutionChoice.id}}>{{inastitutionChoice.name}}</option>
+        <select class="agencySelect form-control input-lg select" onchange={{action (mut agencyId) value="target.value"}}>
+            <option>Select An Agency</option>
+            {{#each agenciesy as |agencyChoice|}}
+            <option selected={{eq agency agencyChoice}} value={{agencyChoice.id}}>{{agencyChoice.name}}</option>
             {{/each}}
         </select>
         <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrant' agencyId grant_number grant_pi}}>View Grants</button>
-        <hr>
-        <br>
-        <p>If the currently logged in user does not have the correct permissions, he or she may request those permissions from the Institution's administration. Select the Institution to make the request to below and press 'Send Request'.</p>
-        <select class="institutionSelect form-control input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
-            <option>Select an Agency</option>
-            {{#each institution as |institutionChoice|}}
-            <option selected={{eq agency institutionChoice}} value={{institutionChoice.id}}>{{inastitutionChoice.name}}</option>
-            {{/each}}
-        </select>
-        <br>
-        <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'createGrant' agencyId grant_number grant_pi}}>Request Permission</button>
+        {{#link-to 'agency.detail' agencyId class='btn btn-primary btn-lg button-pos'}}
+            <!--<button type='button' class='btn btn-primary btn-lg button-pos'>View Grants</button>-->
+            View Grants
+        {{/link-to}}
+        <p>If the currently logged in user does not have the correct permissions, he or she may request those permissions from the Agency's administration.</p>
     </div>
 </div>

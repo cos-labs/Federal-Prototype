@@ -8,6 +8,7 @@ export default Ember.Route.extend({
     model() {
         return Ember.RSVP.hash({
             grants: this.get('store').findAll('grant'),
+            institution: this.modelFor('institution.detail'),
         });
     },
     
@@ -25,7 +26,7 @@ export default Ember.Route.extend({
     },
 
     setupController(controller, model) {
-        controller.set('institution', true);
+        controller.set('institution', model.institution);
         controller.set('grants', model.grants);
     }
 

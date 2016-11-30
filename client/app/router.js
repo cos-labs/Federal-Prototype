@@ -37,12 +37,13 @@ Router.map(function() {
     });
 
     this.route('agency', function() {
-        this.route('overview', {path: ':agency'});
-        this.route('analytics');
-        this.route('addgrant');
-        this.route('settings', function() {
-            this.route('metadata');
-            this.route('api');
+        this.route('detail', {path: ':agency'}, function() {
+            this.route('analytics');
+            this.route('create');
+            this.route('settings', function() {
+                this.route('metadata');
+            });
+            //this.route('api');
         });
     });
 

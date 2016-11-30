@@ -19,13 +19,13 @@
     <select class="institutionSelect form-control input-lg select" onchange={{action (mut institutionId) value="target.value"}}>
         <option>Select an Institution</option>
         {{#each institutions as |inst|}}
-        <option selected={{eq inst institutionChoice}} value={{inst}}>{{inst}}</option>
+            <option selected={{eq inst institutionChoice}} value={{inst}}>{{inst.name}}</option>
         {{/each}}
     </select>
     <br>
     <input class='form-control input-lg' value={{grant_number}} onchange={{action (mut grant_number) value='target.value'}} placeholder='Grant Number'>
     <br>
-    <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'addGrant' agencyId grant_number grant_pi}}>Add this grant</button>
+    <button type='button' class='btn btn-primary btn-lg button-pos' {{action 'addGrant' agencyId grant_number grant_pi institutionId}}>Add this grant</button>
     </div>
 </div>
 

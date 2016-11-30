@@ -1,3 +1,4 @@
+
 import Ember from 'ember';
 import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
@@ -5,10 +6,7 @@ import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-rout
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
     model(params) {
-        return Ember.RSVP.hash({
-            institution: this.modelFor('institution.detail'),
-            agencies: this.get('store').findAll('agency')
-        });
+        return this.modelFor('agency.detail');
     },
 
     actions: {
@@ -18,8 +16,7 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     },
 
     setupController(controller, model) {
-        controller.set('institution', model.institution);
-        controller.set('agencies', model.agencies);
+        controller.set('agency', model);
     }
 
 });

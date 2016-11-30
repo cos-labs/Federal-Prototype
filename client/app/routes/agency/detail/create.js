@@ -1,16 +1,16 @@
-
 import Ember from 'ember';
+import AuthenticatedRouteMixin from 'ember-simple-auth/mixins/authenticated-route-mixin';
 
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
 
-export default Ember.Route.extend({
-    
     model() {
         return Ember.RSVP.hash({
+            agency: this.modelFor('agency.detail'),
             grants: this.get('store').findAll('grant'),
-            agencies: this.get('store').findAll('agency'),
+            institutions: this.get('store').findAll('institution'),
         });
     },
-    
+
     actions: {
         didTransition: function() {
             Ember.$(".moderatorHolder").show();
@@ -18,14 +18,12 @@ export default Ember.Route.extend({
     },
 
     setupController(controller, model) {
-        controller.set('institution', true);
-        controller.set('isFileUploaded', "researcher-form");
+        controller.set('institutions', model.institutions);
         controller.set('grants', model.grants.filter(function(grant) {
             return grant.get('institution');
         }));
-        //controller.set('document', model.document)
-        controller.set('agencies', model.agencies);
+        controller.set('agency', model.agency);
+        debugger;
     }
 
 });
-
